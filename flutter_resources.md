@@ -16,6 +16,8 @@
 
 [7. GitHub issues](https://github.com/flutter/flutter/issues)
 
+[8. Flutter Class API](https://docs.flutter.io/index.html)
+
 ### Dart
 
 [1. Dart 语法](http://dart.goodev.org/guides/language/language-tour)
