@@ -117,6 +117,8 @@ class _MyFlexState extends State<MyFlex> {
   num lastHighFontSize = 0; // save mid result
   final num availableHeightError = 3; // 小于这个值
 
+  NotificationListener listener;
+
   @override
   void initState() {
     print("init State");
@@ -126,6 +128,16 @@ class _MyFlexState extends State<MyFlex> {
     lastLowerFontSize = widget.minFontSize;
     lastHighFontSize = widget.maxFontSize;
     _myTimer = new Timer.periodic(Duration(milliseconds: duration), _timerCallback);
+
+//    listener = new NotificationListener(child: widget, onNotification: _onNotifycation,);
+  }
+
+  bool _onNotifycation<Notification>(Notification notify) {
+    print("notify = $notify");
+    if (notify is! OverscrollNotification) {
+      return true;
+    }
+    return true;
   }
 
   _cancelTimer () {
@@ -195,14 +207,18 @@ class _MyFlexState extends State<MyFlex> {
   Widget build(BuildContext context) {
     Widget container = new Container(
 //      color: Colors.yellow,
-      child: new Text(
-        '${widget.showText}',
-        textDirection: TextDirection.ltr,
-        style: new TextStyle(
-          fontSize: myFontSize
+      child: new NotificationListener(
+        onNotification: _onNotifycation,
+        child: new Text(
+          '${widget.showText}',
+          textDirection: TextDirection.ltr,
+          style: new TextStyle(
+              fontSize: myFontSize
+          ),
         ),
-      ),
+      )
     );
+
 
     return Opacity(
       opacity: myOpicity,
