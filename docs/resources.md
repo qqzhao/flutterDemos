@@ -38,6 +38,16 @@
 
 [3. Flutter beta 1 重磅发布：开发精美的原生应用](http://developers.googleblog.cn/2018/02/flutter-beta1.html)
 
+[4. Flutter中的Key，LocalKey，GlobalKey... And More](http://flutter-dev.cn/topic/13/flutter%E4%B8%AD%E7%9A%84key-localkey-globalkey-and-more)
+
+[5. Flutter Animation 运行原理分析](http://flutter-dev.cn/topic/6/flutter-animation-%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90)
+
+[6. Flutter从环境搭建到进阶系列教程](http://flutter-dev.cn/topic/12/flutter%E4%BB%8E%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%88%B0%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B)
+
+[7. mvp 在 flutter 中的应用](https://www.jianshu.com/p/7b2d83f8109f)
+
+[]()
+
 []()
 
 []()

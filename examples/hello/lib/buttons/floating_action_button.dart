@@ -13,6 +13,11 @@ FloatingActionButton floatingButton = new FloatingActionButton(
   backgroundColor: Colors.purple,
   foregroundColor: Colors.red,
   tooltip: 'tips.',
+  onPressed: () {
+    print('float action button clicked');
+  },
+  elevation: 20.0,
+  mini: true,
 );
 
 Widget home = new Center(
@@ -26,9 +31,11 @@ Widget home = new Center(
           height: 100.0,
           child: new Overlay(
             initialEntries: [
-              new OverlayEntry(builder: (context) {
-                return floatingButton;
-              }, opaque: false),
+              new OverlayEntry(
+                  builder: (context) {
+                    return floatingButton;
+                  },
+                  opaque: false),
             ],
           ),
         ),
