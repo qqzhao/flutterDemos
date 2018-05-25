@@ -35,3 +35,14 @@ photo_1.JPG  photo_2.JPG  photo_3.JPG  photo_4.JPG  photo_5.JPG
 ```
 rename 's/Bitmap/preview_icon/'  *
 ```
+
+### 4. RangeError: RangeError (index): Invalid value: Only valid value is 0: 1 #17831
+
+
+```
+flutter clean
+```
+>Hey guys, I was able to fix it by going to the projects root directory and running the command "flutter clean"... I was experiencing the issue on iOS.
+
+
+[from](https://github.com/flutter/flutter/issues/17831)
