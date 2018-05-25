@@ -42,7 +42,7 @@ Widget home5 = new Center(
 /**
  * StackFit：
  * loose: 松散的，也就是会根据alignment的位置进行对齐； Width，height依然会起作用，如果无法覆盖前者的话。
- * expand： 对每一个进行扩充。也就是最后的元素会占满整个控件空间。元素的宽高已经不起作用了。non-positioned元素的含义？
+ * expand： 对每一个进行扩充。也就是最后的元素会占满整个控件空间。元素的宽高已经不起作用了。non-positioned元素的含义是非固定位置。
  * passthrough： 根据super的设置进行调整。
  *
 */
