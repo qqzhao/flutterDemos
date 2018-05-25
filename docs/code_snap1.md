@@ -52,3 +52,27 @@ new IconButton(icon: new Icon(Icons.print), onPressed: () {
   print("right clicked");
 })
 ```
+
+### 折叠下拉框
+
+```
+new ExpansionTile(）
+```
+
+### 设置电池条颜色
+
+```
+SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+```
+
+### Timer
+
+```
+import 'dart:async';
+Timer(Duration(milliseconds: 200), (){
+      print('aaa');
+    });
+Timer.periodic(Duration(milliseconds: 200), (_){
+      print('bbb');
+    });
+```

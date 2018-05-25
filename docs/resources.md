@@ -46,7 +46,8 @@
 
 [7. mvp 在 flutter 中的应用](https://www.jianshu.com/p/7b2d83f8109f)
 
-[]()
+[8. Flutter 中布局方式的简单介绍(配合着代码看 https://flutterchina.club/widgets/layout/)](https://www.jianshu.com/p/1836d8d23926)
+
 
 []()
 
