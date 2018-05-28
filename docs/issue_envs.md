@@ -3,6 +3,8 @@
 
 ```
 pip install --user -U
+
+reinstall python@2.7 ## 可以尝试下这个
 ```
 
 ### 2. Android sdk not founded
