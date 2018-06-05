@@ -48,3 +48,13 @@ flutter clean
 
 
 [from](https://github.com/flutter/flutter/issues/17831)
+
+
+### 5. 解决mac下brew link python3出错brew Error: Permission denied @ dir_s_mkdir - /usr/local/Frameworks
+
+```
+$ sudo mkdir /usr/local/Frameworks
+$ sudo chown $(whoami):admin /usr/local/Frameworks
+```
+
+[from](https://blog.haohtml.com/archives/17599)

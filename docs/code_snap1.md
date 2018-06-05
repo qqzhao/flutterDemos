@@ -62,6 +62,7 @@ new ExpansionTile(）
 ### 设置电池条颜色
 
 ```
+import 'package:flutter/services.dart';
 SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
 ```
 

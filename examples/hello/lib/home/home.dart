@@ -6,6 +6,7 @@ List<HomeOption> options = getAllOptionList();
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print('main build...');
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('flutter demos'),
