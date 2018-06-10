@@ -49,6 +49,12 @@
 [8. Flutter 中布局方式的简单介绍(配合着代码看 https://flutterchina.club/widgets/layout/)](https://www.jianshu.com/p/1836d8d23926)
 
 
+[9. Using AnimationController and introducing Tweens](https://sergiandreplace.com/flutter-animations-using-animationcontroller-and-introducing-tweens/)
+
+[10. Flutter animations: The basics](https://sergiandreplace.com/flutter-animations-the-basics/)
+
+[11. routing and navigation](https://sergiandreplace.com/planets-flutter-routing-and-navigation/)
+
 []()
 
 []()

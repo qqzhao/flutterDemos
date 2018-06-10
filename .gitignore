@@ -1,0 +1,3 @@
+examples/hello/.idea/*
+examples/hello/hello_android.iml
+examples/hello/pubspec.lock

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './base/base.dart';
 import './combine/combine.dart';
-import './model/model.dart';
+import './animation/model.dart';
 
 
 class HomeOption{
@@ -23,6 +23,6 @@ List<HomeOption> getAllOptionList() {
     HomeOption(name: 'Combine', route: new CombinePage()),
     HomeOption(name: 'Layout'),
     HomeOption(name: 'Render'),
-    HomeOption(name: 'Model', route: new ModelPage()),
+    HomeOption(name: 'Animation', route: new ModelPage()),
   ];
 }

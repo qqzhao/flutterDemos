@@ -12,7 +12,7 @@ class MY_ListView extends BoxScrollView {
     bool shrinkWrap: false,
     EdgeInsetsGeometry padding,
     this.itemExtent,
-    @required IndexedWidgetBuilder itemBuilder,
+    IndexedWidgetBuilder itemBuilder,
     int itemCount,
     this.header,
     this.bottom,

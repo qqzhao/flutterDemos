@@ -4,12 +4,12 @@ class CustomNavObserver extends NavigatorObserver{
 
   @override
   void didPush(Route<dynamic> route, Route<dynamic> previousRoute) {
-    print('didPush');
+//    print('didPush');
   }
 
   @override
   void didPop(Route<dynamic> route, Route<dynamic> previousRoute) {
-    print('didPop');
+//    print('didPop');
   }
 
   /// The [Navigator] removed `route`.
@@ -32,11 +32,11 @@ class CustomNavObserver extends NavigatorObserver{
 
   @override
   void didStartUserGesture() {
-    print('didStartUserGesture');
+//    print('didStartUserGesture');
   }
 
   @override
   void didStopUserGesture() {
-    print('didStopUserGesture');
+//    print('didStopUserGesture');
   }
 }
