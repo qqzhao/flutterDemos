@@ -103,7 +103,7 @@ Future<T> showPopView<T>({
           Navigator.of(context).maybePop();
         },
         child: new Material(
-          color: const Color(0x02000000),
+          color: const Color(0x01ffffff),
           child: new Container(
 //            color: Colors.red,
               child: new Stack(
