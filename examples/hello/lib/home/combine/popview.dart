@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import '../../components/popview.dart';
 
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'dart:async';
+
+String selectedUrl = "https://flutter.io";
+const kAndroidUserAgent =
+    "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Mobile Safari/537.36";
+
 class PopViewPage extends StatefulWidget {
   @override
   _PopViewPageState createState() => _PopViewPageState();
@@ -21,7 +28,14 @@ class _PopViewPageState extends State<PopViewPage> {
                 print('aaa');
               },
               child: new Container(
-                child: new Text('aa'),
+                child: new WebviewScaffold(
+                  url: selectedUrl,
+                  appBar: new AppBar(
+                    title: new Text("Widget webview"),
+                  ),
+                  withZoom: true,
+                  withLocalStorage: true,
+                ),
                 width: MediaQuery.of(context).size.width,
                 height: 150.0,
                 color: Colors.blue,

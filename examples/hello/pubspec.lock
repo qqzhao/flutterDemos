@@ -43,6 +43,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.14.6"
+  connectivity:
+    dependency: "direct main"
+    description:
+      name: connectivity
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.0"
   convert:
     dependency: transitive
     description:
@@ -71,16 +78,37 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.2"
+  device_info:
+    dependency: "direct main"
+    description:
+      name: device_info
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0"
   flutter:
     dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_gallery_assets:
+    dependency: "direct main"
+    description:
+      name: flutter_gallery_assets
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.4"
   flutter_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_webview_plugin:
+    dependency: "direct main"
+    description:
+      path: "plugins/flutter_webview_plugin"
+      relative: true
+    source: path
+    version: "0.1.6"
   front_end:
     dependency: transitive
     description:
@@ -345,6 +373,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.6"
+  video_player:
+    dependency: "direct main"
+    description:
+      path: "plugins/video_player"
+      relative: true
+    source: path
+    version: "0.5.1"
   watcher:
     dependency: transitive
     description:
@@ -368,3 +403,4 @@ packages:
     version: "2.1.13"
 sdks:
   dart: ">=2.0.0-dev.52.0 <=2.0.0-dev.60.0.flutter-a5e41681e5"
+  flutter: ">=0.2.5 <2.0.0"

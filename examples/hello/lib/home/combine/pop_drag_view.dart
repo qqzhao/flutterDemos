@@ -9,7 +9,8 @@ class PopDragViewPage extends StatefulWidget {
 
 class _PopDragViewPageState extends State<PopDragViewPage> {
 
-  double toBottom = 0.0;
+  double toBottom = 200.0;
+  double height = 200.0;
   @override
   void initState() {
     super.initState();
@@ -21,36 +22,36 @@ class _PopDragViewPageState extends State<PopDragViewPage> {
       child: new Center(
         child: new GestureDetector(
           onTap: () async{
-            print('123494390');
+            print('1234943901');
             var child = new GestureDetector(
-              onTap:(){
-                print('aamma');
-              },
-              onLongPress: (){
-                print('long press');
-              },
               onVerticalDragStart: (DragStartDetails details){
                 print('beigin = $details');
               },
               onVerticalDragUpdate: (DragUpdateDetails details){
-                print('update = $details');
+//                print('update = ${details.delta}');
+                num value = -details.delta.dy;
+                print('value = $value');
+//                height = height + value;
+                setState(() {
+                  height = height + value;
+                });
               },
               onVerticalDragEnd: (DragEndDetails details){
                 print('end = $details');
               },
               child: new Container(
-                margin: new EdgeInsets.only(bottom: toBottom),
-                child: new Text('aa'),
+//                margin: new EdgeInsets.only(bottom: toBottom),
+                child: new Text('aa3'),
                 width: MediaQuery.of(context).size.width,
-                height: 150.0,
+                height: height,
                 color: Colors.blue,
-              ),
+              )
             );
             var ret = await showPopView(context: context, child: child);
             print('ret = $ret');
           },
           child: new Center(
-            child: new Text('click me'),
+            child: new Text('click me $height'),
           ),
         ),
       ),
