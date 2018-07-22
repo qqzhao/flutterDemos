@@ -10,7 +10,8 @@
         - [3.1. Flutter Engine](#31-flutter-engine)
         - [3.2. Flutter Widget使用](#32-flutter-widget使用)
     - [4. Flutter 应用问题](#4-flutter-应用问题)
-    - [5. Dart 与 Flutter](#5-dart-与-flutter)
+    - [5. Flutter 第三方库](#5-flutter-第三方库)
+    - [6. Dart 与 Flutter](#6-dart-与-flutter)
 
 <!-- /TOC -->
 
@@ -34,6 +35,8 @@
 [8. Flutter Class API](https://docs.flutter.io/index.html)
 
 [9. Flutter Codelabs](https://codelabs.flutter-io.cn/)
+
+[10. Flutter by Example](https://flutterbyexample.com/)
 
 ### 2. Dart
 
@@ -80,7 +83,7 @@
 
 [11. routing and navigation](https://sergiandreplace.com/planets-flutter-routing-and-navigation/)
 
-[]()
+[12. Zero to One with Flutter 动画部分](https://medium.com/flutter-io/zero-to-one-with-flutter-43b13fd7b354)
 
 []()
 
@@ -102,13 +105,36 @@
 
 [4. 《Flutter攻略》之Animation运行原理](https://www.jianshu.com/p/ddca0cc340d5)
 
+[5. Google codelabs 翻墙访问](https://codelabs.developers.google.com/)
+
+[]()
+
 []()
 
 []()
 
-### 5. Dart 与 Flutter
+[]()
+### 5. Flutter 第三方库
+
+[1. 强大的Flutter Http请求开源库-dio](https://juejin.im/post/5b04c954f265da0b9c10fb61)
+
+[]()
+
+[]()
+
+[]()
+
+### 6. Dart 与 Flutter
 
 [1. 为什么Flutter会选择 Dart](https://www.colabug.com/2475126.html)
+
+[2. 如何评价 Google 的 Fuchsia、Android、iOS 跨平台应用框架 Flutter？](https://www.zhihu.com/question/50156415)
+
+[]()
+
+[]()
+
+[]()
 
 []()
 
