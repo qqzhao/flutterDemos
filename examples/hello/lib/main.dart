@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hello/global.dart';
+import 'package:hello/home/base/base.dart';
+import 'package:hello/home/base/objectdbPage.dart';
 import './home/home.dart';
 import './components/custom_navigator_observe.dart';
 
@@ -29,6 +32,11 @@ class MyApp extends StatelessWidget {
         accentColorBrightness: curBright,
       ),
       home: new HomePage(),
+      navigatorKey: globalKey,
+      routes: {
+        '/base/objectpage': (BuildContext context) => new ObjectdbTestPage(),
+        '/base': (BuildContext context) => new BasePage(),
+      },
     );
   }
 }

@@ -1,4 +1,6 @@
+import 'package:hello/home/base/caculate_size.dart';
 import 'package:hello/home/base/image_center_slice.dart';
+import 'package:hello/home/base/objectdbPage.dart';
 import '../options.dart';
 import './textfield.dart';
 import './listview.dart';
@@ -14,5 +16,7 @@ List<HomeOption> getBaseOptionList() {
     HomeOption(name: 'Refresh Indicator', route: new RefreshIndicatorPage()),
     HomeOption(name: 'FractionallySizedBox', route: new FractionallBoxPage()),
     HomeOption(name: 'ImageCenterSlicePage', route: new ImageCenterSlicePage()),
+    HomeOption(name: 'ObjectdbTestPage', route: new ObjectdbTestPage()),
+    HomeOption(name: 'CaculatePage', route: new CaculatePage()),
   ];
 }
