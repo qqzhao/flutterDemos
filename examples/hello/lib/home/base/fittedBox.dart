@@ -3,10 +3,19 @@ import 'package:flutter/widgets.dart';
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 
-
-
-void main() {
-  runApp(container);
+class FittedBoxPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    Widget container = new Center(
+      child: new Container(
+        width: 200.0,
+        height: 200.0,
+        color: Colors.red,
+        child: containerBox,
+      ),
+    );
+    return container;
+  }
 }
 
 
@@ -24,16 +33,6 @@ Widget paddingWidget = new Padding(
 Widget home = new FittedBox(
     fit: BoxFit.contain,
     child: paddingWidget
-);
-
-
-Widget container = new Center(
-  child: new Container(
-    width: 200.0,
-    height: 200.0,
-    color: Colors.red,
-    child: containerBox,
-  ),
 );
 
 Widget containerBox = new ConstrainedBox(

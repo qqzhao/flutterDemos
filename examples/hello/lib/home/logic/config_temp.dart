@@ -1,0 +1,2 @@
+
+var testVar = '123';

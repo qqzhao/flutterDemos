@@ -7,6 +7,8 @@ import 'package:hello/home/animation/animation6.dart';
 import 'package:hello/home/animation/animation7.dart';
 
 import 'package:hello/home/base/caculate_size.dart';
+import 'package:hello/home/base/fitBox.dart';
+import 'package:hello/home/base/fittedBox.dart';
 import 'package:hello/home/base/fractionally_sized_box.dart';
 import 'package:hello/home/base/future_builder.dart';
 import 'package:hello/home/base/image_center_slice.dart';
@@ -20,6 +22,7 @@ import 'package:hello/home/combine/loading.dart';
 import 'package:hello/home/combine/pop_drag_view.dart';
 import 'package:hello/home/combine/popview.dart';
 import 'package:hello/home/combine/video_demo.dart';
+import 'package:hello/home/logic/import_test.dart';
 
 import 'package:hello/utils/route.dart';
 
@@ -32,7 +35,9 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'FractionallySizedBox', routeName: '/base/fractional_sizebox', widget: new FractionallBoxPage()),
     MyRouter(name: 'ImageCenterSlicePage', routeName: '/base/imagecenter_slice', widget: new ImageCenterSlicePage()),
     MyRouter(name: 'ObjectdbTestPage', routeName: '/base/objectpage', widget: new ObjectdbTestPage()),
-    MyRouter(name: 'CaculatePage', routeName: '/base/caculate_page', widget: new CaculatePage()),
+    MyRouter(name: 'CaculatePage', routeName: '/base/caculate_page', widget: new CaculatePage()), //
+    MyRouter(name: 'FitBoxPage', routeName: '/base/objectpage', widget: new FitBoxPage()),
+    MyRouter(name: 'FittedBoxPage', routeName: '/base/objectpage', widget: new FittedBoxPage()),
   ]),
   MyRouterList(name: 'Animation', lists: [
     MyRouter(name: 'animation', widget: new AnimationPage()),
@@ -50,6 +55,9 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'Loading', widget: new LoadingPage()),//VideoDemo
     MyRouter(name: 'VideoDemo', widget: new VideoDemo()),
     MyRouter(name: 'BottomSheet', widget: new BottomSheetPage()),
+  ]),
+  MyRouterList(name: 'logics', lists: [
+    MyRouter(name: 'importTestPage', widget: new ImportTestPage()),
   ]),
   MyRouterList(name: 'others', lists: [
 

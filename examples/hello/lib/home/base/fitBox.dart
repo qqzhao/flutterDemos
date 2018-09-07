@@ -2,21 +2,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'dart:async';
-import 'package:flutter/foundation.dart';
-import './utils/TextSizeCal.dart';
+import 'package:hello/utils/TextSizeCal.dart';
 
-
-void main() {
-  runApp(new ContainerWidget());
-}
-
-class ContainerWidget extends StatefulWidget {
+class FitBoxPage extends StatefulWidget {
   @override
   _ContainerWidgetState createState() => new _ContainerWidgetState();
 }
 
-class _ContainerWidgetState extends State<ContainerWidget> {
+class _ContainerWidgetState extends State<FitBoxPage> {
 
   String text = 'dfak dfsaj';
   @override
@@ -103,11 +96,9 @@ class _MyFlexState extends State<MyFlex> {
     super.initState();
     myOpicity = initialOpicity;
     myFontSize = 20.0;
-
     _caculateAndSetFontSize();
 //    listener = new NotificationListener(child: widget, onNotification: _onNotifycation,);
   }
-
   _caculateAndSetFontSize() async {
     double retFontSize = await TextSize.caculateFontSize(new Size(widget.width, widget.height), widget.showText);
     if (retFontSize != myFontSize) {
