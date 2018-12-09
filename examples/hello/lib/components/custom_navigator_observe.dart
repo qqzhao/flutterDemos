@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomNavObserver extends NavigatorObserver{
-
+class CustomNavObserver extends NavigatorObserver {
   @override
   void didPush(Route<dynamic> route, Route<dynamic> previousRoute) {
 //    print('didPush');
@@ -28,12 +27,12 @@ class CustomNavObserver extends NavigatorObserver{
 
   /// The [Navigator] replaced `oldRoute` with `newRoute`.
   @override
-  void didReplace({ Route<dynamic> newRoute, Route<dynamic> oldRoute }) { }
+  void didReplace({Route<dynamic> newRoute, Route<dynamic> oldRoute}) {}
 
-  @override
-  void didStartUserGesture() {
-//    print('didStartUserGesture');
-  }
+//  @override
+//  void didStartUserGesture() {
+////    print('didStartUserGesture');
+//  }
 
   @override
   void didStopUserGesture() {
