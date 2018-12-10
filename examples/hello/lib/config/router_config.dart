@@ -14,6 +14,7 @@ import 'package:hello/home/base/future_builder.dart';
 import 'package:hello/home/base/future_test_page.dart';
 import 'package:hello/home/base/image_center_slice.dart';
 import 'package:hello/home/base/listview.dart';
+import 'package:hello/home/base/mixin_page.dart';
 import 'package:hello/home/base/objectdbPage.dart';
 import 'package:hello/home/base/refresh_indicator.dart';
 import 'package:hello/home/base/textfield.dart';
@@ -42,6 +43,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'TickerTestPage', routeName: '/base/tickerpage', widget: new TickerTestPage()),
     MyRouter(name: 'FutureTestPage', routeName: '/base/futureTest', widget: new FutureTestPage()),
     MyRouter(name: 'FittedBoxPage', routeName: '/base/objectpage', widget: new FittedBoxPage()),
+    MyRouter(name: 'MixinTestPage', routeName: '/base/mixinpage', widget: new MixinTestPage()),
   ]),
   MyRouterList(name: 'Animation', lists: [
     MyRouter(name: 'animation', widget: new AnimationPage()),

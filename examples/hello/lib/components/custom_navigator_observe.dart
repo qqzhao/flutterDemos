@@ -29,10 +29,10 @@ class CustomNavObserver extends NavigatorObserver {
   @override
   void didReplace({Route<dynamic> newRoute, Route<dynamic> oldRoute}) {}
 
-//  @override
-//  void didStartUserGesture() {
-////    print('didStartUserGesture');
-//  }
+  @override
+  void didStartUserGesture(Route<dynamic> route, Route<dynamic> previousRoute) {
+//    print('didStartUserGesture');
+  }
 
   @override
   void didStopUserGesture() {
