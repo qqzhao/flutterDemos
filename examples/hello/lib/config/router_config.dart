@@ -13,6 +13,7 @@ import 'package:hello/home/base/fractionally_sized_box.dart';
 import 'package:hello/home/base/future_builder.dart';
 import 'package:hello/home/base/image_center_slice.dart';
 import 'package:hello/home/base/listview.dart';
+import 'package:hello/home/base/mixin_page.dart';
 import 'package:hello/home/base/objectdbPage.dart';
 import 'package:hello/home/base/refresh_indicator.dart';
 import 'package:hello/home/base/textfield.dart';
@@ -38,6 +39,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'CaculatePage', routeName: '/base/caculate_page', widget: new CaculatePage()), //
     MyRouter(name: 'FitBoxPage', routeName: '/base/objectpage', widget: new FitBoxPage()),
     MyRouter(name: 'FittedBoxPage', routeName: '/base/objectpage', widget: new FittedBoxPage()),
+    MyRouter(name: 'MixinTestPage', routeName: '/base/mixinpage', widget: new MixinTestPage()),
   ]),
   MyRouterList(name: 'Animation', lists: [
     MyRouter(name: 'animation', widget: new AnimationPage()),
@@ -52,19 +54,14 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'Dialog', widget: new DialogPage()),
     MyRouter(name: 'PopView', widget: new PopViewPage()),
     MyRouter(name: 'PopDragView', widget: new PopDragViewPage()),
-    MyRouter(name: 'Loading', widget: new LoadingPage()),//VideoDemo
+    MyRouter(name: 'Loading', widget: new LoadingPage()), //VideoDemo
     MyRouter(name: 'VideoDemo', widget: new VideoDemo()),
     MyRouter(name: 'BottomSheet', widget: new BottomSheetPage()),
   ]),
   MyRouterList(name: 'logics', lists: [
     MyRouter(name: 'importTestPage', widget: new ImportTestPage()),
   ]),
-  MyRouterList(name: 'others', lists: [
-
-  ]),
+  MyRouterList(name: 'others', lists: []),
 ];
 
-var globalRouters = new MyRouterList(
-  lists: _globalRouters,
-  name: 'flutter demos'
-);
+var globalRouters = new MyRouterList(lists: _globalRouters, name: 'flutter demos');
