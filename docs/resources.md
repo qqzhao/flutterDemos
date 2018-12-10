@@ -48,6 +48,8 @@
 
 [4. Dart入门—基础类型与正则](https://blog.csdn.net/hekaiyou/article/details/51310381)
 
+[5. 早起Dart 语言中文站](http://dart.hanguokai.com/)
+
 [ ]()
 
 ### 3. Flutter 文章
@@ -85,7 +87,7 @@
 
 [12. Zero to One with Flutter 动画部分](https://medium.com/flutter-io/zero-to-one-with-flutter-43b13fd7b354)
 
-[]()
+[13. Flutter视图基础简介--Widget、Element、RenderObject](https://www.cnblogs.com/crashmaker/p/9123763.html)
 
 []()
 

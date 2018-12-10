@@ -3,3 +3,4 @@ examples/hello/hello_android.iml
 examples/hello/pubspec.lock
 examples/*/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
 examples/*/pubspec.lock
+docs/.*
