@@ -39,6 +39,27 @@ void _testFuture() {
   });
 }
 
+//flutter: delay 222
+//flutter: delay 111
+// 里面也会持续等待结束。
+
+void _testFutureDelay() async {
+  await new Future.delayed(new Duration(seconds: 2), () async {
+    await new Future.delayed(new Duration(seconds: 5));
+    print('delay 222');
+  });
+  print('delay 111');
+}
+
+// 跟上面一样结果
+void _testFutureMicroTask() async {
+  await new Future.microtask(() async {
+    await new Future.delayed(new Duration(seconds: 5));
+    print('delay 222');
+  });
+  print('delay 111');
+}
+
 class FutureTestPage extends StatefulWidget {
   @override
   _FutureTestPageState createState() => _FutureTestPageState();
@@ -47,7 +68,9 @@ class FutureTestPage extends StatefulWidget {
 class _FutureTestPageState extends State<FutureTestPage> {
   @override
   Widget build(BuildContext context) {
-    _testFuture();
+//    _testFuture();
+//    _testFutureDelay();
+    _testFutureMicroTask();
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('future test'),

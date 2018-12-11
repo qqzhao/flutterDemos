@@ -9,6 +9,7 @@ class CustomNavObserver extends NavigatorObserver {
   @override
   void didPop(Route<dynamic> route, Route<dynamic> previousRoute) {
 //    print('didPop');
+    //test
   }
 
   /// The [Navigator] removed `route`.

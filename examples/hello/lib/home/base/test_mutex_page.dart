@@ -30,7 +30,7 @@ class _MutexTestPageState extends State<MutexTestPage> {
       _testMutex();
     });
 
-    // 这种dispose 之后不会释放。所以，快速点击之后会报错。
+    // 这种dispose 之后不会释放。所以，快速点击返回之后会报错。
     Timer(new Duration(seconds: 5), () {
       print('time cancel xxx');
       _timer.cancel();
@@ -43,7 +43,9 @@ class _MutexTestPageState extends State<MutexTestPage> {
     _counter++;
     await _writeFileMutex.acquire();
     try {
-      await Future.delayed(new Duration(seconds: 2));
+      await Future.delayed(new Duration(seconds: 2), () {
+        print('future delayed 2 seconds');
+      });
       print('total _counter = $_counter'); // 也会输出16次， 后面的都是'total _counter = 16'
     } finally {
       _writeFileMutex.release();

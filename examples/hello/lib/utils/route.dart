@@ -34,7 +34,7 @@ class RouterPage extends StatelessWidget {
         child: new ListView.builder(
             itemCount: routerList.lists.length,
             shrinkWrap: true,
-            itemExtent: 80.0,
+            itemExtent: 40.0,
             itemBuilder: (context, index) {
               var item = routerList.lists[index];
               Widget cell = new Container(
@@ -55,7 +55,7 @@ class RouterPage extends StatelessWidget {
               );
               return GestureDetector(
                 onTap: () {
-                  if (item is MyRouterList){
+                  if (item is MyRouterList) {
                     Navigator.push(context, new MaterialPageRoute(
                       builder: (_) {
                         return RouterPage(
@@ -63,14 +63,13 @@ class RouterPage extends StatelessWidget {
                         );
                       },
                     ));
-                  } else if (item is MyRouter){
+                  } else if (item is MyRouter) {
                     Navigator.push(context, new MaterialPageRoute(
                       builder: (_) {
                         return item.widget;
                       },
                     ));
                   }
-
                 },
                 child: cell,
               );
