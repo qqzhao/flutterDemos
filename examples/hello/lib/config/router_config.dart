@@ -17,6 +17,7 @@ import 'package:hello/home/base/listview.dart';
 import 'package:hello/home/base/mixin_page.dart';
 import 'package:hello/home/base/objectdbPage.dart';
 import 'package:hello/home/base/refresh_indicator.dart';
+import 'package:hello/home/base/test_mutex_page.dart';
 import 'package:hello/home/base/textfield.dart';
 import 'package:hello/home/base/ticker.dart';
 import 'package:hello/home/combine/bottomSheet.dart';
@@ -44,6 +45,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'FutureTestPage', routeName: '/base/futureTest', widget: new FutureTestPage()),
     MyRouter(name: 'FittedBoxPage', routeName: '/base/objectpage', widget: new FittedBoxPage()),
     MyRouter(name: 'MixinTestPage', routeName: '/base/mixinpage', widget: new MixinTestPage()),
+    MyRouter(name: 'MutexTestPage', routeName: '/base/mutexpage', widget: new MutexTestPage()),
   ]),
   MyRouterList(name: 'Animation', lists: [
     MyRouter(name: 'animation', widget: new AnimationPage()),
