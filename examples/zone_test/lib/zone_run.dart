@@ -6,6 +6,12 @@ void _handleUncaughtError(Zone self, ZoneDelegate parent, Zone zone, dynamic exc
   print('zone = $zone');
 }
 
+// 这个不会被调--
+void _printHandle(Zone self, ZoneDelegate parent, Zone zone, String line) {
+  print('aaa = XX $line');
+  parent.print(zone, line);
+}
+
 ScheduleMicrotaskHandler _microTaskHandler = (Zone self, ZoneDelegate parent, Zone zone, void f()) {
   print('_microtaskHandler --- before');
   f();
@@ -20,18 +26,20 @@ void testRun() {
   final ZoneSpecification errorHandlingZoneSpecification = ZoneSpecification(
     handleUncaughtError: _handleUncaughtError,
     run: _testRun,
-    scheduleMicrotask: _microTaskHandler,
+//    scheduleMicrotask: _microTaskHandler,
+    print: _printHandle,
   );
   var _parentZone = Zone.current;
   final Zone testZone = _parentZone.fork(specification: errorHandlingZoneSpecification);
 //  testZone.runBinary<Future<void>, Future<void> Function(), VoidCallback>(_runTestBody, testBody, invariantTester)
 //      .whenComplete(testCompletionHandler);
-  testZone.runGuarded(() {
-    var curZone = Zone.current;
-    print('curZone = $curZone');
-    throw new Exception('exception2');
-  });
-  print('exception2 after');
+
+//  testZone.runGuarded(() {
+//    var curZone = Zone.current;
+//    print('curZone = $curZone');
+//    throw new Exception('exception2');
+//  });
+//  print('exception2 after');
 
   testZone.scheduleMicrotask(() {
     print('scheduleMicrotask callback');

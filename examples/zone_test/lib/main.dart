@@ -13,12 +13,18 @@ void main() {
 //    print('global exception: obj = $obj;\nstack = $stack');
 //  });
 
-  testRun();
+//  testRun();
 //  testHandleError();
 //  testHandleError2();
 //  testTry();
 //  testRunReturn();
 //  testInvocation();
+
+  var timer = new Timer(new Duration(seconds: 1), () {
+    print('ccc');
+  });
+
+  print('timer = $timer');
 }
 
 void testPrint(String message) async {
