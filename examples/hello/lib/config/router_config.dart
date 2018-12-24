@@ -18,7 +18,9 @@ import 'package:hello/home/base/mixin_page.dart';
 import 'package:hello/home/base/objectdbPage.dart';
 import 'package:hello/home/base/refresh_indicator.dart';
 import 'package:hello/home/base/rotate_test_page.dart';
+import 'package:hello/home/base/scroll_view/custom_scroll_view.dart';
 import 'package:hello/home/base/scroll_view/list_view_1.dart';
+import 'package:hello/home/base/scroll_view/nested_scroll_view.dart';
 import 'package:hello/home/base/test_mutex_page.dart';
 import 'package:hello/home/base/textfield.dart';
 import 'package:hello/home/base/ticker.dart';
@@ -50,6 +52,8 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'MutexTestPage', routeName: '/base/mutexpage', widget: new MutexTestPage()),
     MyRouter(name: 'Rotate', routeName: '/base/rotat1', widget: new TestRotatePage()),
     MyRouter(name: 'scroll/listview1', routeName: '/base/scroll/listview1', widget: new TestListView1()),
+    MyRouter(name: 'scroll/customScrollview', routeName: '/base/scroll/customScrollview', widget: new TestCustomScrollView()),
+    MyRouter(name: 'scroll/nestedScrollview', routeName: '/base/scroll/nestedScrollview', widget: new TestNestScrollViewDemo()),
   ]),
   MyRouterList(name: 'Animation', lists: [
     MyRouter(name: 'animation', widget: new AnimationPage()),
