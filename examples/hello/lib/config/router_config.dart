@@ -12,10 +12,12 @@ import 'package:hello/home/base/fittedBox.dart';
 import 'package:hello/home/base/fractionally_sized_box.dart';
 import 'package:hello/home/base/future_builder.dart';
 import 'package:hello/home/base/future_test_page.dart';
+import 'package:hello/home/base/image/image_provider.dart';
 import 'package:hello/home/base/image_center_slice.dart';
 import 'package:hello/home/base/listview.dart';
 import 'package:hello/home/base/mixin_page.dart';
 import 'package:hello/home/base/objectdbPage.dart';
+import 'package:hello/home/base/overflow_box.dart';
 import 'package:hello/home/base/refresh_indicator.dart';
 import 'package:hello/home/base/rotate_test_page.dart';
 import 'package:hello/home/base/scroll_view/custom_scroll_view.dart';
@@ -52,10 +54,12 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'MixinTestPage', routeName: '/base/mixinpage', widget: new MixinTestPage()),
     MyRouter(name: 'MutexTestPage', routeName: '/base/mutexpage', widget: new MutexTestPage()),
     MyRouter(name: 'Rotate', routeName: '/base/rotat1', widget: new TestRotatePage()),
+    MyRouter(name: 'Overflow', routeName: '/base/overflowBox', widget: new OverFlowBoxPage()),
     MyRouter(name: 'scroll/listview1', routeName: '/base/scroll/listview1', widget: new TestListView1()),
     MyRouter(name: 'scroll/customScrollview', routeName: '/base/scroll/customScrollview', widget: new TestCustomScrollView()),
     MyRouter(name: 'scroll/nestedScrollview', routeName: '/base/scroll/nestedScrollview', widget: new TestNestScrollViewDemo()),
     MyRouter(name: 'scroll/nestedScrollview2', routeName: '/base/scroll/nestedScrollview2', widget: new TestNestScrollViewDemo2()),
+    MyRouter(name: 'image/imageProvider', routeName: '/base/image/imageProvider', widget: new ImageProviderPage()),
   ]),
   MyRouterList(name: 'Animation', lists: [
     MyRouter(name: 'animation', widget: new AnimationPage()),
