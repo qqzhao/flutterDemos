@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
     Brightness curBright = Brightness.light;
 
     return new MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter demo1',
       navigatorObservers: <NavigatorObserver>[new CustomNavObserver()],
       theme: new ThemeData(
 //        primarySwatch: Colors.blue,
@@ -47,6 +47,7 @@ class MyApp extends StatelessWidget {
         brightness: curBright,
         primaryColorBrightness: curBright,
         accentColorBrightness: curBright,
+        fontFamily: 'PingFang SC',
       ),
       home: new RouterPage(
         routerList: globalRouters,

@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
-
 class CaculatePage extends StatefulWidget {
   @override
   _CaculatePageState createState() => _CaculatePageState();
@@ -13,7 +12,7 @@ class _CaculatePageState extends State<CaculatePage> {
   final controller = new ScrollController();
   OverlayEntry sticky;
   GlobalKey stickyKey = new GlobalKey();
-
+  Timer myTimer;
 
   String testString = '111 jfdal ljdf lasjflkas jfdlkajflksdajflkasjfksjalfkjsalkfjsakl \n fkjdsaljfalkjf asjkfdjaslfj a';
   double testHeight = 30.0;
@@ -24,19 +23,18 @@ class _CaculatePageState extends State<CaculatePage> {
       sticky.remove();
     }
     sticky = new OverlayEntry(
-      opaque: false,
-      // lambda created to help working with hot-reload
+        opaque: false,
+        // lambda created to help working with hot-reload
 //      builder: (context) => stickyBuilder(context),
-      builder: (context) {
-        return new Center(
-          child: new Container(
-            width: 100.0,
-            height: 100.0,
-            child: new Text('aaa'),
-          ),
-        );
-      }
-    );
+        builder: (context) {
+          return new Center(
+            child: new Container(
+              width: 100.0,
+              height: 100.0,
+              child: new Text('aaa'),
+            ),
+          );
+        });
 
     // not possible insite initState
     SchedulerBinding.instance.addPostFrameCallback((_) {
@@ -44,13 +42,13 @@ class _CaculatePageState extends State<CaculatePage> {
       Overlay.of(context).insert(sticky);
 
       final keyContext = stickyKey.currentContext;
-      if (keyContext != null){
+      if (keyContext != null) {
         final RenderBox box = keyContext.findRenderObject();
         print('box size = ${box.size}');
       }
     });
 
-    Timer.periodic(new Duration(seconds: 2), (_){
+    myTimer = Timer.periodic(new Duration(seconds: 2), (_) {
       setState(() {
         testString = testString + '22';
       });
@@ -62,6 +60,7 @@ class _CaculatePageState extends State<CaculatePage> {
   @override
   void dispose() {
     // remove possible overlays on dispose. As they would be visible even after [Navigator.push]
+    myTimer.cancel();
     sticky.remove();
     super.dispose();
   }
@@ -80,7 +79,7 @@ class _CaculatePageState extends State<CaculatePage> {
 //              child: new Text("I'm fat: $testString"),
 //            );
             return new CaculateBox(
-              callback: (Size size){
+              callback: (Size size) {
                 print('xxx size = $size');
                 setState(() {
                   testHeight = size.height;
@@ -88,6 +87,7 @@ class _CaculatePageState extends State<CaculatePage> {
               },
               child: new Container(
 //                height: 200.0,
+                height: testHeight + 40.0,
                 child: new Text('$testString'),
               ),
             );
@@ -136,13 +136,11 @@ class _CaculatePageState extends State<CaculatePage> {
 //  }
 }
 
-
-
 typedef FrameCallback = void Function(Size size);
 
+/// 问题： addPostFrameCallback 回调机制。只会调用一次。
 class CaculateBox extends StatefulWidget {
-
-  CaculateBox({this.child,this.callback});
+  CaculateBox({this.child, this.callback});
 
   final Widget child;
   FrameCallback callback;
@@ -152,22 +150,24 @@ class CaculateBox extends StatefulWidget {
 }
 
 class _CaculateBoxState extends State<CaculateBox> {
-
   GlobalKey caculateKey = new GlobalKey();
 
   @override
   void initState() {
     SchedulerBinding.instance.addPostFrameCallback((_) {
-//      print('aaaaabbbbbccccc');
       final keyContext = caculateKey.currentContext;
-      if (keyContext != null){
+      if (keyContext != null) {
         final RenderBox box = keyContext.findRenderObject();
         print('box size = ${box.size}');
-        if (widget.callback is FrameCallback){
+        if (widget.callback is FrameCallback) {
           widget.callback(box.size);
         }
       }
     });
+//    // 每一帧回调只会都会执行
+//    SchedulerBinding.instance.addPersistentFrameCallback((aaa) {
+//      print('aaa = $aaa');
+//    });
     super.initState();
   }
 
@@ -184,4 +184,3 @@ class _CaculateBoxState extends State<CaculateBox> {
     );
   }
 }
-

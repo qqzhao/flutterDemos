@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hello/utils/TextSizeCal.dart';
@@ -10,7 +8,6 @@ class FitBoxPage extends StatefulWidget {
 }
 
 class _ContainerWidgetState extends State<FitBoxPage> {
-
   String text = 'dfak dfsaj';
   @override
   Widget build(BuildContext context) {
@@ -48,80 +45,71 @@ class _ContainerWidgetState extends State<FitBoxPage> {
           ),
         ),
         new Container(
+          width: 200.0,
+          height: 100.0,
+          color: Colors.red,
+          child: new MyFlex(
             width: 200.0,
             height: 100.0,
-            color: Colors.red,
-            child: new MyFlex(
-              width: 200.0,
-              height: 100.0,
-              showText: text,
-            ),
+            showText: text,
+          ),
         ),
       ],
     );
 
-    return container;
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('test'),
+      ),
+      body: Center(
+        child: container,
+      ),
+    );
   }
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////////
 class MyFlex extends StatefulWidget {
+  final num width;
+  final num height;
+  final String showText;
 
-  num width;
-  num height;
-  String showText = '';
-
-  _MyFlexState state;
-  MyFlex({this.width, this.height, this.showText}): super();
+  MyFlex({this.width, this.height, this.showText = ''});
 
   @override
-  _MyFlexState createState() {
-    state =  _MyFlexState();
-    return state;
-  }
+  _MyFlexState createState() => _MyFlexState();
 }
 
 class _MyFlexState extends State<MyFlex> {
-
   num myFontSize;
-  num myOpicity; //control the hide or show
-  final num initialOpicity = 0.0;
-
+  num myOpacity; //control the hide or show
+  final num initialOpacity = 0.0;
 
   NotificationListener listener;
 
   @override
   void initState() {
     super.initState();
-    myOpicity = initialOpicity;
+    myOpacity = initialOpacity;
     myFontSize = 20.0;
-    _caculateAndSetFontSize();
-//    listener = new NotificationListener(child: widget, onNotification: _onNotifycation,);
+    _calculateAndSetFontSize();
   }
-  _caculateAndSetFontSize() async {
+
+  void _calculateAndSetFontSize() async {
     double retFontSize = await TextSize.caculateFontSize(new Size(widget.width, widget.height), widget.showText);
     if (retFontSize != myFontSize) {
       setState(() {
         myFontSize = retFontSize;
-        myOpicity = 1.0;
+        myOpacity = 1.0;
       });
     }
-  }
-
-  bool _onNotifycation<Notification>(Notification notify) {
-    print("notify = $notify");
-    if (notify is! OverscrollNotification) {
-      return true;
-    }
-    return true;
   }
 
   @override
   void didUpdateWidget(MyFlex oldWidget) {
     print("didUpdateWidget");
     if (oldWidget.showText != widget.showText) {
-      _caculateAndSetFontSize();
+      _calculateAndSetFontSize();
     }
     super.didUpdateWidget(oldWidget);
   }
@@ -129,18 +117,12 @@ class _MyFlexState extends State<MyFlex> {
   @override
   Widget build(BuildContext context) {
     print("build next");
-//    myOpicity = initialOpicity;
     Widget container = new Container(
-      child: new NotificationListener(
-        onNotification: _onNotifycation,
-        child: new Text(
-          '${widget.showText}',
-          textDirection: TextDirection.ltr,
-          style: new TextStyle(
-              fontSize: myFontSize
-          ),
-        ),
-      )
+      child: new Text(
+        '${widget.showText}',
+        textDirection: TextDirection.ltr,
+        style: new TextStyle(fontSize: myFontSize),
+      ),
     );
 
     return Opacity(
