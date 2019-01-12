@@ -1,2 +1,0 @@
-
-var testVar = '123';

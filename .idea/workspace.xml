@@ -1,7 +1,312 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4ce778b-4e00-47df-b214-e33e826337e3" name="Default" comment="" />
+    <list default="true" id="e4ce778b-4e00-47df-b214-e33e826337e3" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/flutterDemos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flutterDemos.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/.idea/libraries/Dart_SDK.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/.idea/libraries/Flutter_for_Android.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/.idea/runConfigurations/main_dart.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/.metadata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/app/src/main/java/com/example/bowlingtestcase/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/bowling_test_case.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/bowling_test_case_android.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Flutter/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Flutter/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/AppDelegate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/AppDelegate.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/ios/Runner/main.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/lib/bowling.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/lib/main.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/test/bowling_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/bowling_test_case/test/widget_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/app/src/main/java/com/example/hello/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/assets/images/sound_bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/assets/videos/bee.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/assets/videos/butterfly.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/hello.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/hello_android.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Flutter/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Flutter/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Podfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Podfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/AppDelegate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/AppDelegate.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/ios/Runner/main.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/buttons/dropdown_button.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/buttons/flat_button.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/buttons/floating_action_button.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/buttons/icon_button.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/buttons/ink_well.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/buttons/raise_button.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/buttons/raw_material_button.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/buttons/simple_dialog_option.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/components/bottom_sheet.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/components/custom_navigator_observe.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/components/listview.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/components/loading.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/components/popview.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/components/time_cost_staful_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/config/router_config.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/global.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/animation/animation.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/animation/animation2.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/animation/animation3.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/animation/animation4.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/animation/animation5.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/animation/animation6.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/animation/animation7.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/animation/json.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/fitText/caculate_size.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/fitText/fitBox.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/fitText/fittedBox.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/fractionally_sized_box.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/future_builder.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/future_test_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/image/image_provider.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/image_center_slice.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/listview.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/mixin_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/objectdbPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/overflow_box.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/refresh_indicator.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/rotate_test_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/scroll_view/custom_scroll_view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/scroll_view/list_view_1.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/scroll_view/nested_scroll_view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/scroll_view/nested_scroll_view2.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/test_mutex_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/textfield.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/base/ticker.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/combine/bottomSheet.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/combine/dialog.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/combine/loading.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/combine/pop_drag_view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/combine/popview.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/combine/video_demo.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/logic/config_temp.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/home/logic/import_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/main.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/utils/TextSizeCal.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/utils/route.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/lib/utils/serializable.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/analysis_options.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/android/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/android/src/main/java/com/flutter_webview_plugin/BrowserClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/android/src/main/java/com/flutter_webview_plugin/FlutterWebviewPlugin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/android/src/main/java/com/flutter_webview_plugin/WebviewManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/flutter_webview_plugin.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/ios/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/ios/Assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/ios/Classes/FlutterWebviewPlugin.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/ios/Classes/FlutterWebviewPlugin.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/ios/flutter_webview_plugin.podspec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/lib/flutter_webview_plugin.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/lib/src/base.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/lib/src/webview_scaffold.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/flutter_webview_plugin/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/android/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/android/src/main/java/io/flutter/plugins/videoplayer/VideoPlayerPlugin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/doc/demo_ipod.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/ios/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/ios/Assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/ios/Classes/VideoPlayerPlugin.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/ios/Classes/VideoPlayerPlugin.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/ios/video_player.podspec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/lib/video_player.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/video_player.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/plugins/video_player/video_player_android.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello/test/widget_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/.metadata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/android/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/android/app/src/main/java/com/example/zonetest/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Flutter/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Flutter/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/AppDelegate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/AppDelegate.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/ios/Runner/main.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/lib/invocation_call.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/lib/main.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/lib/test_try.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/lib/zone_handle_error.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/lib/zone_return.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/lib/zone_run.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/zone_test/test/widget_test.dart" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -9,74 +314,67 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DartProblemsView" show-warnings="false" show-hints="false" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="main.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/main.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="widget_test.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/widget_test.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="e#0#1045#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
     <option name="projectSyncType">
       <map>
         <entry key="$PROJECT_DIR$/../awesome-flutter/flutter/examples/flutter_gallery/android" value="PREVIEW" />
       </map>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="59" />
-    <option name="width" value="2560" />
-    <option name="height" value="1283" />
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
   </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-          <State>
-            <id>Android</id>
-          </State>
-          <State>
-            <id>CorrectnessLintAndroid</id>
-          </State>
-          <State>
-            <id>Java</id>
-          </State>
-          <State>
-            <id>LintAndroid</id>
-          </State>
-          <State>
-            <id>Probable bugsJava</id>
-          </State>
-          <State>
-            <id>RELAX NG</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>Android</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -87,30 +385,21 @@
             <path>
               <item name="flutterDemos" type="b2602c69:ProjectViewProjectNode" />
               <item name="flutterDemos" type="462c0819:PsiDirectoryNode" />
-              <item name="docs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutterDemos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutterDemos" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutterDemos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutterDemos" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="hello" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Dart" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunDashboard">
@@ -127,29 +416,12 @@
   </component>
   <component name="RunManager">
     <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
@@ -162,15 +434,12 @@
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
       <option name="USE_DEFAULT_REPORTERS" value="false" />
       <option name="PROPERTIES_FILE" />
-      <envs />
       <properties />
       <listeners />
     </configuration>
@@ -208,9 +477,6 @@
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -224,41 +490,82 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="59" width="2560" height="1283" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Flutter Outline" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24980143" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Flutter Inspector" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info anchor="bottom" id="TODO" order="6" visible="true" weight="0.329602" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Flutter Performance" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Dart Analysis" weight="0.2885572" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.39179105" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32994187" />
+      <window_info anchor="right" id="Flutter Outline" order="3" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" id="Flutter Inspector" order="3" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info id="Captures" order="2" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/bowling_test_case/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/widget_test.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#1045#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
