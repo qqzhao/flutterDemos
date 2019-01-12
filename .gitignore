@@ -1,6 +1,8 @@
-examples/.idea/*
-examples/hello_android.iml
-examples/hello/pubspec.lock
-examples/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
-examples/pubspec.lock
+.idea/*
+hello_android.iml
+pubspec.lock
+ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
 docs/.*
+.packages
+.DS_Store
+.flutter-plugins
