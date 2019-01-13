@@ -40,8 +40,8 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
 //        primarySwatch: Colors.blue,
         // NavBar 背景的颜色
-        primaryColor: Colors.red,
-        accentColor: Colors.blue,
+//        primaryColor: Colors.red,
+//        accentColor: Colors.blue,
         primaryColorLight: Colors.green,
 
         brightness: curBright,

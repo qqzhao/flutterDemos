@@ -14,6 +14,7 @@ import 'package:hello/home/base/future_builder.dart';
 import 'package:hello/home/base/future_test_page.dart';
 import 'package:hello/home/base/image/image_provider.dart';
 import 'package:hello/home/base/image_center_slice.dart';
+import 'package:hello/home/base/layoutbuild_page.dart';
 import 'package:hello/home/base/listview.dart';
 import 'package:hello/home/base/mixin_page.dart';
 import 'package:hello/home/base/objectdbPage.dart';
@@ -39,6 +40,7 @@ import 'package:hello/utils/route.dart';
 
 List<dynamic> _globalRouters = [
   MyRouterList(name: 'Base', lists: [
+    MyRouter(name: 'layoutBuild', routeName: '/base/layoutBuild', widget: new LayoutBuildTestPage()),
     MyRouter(name: 'TestField', routeName: '/base/textfield', widget: new TextFieldPage()),
     MyRouter(name: 'ListView1', routeName: '/base/listview1', widget: new ListViewPage1()),
     MyRouter(name: 'Future Build', routeName: '/base/flutter_build', widget: new FutureBuildPage()),
