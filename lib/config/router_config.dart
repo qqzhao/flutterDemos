@@ -5,6 +5,7 @@ import 'package:hello/home/animation/animation4.dart';
 import 'package:hello/home/animation/animation5.dart';
 import 'package:hello/home/animation/animation6.dart';
 import 'package:hello/home/animation/animation7.dart';
+import 'package:hello/home/base/fitText/baseText.dart';
 
 import 'package:hello/home/base/fitText/caculate_size.dart';
 import 'package:hello/home/base/fitText/fitBox.dart';
@@ -49,8 +50,9 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'ImageCenterSlicePage', routeName: '/base/imagecenter_slice', widget: new ImageCenterSlicePage()),
     MyRouter(name: 'ObjectdbTestPage', routeName: '/base/objectpage', widget: new ObjectdbTestPage()),
     MyRouter(name: 'fixText/CaculatePage', routeName: '/base/fixText/caculate_page', widget: new CaculatePage()),
-    MyRouter(name: 'fixText/FitBoxPage', routeName: '/base/fixText/objectpage', widget: new FitBoxPage()),
-    MyRouter(name: 'fixText/FittedBoxPage', routeName: '/base/fixText/objectpage', widget: new FittedBoxPage()),
+    MyRouter(name: 'fixText/FitBoxPage', routeName: '/base/fixText/FitBoxPage', widget: new FitBoxPage()),
+    MyRouter(name: 'fixText/FittedBoxPage', routeName: '/base/fixText/FittedBoxPage', widget: new FittedBoxPage()),
+    MyRouter(name: 'fixText/BaseTextWidthPage', routeName: '/base/fixText/baseText', widget: new BaseTextWidthPage()),
     MyRouter(name: 'TickerTestPage', routeName: '/base/tickerpage', widget: new TickerTestPage()),
     MyRouter(name: 'FutureTestPage', routeName: '/base/futureTest', widget: new FutureTestPage()),
     MyRouter(name: 'MixinTestPage', routeName: '/base/mixinpage', widget: new MixinTestPage()),

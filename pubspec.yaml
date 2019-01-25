@@ -14,7 +14,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   connectivity: '0.3.0'
   device_info: '0.2.0'
-  flutter_gallery_assets: 0.1.4
+  flutter_gallery_assets:
   flutter_webview_plugin:
     path: 'plugins/flutter_webview_plugin'
   video_player:
