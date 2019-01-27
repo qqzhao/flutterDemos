@@ -24,6 +24,7 @@ dependencies:
     path: 'plugins/flutter_webview_plugin'
   video_player:
     path: 'plugins/video_player'
+  gbk2utf8:
 #  exportable: "^0.1.0"
 
 dev_dependencies:
