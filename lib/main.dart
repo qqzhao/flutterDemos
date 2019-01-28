@@ -17,7 +17,7 @@ void main() {
   print('_isProduct = $_isProduct');
 //  print('_isDartStreamEnabled = $_isDartStreamEnabled');
 
-  runZoned(() => runApp(MyApp()), onError: (Object obj, StackTrace stack) {
+  runZoned(() => runApp(Center(child: MyApp())), onError: (Object obj, StackTrace stack) {
     print('global exception: obj = $obj;\nstack = $stack');
   });
 }

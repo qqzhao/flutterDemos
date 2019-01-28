@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'dart:ui' show lerpDouble;
@@ -7,8 +9,7 @@ class AnimationPage extends StatefulWidget {
   _AnimationPageState createState() => _AnimationPageState();
 }
 
-class _AnimationPageState extends State<AnimationPage>
-    with SingleTickerProviderStateMixin {
+class _AnimationPageState extends State<AnimationPage> with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
   double startHeight;
@@ -18,8 +19,7 @@ class _AnimationPageState extends State<AnimationPage>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-        vsync: this, duration: new Duration(seconds: 3), debugLabel: 'test')
+    _controller = AnimationController(vsync: this, duration: new Duration(seconds: 3), debugLabel: 'test')
       ..addListener(() {
         setState(() {
           currentHeight = lerpDouble(startHeight, endHeight, _controller.value);
@@ -36,6 +36,10 @@ class _AnimationPageState extends State<AnimationPage>
     currentHeight = 0.0;
     endHeight = 200.0;
     _controller.forward();
+    Timer.periodic(new Duration(milliseconds: 100), (_) {
+      // 这里一直是true
+//      print('TickerMode = ${TickerMode.of(context)}');
+    });
   }
 
   @override
@@ -52,21 +56,21 @@ class _AnimationPageState extends State<AnimationPage>
 //          fit: StackFit.expand,
           children: <Widget>[
             new Positioned(
-                bottom: currentHeight,
-                child: new Container(
-                  color: Colors.blue,
-                  height: 200.0,
-                  width: MediaQuery.of(context).size.width,
-                  child: new Center(
+              bottom: currentHeight,
+              child: new Container(
+                color: Colors.blue,
+                height: 200.0,
+                width: MediaQuery.of(context).size.width,
+                child: new Center(
                     child: new Text(
-                      'aaa',
-                      style: new TextStyle(
-                        color: Colors.red,
-                        fontSize: 28.0,
-                      ),
-                    )),
+                  'aaa',
+                  style: new TextStyle(
+                    color: Colors.red,
+                    fontSize: 28.0,
                   ),
-                ),
+                )),
+              ),
+            ),
           ],
         ),
       ),

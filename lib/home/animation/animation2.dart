@@ -8,8 +8,7 @@ class AnimatePage2 extends StatefulWidget {
   _AnimatePage2State createState() => _AnimatePage2State();
 }
 
-class _AnimatePage2State extends State<AnimatePage2>
-    with SingleTickerProviderStateMixin{
+class _AnimatePage2State extends State<AnimatePage2> with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
 //  Ticker _ticker;
@@ -17,18 +16,17 @@ class _AnimatePage2State extends State<AnimatePage2>
   @override
   void initState() {
     super.initState();
-    _controller =
-    AnimationController(duration:  new Duration(milliseconds: 1000),vsync: this, lowerBound: -1.0, upperBound: 1.0)
+    _controller = AnimationController(duration: new Duration(milliseconds: 1000), vsync: this, lowerBound: -1.0, upperBound: 1.0)
       ..addListener(() {
 //        print('addListener');
-        setState(() {
-        });
+        setState(() {});
       })
       ..addStatusListener((state) {
 //        print('state = $state');
-        if (AnimationStatus.completed == state){
+        print('TickerMode = ${TickerMode.of(context)}');
+        if (AnimationStatus.completed == state) {
           _controller.reverse();
-        } else if (AnimationStatus.dismissed == state){
+        } else if (AnimationStatus.dismissed == state) {
           _controller.forward();
         }
       });
