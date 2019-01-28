@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:gbk2utf8/gbk2utf8.dart' as gbk2utf8;
 
 // 有问题的
 //const String text1 = 'We\'re going to visit Paris.';
@@ -18,8 +21,24 @@ class BaseTextWidthPage extends StatefulWidget {
 }
 
 class _BaseTextWidthPageState extends State<BaseTextWidthPage> {
+  void _testGBK() {
+    String test1 = 'We\'re going to visit Paris.';
+    var test1Buffer = latin1.encode(test1);
+    print('test1Buffer = $test1Buffer');
+    var test2 = gbk2utf8.decodeGbk(test1Buffer);
+    print('test2 = $test2');
+    try {
+      var test2Buffer = latin1.encode(test2);
+      print('test2Buffer = $test2Buffer');
+    } catch (e) {
+      print('excep = $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    _testGBK();
+
     var textStyle = new TextStyle(
       fontSize: 20.0,
       fontWeight: FontWeight.bold,

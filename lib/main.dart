@@ -4,34 +4,17 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:hello/config/router_config.dart';
 import 'package:hello/global.dart';
-import 'package:hello/home/base/fitText/baseText.dart';
 import 'package:hello/home/base/objectdbPage.dart';
 import 'package:hello/utils/route.dart';
 import './components/custom_navigator_observe.dart';
 import 'home/logic/config_temp.dart' as config;
 import 'package:hello/home/logic/config_temp.dart' as config2;
-import 'package:gbk2utf8/gbk2utf8.dart' as gbk2utf8;
 
 Brightness curBright = Brightness.light;
-
-void _testGBK() {
-  String test1 = 'We\'re going to visit Paris.';
-  var test1Buffer = latin1.encode(test1);
-  print('test1Buffer = $test1Buffer');
-  var test2 = gbk2utf8.decodeGbk(test1Buffer);
-  print('test2 = $test2');
-  try {
-    var test2Buffer = latin1.encode(test2);
-    print('test2Buffer = $test2Buffer');
-  } catch (e) {
-    print('excep = $e');
-  }
-}
 
 void main() {
   var _isProduct = bool.fromEnvironment("dart.vm.product");
   print('_isProduct = $_isProduct');
-  _testGBK();
 //  print('_isDartStreamEnabled = $_isDartStreamEnabled');
 
   runZoned(() => runApp(MyApp()), onError: (Object obj, StackTrace stack) {
