@@ -36,6 +36,7 @@ import 'package:hello/home/combine/pop_drag_view.dart';
 import 'package:hello/home/combine/popview.dart';
 import 'package:hello/home/combine/video_demo.dart';
 import 'package:hello/home/logic/import_test.dart';
+import 'package:hello/home/logic/inheritedWidget_test.dart';
 
 import 'package:hello/utils/route.dart';
 
@@ -84,6 +85,7 @@ List<dynamic> _globalRouters = [
   ]),
   MyRouterList(name: 'logics', lists: [
     MyRouter(name: 'importTestPage', widget: new ImportTestPage()),
+    MyRouter(name: 'InheritedWidgetTest', widget: new InheritedWidgetTest()),
   ]),
   MyRouterList(name: 'others', lists: []),
 ];
