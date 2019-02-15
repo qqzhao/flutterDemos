@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
-const String text1 = 'We\'re going to visit Paris.';
-const String text2 = 'We are going to visit Paris.';
-const String text3 = 'We are goingeee to visit Paris.';
+// 有问题的
+//const String text1 = 'We\'re going to visit Paris.';
+//const String text2 = 'We are going to visit Paris.';
+//const String text3 = 'We are goingeee to visit Paris.';
+//const String text4 = 'this congratulations test.';
+
+// 空格是好的
+const String text1 = 'We\'re going to visit Paris.';
+const String text2 = 'We are going to visit Paris.';
+const String text3 = 'We are goingeee to visit Paris.';
 const String text4 = 'this congratulations test.';
 
 class BaseTextWidthPage extends StatefulWidget {
