@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:hello/config/router_config.dart';
 import 'package:hello/global.dart';
+import 'package:hello/home/base/fitText/baseText.dart';
 import 'package:hello/home/base/objectdbPage.dart';
 import 'package:hello/utils/route.dart';
 import './components/custom_navigator_observe.dart';
