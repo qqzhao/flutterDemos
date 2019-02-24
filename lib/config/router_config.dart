@@ -6,7 +6,6 @@ import 'package:hello/home/animation/animation5.dart';
 import 'package:hello/home/animation/animation6.dart';
 import 'package:hello/home/animation/animation7.dart';
 import 'package:hello/home/base/fitText/baseText.dart';
-
 import 'package:hello/home/base/fitText/caculate_size.dart';
 import 'package:hello/home/base/fitText/fitBox.dart';
 import 'package:hello/home/base/fitText/fittedBox.dart';
@@ -24,6 +23,7 @@ import 'package:hello/home/base/refresh_indicator.dart';
 import 'package:hello/home/base/rotate_test_page.dart';
 import 'package:hello/home/base/scroll_view/custom_scroll_view.dart';
 import 'package:hello/home/base/scroll_view/list_view_1.dart';
+import 'package:hello/home/base/scroll_view/list_view_2.dart';
 import 'package:hello/home/base/scroll_view/nested_scroll_view.dart';
 import 'package:hello/home/base/scroll_view/nested_scroll_view2.dart';
 import 'package:hello/home/base/test_mutex_page.dart';
@@ -37,7 +37,7 @@ import 'package:hello/home/combine/popview.dart';
 import 'package:hello/home/combine/video_demo.dart';
 import 'package:hello/home/logic/import_test.dart';
 import 'package:hello/home/logic/inheritedWidget_test.dart';
-
+import 'package:hello/home/logic/size_notification.dart';
 import 'package:hello/utils/route.dart';
 
 List<dynamic> _globalRouters = [
@@ -61,6 +61,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'Rotate', routeName: '/base/rotat1', widget: new TestRotatePage()),
     MyRouter(name: 'Overflow', routeName: '/base/overflowBox', widget: new OverFlowBoxPage()),
     MyRouter(name: 'scroll/listview1', routeName: '/base/scroll/listview1', widget: new TestListView1()),
+    MyRouter(name: 'scroll/listview2', routeName: '/base/scroll/listview2', widget: new TestListView2()),
     MyRouter(name: 'scroll/customScrollview', routeName: '/base/scroll/customScrollview', widget: new TestCustomScrollView()),
     MyRouter(name: 'scroll/nestedScrollview', routeName: '/base/scroll/nestedScrollview', widget: new TestNestScrollViewDemo()),
     MyRouter(name: 'scroll/nestedScrollview2', routeName: '/base/scroll/nestedScrollview2', widget: new TestNestScrollViewDemo2()),
@@ -86,6 +87,7 @@ List<dynamic> _globalRouters = [
   MyRouterList(name: 'logics', lists: [
     MyRouter(name: 'importTestPage', widget: new ImportTestPage()),
     MyRouter(name: 'InheritedWidgetTest', widget: new InheritedWidgetTest()),
+    MyRouter(name: 'SizeChangedNotification', widget: new SizeChangedLayoutNotification()),
   ]),
   MyRouterList(name: 'others', lists: []),
 ];
