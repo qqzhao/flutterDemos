@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
               .map(
                 (path) => SvgPicture.asset(
                       path,
-                      width: 300.0,
+                      width: 130.0,
                       fit: BoxFit.contain,
                     ),
               )
