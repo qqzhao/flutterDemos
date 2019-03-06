@@ -38,6 +38,7 @@ import 'package:hello/home/combine/video_demo.dart';
 import 'package:hello/home/logic/import_test.dart';
 import 'package:hello/home/logic/inheritedWidget_test.dart';
 import 'package:hello/home/logic/size_notification.dart';
+import 'package:hello/home/logic/test_navBack.dart';
 import 'package:hello/utils/route.dart';
 
 List<dynamic> _globalRouters = [
@@ -88,6 +89,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'importTestPage', widget: new ImportTestPage()),
     MyRouter(name: 'InheritedWidgetTest', widget: new InheritedWidgetTest()),
     MyRouter(name: 'SizeChangedNotification', widget: new SizeChangedLayoutNotification()),
+    MyRouter(name: 'TestNavBackPage', widget: new TestNavBackPage()),
   ]),
   MyRouterList(name: 'others', lists: []),
 ];
