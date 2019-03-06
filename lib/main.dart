@@ -1,15 +1,14 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:hello/config/router_config.dart';
 import 'package:hello/global.dart';
-import 'package:hello/home/base/fitText/baseText.dart';
 import 'package:hello/home/base/objectdbPage.dart';
+import 'package:hello/home/logic/config_temp.dart' as config2;
 import 'package:hello/utils/route.dart';
+
 import './components/custom_navigator_observe.dart';
 import 'home/logic/config_temp.dart' as config;
-import 'package:hello/home/logic/config_temp.dart' as config2;
 
 Brightness curBright = Brightness.light;
 
@@ -50,7 +49,7 @@ class MyApp extends StatelessWidget {
         brightness: curBright,
         primaryColorBrightness: curBright,
         accentColorBrightness: curBright,
-        fontFamily: 'PingFang SC',
+        fontFamily: 'rokkittFamily', //PingFang SC
       ),
       home: new RouterPage(
         routerList: globalRouters,

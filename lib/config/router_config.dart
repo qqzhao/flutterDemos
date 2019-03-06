@@ -9,6 +9,7 @@ import 'package:hello/home/base/fitText/baseText.dart';
 import 'package:hello/home/base/fitText/caculate_size.dart';
 import 'package:hello/home/base/fitText/fitBox.dart';
 import 'package:hello/home/base/fitText/fittedBox.dart';
+import 'package:hello/home/base/fitText/text_font_family.dart';
 import 'package:hello/home/base/fractionally_sized_box.dart';
 import 'package:hello/home/base/future_builder.dart';
 import 'package:hello/home/base/future_test_page.dart';
@@ -55,6 +56,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'fixText/FitBoxPage', routeName: '/base/fixText/FitBoxPage', widget: new FitBoxPage()),
     MyRouter(name: 'fixText/FittedBoxPage', routeName: '/base/fixText/FittedBoxPage', widget: new FittedBoxPage()),
     MyRouter(name: 'fixText/BaseTextWidthPage', routeName: '/base/fixText/baseText', widget: new BaseTextWidthPage()),
+    MyRouter(name: 'fixText/TextFontFamilyPage', routeName: '/base/fixText/FittedBoxPage', widget: new TextFontFamilyPage()),
     MyRouter(name: 'TickerTestPage', routeName: '/base/tickerpage', widget: new TickerTestPage()),
     MyRouter(name: 'FutureTestPage', routeName: '/base/futureTest', widget: new FutureTestPage()),
     MyRouter(name: 'MixinTestPage', routeName: '/base/mixinpage', widget: new MixinTestPage()),
@@ -94,4 +96,4 @@ List<dynamic> _globalRouters = [
   MyRouterList(name: 'others', lists: []),
 ];
 
-var globalRouters = new MyRouterList(lists: _globalRouters, name: 'flutter测试'); //表示
+var globalRouters = new MyRouterList(lists: _globalRouters, name: 'flutter测试123'); //表示
