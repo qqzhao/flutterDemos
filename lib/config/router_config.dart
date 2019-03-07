@@ -27,6 +27,7 @@ import 'package:hello/home/base/scroll_view/list_view_1.dart';
 import 'package:hello/home/base/scroll_view/list_view_2.dart';
 import 'package:hello/home/base/scroll_view/nested_scroll_view.dart';
 import 'package:hello/home/base/scroll_view/nested_scroll_view2.dart';
+import 'package:hello/home/base/test_box.dart';
 import 'package:hello/home/base/test_mutex_page.dart';
 import 'package:hello/home/base/textfield.dart';
 import 'package:hello/home/base/ticker.dart';
@@ -47,6 +48,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'layoutBuild', routeName: '/base/layoutBuild', widget: new LayoutBuildTestPage()),
     MyRouter(name: 'TestField', routeName: '/base/textfield', widget: new TextFieldPage()),
     MyRouter(name: 'ListView1', routeName: '/base/listview1', widget: new ListViewPage1()),
+    MyRouter(name: 'BoxTestPage', routeName: '/base/listview1', widget: new BoxTestPage()),
     MyRouter(name: 'Future Build', routeName: '/base/flutter_build', widget: new FutureBuildPage()),
     MyRouter(name: 'Refresh Indicator', routeName: '/base/refresh_indicator', widget: new RefreshIndicatorPage()),
     MyRouter(name: 'FractionallySizedBox', routeName: '/base/fractional_sizebox', widget: new FractionallBoxPage()),
