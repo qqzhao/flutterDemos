@@ -25,7 +25,7 @@ class _BaseTextWidthPageState extends State<BaseTextWidthPage> {
     String test1 = 'We\'re going to visit Paris.';
     var test1Buffer = latin1.encode(test1);
     print('test1Buffer = $test1Buffer');
-    var test2 = gbk2utf8.decodeGbk(test1Buffer);
+    var test2 = gbk2utf8.gbk.decode(test1Buffer);
     print('test2 = $test2');
     try {
       var test2Buffer = latin1.encode(test2);
