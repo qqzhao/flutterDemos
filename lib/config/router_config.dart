@@ -27,6 +27,7 @@ import 'package:hello/home/base/scroll_view/list_view_1.dart';
 import 'package:hello/home/base/scroll_view/list_view_2.dart';
 import 'package:hello/home/base/scroll_view/nested_scroll_view.dart';
 import 'package:hello/home/base/scroll_view/nested_scroll_view2.dart';
+import 'package:hello/home/base/scroll_view/overflow_page.dart';
 import 'package:hello/home/base/test_box.dart';
 import 'package:hello/home/base/test_mutex_page.dart';
 import 'package:hello/home/base/textfield.dart';
@@ -71,6 +72,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'scroll/nestedScrollview', routeName: '/base/scroll/nestedScrollview', widget: new TestNestScrollViewDemo()),
     MyRouter(name: 'scroll/nestedScrollview2', routeName: '/base/scroll/nestedScrollview2', widget: new TestNestScrollViewDemo2()),
     MyRouter(name: 'image/imageProvider', routeName: '/base/image/imageProvider', widget: new ImageProviderPage()),
+    MyRouter(name: 'overflow', routeName: '/base/overflow', widget: new TestOverflowPage()),
   ]),
   MyRouterList(name: 'Animation', lists: [
     MyRouter(name: 'animation', widget: new AnimationPage()),
