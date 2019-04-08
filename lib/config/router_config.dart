@@ -5,6 +5,7 @@ import 'package:hello/home/animation/animation4.dart';
 import 'package:hello/home/animation/animation5.dart';
 import 'package:hello/home/animation/animation6.dart';
 import 'package:hello/home/animation/animation7.dart';
+import 'package:hello/home/animation/two_widget.dart';
 import 'package:hello/home/base/fitText/baseText.dart';
 import 'package:hello/home/base/fitText/caculate_size.dart';
 import 'package:hello/home/base/fitText/fitBox.dart';
@@ -37,6 +38,8 @@ import 'package:hello/home/combine/loading.dart';
 import 'package:hello/home/combine/pop_drag_view.dart';
 import 'package:hello/home/combine/popview.dart';
 import 'package:hello/home/combine/video_demo.dart';
+import 'package:hello/home/logic/backdrop_filter.dart';
+import 'package:hello/home/logic/capture_image.dart';
 import 'package:hello/home/logic/import_test.dart';
 import 'package:hello/home/logic/inheritedWidget_test.dart';
 import 'package:hello/home/logic/size_notification.dart';
@@ -80,6 +83,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'animation5', widget: new AnimatePage5()),
     MyRouter(name: 'animation6', widget: new AnimatePage6()),
     MyRouter(name: 'animation7', widget: new AnimatePage7()),
+    MyRouter(name: 'TestTwoWidgetAnimationPage', widget: new TestTwoWidgetAnimationPage()),
   ]),
   MyRouterList(name: 'Combine', lists: [
     MyRouter(name: 'Dialog', widget: new DialogPage()),
@@ -93,6 +97,8 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'importTestPage', widget: new ImportTestPage()),
     MyRouter(name: 'InheritedWidgetTest', widget: new InheritedWidgetTest()),
     MyRouter(name: 'SizeChangedNotification', widget: new SizeChangedLayoutNotification()),
+    MyRouter(name: 'TestCaptureImage', widget: new TestCaptureImage()),
+    MyRouter(name: 'TestBackdropFilterPage', widget: new TestBackdropFilterPage()),
     MyRouter(name: 'TestNavBackPage', widget: new TestNavBackPage()),
   ]),
   MyRouterList(name: 'others', lists: []),

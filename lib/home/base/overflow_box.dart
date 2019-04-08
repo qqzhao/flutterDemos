@@ -47,6 +47,7 @@ class OverFlowBoxPage extends StatelessWidget {
                 width: 50.0,
                 color: Colors.amber,
               ),
+              SizedBox(),
               new Container(
                 width: 50.0,
                 color: Colors.black12,
@@ -113,7 +114,7 @@ class OverFlowBoxPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('text overflow'),
       ),
-      body: _getTest3(),
+      body: _getTest1(),
     );
   }
 }

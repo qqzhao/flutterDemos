@@ -25,6 +25,7 @@ dependencies:
   video_player:
     path: 'plugins/video_player'
   gbk2utf8:
+  image:
 #  exportable: "^0.1.0"
 
 dev_dependencies:
