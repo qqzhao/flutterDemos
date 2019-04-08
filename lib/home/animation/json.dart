@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello/utils/serializable.dart';
+//import 'package:hello/utils/serializable.dart';
 //import 'package:exportable/exportable.dart';
 
 //class FooTest extends Object with Exportable {
@@ -7,7 +7,6 @@ import 'package:hello/utils/serializable.dart';
 //}
 //
 class JsonTestPage extends StatelessWidget {
-
 //  _test(){
 //    FooTest foo = new Exportable(FooTest);
 //    // The same as

@@ -1,0 +1,21 @@
+linter:
+  rules:
+    #- file_names
+
+analyzer:
+  errors:
+    deprecated_member_use: ignore
+    #unused_import: ignore
+    override_on_non_overriding_method: ignore
+    unused_element: ignore
+    dead_code: ignore
+    must_be_immutable: ignore
+    unused_local_variable: ignore
+    unused_field: ignore
+
+    library_names: warning
+
+  # 排除的文件和目录
+  exclude:
+  - plugins/**
+  - examples/**

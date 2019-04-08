@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../components/popview.dart';
-
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'dart:async';
+
+import '../../components/popview.dart';
 
 String selectedUrl = "https://flutter.io";
 const kAndroidUserAgent =
@@ -14,17 +13,15 @@ class PopViewPage extends StatefulWidget {
 }
 
 class _PopViewPageState extends State<PopViewPage> {
-
-
   @override
   Widget build(BuildContext context) {
     return new Material(
       child: new Center(
         child: new GestureDetector(
-          onTap: () async{
+          onTap: () async {
             print('123494390');
             var child = new GestureDetector(
-              onTap:(){
+              onTap: () {
                 print('aaa');
               },
               child: new Container(

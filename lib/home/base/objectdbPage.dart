@@ -4,12 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:objectdb/objectdb.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-import 'dart:async';
 
 bool forOnce = false;
-class ObjectdbTestPage extends StatelessWidget {
 
-  void _testDB() async{
+class ObjectdbTestPage extends StatelessWidget {
+  void _testDB() async {
     print('enter _testDB');
 //    final path = Directory.current.path + '/my.db';
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
@@ -55,7 +54,7 @@ class ObjectdbTestPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (!forOnce){
+    if (!forOnce) {
       forOnce = true;
       _testDB();
     }

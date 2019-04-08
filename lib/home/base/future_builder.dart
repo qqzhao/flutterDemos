@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
-import 'dart:io';
+
+import 'package:flutter/material.dart';
 
 class FutureBuildPage2 extends StatelessWidget {
   @override
@@ -29,23 +29,23 @@ class FutureBuildPage2 extends StatelessWidget {
         ),
         body: new Column(
           children: <Widget>[
-            new FlatButton(onPressed: () async{
-              print('refresh...');
-              _caculateText2();
-            }, child: new Container(
-              child: Text('Refresh'),
-              decoration: new BoxDecoration(
-                border: new Border.all(
-                  color: Colors.purple,
-                  width: 1.0,
-                )
-              ),
-            )),
+            new FlatButton(
+                onPressed: () async {
+                  print('refresh...');
+                  _caculateText2();
+                },
+                child: new Container(
+                  child: Text('Refresh'),
+                  decoration: new BoxDecoration(
+                      border: new Border.all(
+                    color: Colors.purple,
+                    width: 1.0,
+                  )),
+                )),
             new Container(
               child: new FutureBuilder<String>(
                   future: _caculateText2(),
-                  builder:
-                      (BuildContext context, AsyncSnapshot<String> snapshot) {
+                  builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
                     Text text = const Text('loading');
                     if (snapshot.connectionState == ConnectionState.done) {
                       if (snapshot.hasError) {
@@ -56,8 +56,7 @@ class FutureBuildPage2 extends StatelessWidget {
                         text = const Text('path unavailable');
                       }
                     }
-                    return new Padding(
-                        padding: const EdgeInsets.all(16.0), child: text);
+                    return new Padding(padding: const EdgeInsets.all(16.0), child: text);
                   }),
             ),
           ],
@@ -98,7 +97,8 @@ class _FutureBuildPageState extends State<FutureBuildPage> {
 
     Future<Null> _loadData() async {
 //      await _caculateText2();
-      setState(() { // 这里setStatus就可以刷新。
+      setState(() {
+        // 这里setStatus就可以刷新。
       });
 //      await _caculateText2();
     }
@@ -109,23 +109,23 @@ class _FutureBuildPageState extends State<FutureBuildPage> {
         ),
         body: new Column(
           children: <Widget>[
-            new FlatButton(onPressed: () async{
-              print('refresh...');
-              _loadData();
-            }, child: new Container(
-              child: Text('Refresh'),
-              decoration: new BoxDecoration(
-                  border: new Border.all(
+            new FlatButton(
+                onPressed: () async {
+                  print('refresh...');
+                  _loadData();
+                },
+                child: new Container(
+                  child: Text('Refresh'),
+                  decoration: new BoxDecoration(
+                      border: new Border.all(
                     color: Colors.purple,
                     width: 1.0,
-                  )
-              ),
-            )),
+                  )),
+                )),
             new Container(
               child: new FutureBuilder<String>(
                   future: _caculateText2(),
-                  builder:
-                      (BuildContext context, AsyncSnapshot<String> snapshot) {
+                  builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
                     Text text = const Text('loading');
                     if (snapshot.connectionState == ConnectionState.done) {
                       if (snapshot.hasError) {
@@ -136,12 +136,10 @@ class _FutureBuildPageState extends State<FutureBuildPage> {
                         text = const Text('path unavailable');
                       }
                     }
-                    return new Padding(
-                        padding: const EdgeInsets.all(16.0), child: text);
+                    return new Padding(padding: const EdgeInsets.all(16.0), child: text);
                   }),
             ),
           ],
         ));
   }
 }
-
