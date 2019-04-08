@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello/components/toast.dart';
 
 class MyRouter {
   MyRouter({
@@ -75,6 +76,16 @@ class RouterPage extends StatelessWidget {
               );
             }),
       ),
+      floatingActionButton: FlatButton.icon(
+          onPressed: () {
+            print('test icon');
+            Toast.show(context, 'aaa');
+          },
+          icon: Icon(
+            Icons.event,
+            color: Colors.blue,
+          ),
+          label: Text('event button')),
     );
   }
 }
