@@ -9,6 +9,37 @@ bool needShowSpeak = true;
 bool openTimer = false;
 bool openTitleAnimation = true;
 
+class FlareAnimationWidget extends StatelessWidget {
+  final int index;
+  FlareAnimationWidget({this.index = -1});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        children: <Widget>[
+          Container(
+            height: 220.0,
+            width: 30.0,
+            child: needShowSpeak
+                ? FlareActor(
+                    "assets/flrs/speaker.flr",
+                    alignment: Alignment.center,
+                    fit: BoxFit.contain,
+                    color: Color(0xFF000000),
+                    animation: false ? 'playing' : 'normal',
+                    callback: (String str) {
+                      print('callback str = $str');
+                    },
+                  )
+                : Container(),
+          ),
+          Text('title: $index'),
+        ],
+      ),
+    );
+  }
+}
+
 class TestCustomPainterInListView extends StatefulWidget {
   @override
   _TestCustomPainterInListViewState createState() => _TestCustomPainterInListViewState();
@@ -49,26 +80,42 @@ class _TestCustomPainterInListViewState extends State<TestCustomPainterInListVie
   @override
   void dispose() {
     timer?.cancel();
-    animationController.dispose();
+    animationController?.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    bool titleAnimation = false;
+    var textWidget = Container(
+      padding: new EdgeInsets.only(left: (animationController?.value ?? 0) * 180.0),
+      child: Text('test custom painter :$testCount'),
+    );
     return Scaffold(
       appBar: AppBar(
-        title: Container(
-          padding: new EdgeInsets.only(left: animationController.value * 180.0),
-          child: Text('test custom painter :$testCount'),
-        ),
+        title: titleAnimation ? textWidget : Container(),
       ),
-      body: TestRepaintBoundaryWidget(),
+      body: Column(
+        children: <Widget>[
+          titleAnimation ? Container() : textWidget,
+          Expanded(
+            child: TestWidgetOther(),
+          ),
+        ],
+      ),
       floatingActionButton: openTitleAnimation
           ? FlatButton(
               onPressed: () {
                 animationController.forward();
               },
-              child: Text('aa'))
+              child: Container(
+                color: Colors.purple,
+                width: 80.0,
+                height: 50.0,
+                child: Center(
+                  child: Text('开始动画'),
+                ),
+              ))
           : Container(),
     );
   }
@@ -84,28 +131,8 @@ class TestWidget extends StatelessWidget {
           itemBuilder: (context, index) {
             return CustomPaint(
               painter: _TestArrowBoxPainter(),
-              child: Container(
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      height: 220.0,
-                      width: 30.0,
-                      child: needShowSpeak
-                          ? FlareActor(
-                              "assets/flrs/speaker.flr",
-                              alignment: Alignment.center,
-                              fit: BoxFit.contain,
-                              color: Color(0xFF000000),
-                              animation: false ? 'playing' : 'normal',
-                              callback: (String str) {
-                                print('callback str = $str');
-                              },
-                            )
-                          : Container(),
-                    ),
-                    Text('title: $index'),
-                  ],
-                ),
+              child: FlareAnimationWidget(
+                index: index,
               ),
             );
           }),
@@ -124,28 +151,8 @@ class TestRepaintBoundaryWidget extends StatelessWidget {
             return CustomPaint(
               painter: _TestArrowBoxPainter(),
               child: RepaintBoundary(
-                child: Container(
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        height: 220.0,
-                        width: 30.0,
-                        child: needShowSpeak
-                            ? FlareActor(
-                                "assets/flrs/speaker.flr",
-                                alignment: Alignment.center,
-                                fit: BoxFit.contain,
-                                color: Color(0xFF000000),
-                                animation: false ? 'playing' : 'normal',
-                                callback: (String str) {
-                                  print('callback str = $str');
-                                },
-                              )
-                            : Container(),
-                      ),
-                      Text('title: $index'),
-                    ],
-                  ),
+                child: FlareAnimationWidget(
+                  index: index,
                 ),
               ),
             );
@@ -172,28 +179,8 @@ class TestWidgetStack extends StatelessWidget {
                     painter: _TestArrowBoxPainter(),
                   ),
                 ),
-                Container(
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        height: 220.0,
-                        width: 30.0,
-                        child: needShowSpeak
-                            ? FlareActor(
-                                "assets/flrs/speaker.flr",
-                                alignment: Alignment.center,
-                                fit: BoxFit.contain,
-                                color: Color(0xFF000000),
-                                animation: false ? 'playing' : 'normal',
-                                callback: (String str) {
-                                  print('callback str = $str');
-                                },
-                              )
-                            : Container(),
-                      ),
-                      Text('title: $index'),
-                    ],
-                  ),
+                FlareAnimationWidget(
+                  index: index,
                 ),
               ],
             );
@@ -221,28 +208,8 @@ class TestWidgetScaffold extends StatelessWidget {
                   ),
                 ),
               ),
-              body: Container(
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      height: 220.0,
-                      width: 30.0,
-                      child: needShowSpeak
-                          ? FlareActor(
-                              "assets/flrs/speaker.flr",
-                              alignment: Alignment.center,
-                              fit: BoxFit.contain,
-                              color: Color(0xFF000000),
-                              animation: false ? 'playing' : 'normal',
-                              callback: (String str) {
-                                print('callback str = $str');
-                              },
-                            )
-                          : Container(),
-                    ),
-                    Text('title: $index'),
-                  ],
-                ),
+              body: FlareAnimationWidget(
+                index: index,
               ),
             );
           }),
@@ -254,46 +221,26 @@ class TestWidgetScaffold extends StatelessWidget {
 class TestWidgetOther extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('TestWidgetStack build...');
+    print('TestWidgetOther build...');
     return Container(
       child: ListView.builder(
           itemCount: 3,
           itemBuilder: (context, index) {
-            var widget1 = Container(
-              height: 220.0,
-              width: 30.0,
-              child: CustomPaint(
-                painter: _TestArrowBoxPainter(),
-              ),
-            );
-            var widget2 = Row(
-              children: <Widget>[
-                Container(
-                  height: 220.0,
-                  width: 30.0,
-                  child: needShowSpeak
-                      ? FlareActor(
-                          "assets/flrs/speaker.flr",
-                          alignment: Alignment.center,
-                          fit: BoxFit.contain,
-                          color: Color(0xFF000000),
-                          animation: false ? 'playing' : 'normal',
-                          callback: (String str) {
-                            print('callback str = $str');
-                          },
-                        )
-                      : Container(),
-                ),
-                Text('title: $index'),
-              ],
-            );
             return Stack(
               children: <Widget>[
                 RepaintBoundary(
-                  child: widget1,
+                  child: Container(
+                    height: 220.0,
+                    width: 30.0,
+                    child: CustomPaint(
+                      painter: _TestArrowBoxPainter(),
+                    ),
+                  ),
                 ),
                 RepaintBoundary(
-                  child: widget2,
+                  child: FlareAnimationWidget(
+                    index: index,
+                  ),
                 )
               ],
             );
