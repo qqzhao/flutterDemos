@@ -1,3 +1,4 @@
+import 'package:hello/components/test_custom_painter.dart';
 import 'package:hello/home/animation/animation.dart';
 import 'package:hello/home/animation/animation2.dart';
 import 'package:hello/home/animation/animation3.dart';
@@ -94,6 +95,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'Loading', widget: new LoadingPage()), //VideoDemo
     MyRouter(name: 'VideoDemo', widget: new VideoDemo()),
     MyRouter(name: 'BottomSheet', widget: new BottomSheetPage()),
+    MyRouter(name: 'TestCustomPainterInListView', widget: new TestCustomPainterInListView()),
   ]),
   MyRouterList(name: 'logics', lists: [
     MyRouter(name: 'importTestPage', widget: new ImportTestPage()),

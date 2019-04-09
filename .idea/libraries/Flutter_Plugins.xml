@@ -3,9 +3,9 @@
     <CLASSES>
       <root url="file://$PROJECT_DIR$/plugins/video_player" />
       <root url="file://$PROJECT_DIR$/plugins/flutter_webview_plugin" />
-      <root url="file://$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider-0.4.1" />
-      <root url="file://$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/device_info-0.2.0" />
-      <root url="file://$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/connectivity-0.3.0" />
+      <root url="file://$USER_HOME$/Library/qqzhao/flutter/.pub-cache/hosted/pub.dartlang.org/device_info-0.2.0" />
+      <root url="file://$USER_HOME$/Library/qqzhao/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity-0.3.0" />
+      <root url="file://$USER_HOME$/Library/qqzhao/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-0.4.1" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
