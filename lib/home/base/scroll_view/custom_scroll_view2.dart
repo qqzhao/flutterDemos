@@ -140,6 +140,14 @@ class _CustomScrollViewTest2State extends State<CustomScrollViewTest2> {
                     _selectCell(index: index, level: 2);
                   },
                 ),
+                SliverToBoxAdapter(
+                  child: Container(
+                    height: 100.0,
+                    color: Colors.blue,
+                    width: double.infinity,
+                    child: Text('other'),
+                  ),
+                )
               ],
             ),
           ),
