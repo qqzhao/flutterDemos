@@ -33,6 +33,7 @@ import 'package:hello/home/base/scroll_view/nested_scroll_view2.dart';
 import 'package:hello/home/base/scroll_view/overflow_page.dart';
 import 'package:hello/home/base/test_box.dart';
 import 'package:hello/home/base/test_mutex_page.dart';
+import 'package:hello/home/base/test_render_box.dart';
 import 'package:hello/home/base/textfield.dart';
 import 'package:hello/home/base/ticker.dart';
 import 'package:hello/home/combine/bottomSheet.dart';
@@ -52,6 +53,7 @@ import 'package:hello/utils/route.dart';
 List<dynamic> _globalRouters = [
   MyRouterList(name: 'Base', lists: [
     MyRouter(name: 'layoutBuild', routeName: '/base/layoutBuild', widget: LayoutBuildTestPage()),
+    MyRouter(name: 'TestRenderBoxPage', routeName: '/base/layoutBuild', widget: TestRenderBoxPage()),
     MyRouter(name: 'TestField', routeName: '/base/textfield', widget: TextFieldPage()),
     MyRouter(name: 'ListView1', routeName: '/base/listview1', widget: ListViewPage1()),
     MyRouter(name: 'BoxTestPage', routeName: '/base/listview1', widget: BoxTestPage()),
