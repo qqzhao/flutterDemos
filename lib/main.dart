@@ -6,6 +6,7 @@ import 'package:hello/global.dart';
 import 'package:hello/home/base/objectdbPage.dart';
 import 'package:hello/home/logic/config_temp.dart' as config2;
 import 'package:hello/utils/route.dart';
+import 'package:oktoast/oktoast.dart';
 
 import './components/custom_navigator_observe.dart';
 import 'home/logic/config_temp.dart' as config;
@@ -36,28 +37,33 @@ class MyApp extends StatelessWidget {
     // light: 电池条显示黑色（默认）
     Brightness curBright = Brightness.light;
 
-    return new MaterialApp(
-      title: 'Flutter demo1',
-      navigatorObservers: <NavigatorObserver>[new CustomNavObserver()],
-      theme: new ThemeData(
+    return OKToast(
+      textStyle: TextStyle(fontSize: 22.0, color: Colors.white),
+      backgroundColor: Colors.grey,
+      radius: 10.0,
+      child: MaterialApp(
+        title: 'Flutter demo1',
+        navigatorObservers: <NavigatorObserver>[new CustomNavObserver()],
+        theme: new ThemeData(
 //        primarySwatch: Colors.blue,
-        // NavBar 背景的颜色
+          // NavBar 背景的颜色
 //        primaryColor: Colors.red,
 //        accentColor: Colors.blue,
-        primaryColorLight: Colors.green,
+          primaryColorLight: Colors.green,
 
-        brightness: curBright,
-        primaryColorBrightness: curBright,
-        accentColorBrightness: curBright,
-        fontFamily: 'rokkittFamily', //PingFang SC
+          brightness: curBright,
+          primaryColorBrightness: curBright,
+          accentColorBrightness: curBright,
+          fontFamily: 'rokkittFamily', //PingFang SC
+        ),
+        home: new RouterPage(
+          routerList: globalRouters,
+        ),
+        navigatorKey: globalKey,
+        routes: {
+          '/base/objectpage': (BuildContext context) => new ObjectdbTestPage(),
+        },
       ),
-      home: new RouterPage(
-        routerList: globalRouters,
-      ),
-      navigatorKey: globalKey,
-      routes: {
-        '/base/objectpage': (BuildContext context) => new ObjectdbTestPage(),
-      },
     );
   }
 }

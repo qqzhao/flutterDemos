@@ -20,6 +20,8 @@ dependencies:
   flare_flutter: ^1.3.4
   connectivity: '0.3.0'
   device_info: '0.2.0'
+  oktoast:
+  permission_handler:
   flutter_gallery_assets:
   flutter_webview_plugin:
     path: 'plugins/flutter_webview_plugin'

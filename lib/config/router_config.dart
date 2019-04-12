@@ -38,6 +38,7 @@ import 'package:hello/home/base/textfield.dart';
 import 'package:hello/home/base/ticker.dart';
 import 'package:hello/home/combine/bottomSheet.dart';
 import 'package:hello/home/combine/dialog.dart';
+import 'package:hello/home/combine/draw_panel/draw_panel_page.dart';
 import 'package:hello/home/combine/loading.dart';
 import 'package:hello/home/combine/pop_drag_view.dart';
 import 'package:hello/home/combine/popview.dart';
@@ -100,6 +101,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'VideoDemo', widget: VideoDemo()),
     MyRouter(name: 'BottomSheet', widget: BottomSheetPage()),
     MyRouter(name: 'TestCustomPainterInListView', widget: TestCustomPainterInListView()),
+    MyRouter(name: 'DrawPanelPage', widget: DrawPanelPage()),
   ]),
   MyRouterList(name: 'logics', lists: [
     MyRouter(name: 'importTestPage', widget: ImportTestPage()),
