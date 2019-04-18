@@ -1,0 +1,21 @@
+PODS:
+  - App (1.0.0)
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - App (from `Frameworks/App`)
+  - Flutter (from `Frameworks/engine`)
+
+EXTERNAL SOURCES:
+  App:
+    :path: Frameworks/App
+  Flutter:
+    :path: Frameworks/engine
+
+SPEC CHECKSUMS:
+  App: be4800968ae6d28be74eb6f31003595ee996ce0f
+  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+
+PODFILE CHECKSUM: 12c2ea30679f68c7f9ef945c435eb67b92ded82c
+
+COCOAPODS: 1.6.1
