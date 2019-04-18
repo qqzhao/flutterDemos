@@ -14,17 +14,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FlutterPluginRegistrant.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TestTwo.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-TestTwoTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-TestTwoUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

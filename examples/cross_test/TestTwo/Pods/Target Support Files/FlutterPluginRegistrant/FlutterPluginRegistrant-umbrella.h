@@ -10,7 +10,8 @@
 #endif
 #endif
 
+#import "GeneratedPluginRegistrant.h"
 
-FOUNDATION_EXPORT double Pods_TestTwoTestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_TestTwoTestsVersionString[];
+FOUNDATION_EXPORT double FlutterPluginRegistrantVersionNumber;
+FOUNDATION_EXPORT const unsigned char FlutterPluginRegistrantVersionString[];
 

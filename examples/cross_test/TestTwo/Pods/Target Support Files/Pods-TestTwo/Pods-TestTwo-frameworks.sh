@@ -155,10 +155,12 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${PODS_ROOT}/../Frameworks/App/App.framework"
   install_framework "${PODS_ROOT}/../Frameworks/engine/Flutter.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FlutterPluginRegistrant/FlutterPluginRegistrant.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${PODS_ROOT}/../Frameworks/App/App.framework"
   install_framework "${PODS_ROOT}/../Frameworks/engine/Flutter.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FlutterPluginRegistrant/FlutterPluginRegistrant.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

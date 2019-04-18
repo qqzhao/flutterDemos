@@ -5,18 +5,9 @@ target 'TestTwo' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
+  # 需要移出测试工程，否则这里会报错。
   pod 'Flutter', :path => 'Frameworks/engine'
   pod 'App', :path => 'Frameworks/App'
-  #pod 'FlutterPluginRegistrant', :path => 'Frameworks/FlutterPluginRegistrant'
-
-  target 'TestTwoTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'TestTwoUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
+  pod 'FlutterPluginRegistrant', :path => 'Frameworks/FlutterPluginRegistrant'
+  #pod 'TXBeacon', :git => 'https://github.com/qqzhao/QZPodingLibs.git'
 end

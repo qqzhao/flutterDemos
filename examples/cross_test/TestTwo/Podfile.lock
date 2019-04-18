@@ -1,21 +1,27 @@
 PODS:
   - App (1.0.0)
   - Flutter (1.0.0)
+  - FlutterPluginRegistrant (0.0.1):
+    - Flutter
 
 DEPENDENCIES:
   - App (from `Frameworks/App`)
   - Flutter (from `Frameworks/engine`)
+  - FlutterPluginRegistrant (from `Frameworks/FlutterPluginRegistrant`)
 
 EXTERNAL SOURCES:
   App:
     :path: Frameworks/App
   Flutter:
     :path: Frameworks/engine
+  FlutterPluginRegistrant:
+    :path: Frameworks/FlutterPluginRegistrant
 
 SPEC CHECKSUMS:
   App: be4800968ae6d28be74eb6f31003595ee996ce0f
   Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+  FlutterPluginRegistrant: 3f4d45b679eb21eb53e786e8884a26157555ce9f
 
-PODFILE CHECKSUM: 12c2ea30679f68c7f9ef945c435eb67b92ded82c
+PODFILE CHECKSUM: 8f909b36f9e67961e5f8cc13d888f6e74c0e791c
 
 COCOAPODS: 1.6.1
