@@ -29,6 +29,9 @@ dependencies:
     path: 'plugins/video_player'
   gbk2utf8:
   image:
+  webview_flutter:
+  platform_view_test:
+    path: 'plugins/platform_view_test'
 #  exportable: "^0.1.0"
 
 dev_dependencies:

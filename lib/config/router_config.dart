@@ -36,6 +36,7 @@ import 'package:hello/home/base/test_mutex_page.dart';
 import 'package:hello/home/base/test_render_box.dart';
 import 'package:hello/home/base/textfield.dart';
 import 'package:hello/home/base/ticker.dart';
+import 'package:hello/home/base/webview_flutter.dart';
 import 'package:hello/home/combine/bottomSheet.dart';
 import 'package:hello/home/combine/dialog.dart';
 import 'package:hello/home/combine/draw_panel/draw_panel_page.dart';
@@ -49,11 +50,14 @@ import 'package:hello/home/logic/import_test.dart';
 import 'package:hello/home/logic/inheritedWidget_test.dart';
 import 'package:hello/home/logic/size_notification.dart';
 import 'package:hello/home/logic/test_navBack.dart';
+import 'package:hello/home/platform_view_test.dart';
 import 'package:hello/utils/route.dart';
 
 List<dynamic> _globalRouters = [
   MyRouterList(name: 'Base', lists: [
     MyRouter(name: 'layoutBuild', routeName: '/base/layoutBuild', widget: LayoutBuildTestPage()),
+    MyRouter(name: 'WebViewFlutterTestPage', routeName: '/base/layoutBuild', widget: WebViewFlutterTestPage()),
+    MyRouter(name: 'PlatformViewTestPage', routeName: '/base/layoutBuild', widget: PlatformViewTestPage()),
     MyRouter(name: 'TestRenderBoxPage', routeName: '/base/layoutBuild', widget: TestRenderBoxPage()),
     MyRouter(name: 'TestField', routeName: '/base/textfield', widget: TextFieldPage()),
     MyRouter(name: 'ListView1', routeName: '/base/listview1', widget: ListViewPage1()),

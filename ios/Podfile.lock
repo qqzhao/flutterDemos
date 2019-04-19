@@ -11,8 +11,12 @@ PODS:
     - Flutter
   - permission_handler (3.0.0):
     - Flutter
+  - platform_view_test (0.0.1):
+    - Flutter
   - Reachability (3.2)
   - video_player (0.0.1):
+    - Flutter
+  - webview_flutter (0.0.1):
     - Flutter
 
 DEPENDENCIES:
@@ -22,7 +26,9 @@ DEPENDENCIES:
   - flutter_webview_plugin (from `.symlinks/plugins/flutter_webview_plugin/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
+  - platform_view_test (from `.symlinks/plugins/platform_view_test/ios`)
   - video_player (from `.symlinks/plugins/video_player/ios`)
+  - webview_flutter (from `.symlinks/plugins/webview_flutter/ios`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -41,8 +47,12 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/path_provider/ios"
   permission_handler:
     :path: ".symlinks/plugins/permission_handler/ios"
+  platform_view_test:
+    :path: ".symlinks/plugins/platform_view_test/ios"
   video_player:
     :path: ".symlinks/plugins/video_player/ios"
+  webview_flutter:
+    :path: ".symlinks/plugins/webview_flutter/ios"
 
 SPEC CHECKSUMS:
   connectivity: c72716e202a1225ec4810740d5cb56b8ae3bf4cc
@@ -51,8 +61,10 @@ SPEC CHECKSUMS:
   flutter_webview_plugin: ed9e8a6a96baf0c867e90e1bce2673913eeac694
   path_provider: f96fff6166a8867510d2c25fdcc346327cc4b259
   permission_handler: 047f11d44db785922214783da5f7a3cc8874c843
+  platform_view_test: 05e2c8b86621c60f2d6f0c8ed4982bf351b4af0e
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   video_player: 3964090a33353060ed7f58aa6427c7b4b208ec21
+  webview_flutter: 1aa7604e6cdb451a9b7ed2c37d5454c0b440246b
 
 PODFILE CHECKSUM: 1e5af4103afd21ca5ead147d7b81d06f494f51a2
 
