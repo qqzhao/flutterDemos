@@ -51,6 +51,8 @@ import 'package:hello/home/logic/backdrop_filter.dart';
 import 'package:hello/home/logic/capture_image.dart';
 import 'package:hello/home/logic/import_test.dart';
 import 'package:hello/home/logic/inheritedWidget_test.dart';
+import 'package:hello/home/logic/lifecycle/first_page.dart';
+import 'package:hello/home/logic/lifecycle/second_page.dart';
 import 'package:hello/home/logic/size_notification.dart';
 import 'package:hello/home/logic/test_navBack.dart';
 import 'package:hello/home/platform_view_test.dart';
@@ -123,6 +125,10 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'DrawPanelPage', widget: DrawPanelPage()),
   ]),
   MyRouterList(name: 'logics', lists: [
+    MyRouterList(name: 'lifecycle', lists: [
+      MyRouter(name: 'firstTestPage', widget: FirstTestPage()),
+      MyRouter(name: 'secondTestPage', widget: SecondTestPage()),
+    ]),
     MyRouter(name: 'importTestPage', widget: ImportTestPage()),
     MyRouter(name: 'InheritedWidgetTest', widget: InheritedWidgetTest()),
     MyRouter(name: 'SizeChangedNotification', widget: SizeChangedLayoutNotification()),
