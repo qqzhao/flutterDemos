@@ -34,6 +34,7 @@ import 'package:hello/home/base/scroll_view/nested_scroll_view2.dart';
 import 'package:hello/home/base/scroll_view/overflow_page.dart';
 import 'package:hello/home/base/scroll_view/slives/sliver_app_bar.dart';
 import 'package:hello/home/base/scroll_view/slives/sliver_fill_viewport.dart';
+import 'package:hello/home/base/scroll_view/slives/sliver_persistent_header.dart';
 import 'package:hello/home/base/scroll_view/slives/sliver_prototype_extent_list.dart';
 import 'package:hello/home/base/test_box.dart';
 import 'package:hello/home/base/test_mutex_page.dart';
@@ -66,7 +67,7 @@ List<dynamic> _globalRouters = [
         MyRouter(name: 'SliverProtoTypeExtentListPage', routeName: 'SliverProtoTypeExtentListPage', widget: SliverProtoTypeExtentListPage()),
         MyRouter(name: 'SliverFillViewportPage', routeName: 'SliverFillViewportPage', widget: SliverFillViewportPage()),
         MyRouter(name: 'SliverAppBarPage', routeName: 'SliverAppBarPage', widget: SliverAppBarPage()),
-        MyRouter(name: 'SliverFillViewportPage', routeName: 'SliverFillViewportPage', widget: SliverFillViewportPage()),
+        MyRouter(name: 'SliverPersistentHeaderPage', routeName: 'SliverPersistentHeaderPage', widget: SliverPersistentHeaderPage()),
         MyRouter(name: 'SliverFillViewportPage', routeName: 'SliverFillViewportPage', widget: SliverFillViewportPage()),
         MyRouter(name: 'SliverFillViewportPage', routeName: 'SliverFillViewportPage', widget: SliverFillViewportPage()),
       ]),
