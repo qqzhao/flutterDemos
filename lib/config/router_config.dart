@@ -12,6 +12,7 @@ import 'package:hello/home/base/fitText/caculate_size.dart';
 import 'package:hello/home/base/fitText/fitBox.dart';
 import 'package:hello/home/base/fitText/fittedBox.dart';
 import 'package:hello/home/base/fitText/text_font_family.dart';
+import 'package:hello/home/base/fitText/wisdom_fit_text.dart';
 import 'package:hello/home/base/fractionally_sized_box.dart';
 import 'package:hello/home/base/future_builder.dart';
 import 'package:hello/home/base/future_test_page.dart';
@@ -78,7 +79,8 @@ List<dynamic> _globalRouters = [
       MyRouter(name: 'ListView1', routeName: '/base/scroll/listview1', widget: ListViewPage1()),
     ]),
     MyRouterList(name: 'fixText', lists: [
-      MyRouter(name: 'CaculatePage', routeName: '/base/fixText/caculate_page', widget: CaculatePage()),
+      MyRouter(name: 'WisdomFitTextPage', routeName: '/base/fixText/WisdomFitTextPage', widget: WisdomFitTextPage()),
+      MyRouter(name: 'CaculatePage', routeName: '/base/fixText/caculate_page', widget: CalculatePage()),
       MyRouter(name: 'FitBoxPage', routeName: '/base/fixText/FitBoxPage', widget: FitBoxPage()),
       MyRouter(name: 'FittedBoxPage', routeName: '/base/fixText/FittedBoxPage', widget: FittedBoxPage()),
       MyRouter(name: 'BaseTextWidthPage', routeName: '/base/fixText/baseText', widget: BaseTextWidthPage()),

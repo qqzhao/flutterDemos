@@ -3,54 +3,61 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
-class CaculatePage extends StatefulWidget {
+class CalculatePage extends StatefulWidget {
   @override
-  _CaculatePageState createState() => _CaculatePageState();
+  _CalculatePageState createState() => _CalculatePageState();
 }
 
-class _CaculatePageState extends State<CaculatePage> {
-  final controller = new ScrollController();
+class _CalculatePageState extends State<CalculatePage> {
+  final controller = ScrollController();
   OverlayEntry sticky;
-  GlobalKey stickyKey = new GlobalKey();
+  GlobalKey stickyKey = GlobalKey();
   Timer myTimer;
 
-  String testString = '111 jfdal ljdf lasjflkas jfdlkajflksdajflkasjfksjalfkjsalkfjsakl \n fkjdsaljfalkjf asjkfdjaslfj a';
+  String testString = 'hello world. this is a long sentence. Please waiting for a moment.';
   double testHeight = 30.0;
+  int appendIndex = 0;
 
   @override
   void initState() {
     if (sticky != null) {
       sticky.remove();
     }
-    sticky = new OverlayEntry(
-        opaque: false,
-        // lambda created to help working with hot-reload
-//      builder: (context) => stickyBuilder(context),
-        builder: (context) {
-          return new Center(
-            child: new Container(
-              width: 100.0,
-              height: 100.0,
-              child: new Text('aaa'),
+
+    /// 初始化OverlayEntry实体， 覆盖到顶层。这里没用。
+    sticky = OverlayEntry(
+      opaque: false,
+      builder: (context) {
+        return Center(
+          child: Opacity(
+            opacity: 0.2,
+            child: Material(
+              child: Text('这是水印,~~~'),
             ),
-          );
-        });
+          ),
+        );
+      },
+    );
 
-    // not possible insite initState
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      print('addPostFrameCallback callback');
-      Overlay.of(context).insert(sticky);
+    /// not possible inside initState
+    /// 帧回调后，将上面的overlay实体插入到构建树中
+    SchedulerBinding.instance.addPostFrameCallback(
+      (_) {
+        print('addPostFrameCallback callback');
+        Overlay.of(context).insert(sticky);
 
-      final keyContext = stickyKey.currentContext;
-      if (keyContext != null) {
-        final RenderBox box = keyContext.findRenderObject();
-        print('box size = ${box.size}');
-      }
-    });
+        final keyContext = stickyKey.currentContext;
+        if (keyContext != null) {
+          final RenderBox box = keyContext.findRenderObject();
+          print('box size = ${box.size}');
+        }
+      },
+    );
 
-    myTimer = Timer.periodic(new Duration(seconds: 2), (_) {
+    myTimer = Timer.periodic(Duration(seconds: 2), (_) {
       setState(() {
-        testString = testString + '22';
+        testString = testString + 'append index = $appendIndex;';
+        appendIndex++;
       });
     });
 
@@ -67,95 +74,64 @@ class _CaculatePageState extends State<CaculatePage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new ListView.builder(
+    return Scaffold(
+      body: ListView.builder(
         controller: controller,
         itemBuilder: (context, index) {
           if (index == 6) {
-//            return new Container(
-//              key: stickyKey,
-//              height: 100.0,
-//              color: Colors.green,
-//              child: new Text("I'm fat: $testString"),
-//            );
-            return new CaculateBox(
+            return CalculateBox(
               callback: (Size size) {
                 print('xxx size = $size');
                 setState(() {
                   testHeight = size.height;
                 });
               },
-              child: new Container(
+              child: Container(
 //                height: 200.0,
                 height: testHeight + 40.0,
-                child: new Text('$testString'),
+                child: Text('$testString'),
               ),
             );
           } else if (index == 7) {
-            return new Container(
+            return Container(
               alignment: Alignment.center,
               color: Colors.red,
               height: testHeight + 40.0,
-              child: new Text('$testString'),
+              child: Text('$testString'),
             );
           }
-          return new ListTile(
-            title: new Text('Hello $index'),
+          return ListTile(
+            title: Text('Hello $index'),
           );
         },
       ),
     );
   }
-
-//  Widget stickyBuilder(BuildContext context) {
-//    return new AnimatedBuilder(
-//      animation: controller,
-//      builder: (_, child) {
-//        final keyContext = stickyKey.currentContext;
-//        if (keyContext != null) {
-//          // widget is visible
-//          final RenderBox box = keyContext.findRenderObject();
-//          final pos = box.localToGlobal(Offset.zero);
-//          return new Positioned(
-//            top: pos.dy + box.size.height,
-//            left: 50.0,
-//            right: 50.0,
-//            height: box.size.height,
-//            child: new Material(
-//              child: new Container(
-//                alignment: Alignment.center,
-//                color: Colors.purple,
-//                child: new Text("^ Nah I think you're Okey"),
-//              ),
-//            ),
-//          );
-//        }
-//        return new Offstage();
-//      },
-//    );
-//  }
 }
 
 typedef FrameCallback = void Function(Size size);
 
-/// 问题： addPostFrameCallback 回调机制。只会调用一次。
-class CaculateBox extends StatefulWidget {
-  CaculateBox({this.child, this.callback});
+/// 希望通过CalculateBox，计算出高度。可以在其他地方使用。
+/// 但是 addPostFrameCallback 回调机制。只会调用一次。
+/// 所以，不能动态变化。
+/// 如果只是修改一次，倒是可以满足，但是没有必要。
+class CalculateBox extends StatefulWidget {
+  CalculateBox({this.child, this.callback});
 
   final Widget child;
   FrameCallback callback;
 
   @override
-  _CaculateBoxState createState() => _CaculateBoxState();
+  _CalculateBoxState createState() => _CalculateBoxState();
 }
 
-class _CaculateBoxState extends State<CaculateBox> {
-  GlobalKey caculateKey = new GlobalKey();
+class _CalculateBoxState extends State<CalculateBox> {
+  GlobalKey calculateKey = GlobalKey();
 
   @override
   void initState() {
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      final keyContext = caculateKey.currentContext;
+      final keyContext = calculateKey.currentContext;
       if (keyContext != null) {
         final RenderBox box = keyContext.findRenderObject();
         print('box size = ${box.size}');
@@ -172,14 +148,9 @@ class _CaculateBoxState extends State<CaculateBox> {
   }
 
   @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
-      key: caculateKey,
+      key: calculateKey,
       child: widget.child,
     );
   }

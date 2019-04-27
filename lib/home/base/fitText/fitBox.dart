@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hello/utils/TextSizeCal.dart';
 
+/// MyFlex 中是传入的宽高，可以使用自定义的宽高。
+/// 文本变化的时候，调用 `didUpdateWidget`.
 class FitBoxPage extends StatefulWidget {
   @override
   _ContainerWidgetState createState() => new _ContainerWidgetState();
 }
 
 class _ContainerWidgetState extends State<FitBoxPage> {
-  String text = 'dfak dfsaj';
+  String text = 'init string, ';
   @override
   Widget build(BuildContext context) {
     Widget container = new Column(
@@ -17,7 +19,7 @@ class _ContainerWidgetState extends State<FitBoxPage> {
         new RaisedButton(
           onPressed: () {
             print("button clicked: $text");
-            String newText = text + 'hello world';
+            String newText = text + 'hello world，';
             setState(() {
               text = newText;
             });
@@ -96,7 +98,7 @@ class _MyFlexState extends State<MyFlex> {
   }
 
   void _calculateAndSetFontSize() async {
-    double retFontSize = await TextSize.caculateFontSize(new Size(widget.width, widget.height), widget.showText);
+    double retFontSize = await TextSize.calculateFontSize(new Size(widget.width, widget.height), widget.showText);
     if (retFontSize != myFontSize) {
       setState(() {
         myFontSize = retFontSize;

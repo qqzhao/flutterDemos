@@ -1,17 +1,23 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+
 class TextSize {
-  static double maxFontSize = 80.0;
-  static double minFontSize = 8.0;
+  static double maxFontSize = 40.0;
+  static double minFontSize = 20.0;
   static double stepSize = 2.0;
 
-  static Future<double> caculateFontSize(Size size, String text) {
-    double value = _caculateFontSize(size, text);
+  static Future<double> calculateFontSize(Size size, String text) {
+    double value = _calculateFontSize(size, text);
     return Future.value(value);
   }
 
-  static double _caculateFontSize(Size size, String text) {
+  static double calculateFontSizeSync(Size size, String text) {
+    double value = _calculateFontSize(size, text);
+    return value;
+  }
+
+  static double _calculateFontSize(Size size, String text) {
     assert(size.width >= 30.0);
     assert(size.height >= 10.0);
     assert(text.length >= 0);
