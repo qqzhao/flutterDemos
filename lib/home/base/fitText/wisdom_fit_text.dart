@@ -87,10 +87,10 @@ class __FitTextBoxState extends State<_FitTextBox> {
     print('needCenter = $_needCenter');
     _layoutReady = true;
 
-//    Future.delayed(Duration(milliseconds: 0), () {
-//      setState(() {});
-//    });
-    setState(() {});
+    Future.delayed(Duration(milliseconds: 0), () {
+      setState(() {});
+    });
+//    setState(() {});
   }
 
   @override
