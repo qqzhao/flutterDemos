@@ -53,7 +53,7 @@ import 'package:hello/home/logic/backdrop_filter.dart';
 import 'package:hello/home/logic/capture_image.dart';
 import 'package:hello/home/logic/import_test.dart';
 import 'package:hello/home/logic/inheritedWidget_test.dart';
-import 'package:hello/home/logic/json_parse.dart';
+import 'package:hello/home/logic/json_parse/json_parse.dart';
 import 'package:hello/home/logic/lifecycle/first_page.dart';
 import 'package:hello/home/logic/lifecycle/second_page.dart';
 import 'package:hello/home/logic/size_notification.dart';
