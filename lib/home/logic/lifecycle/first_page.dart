@@ -66,6 +66,17 @@ class _FirstTestPageState extends State<FirstTestPage> {
   void initState() {
     super.initState();
     _log('initState');
+    Timer.periodic(Duration(seconds: 3), (_) {
+      print('contextInsecond = $contextInSecond');
+      Element ele = contextInSecond;
+//      assert(contextInSecond == stateInSecond.context, 'exception aaa');
+      if (stateInSecond != null && stateInSecond.mounted) {
+        print('contextInsecond2 = ${MediaQuery.of(contextInSecond).size.height}');
+        print('contextInsecond3 = ${contextInSecond.size}');
+      } else {
+        print('stateInSecond.mounted is false');
+      }
+    });
   }
 }
 
