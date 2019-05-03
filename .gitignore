@@ -6,6 +6,8 @@
 
 build/
 
+.idea/libraries/
+
 .flutter-plugins
 
 pubspec.lock
