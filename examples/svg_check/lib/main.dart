@@ -1,6 +1,8 @@
+import 'dart:io';
+
+import 'package:common_tools/common_tools.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:svg_check/config.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter SVG Demo Page'),
     );
   }
 }
@@ -27,8 +29,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  void _tap() {
-    print('tap clicked');
+  List<String> paths = [];
+
+  initState() {
+    super.initState();
+    initSync();
+  }
+
+  void initSync() async {
+    var dirStr = await CommonTools.getAssetPathPrefix('assets/svgs/test_1.svg');
+    print('dirStr = $dirStr');
+
+    var readDirPath = '$dirStr' + 'assets/svgs/';
+    Directory directory = Directory(readDirPath);
+    var pathList = directory.listSync(recursive: false);
+    print('pathList = $pathList');
+    setState(() {
+      paths = pathList.map((item) => item.path).toList();
+    });
   }
 
   @override
@@ -38,22 +56,21 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: ListView(
-          children: SvgPathConfig.paths
-              .map(
-                (path) => SvgPicture.asset(
-                      path,
-                      width: 130.0,
-                      fit: BoxFit.contain,
-                    ),
-              )
-              .toList(),
+        child: GridView.count(
+          crossAxisCount: 2,
+          children: paths.map(
+            (path) {
+              return Container(
+                color: Colors.red[100],
+                child: SvgPicture.asset(
+                  path,
+//                  width: 130.0,
+                  fit: BoxFit.fitWidth,
+                ),
+              );
+            },
+          ).toList(),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _tap,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
     );
   }
