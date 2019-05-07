@@ -2,7 +2,8 @@ import 'dart:io';
 
 import 'package:common_tools/common_tools.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:svg_check/svg_show.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,24 +30,46 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<String> paths = [];
+  List<FileSystemEntity> items = [];
 
   initState() {
     super.initState();
-    initSync();
+//    initSync();
+    initItems();
   }
 
-  void initSync() async {
-    var dirStr = await CommonTools.getAssetPathPrefix('assets/svgs/test_1.svg');
-    print('dirStr = $dirStr');
+  void didUpdateWidget(Widget oldWidget) {
+    initItems();
+    super.didUpdateWidget(oldWidget);
+  }
 
+  void initItems() async {
+    Directory directory = await getApplicationDocumentsDirectory();
+
+    /// 增加文件共享
+    var list = directory.listSync(recursive: true);
+    items.clear();
+    int index = 0;
+    for (FileSystemEntity entity in list) {
+      if (entity is Directory) {
+        items.add(entity);
+      }
+    }
+
+    /// 增加本地asset资源
+    var dirStr = await CommonTools.getAssetPathPrefix('assets/svgs/test.svg');
+    print('dirStr = $dirStr');
     var readDirPath = '$dirStr' + 'assets/svgs/';
-    Directory directory = Directory(readDirPath);
-    var pathList = directory.listSync(recursive: false);
-    print('pathList = $pathList');
-    setState(() {
-      paths = pathList.map((item) => item.path).toList();
-    });
+    Directory directory2 = Directory(readDirPath);
+    print('directory2 = $directory2');
+    var list2 = directory2.listSync(recursive: true);
+    for (FileSystemEntity entity in list2) {
+      if (entity is Directory) {
+        items.add(entity);
+      }
+    }
+
+    setState(() {});
   }
 
   @override
@@ -56,21 +79,35 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: GridView.count(
-          crossAxisCount: 2,
-          children: paths.map(
-            (path) {
-              return Container(
-                color: Colors.red[100],
-                child: SvgPicture.asset(
-                  path,
-//                  width: 130.0,
-                  fit: BoxFit.fitWidth,
+        child: ListView.separated(
+            itemBuilder: (context, index) {
+              FileSystemEntity item = items[index];
+              return FlatButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                    return SvgShowPage(
+                      path: item.path,
+                      isLocal: false,
+                      isAsset: false,
+                    );
+                  }));
+                },
+                child: Container(
+                  height: 100.0,
+                  child: Center(
+                    child: Text('$index :${item.path}'),
+                  ),
+                  color: Colors.red[100],
                 ),
               );
             },
-          ).toList(),
-        ),
+            separatorBuilder: (context, index) {
+              return Container(
+                height: 2.0,
+                color: Colors.blue,
+              );
+            },
+            itemCount: items.length),
       ),
     );
   }

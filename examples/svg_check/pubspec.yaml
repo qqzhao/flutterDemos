@@ -20,6 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  path_provider: ^0.5.0+1
   common_tools:
     git:
        url: "https://github.com/wonderful89/flutter_plugin_util.git"
@@ -27,7 +28,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  flutter_svg: 0.10.4
+  flutter_svg: 0.12.0
   #flutter_svg: 0.8.3
 
 dev_dependencies:
@@ -52,6 +53,8 @@ flutter:
   #  - images/a_dot_ham.jpeg
   # svg image
   - assets/svgs/
+  - assets/svgs/group/
+  - assets/svgs/test/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
