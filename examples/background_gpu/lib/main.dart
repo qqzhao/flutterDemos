@@ -39,11 +39,15 @@ void main() {
 //        ),
 //      );
 
+//      child2 = BackGroundHandleWidget(
+//        child: child2,
+//      );
+
       var child = MaterialApp(
         title: 'Title2',
         home: Scaffold(
           appBar: AppBar(
-            title: Text('113'),
+            title: Text('114'),
           ),
           body: child2,
         ),
