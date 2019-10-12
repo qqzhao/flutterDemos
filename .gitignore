@@ -3,10 +3,12 @@
 
 .packages
 .pub/
+log.txt
 
 build/
 
-.idea/libraries/
+flutter_export_environment.sh
+.idea
 
 .flutter-plugins
 
