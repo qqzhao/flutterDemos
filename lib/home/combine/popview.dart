@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 import '../../components/popview.dart';
 
@@ -25,14 +24,14 @@ class _PopViewPageState extends State<PopViewPage> {
                 print('aaa');
               },
               child: new Container(
-                child: new WebviewScaffold(
-                  url: selectedUrl,
-                  appBar: new AppBar(
-                    title: new Text("Widget webview"),
-                  ),
-                  withZoom: true,
-                  withLocalStorage: true,
-                ),
+//                child: new WebviewScaffold(
+//                  url: selectedUrl,
+//                  appBar: new AppBar(
+//                    title: new Text("Widget webview"),
+//                  ),
+//                  withZoom: true,
+//                  withLocalStorage: true,
+//                ),
                 width: MediaQuery.of(context).size.width,
                 height: 150.0,
                 color: Colors.blue,
