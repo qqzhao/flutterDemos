@@ -58,6 +58,7 @@ import 'package:hello/home/logic/lifecycle/first_page.dart';
 import 'package:hello/home/logic/lifecycle/second_page.dart';
 import 'package:hello/home/logic/size_notification.dart';
 import 'package:hello/home/logic/test_navBack.dart';
+import 'package:hello/home/logic/upload_file_page.dart';
 import 'package:hello/home/platform_view_test.dart';
 import 'package:hello/utils/route.dart';
 
@@ -140,6 +141,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'TestBackdropFilterPage', widget: TestBackdropFilterPage()),
     MyRouter(name: 'TestNavBackPage', widget: TestNavBackPage()),
     MyRouter(name: 'JsonParsePage', widget: JsonParsePage()),
+    MyRouter(name: 'UploadFilePage', widget: UploadFilePage()),
   ]),
   MyRouterList(name: 'others', lists: []),
 ];
