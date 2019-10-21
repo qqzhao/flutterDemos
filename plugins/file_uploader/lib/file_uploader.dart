@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_uploader/flutter_uploader.dart';
 import 'package:uuid/uuid.dart';
 
 import 'http_upload.dart';
@@ -12,13 +13,16 @@ import 'task.dart';
 import 'zip.dart';
 
 var uuid = new Uuid();
+var connect = Connectivity();
+bool enableLog = false;
 
-FileUploaderConfig defaultConfig = FileUploaderConfig(url: 'http://localhost:3000/uploadFiles', archived: true);
+FileUploaderConfig defaultConfig = FileUploaderConfig(url: 'https://localhost:3000', archived: true, onWifiUse: true);
 
 class FileUploaderConfig {
   final String url;
   final bool archived; // 是否压缩
-  FileUploaderConfig({this.url, this.archived});
+  final bool onWifiUse; // 只在wifi下上传
+  FileUploaderConfig({this.url, this.archived, this.onWifiUse});
 }
 
 void test() async {
@@ -34,19 +38,22 @@ void test() async {
   print('item = ${items}');
 }
 
+FileUploaderConfig _config = defaultConfig; // 环境配置
+Map<String, String> commonHeaders;
+Map<String, String> commonFields;
+
 void _innerPrint(str) {
-  print('$str');
+  if (enableLog) {
+    print('$str');
+  }
 }
 
 class FileUploader {
   static const MethodChannel _channel = const MethodChannel('file_uploader');
 
   /// 全局uploader对象
-  static var _uploader = FlutterUploader();
+//  static var _uploader = FlutterUploader();
   static var _taskSession = UploadTaskSession();
-
-  /// 配置对象
-  static FileUploaderConfig _config = defaultConfig;
 
   static Future<String> get platformVersion async {
     final String version = await _channel.invokeMethod('getPlatformVersion');
@@ -56,64 +63,40 @@ class FileUploader {
   static init({FileUploaderConfig conf}) {
     _config = conf ?? defaultConfig;
     UploadTaskProvider.open();
-    configResult();
-  }
 
-  static configResult() async {
-    _uploader.result.listen((rsp) {
-      print('rsp = ${rsp.statusCode}');
-      _taskSession.removeTask(rsp.taskId);
+    /// 开启循环
+    Timer(Duration(seconds: 10), () {
+      _taskSession.addTask(null);
     });
+//    configResult();
   }
 
-  static Future<String> enqueue(List filePaths) async {
-//    test();
-//    return '';
+//  static configResult() async {
+//    _uploader.result.listen((rsp) {
+//      print('rsp = ${rsp.statusCode}');
+//      _taskSession.removeTask(rsp.taskId);
+//    });
+//  }
+
+  static Future<String> enqueue(List<String> filePaths, {Map<String, dynamic> headers = const {}, Map<String, String> fields = const {}}) async {
+    Map<String, String> temps = {};
+    headers.forEach((str, value) {
+      temps.putIfAbsent(str, () => value.toString());
+    });
+    commonHeaders = temps;
+    commonFields = fields;
     var taskId = uuid.v4();
     _taskSession.addTask(UploadTaskItem(taskId: taskId, data: jsonEncode(filePaths)));
     return '';
   }
 
-  static Future<UploadResponse> executeTask(List filePaths) async {
-    _innerPrint('executeTask: ${filePaths}');
-    if (_config.archived != null && _config.archived) {
-      var filePath = await zipEncoder(filePaths);
-      if (filePath != null) {
-        filePaths = [filePath];
-      }
-    }
-
-    var files = [];
-//    if (filePaths is List && filePaths.length > 0) {
-//      files = filePaths.map((filePath) {
-//        List arr = filePath.split('/');
-//        String filename = arr.last;
-//        String savedDir = filePath.substring(0, filePath.length - filename.length);
-//        return FileItem(filename: filename, savedDir: savedDir, fieldname: "file");
-//      }).toList();
-//    }
-
-//    final taskId = await _uploader.enqueue(
-//        url: _config.url,
-//        files: files,
-//        method: UploadMethod.POST,
-//        // HTTP method  (POST or PUT or PATCH)
-//        headers: {"apikey": "api_123456", "userkey": "userkey_123456"},
-//        data: {"name": "john"},
-//        showNotification: false,
-//        tag: "upload 1"); // unique tag for upload task
-//    print('taskId = $taskId');
-    var res = await uploadFile(_config.url, filePaths, fields: {'channel': 'test', 'test': '222'});
-    return res;
-  }
-
-  static Future<void> cancel({String taskId}) async {
-    await _uploader.cancel(taskId: taskId);
-  }
-
-  static Future<void> cancelAll() async {
-    await _uploader.cancelAll();
-  }
+//  static Future<void> cancel({String taskId}) async {
+//    await _uploader.cancel(taskId: taskId);
+//  }
+//
+//  static Future<void> cancelAll() async {
+//    await _uploader.cancelAll();
+//  }
 }
 
 /// 上传任务的任务管理
@@ -129,7 +112,7 @@ class UploadTaskSession extends TaskSession<UploadTaskItem> {
   }
 
   void addTask(UploadTaskItem item) async {
-    _innerPrint('addTask: ${item.taskId}');
+    _innerPrint('addTask: ${item?.taskId}');
     await UploadTaskProvider.insert(item);
     await doLoop();
   }
@@ -148,11 +131,15 @@ class UploadTaskSession extends TaskSession<UploadTaskItem> {
         print('item0 = ${item0}');
         try {
           List filePaths = jsonDecode(item0.data);
-
 //          var uploadRsp = await FileUploader.executeTask(filePaths);
-          var uploadRsp = await compute(FileUploader.executeTask, filePaths);
+          bool isWifi = await connect.checkConnectivity() == ConnectivityResult.wifi;
+          var uploadRsp = await compute(
+              executeTask, UploadParamsStruct(filePaths: filePaths, config: _config, headers: commonHeaders, fields: commonFields, isWifi: isWifi));
           if (uploadRsp.errCode == 0) {
             await removeTask(item0.taskId);
+          } else {
+            /// 错误延时.
+            await Future.delayed(Duration(seconds: 20));
           }
         } catch (e) {
           print('getNextTask $e');
@@ -162,4 +149,58 @@ class UploadTaskSession extends TaskSession<UploadTaskItem> {
     };
     return task;
   }
+}
+
+/// isolate 中执行的函数
+Future<UploadResponse> executeTask(UploadParamsStruct params) async {
+  var onlyWifi = params.config.onWifiUse ?? true;
+//  var connect = Connectivity();
+  if (onlyWifi && !params.isWifi) {
+    _innerPrint('file upload onlyWifi, but current env != wifi');
+    await Future.delayed(Duration(seconds: 20));
+    return UploadResponse(errCode: -11);
+  }
+
+  final config = params.config;
+  var filePaths = params.filePaths;
+  _innerPrint('executeTask: ${params.filePaths}');
+  var userId = 'unknown';
+  if (params.fields != null && params.fields['userId'] is String) {
+    userId = params.fields['userId'];
+  }
+
+  var now = DateTime.now();
+  var timeStr = '${now.hour}_${now.minute}_${now.second}_${now.millisecondsSinceEpoch}';
+  var newPath = '${Directory.systemTemp.path}/${userId}_${timeStr}.zip';
+  if (config.archived != null && config.archived) {
+    var filePath = await zipEncoder(params.filePaths);
+    if (filePath != null) {
+      // 这里重命名文件
+      var file = File(filePath);
+      file.rename(newPath);
+      filePaths = [newPath];
+    }
+  }
+
+  var res = await uploadFile(params.config.url, filePaths, fields: params.fields, headers: params.headers);
+  try {
+    if (config.archived && res.errCode == 0 && await File(newPath).existsSync()) {
+      File(newPath).deleteSync(recursive: true);
+    }
+  } catch (e) {
+    print('delete upload file: $e');
+  }
+
+  return res;
+}
+
+/// 执行任务的参数结构体。因为不同的 isolate 不能共享参数。
+class UploadParamsStruct {
+  final List<dynamic> filePaths;
+  final Map<String, String> headers;
+  final Map<String, String> fields;
+  final FileUploaderConfig config;
+  final bool isWifi;
+
+  UploadParamsStruct({this.filePaths, this.headers, this.fields, this.config, this.isWifi = false});
 }

@@ -4,28 +4,44 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 
+void _innerLog(str) {
+//  print('$str');
+}
+
 /// 上传问题实现方法
-Future<UploadResponse> uploadFile(String url, List filePaths, {Map<String, String> fields}) async {
+Future<UploadResponse> uploadFile(String url, List filePaths, {Map<String, String> fields, Map<String, String> headers}) async {
   var postUri = Uri.parse(url);
   var request = new http.MultipartRequest("POST", postUri);
-  request.fields.addEntries(fields.entries);
+  if (fields != null) {
+    request.fields.addEntries(fields?.entries);
+  }
+  if (headers != null) {
+    request.headers.addEntries(headers?.entries);
+  }
+
   for (int i = 0; i < filePaths.length; i++) {
     var filePath = filePaths[i];
-    var curFile = File(filePath);
     if (File(filePath).existsSync()) {
-      request.files.add(await http.MultipartFile.fromPath('file', filePath, contentType: getMediaType(filePath)));
+      request.files.add(await http.MultipartFile.fromPath('logs', filePath, contentType: getMediaType(filePath)));
     }
   }
 
-  http.StreamedResponse response = await request.send();
+  http.StreamedResponse response;
+  _innerLog('uploadFile before...${DateTime.now()}');
+  try {
+    response = await request.send();
+  } catch (e) {
+    print('uploadFile 网络发生错误：$e');
+  }
+  _innerLog('uploadFile after...${DateTime.now()}');
 
   UploadResponse retRes = UploadResponse(errCode: -1, streamedResponse: response);
-  if (response.statusCode == 200) {
+  if (response?.statusCode == 200) {
     try {
       var retStr = await response.stream.bytesToString();
       retRes.data = jsonDecode(retStr);
       retRes.errCode = 0;
-      print('uploadFile success');
+      _innerLog('uploadFile success');
     } catch (e) {
       print('uploadFile 发生错误：$e');
     }

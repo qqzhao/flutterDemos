@@ -37,14 +37,18 @@ class UploadTaskProvider {
 
   static Future<void> open() async {
     var filePath = '${Directory.systemTemp.path}/upload_file.db';
-    db = await openDatabase(filePath, version: 1, onCreate: (Database db, int version) async {});
-    print("打开Sql数据库 $filePath");
-    await db.execute('''
+    try {
+      db = await openDatabase(filePath, version: 1, onCreate: (Database db, int version) async {});
+      print("打开Sql数据库 $filePath");
+      await db.execute('''
           create table if not exists  $tableName ( 
             $columnId text, 
             $columnData text,
             PRIMARY KEY (${columnId}))
           ''');
+    } catch (e) {
+      print("打开Sql数据库 $e");
+    }
   }
 
   static Future<void> close() async {
