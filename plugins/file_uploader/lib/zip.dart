@@ -37,6 +37,6 @@ Future<String> zipEncoder(List filePaths) async {
   }
 
 //  encoder.close();
-  print('zipEncoder 成功, $zipFilePath');
+//  print('zipEncoder 成功, $zipFilePath');
   return zipFilePath;
 }

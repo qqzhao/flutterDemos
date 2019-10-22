@@ -33,6 +33,9 @@ dependencies:
 #  exportable: "^0.1.0"
 
 dev_dependencies:
+  flutter_driver:
+    sdk: flutter
+  test: any
   flutter_test:
     sdk: flutter
 

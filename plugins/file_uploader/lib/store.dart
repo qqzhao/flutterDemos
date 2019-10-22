@@ -38,6 +38,10 @@ class UploadTaskProvider {
   static Future<void> open() async {
     var filePath = '${Directory.systemTemp.path}/upload_file.db';
     try {
+//      print("尝试打开Sql数据库");
+      if (db != null) {
+        return;
+      }
       db = await openDatabase(filePath, version: 1, onCreate: (Database db, int version) async {});
       print("打开Sql数据库 $filePath");
       await db.execute('''
@@ -47,7 +51,7 @@ class UploadTaskProvider {
             PRIMARY KEY (${columnId}))
           ''');
     } catch (e) {
-      print("打开Sql数据库 $e");
+      print("打开Sql数据库异常 $e");
     }
   }
 

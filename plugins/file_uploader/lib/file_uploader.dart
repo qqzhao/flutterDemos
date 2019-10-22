@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart' show WidgetsBindingObserver, AppLifecycleState, WidgetsBinding;
 import 'package:uuid/uuid.dart';
 
 import 'http_upload.dart';
@@ -16,26 +17,13 @@ var uuid = new Uuid();
 var connect = Connectivity();
 bool enableLog = false;
 
-FileUploaderConfig defaultConfig = FileUploaderConfig(url: 'https://localhost:3000', archived: true, onWifiUse: true);
+FileUploaderConfig defaultConfig = FileUploaderConfig(url: 'http://localhost:3000/uploadFiles', archived: true, onWifiUse: true);
 
 class FileUploaderConfig {
   final String url;
   final bool archived; // 是否压缩
   final bool onWifiUse; // 只在wifi下上传
   FileUploaderConfig({this.url, this.archived, this.onWifiUse});
-}
-
-void test() async {
-  await UploadTaskProvider.insert(UploadTaskItem(taskId: 'id1', data: '1111'));
-  await UploadTaskProvider.insert(UploadTaskItem(taskId: 'id2', data: '1111'));
-  await UploadTaskProvider.insert(UploadTaskItem(taskId: 'id3', data: '3333'));
-
-  var items = await UploadTaskProvider.getItems();
-  print('item = ${items}');
-
-  await UploadTaskProvider.remove('id1');
-  items = await UploadTaskProvider.getItems(limit: 1);
-  print('item = ${items}');
 }
 
 FileUploaderConfig _config = defaultConfig; // 环境配置
@@ -53,30 +41,20 @@ class FileUploader {
 
   /// 全局uploader对象
 //  static var _uploader = FlutterUploader();
-  static var _taskSession = UploadTaskSession();
+  static var _taskSession = UploadTaskSession()..init();
 
   static Future<String> get platformVersion async {
     final String version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
 
-  static init({FileUploaderConfig conf}) {
+  static init({FileUploaderConfig conf}) async {
     _config = conf ?? defaultConfig;
-    UploadTaskProvider.open();
+    await UploadTaskProvider.open();
 
     /// 开启循环
-    Timer(Duration(seconds: 10), () {
-      _taskSession.addTask(null);
-    });
-//    configResult();
+    _taskSession.addTask(null);
   }
-
-//  static configResult() async {
-//    _uploader.result.listen((rsp) {
-//      print('rsp = ${rsp.statusCode}');
-//      _taskSession.removeTask(rsp.taskId);
-//    });
-//  }
 
   static Future<String> enqueue(List<String> filePaths, {Map<String, dynamic> headers = const {}, Map<String, String> fields = const {}}) async {
     Map<String, String> temps = {};
@@ -89,18 +67,10 @@ class FileUploader {
     _taskSession.addTask(UploadTaskItem(taskId: taskId, data: jsonEncode(filePaths)));
     return '';
   }
-
-//  static Future<void> cancel({String taskId}) async {
-//    await _uploader.cancel(taskId: taskId);
-//  }
-//
-//  static Future<void> cancelAll() async {
-//    await _uploader.cancelAll();
-//  }
 }
 
 /// 上传任务的任务管理
-class UploadTaskSession extends TaskSession<UploadTaskItem> {
+class UploadTaskSession extends TaskSession<UploadTaskItem> with WidgetsBindingObserver {
   @override
   Future<bool> taskExist() async {
     List items = await UploadTaskProvider.getItems(limit: 1);
@@ -109,6 +79,26 @@ class UploadTaskSession extends TaskSession<UploadTaskItem> {
       return true;
     }
     return false;
+  }
+
+  init() {
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+  }
+
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    _innerPrint('state = $state in file_uploader');
+    if (state == AppLifecycleState.resumed) {
+      _handleResumeHandle();
+    }
+  }
+
+  void _handleResumeHandle() async {
+    await UploadTaskProvider.open();
+    doLoop();
   }
 
   void addTask(UploadTaskItem item) async {
@@ -142,8 +132,16 @@ class UploadTaskSession extends TaskSession<UploadTaskItem> {
             await Future.delayed(Duration(seconds: 20));
           }
         } catch (e) {
-          print('getNextTask $e');
+          if (e is Exception) {
+            /// 处理 Exception: Invalid argument(s): Illegal argument in isolate message : (object is a closure - Function '<anonymous closure>':.)
+            /// 其实属于上传成功
+            /// var invalidMessagePre = 'Exception: Invalid argument(s): Illegal argument in isolate message';
+            /// if (e.toString().startsWith(invalidMessagePre)) {
+            ///  print('处理 Exception: Invalid argument(s): Illega');
+            /// }
+          }
           await removeTask(item0.taskId);
+          print('getNextTask $e');
         }
       }
     };

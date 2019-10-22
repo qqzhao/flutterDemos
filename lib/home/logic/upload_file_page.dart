@@ -56,6 +56,8 @@ Future<void> initFiles() async {
 
 Future<void> uploadFile() async {
   print('uploadFile');
-  FileUploader.enqueue([file5.path]);
+  FileUploader.enqueue(
+    [file5.path],
+  );
   FileUploader.enqueue([file1.path, file2.path]);
 }
