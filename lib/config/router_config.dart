@@ -58,6 +58,7 @@ import 'package:hello/home/logic/json_parse/json_parse.dart';
 import 'package:hello/home/logic/lifecycle/first_page.dart';
 import 'package:hello/home/logic/lifecycle/second_page.dart';
 import 'package:hello/home/logic/size_notification.dart';
+import 'package:hello/home/logic/test_map.dart';
 import 'package:hello/home/logic/test_navBack.dart';
 import 'package:hello/home/logic/upload_file_page.dart';
 import 'package:hello/home/platform_view_test.dart';
@@ -144,6 +145,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'JsonParsePage', widget: JsonParsePage()),
     MyRouter(name: 'UploadFilePage', widget: UploadFilePage()),
     MyRouter(name: 'IsolateTestPage', widget: IsolateTestPage()),
+    MyRouter(name: 'TestMapPage', widget: TestMapPage()),
   ]),
   MyRouterList(name: 'others', lists: []),
 ];
