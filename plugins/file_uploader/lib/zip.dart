@@ -40,3 +40,31 @@ Future<String> zipEncoder(List filePaths) async {
 //  print('zipEncoder 成功, $zipFilePath');
   return zipFilePath;
 }
+
+Future<String> zipEncoderDir(String dirPath) async {
+  String newDirPath = dirPath ?? '';
+  if (newDirPath.isEmpty) {
+    print('zipEncoderDir , newDirPath === null');
+    return null;
+  }
+
+  Directory dir = Directory(dirPath);
+  var zipFilePath = '${Directory.systemTemp.path}/zip_out.zip';
+
+  if (File(zipFilePath).existsSync()) {
+    File(zipFilePath).deleteSync();
+  }
+
+  if (!dir.existsSync()) {
+    print('zipEncoderDir, 目录不存在');
+    return null;
+  }
+  try {
+    var encoder = ZipFileEncoder();
+    await encoder.zipDirectory(dir, filename: zipFilePath);
+  } catch (e) {
+    print('zipEncoder 异常, $e');
+    return null;
+  }
+  return zipFilePath;
+}

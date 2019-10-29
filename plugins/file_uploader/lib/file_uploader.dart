@@ -15,6 +15,8 @@ import 'zip.dart';
 
 var uuid = new Uuid();
 var connect = Connectivity();
+
+/// log开关
 bool enableLog = false;
 
 FileUploaderConfig defaultConfig = FileUploaderConfig(url: 'http://localhost:3000/uploadFiles', archived: true, onWifiUse: true);
@@ -48,9 +50,17 @@ class FileUploader {
     return version;
   }
 
+  static String getCacheDir() {
+    return '${Directory.systemTemp.path}/cache_logs';
+  }
+
   static init({FileUploaderConfig conf}) async {
     _config = conf ?? defaultConfig;
     await UploadTaskProvider.open();
+
+    if (!Directory(getCacheDir()).existsSync()) {
+      Directory(getCacheDir()).createSync(recursive: true);
+    }
 
     /// 开启循环
     _taskSession.addTask(null);
@@ -64,7 +74,24 @@ class FileUploader {
     commonHeaders = temps;
     commonFields = fields;
     var taskId = uuid.v4();
-    _taskSession.addTask(UploadTaskItem(taskId: taskId, data: jsonEncode(filePaths)));
+    var dataStr = '{}';
+    if (_config.archived) {
+      var newDir = '${getCacheDir()}/${taskId}';
+      _innerPrint('newDir = ${newDir}');
+      if (!Directory(newDir).existsSync()) {
+        Directory(newDir).createSync(recursive: true);
+      }
+      for (var curPath in filePaths) {
+        if (File(curPath).existsSync()) {
+          var fileName = curPath.split('/').last;
+          File(curPath).copySync('${newDir}/${fileName}');
+        }
+      }
+      dataStr = TaskParamsStruct(fields: fields, dirPath: newDir, filePaths: [], archived: _config.archived ?? true).toStoreString();
+    } else {
+      dataStr = TaskParamsStruct(fields: fields, dirPath: '', filePaths: filePaths, archived: _config.archived ?? true).toStoreString();
+    }
+    _taskSession.addTask(UploadTaskItem(taskId: taskId, data: dataStr));
     return '';
   }
 }
@@ -120,11 +147,13 @@ class UploadTaskSession extends TaskSession<UploadTaskItem> with WidgetsBindingO
         var item0 = items[0];
         print('item0 = ${item0}');
         try {
-          List filePaths = jsonDecode(item0.data);
-//          var uploadRsp = await FileUploader.executeTask(filePaths);
           bool isWifi = await connect.checkConnectivity() == ConnectivityResult.wifi;
-          var uploadRsp = await compute(
-              executeTask, UploadParamsStruct(filePaths: filePaths, config: _config, headers: commonHeaders, fields: commonFields, isWifi: isWifi));
+          TaskParamsStruct paramsStruct = TaskParamsStruct.fromStoreString(item0.data);
+          paramsStruct.config = _config;
+          paramsStruct.isWifi = isWifi;
+          paramsStruct.headers = commonHeaders;
+
+          var uploadRsp = await compute(executeTask, paramsStruct);
           if (uploadRsp.errCode == 0) {
             await removeTask(item0.taskId);
           } else {
@@ -150,7 +179,7 @@ class UploadTaskSession extends TaskSession<UploadTaskItem> with WidgetsBindingO
 }
 
 /// isolate 中执行的函数
-Future<UploadResponse> executeTask(UploadParamsStruct params) async {
+Future<UploadResponse> executeTask(TaskParamsStruct params) async {
   var onlyWifi = params.config.onWifiUse ?? true;
 //  var connect = Connectivity();
   if (onlyWifi && !params.isWifi) {
@@ -168,10 +197,11 @@ Future<UploadResponse> executeTask(UploadParamsStruct params) async {
   }
 
   var now = DateTime.now();
-  var timeStr = '${now.hour}_${now.minute}_${now.second}_${now.millisecondsSinceEpoch}';
-  var newPath = '${Directory.systemTemp.path}/${userId}_${timeStr}.zip';
-  if (config.archived != null && config.archived) {
-    var filePath = await zipEncoder(params.filePaths);
+  var timeStr = '${now.hour}_${now.minute}_${now.millisecondsSinceEpoch}';
+  var platform = Platform.isIOS ? 'ios' : 'android';
+  var newPath = '${Directory.systemTemp.path}/${platform}_${userId}_${timeStr}.zip';
+  if (params.archived) {
+    var filePath = await zipEncoderDir(params.dirPath);
     if (filePath != null) {
       // 这里重命名文件
       var file = File(filePath);
@@ -182,8 +212,14 @@ Future<UploadResponse> executeTask(UploadParamsStruct params) async {
 
   var res = await uploadFile(params.config.url, filePaths, fields: params.fields, headers: params.headers);
   try {
-    if (config.archived && res.errCode == 0 && await File(newPath).existsSync()) {
-      File(newPath).deleteSync(recursive: true);
+    if (config.archived && res.errCode == 0) {
+      if (File(newPath).existsSync()) {
+        File(newPath).deleteSync(recursive: true);
+      }
+
+      if (Directory(params.dirPath).existsSync()) {
+        Directory(params.dirPath).deleteSync(recursive: true);
+      }
     }
   } catch (e) {
     print('delete upload file: $e');
@@ -193,12 +229,35 @@ Future<UploadResponse> executeTask(UploadParamsStruct params) async {
 }
 
 /// 执行任务的参数结构体。因为不同的 isolate 不能共享参数。
-class UploadParamsStruct {
-  final List<dynamic> filePaths;
-  final Map<String, String> headers;
-  final Map<String, String> fields;
-  final FileUploaderConfig config;
-  final bool isWifi;
+class TaskParamsStruct {
+  final List<dynamic> filePaths; // store
+  final String dirPath; // store
+  final Map<String, String> fields; // store
+  final bool archived;
+  Map<String, String> headers;
+  FileUploaderConfig config;
+  bool isWifi;
 
-  UploadParamsStruct({this.filePaths, this.headers, this.fields, this.config, this.isWifi = false});
+  TaskParamsStruct({this.filePaths, this.headers, this.fields, this.config, this.isWifi = false, this.dirPath, this.archived});
+
+  String toStoreString() {
+    var map = {
+      'filePaths': filePaths,
+      'dirPath': dirPath,
+      'fields': fields,
+      'archived': archived,
+    };
+
+    return jsonEncode(map);
+  }
+
+  static TaskParamsStruct fromStoreString(String string) {
+    try {
+      var map = jsonDecode(string);
+      return TaskParamsStruct(filePaths: map['filePaths'], dirPath: map['dirPath'], fields: Map<String, String>.from(map['fields']), archived: map['archived']);
+    } catch (e) {
+      print('fromStoreString fail:$e');
+    }
+    return null;
+  }
 }

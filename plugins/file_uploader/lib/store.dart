@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:sqflite/sqflite.dart';
 
-final String tableName = "upload_log_table_v0";
+final String tableName = "upload_log_table_v1";
 final String columnId = "id";
 final String columnData = "data"; // json data
 
