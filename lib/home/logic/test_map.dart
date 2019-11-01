@@ -89,6 +89,18 @@ class _TestMapPageState extends State<TestMapPage> {
               },
               child: Text('test5'),
             ),
+            FlatButton(
+              onPressed: () {
+                /// from 函数是深拷贝
+                print('test6');
+                Map<String, String> map2 = Map.from(testMap);
+
+                map2['key2'] = 'value2';
+                print('map2 = $map2');
+                print('testMap = $testMap');
+              },
+              child: Text('test6'),
+            ),
           ],
         ),
       ),
