@@ -6,6 +6,7 @@ version: 1.0.0
 
 dependencies:
 #  flutter_webview_plugin: "^0.1.6"
+  web_socket_channel: ^1.0.15
   objectdb: ^1.0.1
   mutex: ^1.0.1
   flutter:

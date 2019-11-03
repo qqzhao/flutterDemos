@@ -51,6 +51,7 @@ import 'package:hello/home/combine/popview.dart';
 import 'package:hello/home/combine/video_demo.dart';
 import 'package:hello/home/logic/backdrop_filter.dart';
 import 'package:hello/home/logic/capture_image.dart';
+import 'package:hello/home/logic/exception.dart';
 import 'package:hello/home/logic/import_test.dart';
 import 'package:hello/home/logic/inheritedWidget_test.dart';
 import 'package:hello/home/logic/isolate_page.dart';
@@ -61,6 +62,7 @@ import 'package:hello/home/logic/size_notification.dart';
 import 'package:hello/home/logic/test_map.dart';
 import 'package:hello/home/logic/test_navBack.dart';
 import 'package:hello/home/logic/upload_file_page.dart';
+import 'package:hello/home/logic/websocket.dart';
 import 'package:hello/home/platform_view_test.dart';
 import 'package:hello/utils/route.dart';
 
@@ -146,6 +148,8 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'UploadFilePage', widget: UploadFilePage()),
     MyRouter(name: 'IsolateTestPage', widget: IsolateTestPage()),
     MyRouter(name: 'TestMapPage', widget: TestMapPage()),
+    MyRouter(name: 'ExceptionTestPage', widget: ExceptionTestPage()),
+    MyRouter(name: 'WebSocketTestPage', widget: WebSocketTestPage()),
   ]),
   MyRouterList(name: 'others', lists: []),
 ];
