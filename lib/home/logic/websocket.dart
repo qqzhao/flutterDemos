@@ -16,16 +16,18 @@ class _WebSocketTestPageState extends State<WebSocketTestPage> {
     reconnect();
   }
 
+  /// 内部没有链接状态，只能自己记录
   void reconnect() {
     print('reconnect');
-
-    /// 外部捕获到全局异常，当前没有捕获到。
-    /// 问题2：如何监听突然网络断开，失去链接
     try {
       channel = IOWebSocketChannel.connect("ws://localhost:8003", pingInterval: Duration(seconds: 8));
       channel.stream.listen((message) {
         print('message = $message');
-      });
+      }, onDone: () {
+        print('onDone');
+      }, onError: (e) {
+        print('onError: $e');
+      }, cancelOnError: true);
     } catch (e) {
       print('connect exception= $e');
     }
@@ -58,7 +60,11 @@ class _WebSocketTestPageState extends State<WebSocketTestPage> {
           ),
           FlatButton(
             onPressed: () {
-              channel.sink.add('send message ${count++}');
+              try {
+                channel.sink.add('send message ${count++}');
+              } catch (e) {
+                print('send exp = $e');
+              }
             },
             child: Container(
               color: Colors.blue,
@@ -118,6 +124,19 @@ class _WebSocketTestPageState extends State<WebSocketTestPage> {
             child: Container(
               color: Colors.blue,
               child: Text('abnormalClosure'),
+              width: 100.0,
+              height: 60.0,
+            ),
+          ),
+          FlatButton(
+            onPressed: () async {
+              var status = await channel.sink.done;
+//              await status();
+              print('status = $status');
+            },
+            child: Container(
+              color: Colors.blue,
+              child: Text('get status'),
               width: 100.0,
               height: 60.0,
             ),

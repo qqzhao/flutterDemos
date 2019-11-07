@@ -41,7 +41,7 @@ DEPENDENCIES:
   - webview_flutter (from `.symlinks/plugins/webview_flutter/ios`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - FMDB
     - Reachability
 
@@ -84,6 +84,6 @@ SPEC CHECKSUMS:
   video_player: 3964090a33353060ed7f58aa6427c7b4b208ec21
   webview_flutter: db3aba222b23e4dc432e0c5882834123dc50ff9f
 
-PODFILE CHECKSUM: b6a0a141693093b304368d08511b46cf3d1d0ac5
+PODFILE CHECKSUM: 1ebb06bfb47524db60d65f903ba6623a28dd437e
 
 COCOAPODS: 1.8.4
