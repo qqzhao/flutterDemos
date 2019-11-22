@@ -58,6 +58,7 @@ import 'package:hello/home/logic/isolate_page.dart';
 import 'package:hello/home/logic/json_parse/json_parse.dart';
 import 'package:hello/home/logic/lifecycle/first_page.dart';
 import 'package:hello/home/logic/lifecycle/second_page.dart';
+import 'package:hello/home/logic/post_test.dart';
 import 'package:hello/home/logic/size_notification.dart';
 import 'package:hello/home/logic/test_map.dart';
 import 'package:hello/home/logic/test_navBack.dart';
@@ -154,6 +155,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'WebSocketTestPage', widget: WebSocketTestPage()),
     MyRouter(name: 'ValueListenablePage', widget: ValueListenablePage()),
     MyRouter(name: 'ToolsDebugPage', widget: ToolsDebugPage()),
+    MyRouter(name: 'PostTestPage', widget: PostTestPage()),
   ]),
   MyRouterList(name: 'others', lists: []),
 ];

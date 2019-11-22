@@ -26,8 +26,8 @@ dependencies:
   video_player: 0.10.2+3
   gbk2utf8:
   image:
+  protobuf:
   webview_flutter:
-  protoc_plugin: any
   platform_view_test:
     path: 'plugins/platform_view_test'
   file_uploader:
@@ -37,11 +37,17 @@ dependencies:
 #  exportable: "^0.1.0"
 
 dev_dependencies:
+  protoc_plugin:
+    path: "/Users/qqzhao/Desktop/debug/proto_plugin/protoc_plugin"
   flutter_driver:
     sdk: flutter
   test: any
   flutter_test:
     sdk: flutter
+
+dependency_overrides:
+  protobuf:
+    path: "/Users/qqzhao/Desktop/debug/proto_plugin/protobuf"
 
 
 # For information on the generic Dart part of this file, see the

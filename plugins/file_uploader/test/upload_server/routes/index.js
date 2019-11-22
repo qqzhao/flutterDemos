@@ -11,8 +11,33 @@ router.get('/', function (req, res, next) {
   });
 });
 
-// router.post('/upload', function (req, res, next) {
+router.post('/post', function (req, res, next) {
+  console.log(`${req.body}`);
+  res.json({
+    errCode: 0,
+    errMsg: 'OK'
+  });
+});
 
-// });
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+router.post('/postDelay', async function (req, res, next) {
+  console.log(`${req.body}`);
+  await sleep(8000);
+  res.json({
+    errCode: 0,
+    errMsg: 'OK'
+  });
+});
+
+router.get('/getTest', function (req, res, next) {
+  console.log(`${req.body}`);
+  res.json({
+    errCode: 0,
+    errMsg: 'OK'
+  });
+});
 
 module.exports = router;
