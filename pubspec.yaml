@@ -32,6 +32,8 @@ dependencies:
     path: 'plugins/platform_view_test'
   file_uploader:
     path: plugins/file_uploader
+  flutter_utils_z:
+    path: plugins/flutter_utils_z
   tools:
     path: packages/tools
 #  exportable: "^0.1.0"

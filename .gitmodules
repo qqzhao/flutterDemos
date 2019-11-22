@@ -1,0 +1,3 @@
+[submodule "plugins/flutter_utils_z"]
+	path = plugins/flutter_utils_z
+	url = https://github.com/wonderful89/flutter_utils_z.git
