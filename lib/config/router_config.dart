@@ -7,6 +7,7 @@ import 'package:hello/home/animation/animation5.dart';
 import 'package:hello/home/animation/animation6.dart';
 import 'package:hello/home/animation/animation7.dart';
 import 'package:hello/home/animation/two_widget.dart';
+import 'package:hello/home/base/complete_test_page.dart';
 import 'package:hello/home/base/fitText/baseText.dart';
 import 'package:hello/home/base/fitText/caculate_size.dart';
 import 'package:hello/home/base/fitText/fitBox.dart';
@@ -19,6 +20,7 @@ import 'package:hello/home/base/future_test_page.dart';
 import 'package:hello/home/base/image/image_provider.dart';
 import 'package:hello/home/base/image_center_slice.dart';
 import 'package:hello/home/base/layoutbuild_page.dart';
+import 'package:hello/home/base/lock_test_page.dart';
 import 'package:hello/home/base/mixin_page.dart';
 import 'package:hello/home/base/objectdbPage.dart';
 import 'package:hello/home/base/overflow_box.dart';
@@ -156,6 +158,8 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'ValueListenablePage', widget: ValueListenablePage()),
     MyRouter(name: 'ToolsDebugPage', widget: ToolsDebugPage()),
     MyRouter(name: 'PostTestPage', widget: PostTestPage()),
+    MyRouter(name: 'CompleteTestPage', widget: CompleteTestPage()),
+    MyRouter(name: 'LockTestPage', widget: LockTestPage()),
   ]),
   MyRouterList(name: 'others', lists: []),
 ];

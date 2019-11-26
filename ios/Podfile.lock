@@ -9,6 +9,8 @@ PODS:
   - Flutter (1.0.0)
   - flutter_uploader (0.0.1):
     - Flutter
+  - flutter_utils_z (0.0.1):
+    - Flutter
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -33,6 +35,7 @@ DEPENDENCIES:
   - file_uploader (from `.symlinks/plugins/file_uploader/ios`)
   - Flutter (from `.symlinks/flutter/ios`)
   - flutter_uploader (from `.symlinks/plugins/flutter_uploader/ios`)
+  - flutter_utils_z (from `.symlinks/plugins/flutter_utils_z/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
   - platform_view_test (from `.symlinks/plugins/platform_view_test/ios`)
@@ -56,6 +59,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/flutter/ios"
   flutter_uploader:
     :path: ".symlinks/plugins/flutter_uploader/ios"
+  flutter_utils_z:
+    :path: ".symlinks/plugins/flutter_utils_z/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
   permission_handler:
@@ -75,6 +80,7 @@ SPEC CHECKSUMS:
   file_uploader: a48f45c3e0a80b470caaeb0d94ffbe4ec3bc3bdf
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_uploader: 848652a9bb11066e0944a2170ec0e080139dd3eb
+  flutter_utils_z: e89dcf2ac3df28350fe053134f54841f57d57b5d
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   path_provider: f96fff6166a8867510d2c25fdcc346327cc4b259
   permission_handler: d59f41439f5bc6c4d1005f3355e98f05ddc68ece
