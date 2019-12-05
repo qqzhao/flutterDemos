@@ -14,6 +14,7 @@ import 'package:hello/home/base/fitText/fitBox.dart';
 import 'package:hello/home/base/fitText/fittedBox.dart';
 import 'package:hello/home/base/fitText/text_font_family.dart';
 import 'package:hello/home/base/fitText/wisdom_fit_text.dart';
+import 'package:hello/home/base/flow_control.dart';
 import 'package:hello/home/base/fractionally_sized_box.dart';
 import 'package:hello/home/base/future_builder.dart';
 import 'package:hello/home/base/future_test_page.dart';
@@ -62,8 +63,10 @@ import 'package:hello/home/logic/lifecycle/first_page.dart';
 import 'package:hello/home/logic/lifecycle/second_page.dart';
 import 'package:hello/home/logic/post_test.dart';
 import 'package:hello/home/logic/size_notification.dart';
+import 'package:hello/home/logic/test_dispose_page.dart';
 import 'package:hello/home/logic/test_map.dart';
 import 'package:hello/home/logic/test_navBack.dart';
+import 'package:hello/home/logic/test_stuck_ui.dart';
 import 'package:hello/home/logic/tools_page.dart';
 import 'package:hello/home/logic/upload_file_page.dart';
 import 'package:hello/home/logic/value_listenable.dart';
@@ -160,6 +163,9 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'PostTestPage', widget: PostTestPage()),
     MyRouter(name: 'CompleteTestPage', widget: CompleteTestPage()),
     MyRouter(name: 'LockTestPage', widget: LockTestPage()),
+    MyRouter(name: 'TestDisposePage', widget: TestDisposePage()),
+    MyRouter(name: 'TestStuckUIPage', widget: TestStuckUIPage()),
+    MyRouter(name: 'FlowControlPage', widget: FlowControlPage()),
   ]),
   MyRouterList(name: 'others', lists: []),
 ];

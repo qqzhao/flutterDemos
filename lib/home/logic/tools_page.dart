@@ -36,6 +36,6 @@ void testMapJoin() {
 
 void testDuration() {
   TimeDurationTool.start('main');
-  var cost = TimeDurationTool.stop('main');
+  var cost = TimeDurationTool.record('main');
   print('cost = $cost');
 }

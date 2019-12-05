@@ -8,12 +8,13 @@ class TimeDurationTool {
     }
   }
 
-  static int stop(String key) {
+  static int record(String key) {
     final newKey = key ?? '';
     if (newKey.isNotEmpty) {
       var last = _maps[newKey] ?? DateTime.now();
-      _maps.remove(newKey);
-      return DateTime.now().millisecondsSinceEpoch - last.millisecondsSinceEpoch;
+      var ret = DateTime.now().millisecondsSinceEpoch - last.millisecondsSinceEpoch;
+      _maps.update(key, (last) => DateTime.now(), ifAbsent: () => DateTime.now());
+      return ret;
     }
     return 0;
   }
