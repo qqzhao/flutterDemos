@@ -12,6 +12,7 @@ import 'package:hello/home/base/fitText/baseText.dart';
 import 'package:hello/home/base/fitText/caculate_size.dart';
 import 'package:hello/home/base/fitText/fitBox.dart';
 import 'package:hello/home/base/fitText/fittedBox.dart';
+import 'package:hello/home/base/fitText/restrict_event_page.dart';
 import 'package:hello/home/base/fitText/text_font_family.dart';
 import 'package:hello/home/base/fitText/wisdom_fit_text.dart';
 import 'package:hello/home/base/flow_control.dart';
@@ -120,6 +121,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'Overflow', routeName: '/base/overflowBox', widget: OverFlowBoxPage()),
     MyRouter(name: 'image/imageProvider', routeName: '/base/image/imageProvider', widget: ImageProviderPage()),
     MyRouter(name: 'overflow', routeName: '/base/overflow', widget: TestOverflowPage()),
+    MyRouter(name: 'RestrictEventPage', routeName: 'RestrictEventPage', widget: RestrictEventPage()),
   ]),
   MyRouterList(name: 'Animation', lists: [
     MyRouter(name: 'animation', widget: AnimationPage()),
