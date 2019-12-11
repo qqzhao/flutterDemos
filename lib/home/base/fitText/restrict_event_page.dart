@@ -14,98 +14,122 @@ class _RestrictEventPageState extends State<RestrictEventPage> {
       appBar: AppBar(
         title: Text('restrict event test'),
       ),
-      body: Column(
-        children: <Widget>[
-          TapRestrictEventWidget(
-            restrictDuration: Duration(milliseconds: 300),
-            child: Container(
-              child: Column(
-                children: <Widget>[
-                  MaterialButton(
-                    onPressed: () {
-                      print('red clicked');
-                    },
-                    color: Colors.red,
-                  ),
-                  MaterialButton(
-                    onPressed: () {
-                      print('blue clicked');
-                    },
-                    color: Colors.blue,
-                  ),
-                  GestureDetector(
-                    onDoubleTap: () {
-                      print('purple clicked');
-                    },
-                    child: Container(
-                      width: 50,
-                      height: 40,
-                      color: Colors.purple,
-                    ),
-                  )
-                ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            GestureDetector(
+              onDoubleTap: () {
+                print('purple clicked');
+              },
+              onLongPressEnd: (_) {
+                print('purple clicked onLongPressEnd');
+              },
+              onLongPressUp: () {
+                print('purple clicked onLongPressUp');
+              },
+              onTap: () {
+                print('tap');
+              },
+              child: Container(
+                width: 50,
+                height: 40,
+                color: Colors.purple,
               ),
-              height: 200,
             ),
-          ),
-          OnlyOnePointerRecognizerWidget(
-//            restrictDuration: Duration(milliseconds: 300),
-            child: Container(
-              child: Column(
-                children: <Widget>[
-                  MaterialButton(
-                    onPressed: () {
-                      print('red clicked');
-                    },
-                    color: Colors.red,
-                  ),
-                  MaterialButton(
-                    onPressed: () {
-                      print('blue clicked');
-                    },
-                    color: Colors.blue,
-                  ),
-                  GestureDetector(
-                    onDoubleTap: () {
-                      print('purple clicked');
-                    },
-                    onLongPressEnd: (_) {
-                      print('purple clicked onLongPressEnd');
-                    },
-                    onLongPressUp: () {
-                      print('purple clicked onLongPressUp');
-                    },
-                    child: Container(
-                      width: 50,
-                      height: 40,
-                      color: Colors.purple,
+            TapRestrictEventWidget(
+              restrictDuration: Duration(milliseconds: 300),
+              child: Container(
+                child: Column(
+                  children: <Widget>[
+                    MaterialButton(
+                      onPressed: () {
+                        print('red clicked');
+                      },
+                      color: Colors.red,
                     ),
-                  )
-                ],
-              ),
-              height: 200,
-            ),
-          ),
-          Container(
-            child: Column(
-              children: <Widget>[
-                MaterialButton(
-                  onPressed: () {
-                    print('red clicked');
-                  },
-                  color: Colors.red,
+                    MaterialButton(
+                      onPressed: () {
+                        print('blue clicked');
+                      },
+                      color: Colors.blue,
+                    ),
+                    GestureDetector(
+                      onDoubleTap: () {
+                        print('purple clicked');
+                      },
+                      child: Container(
+                        width: 50,
+                        height: 40,
+                        color: Colors.purple,
+                      ),
+                    )
+                  ],
                 ),
-                MaterialButton(
-                  onPressed: () {
-                    print('blue clicked');
-                  },
-                  color: Colors.blue,
-                )
-              ],
+                height: 200,
+              ),
             ),
-            height: 200,
-          ),
-        ],
+            OnlyOnePointerRecognizerWidget(
+//            restrictDuration: Duration(milliseconds: 300),
+              child: Container(
+                child: Column(
+                  children: <Widget>[
+                    MaterialButton(
+                      onPressed: () {
+                        print('red clicked');
+                      },
+                      color: Colors.red,
+                    ),
+                    MaterialButton(
+                      onPressed: () {
+                        print('blue clicked');
+                      },
+                      color: Colors.blue,
+                    ),
+                    GestureDetector(
+                      onDoubleTap: () {
+                        print('purple clicked');
+                      },
+                      onLongPressEnd: (_) {
+                        print('purple clicked onLongPressEnd');
+                      },
+                      onLongPressUp: () {
+                        print('purple clicked onLongPressUp');
+                      },
+                      onTap: () {
+                        print('tap');
+                      },
+                      child: Container(
+                        width: 50,
+                        height: 40,
+                        color: Colors.purple,
+                      ),
+                    )
+                  ],
+                ),
+                height: 200,
+              ),
+            ),
+            Container(
+              child: Column(
+                children: <Widget>[
+                  MaterialButton(
+                    onPressed: () {
+                      print('red clicked');
+                    },
+                    color: Colors.red,
+                  ),
+                  MaterialButton(
+                    onPressed: () {
+                      print('blue clicked');
+                    },
+                    color: Colors.blue,
+                  )
+                ],
+              ),
+              height: 200,
+            ),
+          ],
+        ),
       ),
     );
   }
