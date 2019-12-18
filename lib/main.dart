@@ -26,14 +26,161 @@ void main() {
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
 
+  /// HitTestBehavior如何设置，都只有inner接收
+  Widget build6(BuildContext context) {
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: GestureDetector(
+        child: ConstrainedBox(
+          constraints: BoxConstraints.tight(Size(300.0, 200.0)),
+          child: DecoratedBox(
+            decoration: BoxDecoration(color: Colors.blue),
+            child: Center(
+              child: GestureDetector(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints.tight(Size(200.0, 100.0)),
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(color: Colors.yellow),
+                  ),
+                ),
+                onTap: () {
+                  print("down inner");
+                },
+                behavior: HitTestBehavior.translucent,
+              ),
+            ),
+          ),
+        ),
+        onTap: () {
+          print("down outer");
+        },
+      ),
+    );
+  }
+
+  /// HitTestBehavior如何设置，都会接收
+  Widget build5(BuildContext context) {
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Listener(
+        child: ConstrainedBox(
+          constraints: BoxConstraints.tight(Size(300.0, 200.0)),
+          child: DecoratedBox(
+            decoration: BoxDecoration(color: Colors.blue),
+            child: Center(
+              child: Listener(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints.tight(Size(200.0, 100.0)),
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(color: Colors.yellow),
+                  ),
+                ),
+                onPointerDown: (event) {
+                  print("down inner");
+                },
+                behavior: HitTestBehavior.deferToChild,
+              ),
+            ),
+          ),
+        ),
+        onPointerDown: (event) {
+          print("down outer");
+        },
+      ),
+    );
+  }
+
+  /// 不会接收，只有down1
+  Widget build4(BuildContext context) {
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Stack(
+        children: [
+          Listener(
+            child: ConstrainedBox(
+              constraints: BoxConstraints.tight(Size(300.0, 200.0)),
+              child: DecoratedBox(decoration: BoxDecoration(color: Colors.blue)),
+            ),
+            onPointerDown: (event) {
+              print("down0");
+            },
+            behavior: HitTestBehavior.translucent,
+          ),
+          Listener(
+            child: ConstrainedBox(
+                constraints: BoxConstraints.tight(Size(200.0, 100.0)),
+                child: DecoratedBox(
+                  decoration: BoxDecoration(color: Colors.yellow),
+                )),
+            onPointerDown: (event) {
+              print("down1");
+            },
+            behavior: HitTestBehavior.translucent,
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget build3(BuildContext context) {
+    return MaterialApp(
+      home: Container(
+        child: Stack(
+          children: [
+            Listener(
+              child: ConstrainedBox(
+                constraints: BoxConstraints.tight(Size(300.0, 200.0)),
+                child: DecoratedBox(decoration: BoxDecoration(color: Colors.blue)),
+              ),
+              onPointerDown: (event) => print("down0"),
+              behavior: HitTestBehavior.translucent,
+            ),
+            Listener(
+              child: ConstrainedBox(
+                  constraints: BoxConstraints.tight(Size(200.0, 100.0)),
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(color: Colors.yellow),
+                  )),
+              onPointerDown: (event) {
+                print("down1");
+              },
+              behavior: HitTestBehavior.translucent,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+//    return GestureDetector(
+//      child: Container(
+//        color: Colors.red,
+//        width: 280,
+//        height: 80,
+//      ),
+//      onDoubleTap: () {
+//        print('double tap');
+//      },
+//      onTapUp: (_) {
+//        print('onTapUp');
+//      },
+//      onHorizontalDragStart: (_) {
+//        print('onHorizontalDragStart');
+//      },
+//      onTap: () {
+//        print('ontap...');
+//      },
+//    );
+
     print('config origin= ${config.testVar}');
     print('config2 origin= ${config2.testVar}');
     config.testVar = '345 by main';
     print('config = ${config.testVar}');
     print('config2 = ${config2.testVar}');
-    // dark: 电池条显示白色, 但是页面都是黑底、白字（白字看不见）
+    // dark: 电池条显示白色, 但是页面都是黑底、白字（白字看不见
+    // ）
     // light: 电池条显示黑色（默认）
     Brightness curBright = Brightness.light;
 
