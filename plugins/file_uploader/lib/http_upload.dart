@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -8,10 +9,55 @@ void _innerLog(str) {
 //  print('$str');
 }
 
-/// 上传问题实现方法
-Future<UploadResponse> uploadFile(String url, List filePaths, {Map<String, String> fields, Map<String, String> headers}) async {
+class MF extends http.MultipartRequest {
+  MF(
+    String method,
+    Uri url, {
+    this.onProgress,
+  }) : super(method, url);
+
+  final void Function(int bytes, int totalBytes) onProgress;
+
+  /// Freezes all mutable fields and returns a single-subscription [ByteStream]
+  /// that will emit the request body.
+  http.ByteStream finalize() {
+    final byteStream = super.finalize();
+    if (onProgress == null) return byteStream;
+
+    final total = this.contentLength;
+    int bytes = 0;
+
+    final t = StreamTransformer.fromHandlers(
+      handleData: (List<int> data, EventSink<List<int>> sink) {
+        bytes += data.length;
+        onProgress(bytes, total);
+        sink.add(data);
+      },
+    );
+    final stream = byteStream.transform(t);
+    return http.ByteStream(stream);
+  }
+}
+
+/// 上传文件实现方法
+Future<UploadResponse> uploadFile(String url, List filePaths,
+    {Map<String, String> fields, Map<String, String> headers, StreamController progressController}) async {
+//  await Future.delayed(Duration(seconds: 5));
   var postUri = Uri.parse(url);
-  var request = new http.MultipartRequest("POST", postUri);
+//  var request = new http.MultipartRequest(
+//    "POST",
+//    postUri,
+//  );
+  var request = new MF("POST", postUri, onProgress: (int bytes, int totalBytes) {
+    _innerLog('percent = ${bytes / totalBytes}');
+    num doublePercent = 0;
+    try {
+      doublePercent = bytes / totalBytes;
+    } catch (e) {
+      print('percent error = $e');
+    }
+    progressController?.sink?.add(doublePercent);
+  });
   if (fields != null) {
     request.fields.addEntries(fields?.entries);
   }
@@ -28,8 +74,9 @@ Future<UploadResponse> uploadFile(String url, List filePaths, {Map<String, Strin
 
   http.StreamedResponse response;
   _innerLog('uploadFile before...${DateTime.now()}');
+
   try {
-    response = await request.send();
+    response = await request.send(); //.timeout(Duration(seconds: 30));
   } catch (e) {
     print('uploadFile 网络发生错误：$e');
   }
