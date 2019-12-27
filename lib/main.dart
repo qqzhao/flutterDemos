@@ -203,9 +203,10 @@ class MyApp extends StatelessWidget {
           accentColorBrightness: curBright,
           fontFamily: 'rokkittFamily', //PingFang SC
         ),
-        home: new RouterPage(
+        home: RouterPage(
           routerList: globalRouters,
         ),
+//        home: UploadFilePage(),
         navigatorKey: globalKey,
         routes: {
           '/base/objectpage': (BuildContext context) => new ObjectdbTestPage(),

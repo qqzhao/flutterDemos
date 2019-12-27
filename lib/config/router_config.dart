@@ -58,6 +58,7 @@ import 'package:hello/home/logic/capture_image.dart';
 import 'package:hello/home/logic/exception.dart';
 import 'package:hello/home/logic/import_test.dart';
 import 'package:hello/home/logic/inheritedWidget_test.dart';
+import 'package:hello/home/logic/inheritedWidget_test2.dart';
 import 'package:hello/home/logic/isolate_page.dart';
 import 'package:hello/home/logic/json_parse/json_parse.dart';
 import 'package:hello/home/logic/lifecycle/first_page.dart';
@@ -150,6 +151,7 @@ List<dynamic> _globalRouters = [
     ]),
     MyRouter(name: 'importTestPage', widget: ImportTestPage()),
     MyRouter(name: 'InheritedWidgetTest', widget: InheritedWidgetTest()),
+    MyRouter(name: 'InheritedPage2', widget: InheritedPage2()),
     MyRouter(name: 'SizeChangedNotification', widget: SizeChangedLayoutNotification()),
     MyRouter(name: 'TestCaptureImage', widget: TestCaptureImage()),
     MyRouter(name: 'TestBackdropFilterPage', widget: TestBackdropFilterPage()),
