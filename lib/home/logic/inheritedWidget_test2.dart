@@ -104,9 +104,9 @@ class ReportWidget extends InheritedWidget {
           key: key,
         );
 
-  static ReportWidget of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<ReportWidget>();
-  }
+//  static ReportWidget of(BuildContext context) {
+//    return context.dependOnInheritedWidgetOfExactType<ReportWidget>();
+//  }
 
   static Map<String, String> reportMaps(BuildContext context) {
     final List<ReportWidget> reports = <ReportWidget>[];

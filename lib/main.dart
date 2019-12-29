@@ -18,7 +18,8 @@ void main() {
   var _isProduct = bool.fromEnvironment("dart.vm.product");
   print('_isProduct = $_isProduct');
 //  print('_isDartStreamEnabled = $_isDartStreamEnabled');
-  runZoned(() => runApp(Center(child: MyApp())), onError: (Object obj, StackTrace stack) {
+  runZoned(() => runApp(Center(child: MyApp())),
+      onError: (Object obj, StackTrace stack) {
     print('global exception: obj = $obj;\nstack = $stack');
   });
 }
@@ -27,130 +28,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
 
   /// HitTestBehavior如何设置，都只有inner接收
-  Widget build6(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: GestureDetector(
-        child: ConstrainedBox(
-          constraints: BoxConstraints.tight(Size(300.0, 200.0)),
-          child: DecoratedBox(
-            decoration: BoxDecoration(color: Colors.blue),
-            child: Center(
-              child: GestureDetector(
-                child: ConstrainedBox(
-                  constraints: BoxConstraints.tight(Size(200.0, 100.0)),
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(color: Colors.yellow),
-                  ),
-                ),
-                onTap: () {
-                  print("down inner");
-                },
-                behavior: HitTestBehavior.translucent,
-              ),
-            ),
-          ),
-        ),
-        onTap: () {
-          print("down outer");
-        },
-      ),
-    );
-  }
-
-  /// HitTestBehavior如何设置，都会接收
-  Widget build5(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: Listener(
-        child: ConstrainedBox(
-          constraints: BoxConstraints.tight(Size(300.0, 200.0)),
-          child: DecoratedBox(
-            decoration: BoxDecoration(color: Colors.blue),
-            child: Center(
-              child: Listener(
-                child: ConstrainedBox(
-                  constraints: BoxConstraints.tight(Size(200.0, 100.0)),
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(color: Colors.yellow),
-                  ),
-                ),
-                onPointerDown: (event) {
-                  print("down inner");
-                },
-                behavior: HitTestBehavior.deferToChild,
-              ),
-            ),
-          ),
-        ),
-        onPointerDown: (event) {
-          print("down outer");
-        },
-      ),
-    );
-  }
-
-  /// 不会接收，只有down1
-  Widget build4(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: Stack(
-        children: [
-          Listener(
-            child: ConstrainedBox(
-              constraints: BoxConstraints.tight(Size(300.0, 200.0)),
-              child: DecoratedBox(decoration: BoxDecoration(color: Colors.blue)),
-            ),
-            onPointerDown: (event) {
-              print("down0");
-            },
-            behavior: HitTestBehavior.translucent,
-          ),
-          Listener(
-            child: ConstrainedBox(
-                constraints: BoxConstraints.tight(Size(200.0, 100.0)),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(color: Colors.yellow),
-                )),
-            onPointerDown: (event) {
-              print("down1");
-            },
-            behavior: HitTestBehavior.translucent,
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget build3(BuildContext context) {
-    return MaterialApp(
-      home: Container(
-        child: Stack(
-          children: [
-            Listener(
-              child: ConstrainedBox(
-                constraints: BoxConstraints.tight(Size(300.0, 200.0)),
-                child: DecoratedBox(decoration: BoxDecoration(color: Colors.blue)),
-              ),
-              onPointerDown: (event) => print("down0"),
-              behavior: HitTestBehavior.translucent,
-            ),
-            Listener(
-              child: ConstrainedBox(
-                  constraints: BoxConstraints.tight(Size(200.0, 100.0)),
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(color: Colors.yellow),
-                  )),
-              onPointerDown: (event) {
-                print("down1");
-              },
-              behavior: HitTestBehavior.translucent,
-            )
-          ],
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {

@@ -19,6 +19,11 @@ router.post('/post', function (req, res, next) {
   });
 });
 
+router.get('/baidu', function (req, res, next) {
+  console.log(`${req.body}`);
+  res.redirect('http://baidu.com');
+});
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
