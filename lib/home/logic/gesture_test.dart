@@ -10,12 +10,16 @@ class _GestureTestPageState extends State<GestureTestPage> {
   @override
   void initState() {
     debugPrintGestureArenaDiagnostics = true;
+    debugPrintRecognizerCallbacksTrace = true;
+    debugPrintHitTestResults = true;
     super.initState();
   }
 
   @override
   void dispose() {
     debugPrintGestureArenaDiagnostics = false;
+    debugPrintRecognizerCallbacksTrace = false;
+    debugPrintHitTestResults = false;
     super.dispose();
   }
 
@@ -329,8 +333,184 @@ class TestGestureWidget extends StatelessWidget {
     );
   }
 
+  Widget build13(BuildContext context) {
+    return WrapListen(
+      width: 300.0,
+      height: 300.0,
+      color: Colors.blue,
+      name: 'outer',
+      child: IgnorePointer(
+        child: WrapListen(
+          width: 200.0,
+          height: 200.0,
+          color: Colors.red,
+          name: 'middle',
+          child: WrapListen(
+            width: 100.0,
+            height: 100.0,
+            color: Colors.green,
+            name: 'inner',
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget build14(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        WrapListen(
+          width: 300.0,
+          height: 300.0,
+          color: Colors.blue,
+          name: 'lower',
+        ),
+//        AbsorbPointer(
+//          child: WrapListen(
+//            width: 200.0,
+//            height: 200.0,
+//            color: Colors.yellow,
+//            name: 'middle',
+//          ),
+//        ),
+        Listener(
+          behavior: HitTestBehavior.translucent,
+          onPointerDown: (_) {
+            print('onPointerDown outer');
+          },
+          child: WrapListen(
+            width: 100.0,
+            height: 100.0,
+            color: Colors.red,
+            name: 'upper',
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget build15(BuildContext context) {
+    return Listener(
+      onPointerDown: (_) => print('onPointerDown'),
+      child: GestureDetector(
+//        onTapDown: (_) => print('onTapDown'),
+        onTapUp: (_) => print('onTapUp'),
+        onTap: () => print('onTap'),
+        onLongPress: () => print('onLongPress'),
+        onDoubleTap: () => print('onDoubleTap'),
+        child: Container(
+          width: 300.0,
+          height: 300.0,
+          color: Colors.red,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return build11(context);
+    return build15(context);
+  }
+}
+
+class WrapListen extends StatelessWidget {
+  final double width;
+  final double height;
+  final Widget child;
+  final Color color;
+  final Function onTap;
+  final String name;
+
+  WrapListen({
+    this.width,
+    this.height,
+    this.child,
+    this.color,
+    this.onTap,
+    this.name,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Listener(
+        behavior: HitTestBehavior.opaque,
+        onPointerDown: (_) {
+          print('onPointerDown2: $name');
+        },
+        onPointerUp: (_) {
+          print('onPointerUp: $name');
+        },
+        child: Container(
+          width: width,
+          height: height,
+          color: color,
+          child: child,
+        ),
+      ),
+    );
+  }
+}
+
+class DemoApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MultipleGestureWidget(
+      onTap: () {
+        print('outer taped');
+      },
+      child: Container(
+        color: Colors.green,
+        child: Center(
+          //Now, wraps the second container in RawGestureDetector
+          child: MultipleGestureWidget(
+            onTap: () {
+              print('inner taped');
+            },
+            child: Container(
+              color: Colors.deepOrange,
+              width: 250.0,
+              height: 350.0,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class MultipleGestureWidget extends StatelessWidget {
+  final Widget child;
+  final Function onTap;
+  MultipleGestureWidget({
+    this.child,
+    this.onTap,
+  });
+  @override
+  Widget build(BuildContext context) {
+    return RawGestureDetector(
+      gestures: {
+        AllowMultipleGestureRecognizer: GestureRecognizerFactoryWithHandlers<AllowMultipleGestureRecognizer>(
+          () => AllowMultipleGestureRecognizer(), //constructor
+          (AllowMultipleGestureRecognizer instance) {
+            //initializer
+            instance.onTap = () {
+              if (onTap != null) {
+                onTap();
+              }
+            };
+          },
+        )
+      },
+      //Creates the nested container within the first.
+      child: child,
+    );
+  }
+}
+
+class AllowMultipleGestureRecognizer extends TapGestureRecognizer {
+  @override
+  void rejectGesture(int pointer) {
+    acceptGesture(pointer);
   }
 }
