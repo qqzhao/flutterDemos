@@ -43,6 +43,7 @@ import 'package:hello/home/base/scroll_view/slives/sliver_prototype_extent_list.
 import 'package:hello/home/base/test_box.dart';
 import 'package:hello/home/base/test_mutex_page.dart';
 import 'package:hello/home/base/test_render_box.dart';
+import 'package:hello/home/base/text_span.dart';
 import 'package:hello/home/base/textfield.dart';
 import 'package:hello/home/base/ticker.dart';
 import 'package:hello/home/base/webview_flutter.dart';
@@ -81,164 +82,50 @@ List<dynamic> _globalRouters = [
   MyRouterList(name: 'Base', lists: [
     MyRouterList(name: 'scroll', lists: [
       MyRouterList(name: 'slives', lists: [
-        MyRouter(
-            name: 'SliverProtoTypeExtentListPage',
-            routeName: 'SliverProtoTypeExtentListPage',
-            widget: SliverProtoTypeExtentListPage()),
-        MyRouter(
-            name: 'SliverFillViewportPage',
-            routeName: 'SliverFillViewportPage',
-            widget: SliverFillViewportPage()),
-        MyRouter(
-            name: 'SliverAppBarPage',
-            routeName: 'SliverAppBarPage',
-            widget: SliverAppBarPage()),
-        MyRouter(
-            name: 'SliverPersistentHeaderPage',
-            routeName: 'SliverPersistentHeaderPage',
-            widget: SliverPersistentHeaderPage()),
-        MyRouter(
-            name: 'SliverFillViewportPage',
-            routeName: 'SliverFillViewportPage',
-            widget: SliverFillViewportPage()),
-        MyRouter(
-            name: 'SliverFillViewportPage',
-            routeName: 'SliverFillViewportPage',
-            widget: SliverFillViewportPage()),
+        MyRouter(name: 'SliverProtoTypeExtentListPage', routeName: 'SliverProtoTypeExtentListPage', widget: SliverProtoTypeExtentListPage()),
+        MyRouter(name: 'SliverFillViewportPage', routeName: 'SliverFillViewportPage', widget: SliverFillViewportPage()),
+        MyRouter(name: 'SliverAppBarPage', routeName: 'SliverAppBarPage', widget: SliverAppBarPage()),
+        MyRouter(name: 'SliverPersistentHeaderPage', routeName: 'SliverPersistentHeaderPage', widget: SliverPersistentHeaderPage()),
+        MyRouter(name: 'SliverFillViewportPage', routeName: 'SliverFillViewportPage', widget: SliverFillViewportPage()),
+        MyRouter(name: 'SliverFillViewportPage', routeName: 'SliverFillViewportPage', widget: SliverFillViewportPage()),
       ]),
-      MyRouter(
-          name: 'listview1',
-          routeName: '/base/listview1',
-          widget: TestListView1()),
-      MyRouter(
-          name: 'listview2',
-          routeName: '/base/listview2',
-          widget: TestListView2()),
-      MyRouter(
-          name: 'customScrollview',
-          routeName: '/base/scroll/customScrollview',
-          widget: TestCustomScrollView()),
-      MyRouter(
-          name: 'nestedScrollview',
-          routeName: '/base/scroll/nestedScrollview',
-          widget: TestNestScrollViewDemo()),
-      MyRouter(
-          name: 'nestedScrollview2',
-          routeName: '/base/scroll/nestedScrollview2',
-          widget: TestNestScrollViewDemo2()),
-      MyRouter(
-          name: 'CustomScrollViewTest2',
-          routeName: '/base/scroll/CustomScrollViewTest2',
-          widget: CustomScrollViewTest2()),
-      MyRouter(
-          name: 'ListView1',
-          routeName: '/base/scroll/listview1',
-          widget: ListViewPage1()),
+      MyRouter(name: 'listview1', routeName: '/base/listview1', widget: TestListView1()),
+      MyRouter(name: 'listview2', routeName: '/base/listview2', widget: TestListView2()),
+      MyRouter(name: 'customScrollview', routeName: '/base/scroll/customScrollview', widget: TestCustomScrollView()),
+      MyRouter(name: 'nestedScrollview', routeName: '/base/scroll/nestedScrollview', widget: TestNestScrollViewDemo()),
+      MyRouter(name: 'nestedScrollview2', routeName: '/base/scroll/nestedScrollview2', widget: TestNestScrollViewDemo2()),
+      MyRouter(name: 'CustomScrollViewTest2', routeName: '/base/scroll/CustomScrollViewTest2', widget: CustomScrollViewTest2()),
+      MyRouter(name: 'ListView1', routeName: '/base/scroll/listview1', widget: ListViewPage1()),
     ]),
     MyRouterList(name: 'fixText', lists: [
-      MyRouter(
-          name: 'WisdomFitTextPage',
-          routeName: '/base/fixText/WisdomFitTextPage',
-          widget: WisdomFitTextPage()),
-      MyRouter(
-          name: 'CaculatePage',
-          routeName: '/base/fixText/caculate_page',
-          widget: CalculatePage()),
-      MyRouter(
-          name: 'FitBoxPage',
-          routeName: '/base/fixText/FitBoxPage',
-          widget: FitBoxPage()),
-      MyRouter(
-          name: 'FittedBoxPage',
-          routeName: '/base/fixText/FittedBoxPage',
-          widget: FittedBoxPage()),
-      MyRouter(
-          name: 'BaseTextWidthPage',
-          routeName: '/base/fixText/baseText',
-          widget: BaseTextWidthPage()),
-      MyRouter(
-          name: 'TextFontFamilyPage',
-          routeName: '/base/fixText/FittedBoxPage',
-          widget: TextFontFamilyPage()),
+      MyRouter(name: 'WisdomFitTextPage', routeName: '/base/fixText/WisdomFitTextPage', widget: WisdomFitTextPage()),
+      MyRouter(name: 'CaculatePage', routeName: '/base/fixText/caculate_page', widget: CalculatePage()),
+      MyRouter(name: 'FitBoxPage', routeName: '/base/fixText/FitBoxPage', widget: FitBoxPage()),
+      MyRouter(name: 'FittedBoxPage', routeName: '/base/fixText/FittedBoxPage', widget: FittedBoxPage()),
+      MyRouter(name: 'BaseTextWidthPage', routeName: '/base/fixText/baseText', widget: BaseTextWidthPage()),
+      MyRouter(name: 'TextFontFamilyPage', routeName: '/base/fixText/FittedBoxPage', widget: TextFontFamilyPage()),
     ]),
-    MyRouter(
-        name: 'layoutBuild',
-        routeName: '/base/layoutBuild',
-        widget: LayoutBuildTestPage()),
-    MyRouter(
-        name: 'WebViewFlutterTestPage',
-        routeName: '/base/layoutBuild',
-        widget: WebViewFlutterTestPage()),
-    MyRouter(
-        name: 'PlatformViewTestPage',
-        routeName: '/base/layoutBuild',
-        widget: PlatformViewTestPage()),
-    MyRouter(
-        name: 'TestRenderBoxPage',
-        routeName: '/base/layoutBuild',
-        widget: TestRenderBoxPage()),
-    MyRouter(
-        name: 'TestField',
-        routeName: '/base/textfield',
-        widget: TextFieldPage()),
-    MyRouter(
-        name: 'BoxTestPage',
-        routeName: '/base/listview1',
-        widget: BoxTestPage()),
-    MyRouter(
-        name: 'Future Build',
-        routeName: '/base/flutter_build',
-        widget: FutureBuildPage()),
-    MyRouter(
-        name: 'Refresh Indicator',
-        routeName: '/base/refresh_indicator',
-        widget: RefreshIndicatorPage()),
-    MyRouter(
-        name: 'FractionallySizedBox',
-        routeName: '/base/fractional_sizebox',
-        widget: FractionallBoxPage()),
-    MyRouter(
-        name: 'ImageCenterSlicePage',
-        routeName: '/base/imagecenter_slice',
-        widget: ImageCenterSlicePage()),
-    MyRouter(
-        name: 'ObjectdbTestPage',
-        routeName: '/base/objectpage',
-        widget: ObjectdbTestPage()),
-    MyRouter(
-        name: 'TickerTestPage',
-        routeName: '/base/tickerpage',
-        widget: TickerTestPage()),
-    MyRouter(
-        name: 'FutureTestPage',
-        routeName: '/base/futureTest',
-        widget: FutureTestPage()),
-    MyRouter(
-        name: 'MixinTestPage',
-        routeName: '/base/mixinpage',
-        widget: MixinTestPage()),
-    MyRouter(
-        name: 'MutexTestPage',
-        routeName: '/base/mutexpage',
-        widget: MutexTestPage()),
-    MyRouter(
-        name: 'Rotate', routeName: '/base/rotat1', widget: TestRotatePage()),
-    MyRouter(
-        name: 'Overflow',
-        routeName: '/base/overflowBox',
-        widget: OverFlowBoxPage()),
-    MyRouter(
-        name: 'image/imageProvider',
-        routeName: '/base/image/imageProvider',
-        widget: ImageProviderPage()),
-    MyRouter(
-        name: 'overflow',
-        routeName: '/base/overflow',
-        widget: TestOverflowPage()),
-    MyRouter(
-        name: 'RestrictEventPage',
-        routeName: 'RestrictEventPage',
-        widget: RestrictEventPage()),
+    MyRouter(name: 'layoutBuild', routeName: '/base/layoutBuild', widget: LayoutBuildTestPage()),
+    MyRouter(name: 'WebViewFlutterTestPage', routeName: '/base/layoutBuild', widget: WebViewFlutterTestPage()),
+    MyRouter(name: 'PlatformViewTestPage', routeName: '/base/layoutBuild', widget: PlatformViewTestPage()),
+    MyRouter(name: 'TestRenderBoxPage', routeName: '/base/layoutBuild', widget: TestRenderBoxPage()),
+    MyRouter(name: 'TestField', routeName: '/base/textfield', widget: TextFieldPage()),
+    MyRouter(name: 'BoxTestPage', routeName: '/base/listview1', widget: BoxTestPage()),
+    MyRouter(name: 'Future Build', routeName: '/base/flutter_build', widget: FutureBuildPage()),
+    MyRouter(name: 'Refresh Indicator', routeName: '/base/refresh_indicator', widget: RefreshIndicatorPage()),
+    MyRouter(name: 'FractionallySizedBox', routeName: '/base/fractional_sizebox', widget: FractionallBoxPage()),
+    MyRouter(name: 'ImageCenterSlicePage', routeName: '/base/imagecenter_slice', widget: ImageCenterSlicePage()),
+    MyRouter(name: 'ObjectdbTestPage', routeName: '/base/objectpage', widget: ObjectdbTestPage()),
+    MyRouter(name: 'TickerTestPage', routeName: '/base/tickerpage', widget: TickerTestPage()),
+    MyRouter(name: 'FutureTestPage', routeName: '/base/futureTest', widget: FutureTestPage()),
+    MyRouter(name: 'MixinTestPage', routeName: '/base/mixinpage', widget: MixinTestPage()),
+    MyRouter(name: 'MutexTestPage', routeName: '/base/mutexpage', widget: MutexTestPage()),
+    MyRouter(name: 'Rotate', routeName: '/base/rotat1', widget: TestRotatePage()),
+    MyRouter(name: 'Overflow', routeName: '/base/overflowBox', widget: OverFlowBoxPage()),
+    MyRouter(name: 'image/imageProvider', routeName: '/base/image/imageProvider', widget: ImageProviderPage()),
+    MyRouter(name: 'overflow', routeName: '/base/overflow', widget: TestOverflowPage()),
+    MyRouter(name: 'RestrictEventPage', routeName: 'RestrictEventPage', widget: RestrictEventPage()),
+    MyRouter(name: 'TestTextSpanPage', routeName: 'TestTextSpanPage', widget: TestTextSpanPage()),
   ]),
   MyRouterList(name: 'Animation', lists: [
     MyRouter(name: 'animation', widget: AnimationPage()),
@@ -248,9 +135,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'animation5', widget: AnimatePage5()),
     MyRouter(name: 'animation6', widget: AnimatePage6()),
     MyRouter(name: 'animation7', widget: AnimatePage7()),
-    MyRouter(
-        name: 'TestTwoWidgetAnimationPage',
-        widget: TestTwoWidgetAnimationPage()),
+    MyRouter(name: 'TestTwoWidgetAnimationPage', widget: TestTwoWidgetAnimationPage()),
   ]),
   MyRouterList(name: 'Combine', lists: [
     MyRouter(name: 'Dialog', widget: DialogPage()),
@@ -259,9 +144,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'Loading', widget: LoadingPage()), //VideoDemo
     MyRouter(name: 'VideoDemo', widget: VideoDemo()),
     MyRouter(name: 'BottomSheet', widget: BottomSheetPage()),
-    MyRouter(
-        name: 'TestCustomPainterInListView',
-        widget: TestCustomPainterInListView()),
+    MyRouter(name: 'TestCustomPainterInListView', widget: TestCustomPainterInListView()),
     MyRouter(name: 'DrawPanelPage', widget: DrawPanelPage()),
   ]),
   MyRouterList(name: 'logics', lists: [
@@ -272,9 +155,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'importTestPage', widget: ImportTestPage()),
     MyRouter(name: 'InheritedWidgetTest', widget: InheritedWidgetTest()),
     MyRouter(name: 'InheritedPage2', widget: InheritedPage2()),
-    MyRouter(
-        name: 'SizeChangedNotification',
-        widget: SizeChangedLayoutNotification()),
+    MyRouter(name: 'SizeChangedNotification', widget: SizeChangedLayoutNotification()),
     MyRouter(name: 'TestCaptureImage', widget: TestCaptureImage()),
     MyRouter(name: 'TestBackdropFilterPage', widget: TestBackdropFilterPage()),
     MyRouter(name: 'TestNavBackPage', widget: TestNavBackPage()),
@@ -297,5 +178,4 @@ List<dynamic> _globalRouters = [
   MyRouterList(name: 'others', lists: []),
 ];
 
-var globalRouters =
-    MyRouterList(lists: _globalRouters, name: 'flutter测试123'); //表示
+var globalRouters = MyRouterList(lists: _globalRouters, name: 'flutter测试123'); //表示

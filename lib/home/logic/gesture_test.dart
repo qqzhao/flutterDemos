@@ -390,10 +390,23 @@ class TestGestureWidget extends StatelessWidget {
   }
 
   Widget build15(BuildContext context) {
+    return GestureDetector(
+      onTapDown: (_) => print('onTapDown'),
+      onTapUp: (_) => print('onTapUp'),
+      onTap: () => print('onTap'),
+      onLongPress: () => print('onLongPress'),
+      onDoubleTap: () => print('onDoubleTap'),
+      child: Container(
+        width: 300.0,
+        height: 300.0,
+        color: Colors.red,
+      ),
+    );
     return Listener(
       onPointerDown: (_) => print('onPointerDown'),
+      onPointerUp: (_) => print('onPointerUp'),
       child: GestureDetector(
-//        onTapDown: (_) => print('onTapDown'),
+        onTapDown: (_) => print('onTapDown'),
         onTapUp: (_) => print('onTapUp'),
         onTap: () => print('onTap'),
         onLongPress: () => print('onLongPress'),
@@ -407,9 +420,38 @@ class TestGestureWidget extends StatelessWidget {
     );
   }
 
+  Widget build16(BuildContext context) {
+    return Listener(
+      child: GestureDetector(
+        onTapDown: (_) => print('outer onTapDown'),
+//        onTapUp: (_) => print('onTapUp'),
+//        onTap: () => print('onTap'),
+//        onLongPress: () => print('onLongPress'),
+//        onDoubleTap: () => print('onDoubleTap'),
+        child: Container(
+          width: 300.0,
+          height: 300.0,
+          color: Colors.red,
+          child: GestureDetector(
+            onTapDown: (_) => print('inner tap down'),
+            onLongPress: () => print('onLongPress'),
+            onHorizontalDragUpdate: (_) => print('onHorizontalDragUpdate'),
+            child: Center(
+              child: Container(
+                width: 100.0,
+                height: 100.0,
+                color: Colors.blue,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return build15(context);
+    return build16(context);
   }
 }
 
@@ -494,11 +536,7 @@ class MultipleGestureWidget extends StatelessWidget {
           () => AllowMultipleGestureRecognizer(), //constructor
           (AllowMultipleGestureRecognizer instance) {
             //initializer
-            instance.onTap = () {
-              if (onTap != null) {
-                onTap();
-              }
-            };
+            instance.onTap = onTap;
           },
         )
       },
