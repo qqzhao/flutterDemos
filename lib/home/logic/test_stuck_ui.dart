@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -63,8 +64,21 @@ class _TestStuckUIPageState extends State<TestStuckUIPage> {
   }
 }
 
+/// 点击 tap1 效果比较明显，可以查找到 `costLongTimeFunc`。
 void costLongTimeFunc(String str) {
+  Timeline.startSync('costLongTimeFunc');
   TimeDurationTool.start('test1');
+
+//  Timeline.timeSync('costLongTimeFunc-1', () {
+//    for (int j = 0; j < 5; j++) {
+//      int b = 0;
+//      for (int i = 0; i < 1000 * 1000 * 1000 * 5; i++) {
+//        b = i * i;
+//      }
+//      print('current2 j = $j, ${DateTime.now()}');
+//    }
+//  });
+
   for (int j = 0; j < 5; j++) {
     int b = 0;
     for (int i = 0; i < 1000 * 1000 * 1000 * 5; i++) {
@@ -74,4 +88,6 @@ void costLongTimeFunc(String str) {
   }
 
   print('222 = ${TimeDurationTool.record('test1')}');
+
+  Timeline.finishSync();
 }

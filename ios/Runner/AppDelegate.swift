@@ -1,5 +1,6 @@
 import UIKit
 import Flutter
+import AVFoundation
 
 var openTimer = false;
 
@@ -23,6 +24,13 @@ var openTimer = false;
                 // Fallback on earlier versions
             }
         }
+        
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
+//            AVAudioSession.sharedInstance().requestRecordPermission({status in
+//                print("status = \(status)");
+//            });
+//        }
+        
         return super.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 }

@@ -451,7 +451,7 @@ class TestGestureWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return build16(context);
+    return DemoApp();
   }
 }
 
@@ -505,7 +505,7 @@ class DemoApp extends StatelessWidget {
         color: Colors.green,
         child: Center(
           //Now, wraps the second container in RawGestureDetector
-          child: MultipleGestureWidget(
+          child: GestureDetector(
             onTap: () {
               print('inner taped');
             },

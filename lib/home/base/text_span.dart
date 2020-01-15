@@ -35,7 +35,7 @@ class _TestTextSpanPageState extends State<TestTextSpanPage> {
 
   @override
   Widget build(BuildContext context) {
-    var style = TextStyle(color: Colors.black, fontSize: 24.0);
+    var style = TextStyle(color: Colors.black, fontSize: 44.0);
 
     return Scaffold(
         appBar: AppBar(title: Text("TextSpan")),
