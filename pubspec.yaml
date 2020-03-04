@@ -39,17 +39,21 @@ dependencies:
 #  exportable: "^0.1.0"
 
 dev_dependencies:
-  protoc_plugin:
-    path: "/Users/qqzhao/Desktop/debug/proto_plugin/protoc_plugin"
+#  protoc_plugin:
+#    path: "/Users/qqzhao/Desktop/debug/proto_plugin/protoc_plugin"
   flutter_driver:
     sdk: flutter
   test: any
   flutter_test:
     sdk: flutter
+  json_to_model: ^1.3.9
+  build_runner: ^1.7.4
+  json_serializable: ^3.2.5
+  json_annotation: ^3.0.1
 
 dependency_overrides:
-  protobuf:
-    path: "/Users/qqzhao/Desktop/debug/proto_plugin/protobuf"
+#  protobuf:
+#    path: "/Users/qqzhao/Desktop/debug/proto_plugin/protobuf"
 
 
 # For information on the generic Dart part of this file, see the

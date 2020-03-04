@@ -1,0 +1,8 @@
+{
+  "id": 2,
+  "title": "Hello Guys!",
+  "content": "content",
+  "tags": "$[]tag",
+  "user": "$./user/user",
+  "published": true
+}
