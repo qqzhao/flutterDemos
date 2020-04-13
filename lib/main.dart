@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hello/config/router_config.dart';
 import 'package:hello/global.dart';
 import 'package:hello/home/base/objectdbPage.dart';
 import 'package:hello/home/logic/config_temp.dart' as config2;
@@ -10,6 +9,7 @@ import 'package:hello/utils/route.dart';
 import 'package:oktoast/oktoast.dart';
 
 import './components/custom_navigator_observe.dart';
+import 'config/router_config.dart';
 import 'home/logic/config_temp.dart' as config;
 
 Brightness curBright = Brightness.light;
@@ -18,8 +18,8 @@ void main() {
   var _isProduct = bool.fromEnvironment("dart.vm.product");
   print('_isProduct = $_isProduct');
 //  print('_isDartStreamEnabled = $_isDartStreamEnabled');
-  runZoned(() => runApp(Center(child: MyApp())),
-      onError: (Object obj, StackTrace stack) {
+
+  runZoned(() => runApp(Center(child: MyApp())), onError: (Object obj, StackTrace stack) {
     print('global exception: obj = $obj;\nstack = $stack');
   });
 }
@@ -66,6 +66,8 @@ class MyApp extends StatelessWidget {
       backgroundColor: Colors.grey,
       radius: 10.0,
       child: MaterialApp(
+        showPerformanceOverlay: false,
+        debugShowMaterialGrid: false,
         title: 'Flutter demo1',
         navigatorObservers: <NavigatorObserver>[new CustomNavObserver()],
         theme: new ThemeData(
@@ -78,12 +80,12 @@ class MyApp extends StatelessWidget {
           brightness: curBright,
           primaryColorBrightness: curBright,
           accentColorBrightness: curBright,
-          fontFamily: 'rokkittFamily', //PingFang SC
+//          fontFamily: 'rokkittFamily', //PingFang SC
         ),
         home: RouterPage(
           routerList: globalRouters,
         ),
-//        home: UploadFilePage(),
+//        home: GestureTestPage(), //GestureTestPage(),
         navigatorKey: globalKey,
         routes: {
           '/base/objectpage': (BuildContext context) => new ObjectdbTestPage(),

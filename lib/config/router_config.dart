@@ -66,6 +66,7 @@ import 'package:hello/home/logic/json_parse/json_parse.dart';
 import 'package:hello/home/logic/lifecycle/first_page.dart';
 import 'package:hello/home/logic/lifecycle/second_page.dart';
 import 'package:hello/home/logic/post_test.dart';
+import 'package:hello/home/logic/provider/provider_page.dart';
 import 'package:hello/home/logic/size_notification.dart';
 import 'package:hello/home/logic/test_dispose_page.dart';
 import 'package:hello/home/logic/test_map.dart';
@@ -174,6 +175,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'TestStuckUIPage', widget: TestStuckUIPage()),
     MyRouter(name: 'FlowControlPage', widget: FlowControlPage()),
     MyRouter(name: 'GestureTestPage', widget: GestureTestPage()),
+    MyRouter(name: 'ProviderPageTest', widget: ProviderPageTest()),
   ]),
   MyRouterList(name: 'others', lists: []),
 ];
