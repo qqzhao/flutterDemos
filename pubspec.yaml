@@ -28,6 +28,7 @@ dependencies:
   image:
   protobuf:
   webview_flutter:
+  provider:
   platform_view_test:
     path: 'plugins/platform_view_test'
   file_uploader:
