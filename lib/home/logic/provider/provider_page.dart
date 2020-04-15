@@ -12,6 +12,26 @@ class Counter with ChangeNotifier {
   }
 }
 
+class NetworkData with ChangeNotifier {
+  Map<String, dynamic> _data = {
+    'name': '',
+    'title': '',
+    'list': [],
+  };
+  Map get data => _data;
+
+  void request() async {
+    print('NetworkData request');
+    await Future.delayed(Duration(seconds: 3));
+    _data = {
+      'title': _data['title'] + '111_',
+      'name': _data['name'] + '222_',
+      'list': [111, 222, 333, 'aaa'],
+    };
+//    notifyListeners();
+  }
+}
+
 class ProviderPageTest extends StatefulWidget {
   @override
   _ProviderPageTestState createState() => _ProviderPageTestState();
@@ -37,6 +57,7 @@ class _ProviderPageTestState extends State<ProviderPageTest> with SingleTickerPr
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => Counter()),
+        ListenableProvider(create: (_) => NetworkData()),
       ],
       child: Consumer<Counter>(
         builder: (context, counter, _) {
@@ -105,6 +126,7 @@ class IncrementCounterButton extends StatelessWidget {
     return FloatingActionButton(
       onPressed: () {
         Provider.of<Counter>(context, listen: false).increment();
+        Provider.of<NetworkData>(context, listen: false).request();
       },
       tooltip: 'Increment',
       child: const Icon(Icons.add),
@@ -118,6 +140,7 @@ class CounterLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final counter = Provider.of<Counter>(context);
+    final data = Provider.of<NetworkData>(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -126,10 +149,25 @@ class CounterLabel extends StatelessWidget {
           'You have pushed the button this many times:',
         ),
         Text(
-          '${counter.count}',
+          '${counter.count}, ${data.data['name']}',
           // ignore: deprecated_member_use
           style: Theme.of(context).textTheme.display1,
         ),
+        Selector<NetworkData, int>(
+          child: Text('333'),
+          selector: (_, foo) => foo.data['list'].length,
+          builder: (BuildContext context, value, Widget child) {
+            print('child selector = $child');
+            return Text('value = ${value}');
+          },
+        ),
+        Consumer<NetworkData>(
+          child: Text('333'),
+          builder: (BuildContext context, value, Widget child) {
+            print('child consumer = $child');
+            return Text('value consumer = ${value.data['list'].length}');
+          },
+        )
       ],
     );
   }
