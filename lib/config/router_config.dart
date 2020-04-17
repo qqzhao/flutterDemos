@@ -54,6 +54,7 @@ import 'package:hello/home/combine/loading.dart';
 import 'package:hello/home/combine/pop_drag_view.dart';
 import 'package:hello/home/combine/popview.dart';
 import 'package:hello/home/combine/video_demo.dart';
+import 'package:hello/home/combine/video_demo2.dart';
 import 'package:hello/home/logic/backdrop_filter.dart';
 import 'package:hello/home/logic/capture_image.dart';
 import 'package:hello/home/logic/exception.dart';
@@ -147,6 +148,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'BottomSheet', widget: BottomSheetPage()),
     MyRouter(name: 'TestCustomPainterInListView', widget: TestCustomPainterInListView()),
     MyRouter(name: 'DrawPanelPage', widget: DrawPanelPage()),
+    MyRouter(name: 'VideoDemo2Page', widget: VideoDemo2Page()),
   ]),
   MyRouterList(name: 'logics', lists: [
     MyRouterList(name: 'lifecycle', lists: [
