@@ -1,36 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:hello/home/logic/provider/count_label.dart';
+import 'package:hello/home/logic/provider/models.dart';
 import 'package:provider/provider.dart';
-
-class Counter with ChangeNotifier {
-  int _count = 0;
-  int get count => _count;
-
-  void increment() {
-    _count++;
-    notifyListeners();
-  }
-}
-
-class NetworkData with ChangeNotifier {
-  Map<String, dynamic> _data = {
-    'name': '',
-    'title': '',
-    'list': [],
-  };
-  Map get data => _data;
-
-  void request() async {
-    print('NetworkData request');
-    await Future.delayed(Duration(seconds: 3));
-    _data = {
-      'title': _data['title'] + '111_',
-      'name': _data['name'] + '222_',
-      'list': [111, 222, 333, 'aaa'],
-    };
-//    notifyListeners();
-  }
-}
 
 class ProviderPageTest extends StatefulWidget {
   @override
@@ -56,8 +28,21 @@ class _ProviderPageTestState extends State<ProviderPageTest> with SingleTickerPr
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        Provider<MyIntValue>(
+          create: (BuildContext context) {
+            print('provider create');
+            return MyIntValue(value2: 100);
+          },
+          dispose: (BuildContext context, MyIntValue value) {
+            print('provider dispose');
+          },
+        ),
         ChangeNotifierProvider(create: (_) => Counter()),
         ListenableProvider(create: (_) => NetworkData()),
+        Consumer<MyIntValue>(
+          builder: (context, myIntValue, child) => Provider.value(value: myIntValue.value2 - 10, child: child),
+          child: Text('11111: '),
+        ),
       ],
       child: Consumer<Counter>(
         builder: (context, counter, _) {
@@ -127,48 +112,14 @@ class IncrementCounterButton extends StatelessWidget {
       onPressed: () {
         Provider.of<Counter>(context, listen: false).increment();
         Provider.of<NetworkData>(context, listen: false).request();
+        var value2 = Provider.of<MyIntValue>(context, listen: false).value2;
+        print('value2 = $value2');
+
+//        var value3 = Provider.of<MyIntValue>(context, listen: false).value;
+//        print('value3 = $value3');
       },
       tooltip: 'Increment',
       child: const Icon(Icons.add),
-    );
-  }
-}
-
-class CounterLabel extends StatelessWidget {
-  const CounterLabel({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final counter = Provider.of<Counter>(context);
-    final data = Provider.of<NetworkData>(context);
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        const Text(
-          'You have pushed the button this many times:',
-        ),
-        Text(
-          '${counter.count}, ${data.data['name']}',
-          // ignore: deprecated_member_use
-          style: Theme.of(context).textTheme.display1,
-        ),
-        Selector<NetworkData, int>(
-          child: Text('333'),
-          selector: (_, foo) => foo.data['list'].length,
-          builder: (BuildContext context, value, Widget child) {
-            print('child selector = $child');
-            return Text('value = ${value}');
-          },
-        ),
-        Consumer<NetworkData>(
-          child: Text('333'),
-          builder: (BuildContext context, value, Widget child) {
-            print('child consumer = $child');
-            return Text('value consumer = ${value.data['list'].length}');
-          },
-        )
-      ],
     );
   }
 }
