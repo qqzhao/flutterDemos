@@ -13,7 +13,7 @@ class _RouteMainPageState extends State<RouteMainPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-//      key: Routes.rootKey,
+      key: Routes.rootKey,
       child: Builder(
         builder: (context) {
           return Navigator(

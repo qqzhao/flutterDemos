@@ -13,7 +13,7 @@ class Routes {
 }
 
 // RootStatelessPage
-class RootStatelessPage extends StatelessWidget {
+abstract class RootStatelessPage extends StatelessWidget {
   Object arguments;
   RootStatelessPage({this.arguments});
   @override
@@ -23,7 +23,7 @@ class RootStatelessPage extends StatelessWidget {
 }
 
 // RootStatefulPage
-class RootStatefulPage extends StatefulWidget {
+abstract class RootStatefulPage extends StatefulWidget {
   Object arguments;
   RootStatefulPage({this.arguments});
   @override
