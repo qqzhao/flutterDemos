@@ -10,3 +10,9 @@ enum UserType {
   @JsonValue(2)
   teacher,
 }
+
+enum UserTypeTest {
+  none,
+  student,
+  teacher,
+}

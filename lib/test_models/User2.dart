@@ -8,8 +8,8 @@ dynamic fromJson1(Map obj) {
   return obj['aaa'] ?? obj['bbb'];
 }
 
-class _SimpleConverter<T> implements JsonConverter<T, Map<String, dynamic>> {
-  const _SimpleConverter();
+class SimpleConverter<T> implements JsonConverter<T, Map<String, dynamic>> {
+  const SimpleConverter();
 
   @override
   T fromJson(Map<String, dynamic> json) => json['value'] as T;
@@ -18,8 +18,8 @@ class _SimpleConverter<T> implements JsonConverter<T, Map<String, dynamic>> {
   Map<String, dynamic> toJson(T object) => {'value': object};
 }
 
-class _SimpleConverter2 implements JsonConverter<String, Map<String, dynamic>> {
-  const _SimpleConverter2();
+class SimpleConverter2 implements JsonConverter<String, Map<String, dynamic>> {
+  const SimpleConverter2();
 
   @override
   String fromJson(Map<String, dynamic> json) => json['value'] as String;
@@ -39,11 +39,11 @@ class User2<T> {
   )
   String name;
 
-  @_SimpleConverter()
+  @SimpleConverter()
   @JsonKey(name: null)
   T name2;
 
-  @_SimpleConverter2()
+  @SimpleConverter2()
   String name3;
   num age;
 

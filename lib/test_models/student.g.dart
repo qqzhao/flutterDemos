@@ -21,8 +21,8 @@ Student _$StudentFromJson(Map json) {
         unknownValue: UserType.none)
     ..name = fromJson1(json['my_name'] as Map)
     ..name2 = json['name2']
-    ..name3 = const _SimpleConverter2()
-        .fromJson(json['name3'] as Map<String, dynamic>)
+    ..name3 =
+        const SimpleConverter2().fromJson(json['name3'] as Map<String, dynamic>)
     ..age = json['age'] as num;
 }
 
@@ -30,7 +30,7 @@ Map<String, dynamic> _$StudentToJson(Student instance) => <String, dynamic>{
       'type': _$UserTypeEnumMap[instance.type],
       'my_name': instance.name,
       'name2': instance.name2,
-      'name3': const _SimpleConverter2().toJson(instance.name3),
+      'name3': const SimpleConverter2().toJson(instance.name3),
       'age': instance.age,
       'classmates': instance.classmates?.map((e) => e?.toJson())?.toList(),
       'grade': instance.grade,

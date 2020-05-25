@@ -14,16 +14,16 @@ User2<T> _$User2FromJson<T>(Map json) {
     age: json['age'] as num,
   )
     ..name2 =
-        _SimpleConverter<T>().fromJson(json['name2'] as Map<String, dynamic>)
-    ..name3 = const _SimpleConverter2()
+        SimpleConverter<T>().fromJson(json['name2'] as Map<String, dynamic>)
+    ..name3 = const SimpleConverter2()
         .fromJson(json['name3'] as Map<String, dynamic>);
 }
 
 Map<String, dynamic> _$User2ToJson<T>(User2<T> instance) => <String, dynamic>{
       'type': _$UserTypeEnumMap[instance.type],
       'my_name': instance.name,
-      'name2': _SimpleConverter<T>().toJson(instance.name2),
-      'name3': const _SimpleConverter2().toJson(instance.name3),
+      'name2': SimpleConverter<T>().toJson(instance.name2),
+      'name3': const SimpleConverter2().toJson(instance.name3),
       'age': instance.age,
     };
 
