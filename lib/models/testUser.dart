@@ -1,13 +1,13 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import './user/user.dart';
 import 'tag.dart';
+import './user/user.dart';
 
 part 'testUser.g.dart';
 
 @JsonSerializable()
 class TestUser {
-  TestUser();
+      TestUser();
 
   int id;
   String title;
@@ -16,6 +16,10 @@ class TestUser {
   User user;
   bool published;
 
-  factory TestUser.fromJson(Map<String, dynamic> json) => _$TestUserFromJson(json);
+  factory TestUser.fromJson(Map<String,dynamic> json) => _$TestUserFromJson(json);
   Map<String, dynamic> toJson() => _$TestUserToJson(this);
+  
+
 }
+
+

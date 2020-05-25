@@ -6,6 +6,7 @@ targets:
       build_web_compilers|entrypoint:
         generate_for:
           - models/**
+          - test_models/**
         options:
           dart2js_args:
             - --minify
