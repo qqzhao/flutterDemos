@@ -3,9 +3,7 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/rendering.dart';
-import 'package:oktoast/oktoast.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 final String scrawlImagePath = '/screen_shot_scraw.png';
 
@@ -19,23 +17,23 @@ Future<File> getScreenShotFile() async {
 
 Future saveScreenShot2SDCard(RenderRepaintBoundary boundary, {Function success, Function fail}) async {
   // check storage permission.
-  PermissionHandler().requestPermissions([PermissionGroup.storage]).then((map) {
-    print('map = $map');
-    if (Platform.isIOS || map[PermissionGroup.storage] == PermissionStatus.granted) {
-      capturePng2List(boundary).then((uint8List) async {
-        if (uint8List == null || uint8List.length == 0) {
-          if (fail != null) fail();
-          return;
-        }
-        Directory tempDir = Platform.isIOS ? await getTemporaryDirectory() : await getExternalStorageDirectory();
-        _saveImage(uint8List, Directory('${tempDir.path}/flutter_ui'), '/screen_shot_scraw_${DateTime.now()}.png', success: success, fail: fail);
-      });
-    } else {
-      showToast('请打开SD卡存储权限！');
-//      if (fail != null) fail();
-      return;
-    }
-  });
+//  PermissionHandler().requestPermissions([PermissionGroup.storage]).then((map) {
+//    print('map = $map');
+//    if (Platform.isIOS || map[PermissionGroup.storage] == PermissionStatus.granted) {
+//      capturePng2List(boundary).then((uint8List) async {
+//        if (uint8List == null || uint8List.length == 0) {
+//          if (fail != null) fail();
+//          return;
+//        }
+//        Directory tempDir = Platform.isIOS ? await getTemporaryDirectory() : await getExternalStorageDirectory();
+//        _saveImage(uint8List, Directory('${tempDir.path}/flutter_ui'), '/screen_shot_scraw_${DateTime.now()}.png', success: success, fail: fail);
+//      });
+//    } else {
+//      showToast('请打开SD卡存储权限！');
+////      if (fail != null) fail();
+//      return;
+//    }
+//  });
 }
 
 void saveScreenShot(RenderRepaintBoundary boundary, {Function success, Function fail}) {

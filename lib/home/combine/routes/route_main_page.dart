@@ -58,7 +58,7 @@ Route _buildRoute(RouteSettings settings) {
         page.arguments = settings.arguments;
       }
 
-      if (settings.isInitialRoute && page is RootStatefulPage) {
+      if (page is RootStatefulPage) {
         // 设置初始化特殊参数
         page.arguments = {'isInitial': true, 'key1': 111};
       }
