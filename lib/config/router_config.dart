@@ -51,6 +51,7 @@ import 'package:hello/home/combine/bottomSheet.dart';
 import 'package:hello/home/combine/dialog.dart';
 import 'package:hello/home/combine/draw_panel/draw_panel_page.dart';
 import 'package:hello/home/combine/loading.dart';
+import 'package:hello/home/combine/pdf_preview.dart';
 import 'package:hello/home/combine/pop_drag_view.dart';
 import 'package:hello/home/combine/popview.dart';
 import 'package:hello/home/combine/routes/route_main_page.dart';
@@ -151,6 +152,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'DrawPanelPage', widget: DrawPanelPage()),
     MyRouter(name: 'VideoDemo2Page', widget: VideoDemo2Page()),
     MyRouter(name: 'RouteMainPage', widget: RouteMainPage()),
+    MyRouter(name: 'PdfPreviewPage', widget: PdfPreviewPage()),
   ]),
   MyRouterList(name: 'logics', lists: [
     MyRouterList(name: 'lifecycle', lists: [

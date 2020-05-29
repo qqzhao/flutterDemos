@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.9.1)
   - connectivity (0.0.1):
     - Flutter
     - Reachability
@@ -7,7 +8,10 @@ PODS:
   - file_uploader (0.0.1):
     - Flutter
   - Flutter (1.0.0)
-  - flutter_uploader (0.0.1):
+  - flutter_full_pdf_viewer (1.0.1):
+    - Flutter
+  - flutter_uploader (1.2.0):
+    - Alamofire (= 4.9.1)
     - Flutter
   - flutter_utils_z (0.0.1):
     - Flutter
@@ -16,7 +20,7 @@ PODS:
   - FMDB/standard (2.7.5)
   - path_provider (0.0.1):
     - Flutter
-  - permission_handler (3.2.2):
+  - "permission_handler (5.0.0+hotfix.6)":
     - Flutter
   - platform_view_test (0.0.1):
     - Flutter
@@ -36,6 +40,7 @@ DEPENDENCIES:
   - device_info (from `.symlinks/plugins/device_info/ios`)
   - file_uploader (from `.symlinks/plugins/file_uploader/ios`)
   - Flutter (from `.symlinks/flutter/ios`)
+  - flutter_full_pdf_viewer (from `.symlinks/plugins/flutter_full_pdf_viewer/ios`)
   - flutter_uploader (from `.symlinks/plugins/flutter_uploader/ios`)
   - flutter_utils_z (from `.symlinks/plugins/flutter_utils_z/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
@@ -48,6 +53,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - FMDB
     - Reachability
 
@@ -60,6 +66,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/file_uploader/ios"
   Flutter:
     :path: ".symlinks/flutter/ios"
+  flutter_full_pdf_viewer:
+    :path: ".symlinks/plugins/flutter_full_pdf_viewer/ios"
   flutter_uploader:
     :path: ".symlinks/plugins/flutter_uploader/ios"
   flutter_utils_z:
@@ -80,21 +88,23 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/webview_flutter/ios"
 
 SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   connectivity: c72716e202a1225ec4810740d5cb56b8ae3bf4cc
   device_info: 3ebad48f726348f69abd802f3334a8d1ed795fbd
   file_uploader: a48f45c3e0a80b470caaeb0d94ffbe4ec3bc3bdf
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  flutter_uploader: 848652a9bb11066e0944a2170ec0e080139dd3eb
+  flutter_full_pdf_viewer: 1b65139fc3236cde300ba6bea2a72669cb07f2e6
+  flutter_uploader: 7957e1b9d6516b6cccc37e5ffd6c5a0975a7cc4c
   flutter_utils_z: e89dcf2ac3df28350fe053134f54841f57d57b5d
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   path_provider: f96fff6166a8867510d2c25fdcc346327cc4b259
-  permission_handler: d59f41439f5bc6c4d1005f3355e98f05ddc68ece
+  permission_handler: b7a0953389e699927c6217933754cdcd0fa2c5a7
   platform_view_test: 05e2c8b86621c60f2d6f0c8ed4982bf351b4af0e
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  sqflite: ff1d9da63c06588cc8d1faf7256d741f16989d5a
-  video_player: 69c5f029fac4ffe4fc8a85ea7f7b793709661549
+  sqflite: 4001a31ff81d210346b500c55b17f4d6c7589dd0
+  video_player: 9cc823b1d9da7e8427ee591e8438bfbcde500e6e
   video_player_web: da8cadb8274ed4f8dbee8d7171b420dedd437ce7
-  webview_flutter: db3aba222b23e4dc432e0c5882834123dc50ff9f
+  webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96
 
 PODFILE CHECKSUM: 1ebb06bfb47524db60d65f903ba6623a28dd437e
 
