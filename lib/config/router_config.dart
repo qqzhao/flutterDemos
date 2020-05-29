@@ -50,6 +50,7 @@ import 'package:hello/home/base/webview_flutter.dart';
 import 'package:hello/home/combine/bottomSheet.dart';
 import 'package:hello/home/combine/dialog.dart';
 import 'package:hello/home/combine/draw_panel/draw_panel_page.dart';
+import 'package:hello/home/combine/latex/latex_demo.dart';
 import 'package:hello/home/combine/loading.dart';
 import 'package:hello/home/combine/pdf_preview.dart';
 import 'package:hello/home/combine/pop_drag_view.dart';
@@ -153,6 +154,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'VideoDemo2Page', widget: VideoDemo2Page()),
     MyRouter(name: 'RouteMainPage', widget: RouteMainPage()),
     MyRouter(name: 'PdfPreviewPage', widget: PdfPreviewPage()),
+    MyRouter(name: 'FlutterTeXExample', widget: FlutterTeXExample()),
   ]),
   MyRouterList(name: 'logics', lists: [
     MyRouterList(name: 'lifecycle', lists: [
