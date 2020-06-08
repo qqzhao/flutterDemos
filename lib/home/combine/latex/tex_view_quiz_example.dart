@@ -28,7 +28,7 @@ class _TeXViewQuizExampleState extends State<TeXViewQuizExample> {
 
   List<Quiz> quizList = [
     Quiz(
-      statement: r"""<h3>What is the correct form of quadratic formula?</h3>""",
+      statement: r"""<h3>What is the correct <h1>xxx</h1>form of quadratic formula?</h3>""",
       options: [
         QuizOption(
           "id_1",
@@ -50,8 +50,7 @@ class _TeXViewQuizExampleState extends State<TeXViewQuizExample> {
       correctOptionId: "id_3",
     ),
     Quiz(
-      statement:
-          r"""<h3>Choose the correct mathematical form of Bohr's Radius.</h3>""",
+      statement: r"""<h3>Choose the correct mathematical form of Bohr's Radius.</h3>""",
       options: [
         QuizOption(
           "id_1",
@@ -106,34 +105,28 @@ class _TeXViewQuizExampleState extends State<TeXViewQuizExample> {
       body: ListView(
         physics: ScrollPhysics(),
         children: <Widget>[
-          Text(
-            'Quiz ${currentQuizIndex + 1}/${quizList.length}',
-            style: TextStyle(fontSize: 20),
-            textAlign: TextAlign.center,
+          Container(
+            height: 20.0,
+            child: Text(
+              'Quiz ${currentQuizIndex + 1}/${quizList.length}',
+              style: TextStyle(fontSize: 20),
+              textAlign: TextAlign.center,
+            ),
           ),
           TeXView(
               showLoadingWidget: true,
               child: TeXViewColumn(children: [
-                TeXViewDocument(quizList[currentQuizIndex].statement,
-                    style: TeXViewStyle(textAlign: TeXViewTextAlign.Center)),
+                TeXViewDocument(quizList[currentQuizIndex].statement, style: TeXViewStyle(textAlign: TeXViewTextAlign.Center)),
                 TeXViewGroup(
-                    children: quizList[currentQuizIndex]
-                        .options
-                        .map((QuizOption option) {
+                    children: quizList[currentQuizIndex].options.map((QuizOption option) {
                       return TeXViewGroupItem(
-                          rippleEffect: false,
-                          id: option.id,
-                          child: TeXViewDocument(option.option,
-                              style: TeXViewStyle(
-                                  padding: TeXViewPadding.all(10))));
+                          rippleEffect: false, id: option.id, child: TeXViewDocument(option.option, style: TeXViewStyle(padding: TeXViewPadding.all(10))));
                     }).toList(),
                     selectedItemStyle: TeXViewStyle(
                         borderRadius: TeXViewBorderRadius.all(10),
-                        border: TeXViewBorder.all(TeXViewBorderDecoration(
-                            borderWidth: 3, borderColor: Colors.green[900])),
+                        border: TeXViewBorder.all(TeXViewBorderDecoration(borderWidth: 3, borderColor: Colors.green[900])),
                         margin: TeXViewMargin.all(10)),
-                    normalItemStyle:
-                        TeXViewStyle(margin: TeXViewMargin.all(10)),
+                    normalItemStyle: TeXViewStyle(margin: TeXViewMargin.all(10)),
                     onTap: (id) {
                       this.selectedOptionId = id;
                       setState(() {
@@ -146,10 +139,7 @@ class _TeXViewQuizExampleState extends State<TeXViewQuizExample> {
                 padding: TeXViewPadding.all(10),
                 borderRadius: TeXViewBorderRadius.all(10),
                 border: TeXViewBorder.all(
-                  TeXViewBorderDecoration(
-                      borderColor: Colors.blue,
-                      borderStyle: TeXViewBorderStyle.Solid,
-                      borderWidth: 5),
+                  TeXViewBorderDecoration(borderColor: Colors.blue, borderStyle: TeXViewBorderStyle.Solid, borderWidth: 5),
                 ),
                 backgroundColor: Colors.white,
               ),
@@ -158,10 +148,7 @@ class _TeXViewQuizExampleState extends State<TeXViewQuizExample> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CircularProgressIndicator(),
-                    Text("Rendering...!")
-                  ],
+                  children: <Widget>[CircularProgressIndicator(), Text("Rendering...!")],
                 ),
               )),
           if (isWrong)
@@ -192,11 +179,9 @@ class _TeXViewQuizExampleState extends State<TeXViewQuizExample> {
               RaisedButton(
                 onPressed: () {
                   setState(() {
-                    if (selectedOptionId ==
-                        quizList[currentQuizIndex].correctOptionId) {
+                    if (selectedOptionId == quizList[currentQuizIndex].correctOptionId) {
                       selectedOptionId = null;
-                      if (currentQuizIndex != quizList.length - 1)
-                        currentQuizIndex++;
+                      if (currentQuizIndex != quizList.length - 1) currentQuizIndex++;
                     } else {
                       isWrong = true;
                     }

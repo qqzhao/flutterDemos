@@ -4,14 +4,12 @@ import 'package:hello/home/combine/latex/tex_view_document_examples.dart';
 import 'package:hello/home/combine/latex/tex_view_image_example.dart';
 import 'package:hello/home/combine/latex/tex_view_ink_well_example.dart';
 import 'package:hello/home/combine/latex/tex_view_quiz_example.dart';
+import 'package:hello/home/combine/latex/tex_view_test_1.dart';
 
 class FlutterTeXExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: TeXViewFullExample(),
-    );
+    return TeXViewFullExample();
   }
 }
 
@@ -29,7 +27,7 @@ class TeXViewFullExample extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(20),
             child: Image.asset(
-              "assets/flutter_tex_banner.png",
+              "assets/images/sound_bg.png",
               fit: BoxFit.contain,
               height: 200,
             ),
@@ -42,6 +40,7 @@ class TeXViewFullExample extends StatelessWidget {
           getExampleButton(context, 'TeX Examples', TeXViewDocumentExamples()),
           getExampleButton(context, 'Image Example', TeXViewImageExample()),
           getExampleButton(context, 'Inkwell Example', TeXViewInkWellExample()),
+          getExampleButton(context, 'my test1', TexTest1()),
         ],
       ),
     );

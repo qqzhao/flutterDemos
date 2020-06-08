@@ -9,31 +9,44 @@ class PlatformViewTestPage extends StatefulWidget {
 class _PlatformViewTestPageState extends State<PlatformViewTestPage> {
   PlatformDemoViewController _controller;
   double _platformViewX = 0.0;
+  var outHeight = 200.0;
+  var innerHeight = 100.0;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        title: const Text('Plugin example app'),
+        title: const Text('Platform example app'),
       ),
       body: Center(
         child: Stack(
           children: <Widget>[
-            Container(
-              width: 150.0,
-              height: 150.0,
-              color: Colors.red[200],
-              child: PlatformDemoView(
-                  onCreated: (controller) {
-                    _controller = controller;
-                    _controller.reloadView();
+            Column(
+              children: <Widget>[
+                Container(
+                  height: outHeight,
+                  color: Colors.purple,
+                ),
+                Container(
+                  width: 150.0,
+                  height: 150.0,
+                  color: Colors.red[200],
+                  child: SizedBox(
+                    height: innerHeight,
+                    child: PlatformDemoView(
+                        onCreated: (controller) {
+                          _controller = controller;
+                          _controller.reloadView();
 //                      _controller.loadUrl('aaa');
-                  },
-                  x: 0,
-                  y: 0,
-                  width: 100,
-                  height: 100),
+                        },
+                        x: 0,
+                        y: 0,
+                        width: 100,
+                        height: innerHeight),
+                  ),
+                ),
+              ],
             ),
 //              Container(
 //                width: 100.0,
@@ -54,6 +67,10 @@ class _PlatformViewTestPageState extends State<PlatformViewTestPage> {
         ),
         onTap: () {
           _controller.reloadView();
+          setState(() {
+            outHeight = 300.0;
+            innerHeight = 150.0;
+          });
         },
       ),
     ));
