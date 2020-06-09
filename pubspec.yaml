@@ -39,6 +39,7 @@ dependencies:
   tools:
     path: packages/tools
   json_annotation: ^3.0.1
+  webview_flutter_plus: ^0.1.1+6
   flutter_full_pdf_viewer: ^1.0.6
 #  flutter_fullpdfview: ^1.0.12
 #  exportable: "^0.1.0"
@@ -74,6 +75,10 @@ flutter:
     - assets/videos/
     - assets/images/
     - assets/flrs/
+    - assets/html/
+    - assets/html/testLatex/
+    - assets/html/testLatex/css/
+    - assets/html/testLatex/js/
 
 
   fonts:

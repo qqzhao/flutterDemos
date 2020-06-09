@@ -3,23 +3,64 @@ import 'package:hello/home/combine/routes/route_base.dart';
 import 'package:hello/home/combine/routes/route_page_a.dart';
 import 'package:hello/home/combine/routes/route_page_b.dart';
 import 'package:hello/home/combine/routes/route_page_c.dart';
+import 'package:provider/provider.dart';
 
 class RouteMainPage extends StatefulWidget {
   @override
   _RouteMainPageState createState() => _RouteMainPageState();
 }
 
+class MyIntValue {
+  final int value;
+  MyIntValue({this.value});
+}
+
 class _RouteMainPageState extends State<RouteMainPage> {
   @override
   Widget build(BuildContext context) {
+    bool debugProvider = true;
+    if (debugProvider) {
+      return MultiProvider(
+        providers: [
+          Provider<MyIntValue>(
+            create: (BuildContext context) {
+              return MyIntValue(value: 1999);
+            },
+            dispose: (BuildContext context, MyIntValue value) {},
+          )
+        ],
+        child: Navigator(
+          key: Routes.globalKey,
+          initialRoute: Routes.pageA,
+          onGenerateRoute: _buildRoute,
+          onPopPage: (Route<dynamic> route, dynamic result) {
+            return false;
+          },
+          onUnknownRoute: (RouteSettings settings) {
+            return null;
+          },
+        ),
+      );
+    }
+
     return Material(
       key: Routes.rootKey,
       child: Builder(
         builder: (context) {
-          return Navigator(
-            key: Routes.globalKey,
-            initialRoute: Routes.pageA,
-            onGenerateRoute: _buildRoute,
+          return MultiProvider(
+            providers: [
+              Provider<MyIntValue>(
+                create: (BuildContext context) {
+                  return MyIntValue(value: 999);
+                },
+                dispose: (BuildContext context, MyIntValue value) {},
+              )
+            ],
+            child: Navigator(
+              key: Routes.globalKey,
+              initialRoute: Routes.pageA,
+              onGenerateRoute: _buildRoute,
+            ),
           );
         },
       ),
@@ -30,6 +71,11 @@ class _RouteMainPageState extends State<RouteMainPage> {
 Route _buildRoute(RouteSettings settings) {
   print('settings == $settings');
   var pages = {
+    '/': (context) => Container(
+          width: 100,
+          height: 100,
+          color: Colors.redAccent,
+        ),
     Routes.pageA: (context) => RoutePageA(),
     Routes.pageB: (context) => RoutePageB(),
     Routes.pageC: (context) => RoutePageC(),

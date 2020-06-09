@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hello/home/combine/routes/route_base.dart';
+import 'package:hello/home/combine/routes/route_main_page.dart';
+import 'package:provider/provider.dart';
 
 class RoutePageB extends RootStatefulPage {
   @override
@@ -29,6 +31,8 @@ class _RoutePageBState extends RootStatefulPageState<RoutePageB> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
+          var value = Provider.of<MyIntValue>(context, listen: false).value;
+          print('value = $value');
           Routes.globalKey.currentState.pushReplacementNamed(Routes.pageC, arguments: {
             'pageBParams': '111',
             'key2': 222,

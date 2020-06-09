@@ -5,6 +5,7 @@ import 'package:hello/home/combine/latex/tex_view_image_example.dart';
 import 'package:hello/home/combine/latex/tex_view_ink_well_example.dart';
 import 'package:hello/home/combine/latex/tex_view_quiz_example.dart';
 import 'package:hello/home/combine/latex/tex_view_test_1.dart';
+import 'package:hello/home/combine/latex/tex_view_test_2.dart';
 
 class FlutterTeXExample extends StatelessWidget {
   @override
@@ -41,6 +42,7 @@ class TeXViewFullExample extends StatelessWidget {
           getExampleButton(context, 'Image Example', TeXViewImageExample()),
           getExampleButton(context, 'Inkwell Example', TeXViewInkWellExample()),
           getExampleButton(context, 'my test1', TexTest1()),
+          getExampleButton(context, 'WebViewPlusExample test2', WebViewPlusExampleMainPage()),
         ],
       ),
     );
