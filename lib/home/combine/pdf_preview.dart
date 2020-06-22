@@ -45,7 +45,10 @@ class _PdfPreviewPageState extends State<PdfPreviewPage> {
           child: Text("Open PDF"),
           onPressed: () => Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => PDFScreen(pathPDF)),
+            MaterialPageRoute(
+                builder: (context) => PDFScreen(
+                      pathPDF: pathPDF,
+                    )),
           ),
         ),
       ),
@@ -54,8 +57,8 @@ class _PdfPreviewPageState extends State<PdfPreviewPage> {
 }
 
 class PDFScreen extends StatelessWidget {
-  String pathPDF = "";
-  PDFScreen(this.pathPDF);
+  final String pathPDF;
+  PDFScreen({this.pathPDF = ""});
 
   @override
   Widget build(BuildContext context) {

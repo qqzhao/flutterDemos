@@ -3,6 +3,7 @@ import 'package:hello/home/combine/routes/route_base.dart';
 import 'package:hello/home/combine/routes/route_main_page.dart';
 import 'package:provider/provider.dart';
 
+/// ignore: must_be_immutable
 class RoutePageB extends RootStatefulPage {
   @override
   _RoutePageBState createState() => _RoutePageBState();

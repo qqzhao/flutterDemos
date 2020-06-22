@@ -68,13 +68,21 @@ class Custom2ScrollPhysics extends ScrollPhysics {
       return true;
     }());
     if (value < position.pixels && position.pixels <= position.minScrollExtent) // underscroll
+    {
       return value - position.pixels;
+    }
     if (position.maxScrollExtent <= position.pixels && position.pixels < value) // overscroll
+    {
       return value - position.pixels;
+    }
     if (value < position.minScrollExtent && position.minScrollExtent < position.pixels) // hit top edge
+    {
       return value - position.minScrollExtent;
+    }
     if (position.pixels < position.maxScrollExtent && position.maxScrollExtent < value) // hit bottom edge
+    {
       return value - position.maxScrollExtent;
+    }
     return 0.0;
   }
 

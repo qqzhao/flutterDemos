@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 //import 'package:gbk2utf8/gbk2utf8.dart' as gbk2utf8;
 
+///
 /// 测试特殊字符的问题。
 ///
 // 有问题的

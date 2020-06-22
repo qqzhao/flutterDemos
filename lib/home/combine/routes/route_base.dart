@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
+/// ignore_for_file: must_be_immutable
 class Routes {
   static const String pageA = '/pageA';
   static const String pageB = '/pageB';

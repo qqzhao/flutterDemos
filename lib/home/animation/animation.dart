@@ -1,8 +1,7 @@
 import 'dart:async';
+import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/material.dart';
-
-import 'dart:ui' show lerpDouble;
 
 class AnimationPage extends StatefulWidget {
   @override

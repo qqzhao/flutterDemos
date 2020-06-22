@@ -80,6 +80,7 @@ class MixinTestPage extends StatelessWidget {
     Client().method();
   }
 
+  /// ignore: unused_element
   void _testMixin4() {
 //    class S {
 //    a() {print("S.a");}

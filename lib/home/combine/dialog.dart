@@ -15,7 +15,6 @@ class DialogPage extends StatefulWidget {
 class _DialogPageState extends State<DialogPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  @override
   void showDemoDialog<T>({BuildContext context, Widget child}) {
     showDialog<T>(
       context: context,
@@ -24,8 +23,7 @@ class _DialogPageState extends State<DialogPage> {
       // The value passed to Navigator.pop() or null.
       print('aaaa');
       if (value != null) {
-        _scaffoldKey.currentState.showSnackBar(
-            new SnackBar(content: new Text('You selected: $value')));
+        _scaffoldKey.currentState.showSnackBar(new SnackBar(content: new Text('You selected: $value')));
       }
     });
   }
@@ -52,14 +50,12 @@ class _DialogPageState extends State<DialogPage> {
                             new FlatButton(
                                 child: const Text('CANCEL'),
                                 onPressed: () {
-                                  Navigator.pop(
-                                      context, DialogDemoAction.cancel);
+                                  Navigator.pop(context, DialogDemoAction.cancel);
                                 }),
                             new FlatButton(
                                 child: const Text('DISCARD'),
                                 onPressed: () {
-                                  Navigator.pop(
-                                      context, DialogDemoAction.discard);
+                                  Navigator.pop(context, DialogDemoAction.discard);
                                 })
                           ]));
                 }),
@@ -77,14 +73,12 @@ class _DialogPageState extends State<DialogPage> {
                             new FlatButton(
                                 child: const Text('DISAGREE'),
                                 onPressed: () {
-                                  Navigator.pop(
-                                      context, DialogDemoAction.disagree);
+                                  Navigator.pop(context, DialogDemoAction.disagree);
                                 }),
                             new FlatButton(
                                 child: const Text('AGREE'),
                                 onPressed: () {
-                                  Navigator.pop(
-                                      context, DialogDemoAction.agree);
+                                  Navigator.pop(context, DialogDemoAction.agree);
                                 })
                           ]));
                 }),
@@ -111,17 +105,14 @@ class _DialogPageState extends State<DialogPage> {
                   Navigator.push(
                       context,
                       new MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                            new Text('Full Screen'),
+                        builder: (BuildContext context) => new Text('Full Screen'),
                         fullscreenDialog: false,
                       ));
                 }),
           ]
               // Add a little space between the buttons
               .map((Widget button) {
-            return new Container(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: button);
+            return new Container(padding: const EdgeInsets.symmetric(vertical: 8.0), child: button);
           }).toList()),
     );
   }

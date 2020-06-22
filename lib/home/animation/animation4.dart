@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:math';
+
+import 'package:flutter/material.dart';
 
 /// name: [animation4]
 /// created by qqzhao on 2018/6/10
@@ -9,11 +10,10 @@ class AnimatePage4 extends StatefulWidget {
   _AnimatePage4State createState() => _AnimatePage4State();
 }
 
-class _AnimatePage4State extends State<AnimatePage4>
-    with SingleTickerProviderStateMixin {
-  static const FACE_LEFT_ANGLE = -pi / 2;
-  static const FACE_RIGHT_ANGLE = pi / 2;
-  double _angle = FACE_RIGHT_ANGLE;
+class _AnimatePage4State extends State<AnimatePage4> with SingleTickerProviderStateMixin {
+  static const faceLeftAngle = -pi / 2;
+  static const faceRightAngle = pi / 2;
+  double _angle = faceRightAngle;
 
   AnimationController _controller;
 
@@ -23,20 +23,19 @@ class _AnimatePage4State extends State<AnimatePage4>
   @override
   void initState() {
     super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: new Duration(seconds: 3))
-          ..addListener(() {
-            setState(() {});
-          })
-    ..addStatusListener((status){
-      if (status == AnimationStatus.completed) {
-        _controller.reverse();
-        _angle = FACE_LEFT_ANGLE;
-      } else if(status == AnimationStatus.dismissed){
-        _controller.forward();
-        _angle = FACE_RIGHT_ANGLE;
-      }
-    });
+    _controller = AnimationController(vsync: this, duration: new Duration(seconds: 3))
+      ..addListener(() {
+        setState(() {});
+      })
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          _controller.reverse();
+          _angle = faceLeftAngle;
+        } else if (status == AnimationStatus.dismissed) {
+          _controller.forward();
+          _angle = faceRightAngle;
+        }
+      });
 
     Tween _tween = AlignmentTween(
       begin: Alignment(-1.0, 0.0),

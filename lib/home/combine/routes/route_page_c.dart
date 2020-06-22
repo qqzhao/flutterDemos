@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hello/home/combine/routes/route_base.dart';
 
+/// ignore: must_be_immutable
 class RoutePageC extends RootStatelessPage {
   @override
   Widget build(BuildContext context) {

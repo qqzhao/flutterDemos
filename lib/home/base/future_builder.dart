@@ -10,11 +10,11 @@ class FutureBuildPage2 extends StatelessWidget {
       return new Future.delayed(const Duration(seconds: 3), () => "1");
     }
 
+    /// ignore: unused_element
     Future<String> _caculateText() async {
       await sleep1();
 //      sleep(const Duration(seconds:10)); // 同步sleep，会卡死界面
       throw new Exception('error ===');
-      return 'Right result';
     }
 
     Future<String> _caculateText2() async {
@@ -81,11 +81,11 @@ class _FutureBuildPageState extends State<FutureBuildPage> {
       return new Future.delayed(const Duration(seconds: 3), () => "1");
     }
 
-    Future<String> _caculateText() async {
+    /// ignore: unused_element
+    Future<String> _calculateText() async {
       await sleep1();
 //      sleep(const Duration(seconds:10)); // 同步sleep，会卡死界面
       throw new Exception('error ===');
-      return 'Right result';
     }
 
     Future<String> _caculateText2() async {

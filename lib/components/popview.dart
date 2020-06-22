@@ -6,9 +6,8 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class _DialogRoute<T> extends PopupRoute<T> {
   _DialogRoute({
@@ -38,8 +37,7 @@ class _DialogRoute<T> extends PopupRoute<T> {
   final String barrierLabel;
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
+  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
     return new SafeArea(
       child: new Builder(builder: (BuildContext context) {
         final Widget annotatedChild = new Semantics(
@@ -47,16 +45,13 @@ class _DialogRoute<T> extends PopupRoute<T> {
           scopesRoute: true,
           explicitChildNodes: true,
         );
-        return theme != null
-            ? new Theme(data: theme, child: annotatedChild)
-            : annotatedChild;
+        return theme != null ? new Theme(data: theme, child: annotatedChild) : annotatedChild;
       }),
     );
   }
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
 //    return new FadeTransition(
 //        opacity: new CurvedAnimation(
 //            parent: animation,
@@ -71,6 +66,7 @@ class _DialogRoute<T> extends PopupRoute<T> {
     ///         end: Offset.zero,
     ///       ).animate(animation),
 
+    /// ignore: unused_local_variable
     CurvedAnimation _easyInOut = new CurvedAnimation(parent: animation, curve: Curves.easeInOut);
     CurvedAnimation _easyIn = new CurvedAnimation(parent: animation, curve: Curves.easeIn);
 
@@ -78,28 +74,28 @@ class _DialogRoute<T> extends PopupRoute<T> {
       child: child,
       position: new Tween<Offset>(
         begin: Offset(0.0, 0.3), // 1.0
-        end:  Offset.zero,
+        end: Offset.zero,
       ).animate(_easyIn),
     );
 
-    return new RotationTransition(
-      turns: new CurvedAnimation(parent: animation, curve: Curves.easeOut),
-      child: child,
-    );
+//    return new RotationTransition(
+//      turns: new CurvedAnimation(parent: animation, curve: Curves.easeOut),
+//      child: child,
+//    );
   }
 }
 
 Future<T> showPopView<T>({
-  @required
-      BuildContext context,
+  @required BuildContext context,
   bool barrierDismissible: true,
-      Widget child,
+  Widget child,
 //  WidgetBuilder builder,
 }) {
   assert(child != null);
-  WidgetBuilder _builder = (context){ //BuildContext context
+  WidgetBuilder _builder = (context) {
+    //BuildContext context
     return new GestureDetector(
-        onTap: (){
+        onTap: () {
           Navigator.of(context).maybePop();
         },
         child: new Material(
@@ -107,23 +103,20 @@ Future<T> showPopView<T>({
           child: new Container(
 //            color: Colors.red,
               child: new Stack(
-                children: <Widget>[
-                  new Positioned(
-                    child: child,
-                    bottom: 0.0,
-                  )
-                ],
+            children: <Widget>[
+              new Positioned(
+                child: child,
+                bottom: 0.0,
               )
-          ),
-        )
-    );
+            ],
+          )),
+        ));
   };
 
   return Navigator.of(context, rootNavigator: true).push(new _DialogRoute<T>(
-        child: _builder(context),
-        theme: Theme.of(context, shadowThemeOnly: true),
-        barrierDismissible: barrierDismissible,
-        barrierLabel:
-            MaterialLocalizations.of(context).modalBarrierDismissLabel,
-      ));
+    child: _builder(context),
+    theme: Theme.of(context, shadowThemeOnly: true),
+    barrierDismissible: barrierDismissible,
+    barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+  ));
 }

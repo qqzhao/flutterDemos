@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello/utils/TextSizeCal.dart';
+import 'package:hello/utils/text_size_cal.dart';
 
 /// 给定一个固定大小的区域，可以智能的显示文本（列排版）：
 /// * 可以智能的调整字体大小的显示

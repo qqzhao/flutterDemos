@@ -119,7 +119,7 @@ class CalculateBox extends StatefulWidget {
   CalculateBox({this.child, this.callback});
 
   final Widget child;
-  FrameCallback callback;
+  final FrameCallback callback;
 
   @override
   _CalculateBoxState createState() => _CalculateBoxState();

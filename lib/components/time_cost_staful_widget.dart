@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TETimeCostWidget extends StatefulWidget {
-
-  TETimeCostWidget({Key key}): super(key: key);
+  TETimeCostWidget({Key key}) : super(key: key);
 
   @override
   TETimeCostWidgetState createState() => TETimeCostWidgetState();
@@ -13,7 +12,7 @@ class TETimeCostWidgetState<T extends TETimeCostWidget> extends State with Widge
   String costTimeKey;
 //  TECostDataType costType = TECostDataType.homeworkCost;
 
-  T get widget => super.widget as T;
+  T get widget => super.widget;
 
   @override
   void initState() {
@@ -51,8 +50,9 @@ class TETimeCostWidgetState<T extends TETimeCostWidget> extends State with Widge
     }
   }
 
-  _commitExtentCost (){
-    if (mounted){
+  _commitExtentCost() {
+    if (mounted) {
+      /// ignore: unused_local_variable
       num cost = DateTime.now().difference(_enterDataTime).inSeconds;
 //      TEHomeworkCostManager.sharedInstance.addCostData(cost: cost, costType: costType, homeworkId: costTimeKey);
       _enterDataTime = DateTime.now();

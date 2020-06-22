@@ -8,20 +8,20 @@ class AnimatePage7 extends StatefulWidget {
   _AnimatePage7State createState() => _AnimatePage7State();
 }
 
-class _AnimatePage7State extends State<AnimatePage7>
-    with SingleTickerProviderStateMixin {
+class _AnimatePage7State extends State<AnimatePage7> with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
   Animation _easyIn;
   Animation<double> _scaleAnimation;
+
+  /// ignore: unused_field
   Animation<double> _rotateAnimation;
   Animation<double> _sizeAnimation;
 
   @override
   void initState() {
     super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: new Duration(seconds: 5));
+    _controller = AnimationController(vsync: this, duration: new Duration(seconds: 5));
     Tween _tween = new Tween<double>(
       begin: 0.2,
       end: 1.8,
@@ -29,8 +29,7 @@ class _AnimatePage7State extends State<AnimatePage7>
     _easyIn = new CurvedAnimation(parent: _controller, curve: Curves.easeIn);
     _scaleAnimation = _tween.animate(_easyIn);
 
-    _rotateAnimation = _tween.animate(
-        new CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn));
+    _rotateAnimation = _tween.animate(new CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn));
 
     Tween _tween2 = new Tween<double>(
       begin: 0.1,
@@ -68,7 +67,7 @@ class _AnimatePage7State extends State<AnimatePage7>
             ),
             new SizeTransition(
               sizeFactor: _sizeAnimation,
-              axisAlignment: -1.0,// -1: 从下往上，0，两边，1从上往下。
+              axisAlignment: -1.0, // -1: 从下往上，0，两边，1从上往下。
               child: new Text('Size'),
             ),
           ],

@@ -14,6 +14,7 @@ void handleValue(value) {
   print('handle value; value = $value');
 }
 
+/// ignore: unused_element
 void _testFuture() {
   Future<int> future = getValue();
   future.then((value) {
@@ -43,6 +44,7 @@ void _testFuture() {
 //flutter: delay 111
 // 里面也会持续等待结束。
 
+/// ignore: unused_element
 void _testFutureDelay() async {
   await new Future.delayed(new Duration(seconds: 2), () async {
     await new Future.delayed(new Duration(seconds: 5));

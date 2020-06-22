@@ -23,10 +23,10 @@ class _CompleteTestPageState extends State<CompleteTestPage> {
             child: FlatButton(
               onPressed: () async {
                 print('ontap');
-                var test = _testComplete();
+                var test = _TestComplete();
                 var str1 = await test.getString();
                 print('str1 = $str1');
-                var test2 = _testComplete2();
+                var test2 = _TestComplete2();
                 var str2 = await test2.getString();
                 print('str2 = $str2');
               },
@@ -40,7 +40,7 @@ class _CompleteTestPageState extends State<CompleteTestPage> {
             child: FlatButton(
               onPressed: () async {
                 print('ontap2');
-                var test = _testComplete3();
+                var test = _TestComplete3();
                 var stream = test.getStringStream();
                 stream.listen((data) {
                   print('data = $data');
@@ -56,7 +56,7 @@ class _CompleteTestPageState extends State<CompleteTestPage> {
             child: FlatButton(
               onPressed: () async {
                 print('ontap3');
-                var test = _testComplete4();
+                var test = _TestComplete4();
                 var str = await test.getString();
                 print('str = $str');
               },
@@ -70,7 +70,7 @@ class _CompleteTestPageState extends State<CompleteTestPage> {
 }
 
 /// 用_completer.future 暂时替代结果，等到有结果的时候再进行返回。
-class _testComplete {
+class _TestComplete {
   final Completer<String> _completer = Completer<String>();
 
   Future<String> getString() async {
@@ -83,7 +83,7 @@ class _testComplete {
 }
 
 /// 这种情况下会报超时异常：TimeoutException after 0:00:01.000000: Future not completed;
-class _testComplete2 {
+class _TestComplete2 {
   final Completer<String> _completer = Completer<String>();
 
   Future<String> getString() async {
@@ -91,14 +91,14 @@ class _testComplete2 {
       print('time is out');
       throw Exception('exception1');
 //      await Future.delayed(Duration(seconds: 3));
-      _completer.complete('this is string1');
+//      _completer.complete('this is string1');
     });
     return _completer.future.timeout(Duration(seconds: 1));
   }
 }
 
 /// 返回作为stream的情况
-class _testComplete3 {
+class _TestComplete3 {
   final Completer<String> _completer = Completer<String>();
 
   Stream<String> getStringStream() {
@@ -111,7 +111,7 @@ class _testComplete3 {
 }
 
 /// 返回超时，取消的情况
-class _testComplete4 {
+class _TestComplete4 {
   final Completer<String> _completer = Completer<String>();
 
   Future<String> getString() async {
@@ -119,7 +119,7 @@ class _testComplete4 {
       print('time is out');
       throw Exception('exception1');
 //      await Future.delayed(Duration(seconds: 3));
-      _completer.complete('this is string1');
+//      _completer.complete('this is string1');
     });
     return _completer.future.timeout(Duration(seconds: 1), onTimeout: () {
       timer.cancel();

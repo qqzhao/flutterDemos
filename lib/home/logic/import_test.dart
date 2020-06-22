@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:hello/home/logic/config_temp.dart';
-import 'package:hello/home/logic/config_temp.dart' as configA;
-import 'package:hello/home/logic/config_temp.dart' as configB;
+import 'package:hello/home/logic/config_temp.dart' as config_a;
+import 'package:hello/home/logic/config_temp.dart' as config_b;
 
-import 'config_temp.dart' as configC;
-import './config_temp.dart' as configD;
+import './config_temp.dart' as config_c;
 
 class ImportTestPage extends StatefulWidget {
   @override
@@ -19,12 +18,12 @@ class _ImportTestPageState extends State<ImportTestPage> {
     testImport();
   }
 
-  void testImport(){
+  void testImport() {
     print('testImport begin=============');
     print('origin = $testVar');
-    configA.testVar = 'modify by origin 123';
-    print('origin = $testVar, configA = ${configA.testVar}, configB = ${configB.testVar}, configC = ${configC.testVar}');
-    print('configD = ${configD.testVar}');
+    config_a.testVar = 'modify by origin 123';
+    print('origin = $testVar, configA = ${config_a.testVar}, configB = ${config_b.testVar}, configC = ${config_c.testVar}');
+    print('configD = ${config_c.testVar}');
   }
 
   @override
@@ -35,7 +34,4 @@ class _ImportTestPageState extends State<ImportTestPage> {
       ),
     );
   }
-
-
 }
-

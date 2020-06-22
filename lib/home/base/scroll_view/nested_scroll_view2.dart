@@ -68,10 +68,10 @@ final Map<_Page, List<_CardData>> _allPages = <_Page, List<_CardData>>{
   ],
 };
 
+/// ignore: unused_element
 class _CardDataItem extends StatelessWidget {
   const _CardDataItem({this.page, this.data});
 
-  static const double height = 272.0;
   final _Page page;
   final _CardData data;
 

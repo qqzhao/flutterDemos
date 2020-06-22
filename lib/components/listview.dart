@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class MY_ListView extends BoxScrollView {
-  MY_ListView.builder({
+class MyListView extends BoxScrollView {
+  MyListView.builder({
     Key key,
     Axis scrollDirection: Axis.vertical,
     bool reverse: false,
@@ -19,36 +19,35 @@ class MY_ListView extends BoxScrollView {
     bool addAutomaticKeepAlives: true,
     bool addRepaintBoundaries: true,
     double cacheExtent,
-  }) : childrenDelegate = new SliverChildBuilderDelegate(
-      (context, index){
-        if (header is Widget && index == 0) return header;
-        if (bottom is Widget && header is Widget && index == itemCount + 1) return bottom;
-        if (bottom is Widget && index == itemCount && !(header is Widget)) return bottom;
+  })  : childrenDelegate = new SliverChildBuilderDelegate(
+          (context, index) {
+            if (header is Widget && index == 0) return header;
+            if (bottom is Widget && header is Widget && index == itemCount + 1) return bottom;
+            if (bottom is Widget && index == itemCount && !(header is Widget)) return bottom;
 
-        int newIndex = index;
-        if (header is Widget ){
-          newIndex = index - 1;
-        }
-        return itemBuilder(context,newIndex);
-      },
-    childCount: (header is Widget && bottom is Widget) ? (itemCount + 2) : ((header is Widget || bottom is Widget) ? (itemCount + 1) : (itemCount)),
-    addAutomaticKeepAlives: addAutomaticKeepAlives,
-    addRepaintBoundaries: addRepaintBoundaries,
-  ), super(
-      key: key,
-      scrollDirection: scrollDirection,
-      reverse: reverse,
-      controller: controller,
-      primary: primary,
-      physics: physics,
-      shrinkWrap: shrinkWrap,
-      padding: padding,
-      cacheExtent: cacheExtent
-  );
+            int newIndex = index;
+            if (header is Widget) {
+              newIndex = index - 1;
+            }
+            return itemBuilder(context, newIndex);
+          },
+          childCount: (header is Widget && bottom is Widget) ? (itemCount + 2) : ((header is Widget || bottom is Widget) ? (itemCount + 1) : (itemCount)),
+          addAutomaticKeepAlives: addAutomaticKeepAlives,
+          addRepaintBoundaries: addRepaintBoundaries,
+        ),
+        super(
+            key: key,
+            scrollDirection: scrollDirection,
+            reverse: reverse,
+            controller: controller,
+            primary: primary,
+            physics: physics,
+            shrinkWrap: shrinkWrap,
+            padding: padding,
+            cacheExtent: cacheExtent);
 
-
-  Widget header; // added
-  Widget bottom; // added
+  final Widget header; // added
+  final Widget bottom; // added
 
   final double itemExtent;
   final SliverChildDelegate childrenDelegate;

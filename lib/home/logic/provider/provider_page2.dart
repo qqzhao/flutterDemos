@@ -81,7 +81,6 @@ class _ProviderTestPage2State extends State<ProviderTestPage2> {
           return FloatingActionButton(
             onPressed: () {
               print('floatingActionButton clicked');
-              floatingActionButton:
               Provider.of<Counter>(context, listen: false).increment();
             },
             child: const Icon(Icons.add),

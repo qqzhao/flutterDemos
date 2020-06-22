@@ -14,6 +14,8 @@ class CircleView extends SingleChildRenderObjectWidget {
 class RenderCircle extends RenderBox {
   //布局设置为最大，相当于android的match_parent
   Paint _paint;
+
+  /// ignore: unused_field
   Path _path;
 
   RenderCircle() {

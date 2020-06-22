@@ -8,7 +8,7 @@ class PlatformViewTestPage extends StatefulWidget {
 
 class _PlatformViewTestPageState extends State<PlatformViewTestPage> {
   PlatformDemoViewController _controller;
-  double _platformViewX = 0.0;
+//  double _platformViewX = 0.0;
   var outHeight = 200.0;
   var innerHeight = 100.0;
 

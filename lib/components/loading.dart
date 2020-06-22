@@ -6,9 +6,8 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class _DialogRoute<T> extends PopupRoute<T> {
   _DialogRoute({
@@ -38,8 +37,7 @@ class _DialogRoute<T> extends PopupRoute<T> {
   final String barrierLabel;
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
+  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
     return new SafeArea(
       child: new Builder(builder: (BuildContext context) {
         final Widget annotatedChild = new Semantics(
@@ -47,35 +45,25 @@ class _DialogRoute<T> extends PopupRoute<T> {
           scopesRoute: true,
           explicitChildNodes: true,
         );
-        return theme != null
-            ? new Theme(data: theme, child: annotatedChild)
-            : annotatedChild;
+        return theme != null ? new Theme(data: theme, child: annotatedChild) : annotatedChild;
       }),
     );
   }
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
-    return new FadeTransition(
-        opacity: new CurvedAnimation(
-            parent: animation,
-            curve: Curves.easeOut
-        ),
-        child: child
-    );
+  Widget buildTransitions(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+    return new FadeTransition(opacity: new CurvedAnimation(parent: animation, curve: Curves.easeOut), child: child);
   }
 }
 
 bool _isShowing = false; // 标识是否展示loading
 
 Future<T> showLoading<T>({
-  @required
-  BuildContext context,
+  @required BuildContext context,
   bool barrierDismissible: false,
 //  WidgetBuilder builder,
-}) {
-  if (_isShowing){
+}) async {
+  if (_isShowing) {
     return null;
   }
   _isShowing = true;
@@ -91,15 +79,14 @@ Future<T> showLoading<T>({
     ),
     theme: Theme.of(context, shadowThemeOnly: true),
     barrierDismissible: barrierDismissible,
-    barrierLabel:
-    MaterialLocalizations.of(context).modalBarrierDismissLabel,
+    barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
   ));
 }
 
 hideLoading<T>({
   BuildContext context,
-}){
-  if (_isShowing){
+}) {
+  if (_isShowing) {
     Navigator.of(context).maybePop();
   }
   _isShowing = false;

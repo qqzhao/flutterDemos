@@ -11,7 +11,7 @@ Future<File> getScreenShotFile() async {
   Directory tempDir = await getTemporaryDirectory();
   String tempPath = '${tempDir.path}$scrawlImagePath';
   File image = File(tempPath);
-  bool isExist = await image.exists();
+  bool isExist = image.existsSync();
   return isExist ? image : null;
 }
 
@@ -48,11 +48,11 @@ void saveScreenShot(RenderRepaintBoundary boundary, {Function success, Function 
 }
 
 void _saveImage(Uint8List uint8List, Directory dir, String fileName, {Function success, Function fail}) async {
-  bool isDirExist = await Directory(dir.path).exists();
+  bool isDirExist = Directory(dir.path).existsSync();
   if (!isDirExist) Directory(dir.path).create();
   String tempPath = '${dir.path}$fileName';
   File image = File(tempPath);
-  bool isExist = await image.exists();
+  bool isExist = image.existsSync();
   if (isExist) await image.delete();
   File(tempPath).writeAsBytes(uint8List).then((_) {
     if (success != null) success();

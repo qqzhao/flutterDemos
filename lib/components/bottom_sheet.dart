@@ -4,9 +4,8 @@
 
 import 'dart:async';
 
-import 'package:flutter/widgets.dart';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 const Duration _kBottomSheetDuration = const Duration(milliseconds: 200);
 const double _kMinFlingVelocity = 700.0;
@@ -42,12 +41,8 @@ class BottomSheet extends StatefulWidget {
   /// Typically, bottom sheets are created implicitly by
   /// [ScaffoldState.showBottomSheet], for persistent bottom sheets, or by
   /// [showModalBottomSheet], for modal bottom sheets.
-  const BottomSheet({
-    Key key,
-    this.animationController,
-    @required this.onClosing,
-    @required this.builder
-  }) : assert(onClosing != null),
+  const BottomSheet({Key key, this.animationController, @required this.onClosing, @required this.builder})
+      : assert(onClosing != null),
         assert(builder != null),
         super(key: key);
 
@@ -84,7 +79,6 @@ class BottomSheet extends StatefulWidget {
 }
 
 class _BottomSheetState extends State<BottomSheet> {
-
   final GlobalKey _childKey = new GlobalKey(debugLabel: 'BottomSheet child');
 
   double get _childHeight {
@@ -95,8 +89,7 @@ class _BottomSheetState extends State<BottomSheet> {
   bool get _dismissUnderway => widget.animationController.status == AnimationStatus.reverse;
 
   void _handleDragUpdate(DragUpdateDetails details) {
-    if (_dismissUnderway)
-      return;
+    if (_dismissUnderway) return;
     print('_childHeight = ${_childHeight}');
     print('details.primaryDelta = ${details.primaryDelta}');
     widget.animationController.value -= details.primaryDelta / (_childHeight ?? details.primaryDelta);
@@ -104,17 +97,19 @@ class _BottomSheetState extends State<BottomSheet> {
   }
 
   void _handleDragEnd(DragEndDetails details) {
-    if (_dismissUnderway)
-      return;
+    if (_dismissUnderway) return;
     if (details.velocity.pixelsPerSecond.dy > _kMinFlingVelocity) {
       final double flingVelocity = -details.velocity.pixelsPerSecond.dy / _childHeight;
-      if (widget.animationController.value > 0.0)
+      if (widget.animationController.value > 0.0) {
         widget.animationController.fling(velocity: flingVelocity);
-      if (flingVelocity < 0.0)
+      }
+      if (flingVelocity < 0.0) {
         widget.onClosing();
+      }
     } else if (widget.animationController.value < _kCloseProgressThreshold) {
-      if (widget.animationController.value > 0.0)
+      if (widget.animationController.value > 0.0) {
         widget.animationController.fling(velocity: -1.0);
+      }
       widget.onClosing();
     } else {
       widget.animationController.forward();
@@ -124,20 +119,13 @@ class _BottomSheetState extends State<BottomSheet> {
   @override
   Widget build(BuildContext context) {
     return new GestureDetector(
-        onVerticalDragUpdate: _handleDragUpdate,
-        onVerticalDragEnd: _handleDragEnd,
-        child: new Material(
-            key: _childKey,
-            child: widget.builder(context)
-        )
-    );
+        onVerticalDragUpdate: _handleDragUpdate, onVerticalDragEnd: _handleDragEnd, child: new Material(key: _childKey, child: widget.builder(context)));
   }
 }
 
 // PERSISTENT BOTTOM SHEETS
 
 // See scaffold.dart
-
 
 // MODAL BOTTOM SHEETS
 
@@ -148,12 +136,7 @@ class _ModalBottomSheetLayout extends SingleChildLayoutDelegate {
 
   @override
   BoxConstraints getConstraintsForChild(BoxConstraints constraints) {
-    return new BoxConstraints(
-        minWidth: constraints.maxWidth,
-        maxWidth: constraints.maxWidth,
-        minHeight: 0.0,
-        maxHeight: constraints.maxHeight * 9.0 / 16.0
-    );
+    return new BoxConstraints(minWidth: constraints.maxWidth, maxWidth: constraints.maxWidth, minHeight: 0.0, maxHeight: constraints.maxHeight * 9.0 / 16.0);
   }
 
   @override
@@ -168,7 +151,7 @@ class _ModalBottomSheetLayout extends SingleChildLayoutDelegate {
 }
 
 class _ModalBottomSheet<T> extends StatefulWidget {
-  const _ModalBottomSheet({ Key key, this.route }) : super(key: key);
+  const _ModalBottomSheet({Key key, this.route}) : super(key: key);
 
   final _ModalBottomSheetRoute<T> route;
 
@@ -188,15 +171,8 @@ class _ModalBottomSheetState<T> extends State<_ModalBottomSheet<T>> {
                   child: new CustomSingleChildLayout(
                       delegate: new _ModalBottomSheetLayout(widget.route.animation.value),
                       child: new BottomSheet(
-                          animationController: widget.route._animationController,
-                          onClosing: () => Navigator.pop(context),
-                          builder: widget.route.builder
-                      )
-                  )
-              );
-            }
-        )
-    );
+                          animationController: widget.route._animationController, onClosing: () => Navigator.pop(context), builder: widget.route.builder)));
+            }));
   }
 }
 
@@ -241,8 +217,7 @@ class _ModalBottomSheetRoute<T> extends PopupRoute<T> {
       removeTop: true,
       child: new _ModalBottomSheet<T>(route: this),
     );
-    if (theme != null)
-      bottomSheet = new Theme(data: theme, child: bottomSheet);
+    if (theme != null) bottomSheet = new Theme(data: theme, child: bottomSheet);
     return bottomSheet;
 
 //    return new Text('aaa');
@@ -281,11 +256,13 @@ Future<T> showModalBottomSheet<T>({
 }) {
   assert(context != null);
   assert(builder != null);
-  return Navigator.push(context, new _ModalBottomSheetRoute<T>(
-    builder: builder,
-    theme: Theme.of(context, shadowThemeOnly: true),
-    barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
-  ));
+  return Navigator.push(
+      context,
+      new _ModalBottomSheetRoute<T>(
+        builder: builder,
+        theme: Theme.of(context, shadowThemeOnly: true),
+        barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+      ));
 }
 
 /// Shows a persistent material design bottom sheet in the nearest [Scaffold].

@@ -46,10 +46,10 @@ class OnlyOnePointerRecognizerWidget extends StatelessWidget {
 }
 
 class OnlyOnePointerRecognizerWidget2 extends StatelessWidget {
-  int count = 0;
+  final int count;
   final Widget child;
-  OnlyOnePointerRecognizerWidget2({this.child});
-  @override
+  OnlyOnePointerRecognizerWidget2({this.child, this.count = 0});
+
   Drag _handleOnStart(Offset position) {
     if (count < 1) {
 //      setState(() {

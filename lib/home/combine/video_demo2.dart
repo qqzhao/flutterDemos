@@ -205,6 +205,7 @@ class _BumbleBeeRemoteVideo extends StatefulWidget {
 class _BumbleBeeRemoteVideoState extends State<_BumbleBeeRemoteVideo> {
   VideoPlayerController _controller;
 
+  /// ignore: unused_element
   Future<ClosedCaptionFile> _loadCaptions() async {
     final String fileContents = await DefaultAssetBundle.of(context).loadString('assets/bumble_bee_captions.srt');
     return SubRipCaptionFile(fileContents);

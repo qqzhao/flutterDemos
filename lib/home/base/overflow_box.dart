@@ -31,7 +31,8 @@ class OverFlowBoxPage extends StatelessWidget {
     );
   }
 
-  //Expand是可以计算出尺寸
+  /// Expand是可以计算出尺寸
+  /// ignore: unused_element
   Widget _getTest2() {
     return new Container(
       width: 250.0,
@@ -69,7 +70,8 @@ class OverFlowBoxPage extends StatelessWidget {
     );
   }
 
-  //这个是给出固定尺寸
+  /// 这个是给出固定尺寸
+  /// ignore: unused_element
   Widget _getTest3() {
     return new Container(
       width: 250.0,

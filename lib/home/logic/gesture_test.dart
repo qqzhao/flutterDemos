@@ -402,22 +402,22 @@ class TestGestureWidget extends StatelessWidget {
         color: Colors.red,
       ),
     );
-    return Listener(
-      onPointerDown: (_) => print('onPointerDown'),
-      onPointerUp: (_) => print('onPointerUp'),
-      child: GestureDetector(
-        onTapDown: (_) => print('onTapDown'),
-        onTapUp: (_) => print('onTapUp'),
-        onTap: () => print('onTap'),
-        onLongPress: () => print('onLongPress'),
-        onDoubleTap: () => print('onDoubleTap'),
-        child: Container(
-          width: 300.0,
-          height: 300.0,
-          color: Colors.red,
-        ),
-      ),
-    );
+//    return Listener(
+//      onPointerDown: (_) => print('onPointerDown'),
+//      onPointerUp: (_) => print('onPointerUp'),
+//      child: GestureDetector(
+//        onTapDown: (_) => print('onTapDown'),
+//        onTapUp: (_) => print('onTapUp'),
+//        onTap: () => print('onTap'),
+//        onLongPress: () => print('onLongPress'),
+//        onDoubleTap: () => print('onDoubleTap'),
+//        child: Container(
+//          width: 300.0,
+//          height: 300.0,
+//          color: Colors.red,
+//        ),
+//      ),
+//    );
   }
 
   Widget build16(BuildContext context) {

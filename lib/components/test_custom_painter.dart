@@ -14,6 +14,7 @@ class FlareAnimationWidget extends StatelessWidget {
   FlareAnimationWidget({this.index = -1});
   @override
   Widget build(BuildContext context) {
+    bool isPlaying = false;
     return Container(
       child: Row(
         children: <Widget>[
@@ -26,7 +27,7 @@ class FlareAnimationWidget extends StatelessWidget {
                     alignment: Alignment.center,
                     fit: BoxFit.contain,
                     color: Color(0xFF000000),
-                    animation: false ? 'playing' : 'normal',
+                    animation: isPlaying ? 'playing' : 'normal',
                     callback: (String str) {
                       print('callback str = $str');
                     },
