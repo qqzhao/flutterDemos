@@ -266,7 +266,7 @@ class _FadeAnimationState extends State<FadeAnimation> with SingleTickerProvider
 
 class ConnectivityOverlay extends StatefulWidget {
   final Widget child;
-  final Completer<Null> connectedCompleter;
+  final Completer<void> connectedCompleter;
   final GlobalKey<ScaffoldState> scaffoldKey;
 
   const ConnectivityOverlay({
@@ -362,14 +362,14 @@ class _VideoDemoState extends State<VideoDemo> with SingleTickerProviderStateMix
   );
 
   final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
-  final Completer<Null> connectedCompleter = new Completer<Null>();
+  final Completer<void> connectedCompleter = new Completer<void>();
   bool isSupported = true;
 
   @override
   void initState() {
     super.initState();
 
-    Future<Null> initController(VideoPlayerController controller) async {
+    Future<void> initController(VideoPlayerController controller) async {
       controller.setLooping(true);
       controller.setVolume(0.0);
       controller.play();

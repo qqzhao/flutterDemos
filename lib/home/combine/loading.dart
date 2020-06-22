@@ -1,6 +1,8 @@
-import 'package:flutter/material.dart';
-import '../../components/loading.dart';
 import 'dart:async';
+
+import 'package:flutter/material.dart';
+
+import '../../components/loading.dart';
 
 class LoadingPage extends StatefulWidget {
   @override
@@ -8,7 +10,6 @@ class LoadingPage extends StatefulWidget {
 }
 
 class _LoadingPageState extends State<LoadingPage> {
-
   Timer dismissTimer;
 
   @override
@@ -16,10 +17,10 @@ class _LoadingPageState extends State<LoadingPage> {
     return new Material(
       child: new Center(
         child: new GestureDetector(
-          onTap: (){
+          onTap: () {
             print('aaa');
             showLoading(context: context);
-            dismissTimer = new Timer(new Duration(seconds: 2), (){
+            dismissTimer = new Timer(new Duration(seconds: 2), () {
               hideLoading(context: context);
             });
           },

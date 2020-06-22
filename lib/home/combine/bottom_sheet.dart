@@ -10,7 +10,7 @@ class BottomSheetPage extends StatefulWidget {
 class _BottomSheetPageState extends State<BottomSheetPage> {
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
+//    final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
 
     return new Scaffold(
         appBar: new AppBar(title: const Text('Modal bottom sheet')),

@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
+
+import 'package:flutter/material.dart';
 
 class RefreshIndicatorPage extends StatefulWidget {
   @override
@@ -7,39 +8,40 @@ class RefreshIndicatorPage extends StatefulWidget {
 }
 
 class _RefreshIndicatorPageState extends State<RefreshIndicatorPage> {
-
   Future sleep1() {
     // 异步sleep，不会卡死界面
     return new Future.delayed(const Duration(seconds: 2), () => "1");
   }
 
-  Future<String> _getString() async{
+  Future<String> _getString() async {
     await sleep1();
     print('_getString');
     return 'test111';
   }
 
-  Future<Null> _loadData() async{
+  Future<void> _loadData() async {
 //    await _getString();
     if (!mounted) return;
-    setState(() {
-    });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget futureBuild = new FutureBuilder(builder: (BuildContext context, AsyncSnapshot<String> snapshot){
-      if (snapshot.connectionState == ConnectionState.done) {
-        return new ListView(
-          children: <Widget>[
-            new Text('aaa'),
-            new Text('bbb'),
-            new Text(snapshot.data),
-          ],
-        );
-      }
-      return new Text('loading');
-    }, future: _getString(),);
+    Widget futureBuild = new FutureBuilder(
+      builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return new ListView(
+            children: <Widget>[
+              new Text('aaa'),
+              new Text('bbb'),
+              new Text(snapshot.data),
+            ],
+          );
+        }
+        return new Text('loading');
+      },
+      future: _getString(),
+    );
 
     return new Scaffold(
       appBar: new AppBar(

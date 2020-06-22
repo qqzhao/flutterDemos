@@ -95,7 +95,7 @@ class _FutureBuildPageState extends State<FutureBuildPage> {
       return 'Right result';
     }
 
-    Future<Null> _loadData() async {
+    Future<void> _loadData() async {
 //      await _caculateText2();
       setState(() {
         // 这里setStatus就可以刷新。

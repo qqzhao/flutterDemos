@@ -84,7 +84,9 @@ void costLongTimeFunc(String str) {
     for (int i = 0; i < 1000 * 1000 * 1000 * 5; i++) {
       b = i * i;
     }
-    print('current j = $j, ${DateTime.now()}');
+    print(
+      'current j = $j, ${DateTime.now()}, b = $b',
+    );
   }
 
   print('222 = ${TimeDurationTool.record('test1')}');

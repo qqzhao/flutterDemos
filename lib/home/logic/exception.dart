@@ -111,5 +111,5 @@ void exceptionHandle3() {
 
 void exceptionCode() {
   var a = [];
-  var b = a[0];
+  print(a[0]);
 }

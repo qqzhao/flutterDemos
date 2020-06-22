@@ -215,7 +215,7 @@ class _BumbleBeeRemoteVideoState extends State<_BumbleBeeRemoteVideo> {
   void initState() {
     super.initState();
     var url = 'http://200024424.vod.myqcloud.com/200024424_709ae516bdf811e6ad39991f76a4df69.f20.mp4';
-    var url2 = 'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4';
+//    var url2 = 'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4';
     _controller = VideoPlayerController.network(
       url,
 //      closedCaptionFile: _loadCaptions(),

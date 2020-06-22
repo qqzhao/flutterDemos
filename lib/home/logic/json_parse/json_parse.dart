@@ -23,7 +23,7 @@ class _JsonParsePageState extends State<JsonParsePage> {
     JsonParseInterface subObject = TestSubObject(index: 10, id: 'testId');
     var encoderStr = subObject.jsonString();
     var subObject2 = TestSubObject().generateObj(encoderStr);
-    print('edcoderStr = $encoderStr');
+    print('encoderStr = $encoderStr, subObject2 = $subObject2');
   }
 
   void test2() {
@@ -31,7 +31,7 @@ class _JsonParsePageState extends State<JsonParsePage> {
     var encoderStr = json.encode(subObject);
 //    var subObject2 = json.decode(encoderStr, reviver: TestSubObject.reviver);
     var subObject2 = TestSubObject().generateObj(json.decode(encoderStr, reviver: null));
-    print('edcoderStr = $encoderStr');
+    print('encoderStr = $encoderStr, subObject2 = $subObject2');
   }
 
   void test() {

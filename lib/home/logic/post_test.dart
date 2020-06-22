@@ -46,7 +46,7 @@ void testPostDelay() async {
 
   var response;
   try {
-    http.Response response = await http
+    response = await http
         .post(
           uri,
           headers: headers,
@@ -83,9 +83,9 @@ void testPost3() async {
   print('testPost3');
   Uri uri = Uri.parse('http://ap-guangzhou.cls.myqcloud.com/structuredlog?topic_id=xxx');
   uri = Uri.parse('http://4ap-guangzhou.cls.myqcloud.com/structuredlog?topic_id=xxx');
-  var headers = {
-    'Content-Type': 'application/x-protobuf',
-  };
+//  var headers = {
+//    'Content-Type': 'application/x-protobuf',
+//  };
 
   var request = new http.MultipartRequest("POST", uri);
 //  request.headers.addAll(headers);

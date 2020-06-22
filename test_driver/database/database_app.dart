@@ -1,7 +1,7 @@
 import 'package:file_uploader/store.dart';
 import 'package:flutter/material.dart';
 
-Future<Null> main() async {
+Future<void> main() async {
   runApp(new MyApp());
 }
 
