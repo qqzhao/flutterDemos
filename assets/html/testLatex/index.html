@@ -1,0 +1,98 @@
+<html lang="en">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+  />
+  <!-- <script src="./js/flexible.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="./css/index.css" />
+
+  <!-- mathJax 脚本 -->
+  <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script>
+      (function (win) {
+        var docEl = win.document.documentElement,
+          tid;
+
+        function refreshRem() {
+          var width = docEl.getBoundingClientRect().width;
+          var rem = (width / 750) * 100; //以750px为原稿，除以100可得各元素的rem
+          docEl.style.fontSize = rem + "px";
+          var actualSize = parseFloat(
+            window.getComputedStyle(docEl)["font-size"]
+          );
+          if (actualSize !== rem) {
+            var remScaled = rem / (actualSize / rem);
+            docEl.style.fontSize = remScaled + "px";
+          }
+        }
+
+        function dbcRefresh() {
+          clearTimeout(tid);
+          tid = setTimeout(refreshRem, 100);
+        }
+
+        win.addEventListener(
+          "resize",
+          function () {
+            dbcRefresh();
+          },
+          false
+        );
+        win.addEventListener(
+          "pageshow",
+          function (e) {
+            if (e.persisted) {
+              dbcRefresh();
+            }
+          },
+          false
+        );
+        refreshRem();
+      })(window);
+    </script>
+  </head>
+
+  <body>
+    <div class="bg">
+      <div class="exam-content"></div>
+    </div>
+  </body>
+
+  <script
+    type="text/javascript"
+    async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
+  ></script>
+  <script type="text/javascript">
+    console.log('init MathJax');
+    window.MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
+                displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
+            },
+        });
+  </script>
+  <script>
+    function appendElement(str) {
+      let element = document.createElement("DIV");
+      element.innerHTML = str;
+      let mathJaxContainer = document.getElementsByClassName("exam-content")[0];
+      mathJaxContainer.append(element);
+    }
+    let htmlContent =
+      '<div class=\'jl_exam_1\'><div class="jl_exam">\n <div class="jl_stem" data-type="1">\n  <div class="jl_stem_content">\n   计算\n   <img data-latex="$\\frac{a-1}{a}+\\frac{1}{a}$" src="http://qbms.oss-cn-hangzhou.aliyuncs.com/3/201912/9cc1686f26214aaabe806d5907697333.png">，正确的结果是( &nbsp; &nbsp;)\n  </div>\n  <div class="jl_options jl_row1_col4"><div class="jl_option" identifier="A">\n    <span class="number">A.</span>\n    <div class="jl_option_content">\n     1\n    </div>\n   </div><div class="jl_option" identifier="B">\n    <span class="number">B.</span>\n    <div class="jl_option_content">\n     <img data-latex="$\\frac{1}{2}$" src="http://qbms.oss-cn-hangzhou.aliyuncs.com/3/201703/0000781064074c239a4b341e09c3e64b.png">\n    </div>\n   </div><div class="jl_option" identifier="C">\n    <span class="number">C.</span>\n    <div class="jl_option_content">\n     a\n    </div>\n   </div><div class="jl_option" identifier="D">\n    <span class="number">D.</span>\n    <div class="jl_option_content">\n     <img data-latex="$\\frac{1}{a}$" src="http://qbms.oss-cn-hangzhou.aliyuncs.com/3/201801/d7e418877b2547f8b698c555b7a42a23.png">\n    </div>\n   </div>\n  </div>\n </div>\n</div></div>';
+
+    let htmlContent2 = "\\(a_0 = \\frac{{\\hbar }}{{m_e ke^2 }} \\)";
+    let htmlContent3 = "\\frac{a-1}{a}+\\frac{1}{a}";
+
+    appendElement(htmlContent);
+    appendElement(htmlContent2);
+    appendElement(htmlContent3);
+  </script>
+</html>

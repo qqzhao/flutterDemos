@@ -1,0 +1,122 @@
+.bg-read {
+    background-color: red;
+}
+
+.exam-content {
+    min-height: 60px;
+    max-height: 360px;
+    font-size: 16px;
+    overflow: auto;
+}
+
+/* line 34, ../scss/_exam.scss */
+.exam-content .jl-input-mark {
+    font: normal normal normal 16px/1 FontAwesome !important;
+    color: #cc0000;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+/* line 35, ../scss/_exam.scss */
+.exam-content .marked,
+.examList-link .marked {
+    color: #19b800;
+}
+
+/* line 36, ../scss/_exam.scss */
+.exam_type-4 .jl_stem p {
+    display: block;
+}
+
+/* line 37, ../scss/_exam.scss */
+.jl_stem p {
+    display: block;
+}
+
+/* line 38, ../scss/_exam.scss */
+.exam-solution {
+    display: none;
+}
+
+/* line 40, ../scss/_exam.scss */
+.menuContent {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 999;
+}
+
+/* line 41, ../scss/_exam.scss */
+.menuContent .ztree {
+    margin-top: 0;
+}
+
+/* line 43, ../scss/_exam.scss */
+.jl_sub-exam_list .jl_sub-exam .jl_stem div {
+    white-space: pre-wrap;
+}
+
+/* line 46, ../scss/_exam.scss */
+.jl_options .jl_option {
+    width: auto;
+    display: inline-block;
+}
+
+/* line 47, ../scss/_exam.scss */
+.jl_option_groups .jl_row1_col4 .jl_option {
+    width: 23%;
+}
+
+/* line 48, ../scss/_exam.scss */
+.jl_row1_col4 .jl_option {
+    width: 50%;
+}
+
+/* line 49, ../scss/_exam.scss */
+.jl_row2_col2 .jl_option {
+    width: 50%;
+}
+
+/* line 50, ../scss/_exam.scss */
+.jl_row4_col1 .jl_option {
+    width: 100%;
+}
+
+/* line 52, ../scss/_exam.scss */
+.exam-content .jl_row4_col1 .jl_option .number {
+    position: absolute;
+}
+
+/* line 53, ../scss/_exam.scss */
+.exam-content .jl_row4_col1 .jl_option p {
+    width: 97%;
+    margin: 0 0 0 20px;
+}
+
+/* line 55, ../scss/_exam.scss */
+.mp-exam-list .examList-item .jl-input-mark {
+    display: inline-block;
+}
+
+/* line 56, ../scss/_exam.scss */
+.jl-input-mark {
+    display: none;
+}
+
+/* line 59, ../scss/_exam.scss */
+.jl_stem,
+.jl_options {
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.jl_option_content {
+    word-break: break-word;
+    display: inline;
+}

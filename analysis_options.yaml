@@ -257,7 +257,7 @@ analyzer:
     avoid_web_libraries_in_flutter: error
     cancel_subscriptions: error
     invariant_booleans: error
-    avoid_as: error
+    avoid_as: warning
 
     # 特别重要规则
     must_be_immutable: error
@@ -266,5 +266,5 @@ analyzer:
   exclude:
   - plugins/**
   - examples/**
-  - lib/models/*.dart
-  - lib/test_models/*.dart
+  - lib/models/**
+  - lib/test_models/**

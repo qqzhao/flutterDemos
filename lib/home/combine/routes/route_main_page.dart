@@ -3,6 +3,8 @@ import 'package:hello/home/combine/routes/route_base.dart';
 import 'package:hello/home/combine/routes/route_page_a.dart';
 import 'package:hello/home/combine/routes/route_page_b.dart';
 import 'package:hello/home/combine/routes/route_page_c.dart';
+import 'package:hello/home/combine/routes/route_page_module_m.dart';
+import 'package:hello/home/combine/routes/route_page_module_n.dart';
 import 'package:provider/provider.dart';
 
 class RouteMainPage extends StatefulWidget {
@@ -79,6 +81,19 @@ Route _buildRoute(RouteSettings settings) {
     Routes.pageA: (context) => RoutePageA(),
     Routes.pageB: (context) => RoutePageB(),
     Routes.pageC: (context) => RoutePageC(),
+    Routes.pageModuleM: (context, page) => RoutePageModuleM(page: page),
+    Routes.pageModuleMPage1: (context) => RoutePageModuleMPage1(),
+    Routes.pageModuleMPage2: (context) => RoutePageModuleMPage2(),
+    Routes.pageModuleN: (context, page) => RoutePageModuleN(page: page),
+    Routes.pageModuleNPage1: (context) => RoutePageModuleNPage1(),
+    Routes.pageModuleNPage2: (context) => RoutePageModuleNPage2(),
+//    Routes.pageModuleNPage2: (context) => Center(
+//          child: Container(
+//            width: 200,
+//            height: 200,
+//            color: Colors.brown,
+//          ),
+//        ),
   };
 //  switch (name) {
 //    case Routes.pageB:
@@ -94,26 +109,27 @@ Route _buildRoute(RouteSettings settings) {
 
   return MaterialPageRoute(
     builder: (context) {
-      var builder = pages[settings.name] ?? (context) => Container();
-      print('builder = $builder');
-      var page = builder(context);
-      print('page = $page');
-      if (page is RootStatelessPage) {
-        page.arguments = settings.arguments;
-      } else if (page is RootStatefulPage) {
-        page.arguments = settings.arguments;
+      Widget result;
+      var separatorS = Routes.moduleSeparator;
+      if (settings.name.contains(separatorS)) {
+        List<String> modules = settings.name.split(separatorS).reversed.toList();
+        modules.forEach((element) {
+          var builder = pages[element] ?? (context) => Container();
+          if (result == null) {
+            result = builder(context);
+          } else {
+            /// 这种方式还是无法实现两个页面公用 widget，而是每次都创建了一个新的。
+            result = builder(context, result);
+          }
+        });
+      } else {
+        var builder = pages[settings.name] ?? (context) => Container();
+        print('builder = $builder');
+        result = builder(context);
+        print('page = $result');
       }
 
-      if (page is RootStatefulPage) {
-        // 设置初始化特殊参数
-        page.arguments = {'isInitial': true, 'key1': 111};
-      }
-
-//      if (page == null) {
-//        print('没有发现路由:${settings.name}');
-//        return Container();
-//      }
-      return page;
+      return result;
     },
     settings: settings,
   );

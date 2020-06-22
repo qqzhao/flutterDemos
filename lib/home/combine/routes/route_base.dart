@@ -2,9 +2,24 @@ import 'package:flutter/cupertino.dart';
 
 /// ignore_for_file: must_be_immutable
 class Routes {
-  static const String pageA = '/pageA';
-  static const String pageB = '/pageB';
-  static const String pageC = '/pageC';
+  static const String moduleSeparator = '/';
+
+  static const String pageA = 'pageA';
+  static const String pageB = 'pageB';
+  static const String pageC = 'pageC';
+  static const String pageModuleM = 'pageModuleM';
+  static const String pageModuleMPage1 = 'pageModuleMPage1';
+  static const String pageModuleMPage2 = 'pageModuleMPage2';
+
+  /// 这样页面可以任意组合
+  static const String pageModuleN = 'pageModuleN';
+  static const String pageModuleNPage1 = 'pageModuleNPage1';
+  static const String pageModuleNPage2 = 'pageModuleNPage2';
+
+  /// 生成 path
+  static String gen(List<String> paths) {
+    return paths.join(Routes.moduleSeparator);
+  }
 
   // 外层，用于 alert，toast
   static final GlobalKey<NavigatorState> rootKey = GlobalKey<NavigatorState>();

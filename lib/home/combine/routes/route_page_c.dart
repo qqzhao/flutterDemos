@@ -15,12 +15,19 @@ class RoutePageC extends RootStatelessPage {
         child: Container(
           width: 100.0,
           height: 100.0,
-          child: Text('pageB'),
+          child: Text('pageC'),
           color: Colors.red,
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {
+          var name = '${Routes.pageModuleM}${Routes.moduleSeparator}${Routes.pageModuleMPage1}';
+          name = '${Routes.pageModuleN}${Routes.moduleSeparator}${Routes.pageModuleM}${Routes.moduleSeparator}${Routes.pageModuleMPage1}';
+          Routes.globalKey.currentState.pushNamed(name, arguments: {
+            'pageCParams': '111',
+            'key2': 222,
+          });
+        },
         label: Text('Button'),
       ),
     );
