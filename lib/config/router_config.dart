@@ -71,7 +71,9 @@ import 'package:hello/home/logic/lifecycle/first_page.dart';
 import 'package:hello/home/logic/lifecycle/second_page.dart';
 import 'package:hello/home/logic/post_test.dart';
 import 'package:hello/home/logic/provider/provider_page.dart';
+import 'package:hello/home/logic/provider/provider_page3.dart';
 import 'package:hello/home/logic/size_notification.dart';
+import 'package:hello/home/logic/status_manage/input_page.dart';
 import 'package:hello/home/logic/test_dispose_page.dart';
 import 'package:hello/home/logic/test_map.dart';
 import 'package:hello/home/logic/test_nav_back.dart';
@@ -184,6 +186,8 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'FlowControlPage', widget: FlowControlPage()),
     MyRouter(name: 'GestureTestPage', widget: GestureTestPage()),
     MyRouter(name: 'ProviderPageTest', widget: ProviderPageTest()),
+    MyRouter(name: 'ProviderTestPage3', widget: ProviderTestPage3()),
+    MyRouter(name: 'StateManageTestPage', widget: StateManageTestPage()),
   ]),
   MyRouterList(name: 'others', lists: []),
 ];

@@ -29,6 +29,7 @@ dependencies:
   protobuf:
   webview_flutter:
   provider:
+  bloc: ^4.0.0
   flutter_tex: ^3.6.4+1
   platform_view_test:
     path: 'plugins/platform_view_test'
