@@ -103,5 +103,19 @@ class SimpleBlocDelegate extends BlocDelegate {
   void onError(Bloc bloc, Object error, StackTrace stackTrace) {
     print('bloc: ${bloc.runtimeType}, error: $error');
     super.onError(bloc, error, stackTrace);
+
+//    var a = AbstractAImpl();
+//    a._counter = 3;
+//    print('${a.counter}');
   }
 }
+
+abstract class AbstractA {
+  int _counter;
+
+  int get counter => _counter;
+
+  void printA();
+}
+
+//class AbstractAImpl extends AbstractA {}

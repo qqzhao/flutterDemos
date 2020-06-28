@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hello/global.dart';
 import 'package:hello/home/base/object_db_page.dart';
 import 'package:hello/home/logic/config_temp.dart' as config2;
@@ -65,6 +66,14 @@ class MyApp extends StatelessWidget {
       backgroundColor: Colors.grey,
       radius: 10.0,
       child: MaterialApp(
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          const Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hans', countryCode: 'CN'),
+        ],
         showPerformanceOverlay: false,
         debugShowMaterialGrid: false,
         title: 'Flutter demo1',
