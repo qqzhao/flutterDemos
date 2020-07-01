@@ -43,6 +43,7 @@ import 'package:hello/home/base/scroll_view/slives/sliver_prototype_extent_list.
 import 'package:hello/home/base/test_box.dart';
 import 'package:hello/home/base/test_mutex_page.dart';
 import 'package:hello/home/base/test_render_box.dart';
+import 'package:hello/home/base/test_text_span_fontsize/text_span_page2.dart';
 import 'package:hello/home/base/text_span.dart';
 import 'package:hello/home/base/textfield.dart';
 import 'package:hello/home/base/ticker.dart';
@@ -133,6 +134,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'overflow', routeName: '/base/overflow', widget: TestOverflowPage()),
     MyRouter(name: 'RestrictEventPage', routeName: 'RestrictEventPage', widget: RestrictEventPage()),
     MyRouter(name: 'TestTextSpanPage', routeName: 'TestTextSpanPage', widget: TestTextSpanPage()),
+    MyRouter(name: 'TextSpanPage2', routeName: 'TextSpanPage2', widget: TextSpanPage2()),
   ]),
   MyRouterList(name: 'Animation', lists: [
     MyRouter(name: 'animation', widget: AnimationPage()),
