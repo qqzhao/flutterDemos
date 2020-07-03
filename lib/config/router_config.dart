@@ -84,6 +84,8 @@ import 'package:hello/home/logic/upload_file_page.dart';
 import 'package:hello/home/logic/value_listenable.dart';
 import 'package:hello/home/logic/websocket.dart';
 import 'package:hello/home/platform_view_test.dart';
+import 'package:hello/home/render/simple_render_update.dart';
+import 'package:hello/home/render/test_key_page.dart';
 import 'package:hello/utils/route.dart';
 
 List<dynamic> _globalRouters = [
@@ -145,6 +147,10 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'animation6', widget: AnimatePage6()),
     MyRouter(name: 'animation7', widget: AnimatePage7()),
     MyRouter(name: 'TestTwoWidgetAnimationPage', widget: TestTwoWidgetAnimationPage()),
+  ]),
+  MyRouterList(name: 'Render', lists: [
+    MyRouter(name: 'TestKeyPage', widget: TestKeyPage()),
+    MyRouter(name: 'SimpleRenderPage', widget: SimpleRenderPage()),
   ]),
   MyRouterList(name: 'Combine', lists: [
     MyRouter(name: 'Dialog', widget: DialogPage()),
