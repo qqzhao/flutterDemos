@@ -19,12 +19,23 @@ class TestKeyPage extends StatefulWidget {
 class _TestKeyPageState extends State<TestKeyPage> {
   List<Widget> widgets;
   List<Widget> widgets2;
+  List<Widget> widgets3;
 
   @override
   void initState() {
     super.initState();
     widgets = [StatelessColorfulTile(), StatelessColorfulTile()];
     widgets2 = [StatefulColorfulTile(), StatefulColorfulTile()];
+
+    /// `widgets3` 是 [updateChildren] 函数中的 child 进行了替换。不会再调用 [StatefulColorfulTile] 里面的 build 函数。
+    widgets3 = [
+      StatefulColorfulTile(
+        key: const Key('1'),
+      ),
+      StatefulColorfulTile(
+        key: const Key('2'),
+      )
+    ];
   }
 
   @override
@@ -38,8 +49,17 @@ class _TestKeyPageState extends State<TestKeyPage> {
 //          Row(
 //            children: widgets,
 //          ),
-          Row(
-            children: widgets2,
+//          Row(
+//            children: widgets2,
+//          ),
+          Container(
+            child: Builder(
+              builder: (context) {
+                return Row(
+                  children: widgets3,
+                );
+              },
+            ),
           ),
         ],
       ),
@@ -54,12 +74,16 @@ class _TestKeyPageState extends State<TestKeyPage> {
     setState(() {
       widgets.insert(1, widgets.removeAt(0));
       widgets2.insert(1, widgets2.removeAt(0));
+      widgets3.insert(1, widgets3.removeAt(0));
     });
   }
 }
 
 /// 有状态的
 class StatefulColorfulTile extends StatefulWidget {
+  final Key key;
+  StatefulColorfulTile({this.key}) : super(key: key);
+
   @override
   _StatefulColorfulTileState createState() => _StatefulColorfulTileState();
 }

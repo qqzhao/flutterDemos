@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:hello/home/render/simple_render_update_2.dart';
 
 class SimpleRenderPage extends StatefulWidget {
   @override
@@ -27,7 +28,18 @@ class _SimpleRenderPageState extends State<SimpleRenderPage> {
       appBar: AppBar(
         title: Text('test simple bar'),
       ),
-      body: Text('$counter'),
+      body: Column(
+        children: <Widget>[
+          Text('$counter'),
+          FloatingActionButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => SimpleRenderPage2(),
+              ));
+            },
+          ),
+        ],
+      ),
     );
   }
 }
