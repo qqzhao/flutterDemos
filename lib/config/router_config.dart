@@ -57,6 +57,7 @@ import 'package:hello/home/combine/pdf_preview.dart';
 import 'package:hello/home/combine/pop_drag_view.dart';
 import 'package:hello/home/combine/popview.dart';
 import 'package:hello/home/combine/routes/route_main_page.dart';
+import 'package:hello/home/combine/timer_picker_page.dart';
 import 'package:hello/home/combine/video_demo.dart';
 import 'package:hello/home/combine/video_demo2.dart';
 import 'package:hello/home/logic/backdrop_filter.dart';
@@ -165,6 +166,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'RouteMainPage', widget: RouteMainPage()),
     MyRouter(name: 'PdfPreviewPage', widget: PdfPreviewPage()),
     MyRouter(name: 'FlutterTeXExample', widget: FlutterTeXExample()),
+    MyRouter(name: 'TimerPickerPage', widget: TimerPickerPage()),
   ]),
   MyRouterList(name: 'logics', lists: [
     MyRouterList(name: 'lifecycle', lists: [
