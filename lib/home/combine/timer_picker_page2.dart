@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello/components/timer_picker/picker.dart';
+import 'package:hello/components/picker/picker.dart';
 
 class TimerPickerPage2 extends StatefulWidget {
   @override
@@ -55,7 +55,6 @@ class _TimerPickerPage2State extends State<TimerPickerPage2> {
               context: context,
               builder: (BuildContext context) {
                 return TCRTimePicker(
-                  initialIndex: 2,
                   title: '请选择时间',
                   beginTime: DateTime.now(),
                   selectTime: DateTime.now().add(Duration(minutes: 8)),

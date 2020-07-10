@@ -54,6 +54,7 @@ class Bottom extends StatelessWidget {
       child: _TapedContainer(
         callback: callback,
         child: Container(
+          margin: EdgeInsets.only(bottom: 20.0.w),
           child: Container(
             height: 40.0.w,
             decoration: BoxDecoration(

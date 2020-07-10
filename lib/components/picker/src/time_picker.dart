@@ -14,7 +14,6 @@ typedef TimePickerCallback = void Function(DateTime time);
 
 /// 时间选择器
 class TCRTimePicker extends StatefulWidget {
-  final int initialIndex;
   final String title;
   final double height;
   final TimePickerCallback callback;
@@ -22,14 +21,12 @@ class TCRTimePicker extends StatefulWidget {
   final DateTime selectTime;
 
   TCRTimePicker({
-    this.initialIndex = 0,
     this.title = _defaultTitle,
     this.height = _defaultHeight,
     this.callback,
     this.beginTime,
     this.selectTime,
   }) : super() {
-    assert(initialIndex >= 0, 'TCRTimePicker中 initialIndex 参数错误');
     if (beginTime != null && selectTime != null) {
       assert(!beginTime.isAfter(selectTime), 'TCRTimePicker中 beginTime应该在selectTime之前');
     }
@@ -179,7 +176,6 @@ class _TCRTimePickerState extends State<TCRTimePicker> {
                       Flexible(
                         flex: 1,
                         child: Container(
-                          color: Colors.black,
                           child: CupertinoPickerWrap(
                             onChange: (value) {
                               setState(() {
