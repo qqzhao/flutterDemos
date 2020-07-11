@@ -32,7 +32,7 @@ class _WebViewPlusExampleMainPageState extends State<WebViewPlusExampleMainPage>
             child: WebViewPlus(
               onWebViewCreated: (controller) {
                 this._controller = controller;
-                controller.loadAsset('assets/html/testLatex/index.html');
+                controller.loadUrl('assets/html/testLatex/index.html');
               },
               onPageFinished: (url) {
                 var containerName = 'exam-content';

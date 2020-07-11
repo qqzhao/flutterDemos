@@ -30,7 +30,7 @@ dependencies:
   image:
   protobuf:
   webview_flutter:
-  provider:
+  provider: ^4.3.1
   bloc: ^4.0.0
   flutter_tex: ^3.6.4+1
   platform_view_test:
