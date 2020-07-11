@@ -36,7 +36,7 @@ class _TimerPickerPage2State extends State<TimerPickerPage2> {
                 builder: (BuildContext context) {
                   return TCRItemPicker(
                     initialIndex: 2,
-                    title: '请选择作业学科',
+//                    title: '请选择作业学科',
                     items: ['语文', '数学', '英语', '化学', '政治', '历史'],
                     callback: (index, item) {
                       print('item = $item');
@@ -55,7 +55,7 @@ class _TimerPickerPage2State extends State<TimerPickerPage2> {
               context: context,
               builder: (BuildContext context) {
                 return TCRTimePicker(
-                  title: '请选择时间',
+//                  title: '请选择时间',
                   beginTime: DateTime.now(),
                   selectTime: DateTime.now().add(Duration(minutes: 8)),
 //                    selectTime: DateTime.now().add(Duration(days: 1, hours: 13)),

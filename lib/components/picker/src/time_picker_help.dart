@@ -1,11 +1,73 @@
+import 'package:flutter/cupertino.dart';
+
 class TimerPickerHelper {
-  static const halfList = const <String>["上午", "下午"];
+  static Locale _locale;
+  static const _halfListZh = const <String>["上午", "下午"];
+  static const _halfListEn = const <String>['A.M.', "P.M."];
 
   static const hourList = const <String>["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
 
   static const minuteList = const <String>["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"];
 
-  static const weekDayMap = const <String, String>{"1": "周一", "2": "周二", "3": "周三", "4": "周四", "5": "周五", "6": "周六", "7": "周日"};
+  static const _weekDayMap = const <String, String>{"1": "周一", "2": "周二", "3": "周三", "4": "周四", "5": "周五", "6": "周六", "7": "周日"};
+
+  static const _monthMap = const <String, String>{
+    "1": "Jan.",
+    "2": "Feb.",
+    "3": "Mar.",
+    "4": "Apr.",
+    "5": "May.",
+    "6": "Jun.",
+    "7": "Jul.",
+    '8': 'Aug.',
+    '9': 'Sept.',
+    '10': 'Oct.',
+    '11': 'Nov.',
+    '12': 'Dec.'
+  };
+
+  static registerLocale(Locale locale) {
+    _locale = locale;
+  }
+
+  static bool get _isEnglish {
+    var myLocale = _locale ?? Locale.fromSubtags(languageCode: 'en');
+    if (myLocale.languageCode == 'en') {
+      return true;
+    }
+    return false;
+  }
+
+  static String get confirmString {
+    return _isEnglish ? 'Confirm' : '确定';
+  }
+
+  static String get defaultTimeString {
+    return _isEnglish ? 'Please select time' : '请选择时间';
+  }
+
+  static get halfList {
+    return _isEnglish ? _halfListEn : _halfListZh;
+  }
+
+  static String convertDateToString(DateTime date) {
+    if (_isEnglish) {
+      if (date.isToday) {
+        return 'Today';
+      } else if (date.isTomorrow) {
+        return 'Tomorrow';
+      }
+      var month = date.month.toString();
+      return '${_monthMap[month]} ${date.day}';
+    }
+    if (date.isToday) {
+      return '今天';
+    } else if (date.isTomorrow) {
+      return '明天';
+    }
+    String weekday = _weekDayMap["${date.weekday}"];
+    return '${date.month}月${date.day}日 $weekday';
+  }
 
 //  static List<String> generateDateList(DateTime time, int num) {
 //    DateTime currentDate = time;

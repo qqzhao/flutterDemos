@@ -14,7 +14,9 @@ class XFlexible {
 
 extension FlexibleDouble on num {
   num get w {
+//    return this.toDouble();
 //    return this * XFlexible._scaleWidth;
-    return this * XFlexible._scaleWidth.floorToDouble();
+    var a = (this * XFlexible._scaleWidth).floorToDouble();
+    return a;
   }
 }

@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hello/components/picker/src/time_picker_help.dart';
 
 import 'assistant.dart';
 import 'cupertino_picker_wrap.dart';
 import 'flexible.dart';
 
 const double _defaultHeight = 345.0;
-const String _defaultTitle = '请选择项目';
 
 typedef ItemPickerCallback = void Function(int index, String item);
 
@@ -20,7 +20,7 @@ class TCRItemPicker extends StatefulWidget {
 
   TCRItemPicker({
     this.initialIndex = 0,
-    this.title = _defaultTitle,
+    this.title,
     this.height = _defaultHeight,
     this.items = const [],
     this.callback,
@@ -44,6 +44,7 @@ class _TCRItemPickerState extends State<TCRItemPicker> {
   @override
   Widget build(BuildContext context) {
     XFlexible.registerWidth(MediaQuery.of(context).size.width);
+    TimerPickerHelper.registerLocale(Localizations.localeOf(context));
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -61,7 +62,7 @@ class _TCRItemPickerState extends State<TCRItemPicker> {
                 callback: () {
                   Navigator.of(context).maybePop();
                 },
-                title: widget.title ?? _defaultTitle,
+                title: widget.title ?? 'Title',
               ),
               Expanded(
                 child: Container(

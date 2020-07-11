@@ -35,7 +35,7 @@ class _CupertinoPickerWrapState extends State<CupertinoPickerWrap> {
         scrollController: _fixedExtentScrollController, // 设置初始元素
         backgroundColor: Colors.white,
         onSelectedItemChanged: widget.onChange,
-        itemExtent: 36.w,
+        itemExtent: 45, //36.w,
         childCount: widget.items.length,
         itemBuilder: (context, index) {
           return Container(

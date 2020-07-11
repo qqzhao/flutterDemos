@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'flexible.dart';
+import 'time_picker_help.dart';
 
 class Header extends StatelessWidget {
   final String title;
@@ -63,7 +64,7 @@ class Bottom extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                '确定',
+                TimerPickerHelper.confirmString,
                 style: TextStyle(color: Colors.white, fontSize: 17.0.w),
               ),
             ),

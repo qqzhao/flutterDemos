@@ -24,7 +24,7 @@ void main() async {
 
   /// 先用这种方式修改语言，否则默认是中文。
   delegate.changeLocale(Locale.fromSubtags(
-    languageCode: 'en',
+    languageCode: 'zh',
   ));
 
   var test1Str = translatePlural('plural.demo', 10);
@@ -76,6 +76,10 @@ class MyApp extends StatelessWidget {
 //            const Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hans', countryCode: 'CN'),
 //          ],
           showPerformanceOverlay: false,
+          localeResolutionCallback: (deviceLocale, supportedLocales) {
+            print('deviceLocale: $deviceLocale');
+            return deviceLocale;
+          },
           debugShowMaterialGrid: false,
           title: translate('app_bar.title'),
           navigatorObservers: <NavigatorObserver>[new CustomNavObserver()],

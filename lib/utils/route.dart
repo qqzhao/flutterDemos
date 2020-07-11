@@ -80,6 +80,8 @@ class RouterPage extends StatelessWidget {
           onPressed: () {
             print('test icon');
             Toast.show(context, 'aaa');
+            Locale myLocale = Localizations.localeOf(context);
+            print('myLocale = $myLocale');
           },
           icon: Icon(
             Icons.event,

@@ -8,7 +8,7 @@ import 'flexible.dart';
 import 'time_picker_help.dart';
 
 const double _defaultHeight = 345.0;
-const String _defaultTitle = '请选择时间';
+//const String _defaultTitle = '请选择时间';
 
 typedef TimePickerCallback = void Function(DateTime time);
 
@@ -21,7 +21,7 @@ class TCRTimePicker extends StatefulWidget {
   final DateTime selectTime;
 
   TCRTimePicker({
-    this.title = _defaultTitle,
+    this.title,
     this.height = _defaultHeight,
     this.callback,
     this.beginTime,
@@ -98,6 +98,7 @@ class _TCRTimePickerState extends State<TCRTimePicker> {
   @override
   Widget build(BuildContext context) {
     XFlexible.registerWidth(MediaQuery.of(context).size.width);
+    TimerPickerHelper.registerLocale(Localizations.localeOf(context));
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -115,7 +116,7 @@ class _TCRTimePickerState extends State<TCRTimePicker> {
                 callback: () {
                   Navigator.of(context).maybePop();
                 },
-                title: widget.title ?? _defaultTitle,
+                title: widget.title ?? TimerPickerHelper.defaultTimeString,
               ),
               Expanded(
                 child: Container(
@@ -133,13 +134,7 @@ class _TCRTimePickerState extends State<TCRTimePicker> {
                             },
                             selectedIndex: _dateIndex,
                             items: _dateList.map((date) {
-                              if (date.isToday) {
-                                return '今天';
-                              } else if (date.isTomorrow) {
-                                return '明天';
-                              }
-                              String weekday = TimerPickerHelper.weekDayMap["${date.weekday}"];
-                              return '${date.month}月${date.day}日 $weekday';
+                              return TimerPickerHelper.convertDateToString(date);
                             }).toList(),
                           ),
                         ),
