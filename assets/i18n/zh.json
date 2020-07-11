@@ -1,0 +1,16 @@
+{
+	"app_bar": {
+		"title": "欢迎到主页"
+	},
+	"button": {
+		"cancel": "取消",
+		"change_language": "取消语言"
+	},
+	"plural": {
+		"demo": {
+			"0": "请按加号",
+			"1": "你已经按了一次加号",
+			"else": "你已经操作了 {{value}} 次"
+		}
+	}
+}

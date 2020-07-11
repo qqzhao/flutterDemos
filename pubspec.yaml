@@ -44,6 +44,7 @@ dependencies:
   json_annotation: ^3.0.1
   webview_flutter_plus: ^0.1.1+6
   flutter_full_pdf_viewer: ^1.0.6
+  flutter_translate: ^1.6.0
 #  flutter_fullpdfview: ^1.0.12
 #  exportable: "^0.1.0"
 
@@ -82,6 +83,7 @@ flutter:
     - assets/html/testLatex/
     - assets/html/testLatex/css/
     - assets/html/testLatex/js/
+    - assets/i18n/
 
 
   fonts:
