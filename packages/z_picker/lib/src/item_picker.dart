@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hello/components/picker/src/time_picker_help.dart';
+import 'time_picker_help.dart';
 
 import 'assistant.dart';
 import 'cupertino_picker_wrap.dart';

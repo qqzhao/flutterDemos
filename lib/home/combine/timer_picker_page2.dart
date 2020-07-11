@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello/components/picker/picker.dart';
+import 'package:z_picker/z_picker.dart';
 
 class TimerPickerPage2 extends StatefulWidget {
   @override
