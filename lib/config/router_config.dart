@@ -54,6 +54,7 @@ import 'package:hello/home/combine/dialog.dart';
 import 'package:hello/home/combine/draw_panel/draw_panel_page.dart';
 import 'package:hello/home/combine/latex/latex_demo.dart';
 import 'package:hello/home/combine/loading.dart';
+import 'package:hello/home/combine/notification_test_page.dart';
 import 'package:hello/home/combine/pdf_preview.dart';
 import 'package:hello/home/combine/pop_drag_view.dart';
 import 'package:hello/home/combine/popview.dart';
@@ -168,6 +169,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'PdfPreviewPage', widget: PdfPreviewPage()),
     MyRouter(name: 'FlutterTeXExample', widget: FlutterTeXExample()),
     MyRouter(name: 'TimerPickerPage', widget: TimerPickerPage()),
+    MyRouter(name: 'NotificationTestPage', widget: NotificationTestPage()),
   ]),
   MyRouterList(name: 'logics', lists: [
     MyRouterList(name: 'lifecycle', lists: [

@@ -43,6 +43,8 @@ dependencies:
     path: packages/tools
   z_picker:
     path: packages/z_picker
+  z_notification:
+    path: packages/z_notification
   json_annotation: ^3.0.1
   webview_flutter_plus: ^0.1.1+6
   flutter_full_pdf_viewer: ^1.0.6
