@@ -2,6 +2,8 @@ import 'package:logging/logging.dart';
 
 typedef NotificationCallback = Function(dynamic object);
 
+bool loggingEnable = false;
+
 class NotificationCenter {
   static NotificationCenter _singleton;
 
@@ -10,11 +12,13 @@ class NotificationCenter {
   static NotificationCenter get instance {
     if (_singleton == null) {
       _singleton = NotificationCenter._init();
-      hierarchicalLoggingEnabled = true;
-      Logger.root.onRecord.listen((record) {
-        print('${record.level.name}: ${record.time}: ${record.message}');
-      });
-      _singleton.log.level = Level.INFO;
+      if (loggingEnable) {
+        hierarchicalLoggingEnabled = true;
+        Logger.root.onRecord.listen((record) {
+          print('${record.level.name}: ${record.time}: ${record.message}');
+        });
+        _singleton.log.level = Level.INFO;
+      }
     }
     return _singleton;
   }
