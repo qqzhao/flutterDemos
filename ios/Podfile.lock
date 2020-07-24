@@ -8,6 +8,8 @@ PODS:
   - file_uploader (0.0.1):
     - Flutter
   - Flutter (1.0.0)
+  - flutter_device_locale (0.0.1):
+    - Flutter
   - flutter_full_pdf_viewer (1.0.1):
     - Flutter
   - flutter_uploader (1.2.0):
@@ -40,6 +42,7 @@ DEPENDENCIES:
   - device_info (from `.symlinks/plugins/device_info/ios`)
   - file_uploader (from `.symlinks/plugins/file_uploader/ios`)
   - Flutter (from `.symlinks/flutter/ios`)
+  - flutter_device_locale (from `.symlinks/plugins/flutter_device_locale/ios`)
   - flutter_full_pdf_viewer (from `.symlinks/plugins/flutter_full_pdf_viewer/ios`)
   - flutter_uploader (from `.symlinks/plugins/flutter_uploader/ios`)
   - flutter_utils_z (from `.symlinks/plugins/flutter_utils_z/ios`)
@@ -66,6 +69,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/file_uploader/ios"
   Flutter:
     :path: ".symlinks/flutter/ios"
+  flutter_device_locale:
+    :path: ".symlinks/plugins/flutter_device_locale/ios"
   flutter_full_pdf_viewer:
     :path: ".symlinks/plugins/flutter_full_pdf_viewer/ios"
   flutter_uploader:
@@ -93,6 +98,7 @@ SPEC CHECKSUMS:
   device_info: 3ebad48f726348f69abd802f3334a8d1ed795fbd
   file_uploader: a48f45c3e0a80b470caaeb0d94ffbe4ec3bc3bdf
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_device_locale: 94fbcacb38980dc1a9e31eb4ee8ae6d1c3a73042
   flutter_full_pdf_viewer: 1b65139fc3236cde300ba6bea2a72669cb07f2e6
   flutter_uploader: 7957e1b9d6516b6cccc37e5ffd6c5a0975a7cc4c
   flutter_utils_z: e89dcf2ac3df28350fe053134f54841f57d57b5d
