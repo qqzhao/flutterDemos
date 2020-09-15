@@ -13,3 +13,7 @@ plugins.each { name, path ->
     include ":$name"
     project(":$name").projectDir = pluginDirectory
 }
+
+gradle.beforeProject({ project->
+    project.setProperty("target-platform", "android-arm")
+})
