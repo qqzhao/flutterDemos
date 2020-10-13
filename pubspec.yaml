@@ -2,7 +2,7 @@ name: hello
 description: A new Flutter project.
 version: 1.0.0
 environment:
-  sdk: ">=2.6.0 <3.0.0"
+  sdk: ">=2.10.0 <3.0.0"
 
 dependencies:
 #  flutter_webview_plugin: "^0.1.6"

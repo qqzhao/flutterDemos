@@ -34,6 +34,7 @@ Future<dynamic> asyncFuncCreate(String str) async {
   isolateInstance = await Isolate.spawn(_isolate, response.sendPort);
 
   //获取sendPort来发送数据
+  /// ignore: avoid_as
   final sendPort = await response.first as SendPort;
   //接收消息的ReceivePort
   final answer = new ReceivePort();
@@ -55,7 +56,10 @@ void _isolate(SendPort initialReplyTo) {
   port.listen((message) async {
     print('message = $message');
     //获取数据并解析
+    /// ignore: avoid_as
     final data = message[0] as String;
+
+    /// ignore: avoid_as
     final send = message[1] as SendPort;
     //返回结果
 //      send.send(syncFibonacci(data));

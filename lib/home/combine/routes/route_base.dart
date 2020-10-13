@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 /// ignore_for_file: must_be_immutable
+/// 上面那一句失效了：flutter: 1.22.
 class Routes {
   static const String moduleSeparator = '/';
 
@@ -29,6 +30,7 @@ class Routes {
 }
 
 // RootStatelessPage
+// ignore: must_be_immutable
 abstract class RootStatelessPage extends StatelessWidget {
   Object arguments;
   RootStatelessPage({this.arguments});
@@ -39,6 +41,7 @@ abstract class RootStatelessPage extends StatelessWidget {
 }
 
 // RootStatefulPage
+// ignore: must_be_immutable
 abstract class RootStatefulPage extends StatefulWidget {
   Object arguments;
   RootStatefulPage({this.arguments});
@@ -54,6 +57,7 @@ class RootStatefulPageState<T extends RootStatefulPage> extends State<T> {
 }
 
 // example 使用方法
+// ignore: must_be_immutable
 class ExamplePage11 extends RootStatefulPage {
   @override
   _ExamplePage11State createState() => _ExamplePage11State();

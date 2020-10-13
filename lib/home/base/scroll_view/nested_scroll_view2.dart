@@ -123,7 +123,7 @@ class TestNestScrollViewDemo2 extends StatelessWidget {
             return <Widget>[
               new SliverOverlapAbsorber(
                 handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-                child: new SliverAppBar(
+                sliver: new SliverAppBar(
                   title: const Text('Tabs and scrolling'),
                   actions: <Widget>[], //MaterialDemoDocumentationButton(routeName)
                   pinned: true,
