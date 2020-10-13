@@ -11,7 +11,7 @@ class _TextFieldPageState extends State<TextFieldPage> {
 
   @override
   Widget build(BuildContext context) {
-    var fontSize = 20.0;
+    // var fontSize = 20.0;
     return Scaffold(
       appBar: AppBar(
         title: Text('test text field'),

@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String text = 'render text';
+  String _text = 'render text';
 
   @override
   void initState() {
@@ -28,9 +28,9 @@ class _MyAppState extends State<MyApp> {
       print('timeStamp:$timeStamp');
     });
     Timer.periodic(Duration(seconds: 5), (timer) {
-      if (text.length <= 15) {
+      if (_text.length <= 15) {
         setState(() {
-          text += '+++';
+          _text += '+++';
         });
       } else {
         setState(() {});
@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Text(
-        text,
+        _text,
         style: TextStyle(
           fontSize: 30.0,
         ),

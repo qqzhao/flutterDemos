@@ -229,6 +229,7 @@ analyzer:
     deprecated_member_use: ignore
     avoid_print: ignore
     comment_references: ignore
+    diagnostic_describe_all_properties: ignore
 
     # 警告规则
     avoid_slow_async_io: warning

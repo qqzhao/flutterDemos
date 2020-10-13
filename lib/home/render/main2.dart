@@ -15,7 +15,8 @@ void main() async {
   );
   WidgetsFlutterBinding.ensureInitialized();
 
-  var element = WidgetsBinding.instance.createBinaryMessenger();
-//  WidgetsBinding.instance.scheduleAttachRootWidget(app);
-//  WidgetsBinding.instance.scheduleWarmUpFrame();
+  // var element = WidgetsBinding.instance.createBinaryMessenger();
+  // ignore: invalid_use_of_protected_member
+  WidgetsBinding.instance.scheduleAttachRootWidget(app);
+  WidgetsBinding.instance.scheduleWarmUpFrame();
 }
