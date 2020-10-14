@@ -15,8 +15,38 @@ import 'config/router_config.dart';
 import 'home/logic/config_temp.dart' as config;
 
 Brightness curBright = Brightness.light;
+//
+// void testNull(){
+//   String? a= '111';
+//   print('a = $a');
+//
+//   String? b = 'ccc';
+//   b = null;
+//   print('b = $b');
+// }
+//
+// int sign(int x) {
+//   // The result is non-nullable.
+//   int result;
+//   if (x >= 0) {
+//     result = 1;
+//   } else {
+//     result = -1;
+//   }
+//   // By this point, Dart knows the result cannot be null.
+//   return result;
+// }
+//
+// class Goo {
+//   late String v;
+//   Goo(int m) {
+//     v = m.toString();
+//   }
+// }
 
 void main() async {
+  // testNull();
+
   var _isProduct = bool.fromEnvironment("dart.vm.product");
   print('_isProduct = $_isProduct');
 //  print('_isDartStreamEnabled = $_isDartStreamEnabled');

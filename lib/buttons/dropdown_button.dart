@@ -40,7 +40,7 @@ Widget popMenu = new PopupMenuButton<String>(
               child: const Text('Context menu item one')),
           const PopupMenuItem<String>(
               enabled: false, child: const Text('A disabled menu item')),
-          new PopupMenuDivider(),
+          // new PopupMenuDivider(),
           new PopupMenuItem<String>(
               value: 'Menu item value Three',
               child: const Text('Context menu item three')),
@@ -59,9 +59,9 @@ Widget popMenu2 = new PopupMenuButton<String>(
               child: const Text('Context menu item one2')),
           const PopupMenuItem<String>(
               enabled: false, child: const Text('A disabled menu item')),
-          new PopupMenuDivider(
-            height: 16.0,
-          ),
+          // new PopupMenuDivider(
+          //   height: 16.0,
+          // ),
           new PopupMenuItem<String>(
               value: 'Menu item value Three',
               child: const Text('Context menu item three')),

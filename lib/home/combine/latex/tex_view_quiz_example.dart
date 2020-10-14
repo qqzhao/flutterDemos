@@ -114,7 +114,6 @@ class _TeXViewQuizExampleState extends State<TeXViewQuizExample> {
             ),
           ),
           TeXView(
-              showLoadingWidget: true,
               child: TeXViewColumn(children: [
                 TeXViewDocument(quizList[currentQuizIndex].statement, style: TeXViewStyle(textAlign: TeXViewTextAlign.Center)),
                 TeXViewGroup(
@@ -143,14 +142,14 @@ class _TeXViewQuizExampleState extends State<TeXViewQuizExample> {
                 ),
                 backgroundColor: Colors.white,
               ),
-              loadingWidget: Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[CircularProgressIndicator(), Text("Rendering...!")],
-                ),
-              )),
+              loadingWidgetBuilder: (_) => Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[CircularProgressIndicator(), Text("Rendering...!")],
+                    ),
+                  )),
           if (isWrong)
             Padding(
               padding: const EdgeInsets.all(20),

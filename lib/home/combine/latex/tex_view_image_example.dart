@@ -11,11 +11,8 @@ class TeXViewImageExample extends StatelessWidget {
       body: ListView(
         children: [
           TeXView(
-              showLoadingWidget: true,
               child: TeXViewColumn(children: [
-                TeXViewDocument(
-                    r"""<h2>Flutter \( \rm\\TeX \) Image Example</h2>""",
-                    style: TeXViewStyle(textAlign: TeXViewTextAlign.Center)),
+                TeXViewDocument(r"""<h2>Flutter \( \rm\\TeX \) Image Example</h2>""", style: TeXViewStyle(textAlign: TeXViewTextAlign.Center)),
                 TeXViewDocument('Image Loaded From Assets'),
                 TeXViewContainer(
                   child: TeXViewImage.asset('assets/flutter_tex_banner.png'),
@@ -24,11 +21,9 @@ class TeXViewImageExample extends StatelessWidget {
                     borderRadius: TeXViewBorderRadius.all(20),
                   ),
                 ),
-                TeXViewDocument(
-                    'Image Loaded From Network, this may take some time according to your network speed'),
+                TeXViewDocument('Image Loaded From Network, this may take some time according to your network speed'),
                 TeXViewContainer(
-                  child: TeXViewImage.network(
-                      'https://raw.githubusercontent.com/shah-xad/flutter_tex/master/example/assets/flutter_tex_banner.png'),
+                  child: TeXViewImage.network('https://raw.githubusercontent.com/shah-xad/flutter_tex/master/example/assets/flutter_tex_banner.png'),
                   style: TeXViewStyle(
                     margin: TeXViewMargin.all(10),
                     borderRadius: TeXViewBorderRadius.all(20),
@@ -40,24 +35,18 @@ class TeXViewImageExample extends StatelessWidget {
                 padding: TeXViewPadding.all(10),
                 borderRadius: TeXViewBorderRadius.all(10),
                 border: TeXViewBorder.all(
-                  TeXViewBorderDecoration(
-                      borderColor: Colors.blue,
-                      borderStyle: TeXViewBorderStyle.Solid,
-                      borderWidth: 5),
+                  TeXViewBorderDecoration(borderColor: Colors.blue, borderStyle: TeXViewBorderStyle.Solid, borderWidth: 5),
                 ),
                 backgroundColor: Colors.white,
               ),
-              loadingWidget: Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CircularProgressIndicator(),
-                    Text("Rendering...!")
-                  ],
-                ),
-              ))
+              loadingWidgetBuilder: (_) => Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[CircularProgressIndicator(), Text("Rendering...!")],
+                    ),
+                  ))
         ],
       ),
     );

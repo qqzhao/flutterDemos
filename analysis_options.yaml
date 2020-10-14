@@ -223,6 +223,9 @@ linter:
 
 
 analyzer:
+#  enable-experiment:
+#    - non-nullable
+
   errors:
     # 忽略规则
     deprecated_member_use_from_same_package: ignore
