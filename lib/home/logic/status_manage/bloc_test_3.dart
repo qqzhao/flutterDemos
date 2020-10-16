@@ -31,7 +31,7 @@ class _BlocTestPage1State extends State<BlocTestPage3> {
       body: Text('aa:$_counter'),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          BlocSupervisor.delegate = SimpleBlocDelegate();
+          Bloc.observer = SimpleBlocDelegate();
           final counterBloc = CounterBloc();
           counterBloc.add(CounterEvent.increment);
           counterBloc.add(CounterEvent.increment);
@@ -63,8 +63,10 @@ enum CounterEvent { increment, decrement }
 
 /// 感觉有点类似于 ChangeNotifier，需要监听
 class CounterBloc extends Bloc<CounterEvent, int> {
-  @override
-  int get initialState => 0;
+  CounterBloc() : super(0);
+
+  // @override
+  // int get initialState => 0;
 
   @override
   Stream<int> mapEventToState(CounterEvent event) async* {
@@ -86,7 +88,7 @@ class CounterBloc extends Bloc<CounterEvent, int> {
 }
 
 /// 监听事件的回调
-class SimpleBlocDelegate extends BlocDelegate {
+class SimpleBlocDelegate extends BlocObserver {
   @override
   void onEvent(Bloc bloc, Object event) {
     print('bloc: ${bloc.runtimeType}, event: $event');
@@ -99,15 +101,15 @@ class SimpleBlocDelegate extends BlocDelegate {
     super.onTransition(bloc, transition);
   }
 
-  @override
-  void onError(Bloc bloc, Object error, StackTrace stackTrace) {
-    print('bloc: ${bloc.runtimeType}, error: $error');
-    super.onError(bloc, error, stackTrace);
-
-//    var a = AbstractAImpl();
-//    a._counter = 3;
-//    print('${a.counter}');
-  }
+//   @override
+//   void onError(Cubic cubic, Object error, StackTrace stackTrace) {
+//     print('bloc: ${cubic.runtimeType}, error: $error');
+//     super.onError(cubic, error, stackTrace);
+//
+// //    var a = AbstractAImpl();
+// //    a._counter = 3;
+// //    print('${a.counter}');
+//   }
 }
 
 abstract class AbstractA {
