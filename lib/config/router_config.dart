@@ -66,6 +66,7 @@ import 'package:hello/home/logic/backdrop_filter.dart';
 import 'package:hello/home/logic/capture_image.dart';
 import 'package:hello/home/logic/exception.dart';
 import 'package:hello/home/logic/gesture_test.dart';
+import 'package:hello/home/logic/get_widget_size_page.dart';
 import 'package:hello/home/logic/import_test.dart';
 import 'package:hello/home/logic/inherited_widget_test.dart';
 import 'package:hello/home/logic/inherited_widget_test2.dart';
@@ -201,6 +202,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'ProviderPageTest', widget: ProviderPageTest()),
     MyRouter(name: 'ProviderTestPage3', widget: ProviderTestPage3()),
     MyRouter(name: 'StateManageTestPage', widget: StateManageTestPage()),
+    MyRouter(name: 'WidgetSizeTestPage', widget: WidgetSizeTestPage()),
   ]),
   MyRouterList(name: 'others', lists: []),
 ];
