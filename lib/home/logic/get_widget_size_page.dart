@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:hello/home/combine/widget_size.dart';
+import 'package:z_tools/z_tools.dart';
 
 class WidgetSizeTestPage extends StatefulWidget {
   @override
   _WidgetSizeTestPageState createState() => _WidgetSizeTestPageState();
 }
 
+// I/flutter (20149): size = Size(66.0, 88.0)
+// I/flutter (20149): size = Size(66.0, 88.0)
+// I/flutter (20149): size = Size(100.0, 66.0)
+// I/flutter (20149): size = Size(66.0, 88.0)
+// I/flutter (20149): size = Size(100.0, 66.0)
+// I/flutter (20149): size = Size(100.0, 1241.2)
+// I/flutter (20149): size = Size(100.0, 200.0)
+// I/flutter (20149): size = Size(100.0, 144.0)
 class _WidgetSizeTestPageState extends State<WidgetSizeTestPage> {
   @override
   Widget build(BuildContext context) {

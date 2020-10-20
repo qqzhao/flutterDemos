@@ -6,10 +6,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_translate/flutter_translate.dart';
 import 'package:hello/global.dart';
 import 'package:hello/home/base/object_db_page.dart';
-import 'package:hello/home/combine/widget_size.dart';
 import 'package:hello/home/logic/config_temp.dart' as config2;
 import 'package:hello/utils/route.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:z_tools/z_tools.dart';
 
 import './components/custom_navigator_observe.dart';
 import 'config/router_config.dart';
@@ -63,7 +63,7 @@ void main() async {
 
   runZoned(
     () => runApp(
-      NewAppContainer(
+      CalculateWidgetAppContainer(
         child: Center(
           child: LocalizedApp(delegate, MyApp()),
         ),

@@ -49,13 +49,13 @@ Future<Size> getWidgetSize(Widget widget) async {
   // ignore: invalid_use_of_protected_member
   _containerState.setState(() {});
   await Future.delayed(Duration(milliseconds: 32));
-  Size size = _currentKey.currentContext.size ?? Size.zero;
+  Size size = _currentKey?.currentContext?.size ?? Size.zero;
   return size;
 }
 
-class NewAppContainer extends StatelessWidget {
+class CalculateWidgetAppContainer extends StatelessWidget {
   final Widget child;
-  NewAppContainer({this.child});
+  CalculateWidgetAppContainer({this.child});
 
   @override
   Widget build(BuildContext context) {
