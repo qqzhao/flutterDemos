@@ -7,6 +7,7 @@ PODS:
     - Flutter
   - file_uploader (0.0.1):
     - Flutter
+  - FLEX (3.0.0)
   - Flutter (1.0.0)
   - flutter_device_locale (0.0.1):
     - Flutter
@@ -42,6 +43,7 @@ DEPENDENCIES:
   - connectivity (from `.symlinks/plugins/connectivity/ios`)
   - device_info (from `.symlinks/plugins/device_info/ios`)
   - file_uploader (from `.symlinks/plugins/file_uploader/ios`)
+  - FLEX
   - Flutter (from `.symlinks/flutter/ios`)
   - flutter_device_locale (from `.symlinks/plugins/flutter_device_locale/ios`)
   - flutter_full_pdf_viewer (from `.symlinks/plugins/flutter_full_pdf_viewer/ios`)
@@ -59,6 +61,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - FLEX
     - FMDB
     - Reachability
     - Reveal-SDK
@@ -100,6 +103,7 @@ SPEC CHECKSUMS:
   connectivity: c72716e202a1225ec4810740d5cb56b8ae3bf4cc
   device_info: 3ebad48f726348f69abd802f3334a8d1ed795fbd
   file_uploader: a48f45c3e0a80b470caaeb0d94ffbe4ec3bc3bdf
+  FLEX: d66c759bce0f6ebbbf472c742380874d846f2883
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_device_locale: 94fbcacb38980dc1a9e31eb4ee8ae6d1c3a73042
   flutter_full_pdf_viewer: 1b65139fc3236cde300ba6bea2a72669cb07f2e6
@@ -116,6 +120,6 @@ SPEC CHECKSUMS:
   video_player_web: da8cadb8274ed4f8dbee8d7171b420dedd437ce7
   webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96
 
-PODFILE CHECKSUM: 93bb7f035bd9e9f1d10cdb091138e19031bc7ff3
+PODFILE CHECKSUM: 90340ef86adf7b747334daf330a710d7af8504dd
 
 COCOAPODS: 1.9.1

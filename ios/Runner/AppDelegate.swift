@@ -1,6 +1,7 @@
 import UIKit
 import Flutter
 import AVFoundation
+import FLEX
 
 var openTimer = false;
 
@@ -31,6 +32,7 @@ var openTimer = false;
 //            });
 //        }
         
+        FLEXManager.shared().showExplorer()
         return super.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 }
