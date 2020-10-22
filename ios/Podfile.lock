@@ -22,11 +22,12 @@ PODS:
   - FMDB/standard (2.7.5)
   - path_provider (0.0.1):
     - Flutter
-  - "permission_handler (5.0.0+hotfix.6)":
+  - "permission_handler (5.0.1+1)":
     - Flutter
   - platform_view_test (0.0.1):
     - Flutter
   - Reachability (3.2)
+  - Reveal-SDK (26)
   - sqflite (0.0.1):
     - Flutter
     - FMDB (~> 2.7.2)
@@ -49,6 +50,7 @@ DEPENDENCIES:
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
   - platform_view_test (from `.symlinks/plugins/platform_view_test/ios`)
+  - Reveal-SDK
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - video_player (from `.symlinks/plugins/video_player/ios`)
   - video_player_web (from `.symlinks/plugins/video_player_web/ios`)
@@ -59,6 +61,7 @@ SPEC REPOS:
     - Alamofire
     - FMDB
     - Reachability
+    - Reveal-SDK
 
 EXTERNAL SOURCES:
   connectivity:
@@ -104,14 +107,15 @@ SPEC CHECKSUMS:
   flutter_utils_z: e89dcf2ac3df28350fe053134f54841f57d57b5d
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   path_provider: f96fff6166a8867510d2c25fdcc346327cc4b259
-  permission_handler: b7a0953389e699927c6217933754cdcd0fa2c5a7
+  permission_handler: eac8e15b4a1a3fba55b761d19f3f4e6b005d15b6
   platform_view_test: 05e2c8b86621c60f2d6f0c8ed4982bf351b4af0e
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  Reveal-SDK: 5f94f14aff3d5f2a49f246edcd266fa4472679e9
   sqflite: 4001a31ff81d210346b500c55b17f4d6c7589dd0
   video_player: 9cc823b1d9da7e8427ee591e8438bfbcde500e6e
   video_player_web: da8cadb8274ed4f8dbee8d7171b420dedd437ce7
   webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96
 
-PODFILE CHECKSUM: 1ebb06bfb47524db60d65f903ba6623a28dd437e
+PODFILE CHECKSUM: 93bb7f035bd9e9f1d10cdb091138e19031bc7ff3
 
 COCOAPODS: 1.9.1
