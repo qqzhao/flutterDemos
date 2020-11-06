@@ -13,6 +13,5 @@ flutter_export_environment.sh
 
 .flutter-plugins
 
-pubspec.lock
 ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
 docs/.*
