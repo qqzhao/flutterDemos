@@ -9,6 +9,7 @@ build/
 
 flutter_export_environment.sh
 .idea
+.flutter-plugins-dependencies
 
 .flutter-plugins
 

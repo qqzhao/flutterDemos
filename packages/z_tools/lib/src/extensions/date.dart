@@ -1,3 +1,5 @@
+part of '../../z_tools.dart';
+
 const dateExt = "for import use";
 
 extension DateTimeExt2 on DateTime {

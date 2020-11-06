@@ -1,3 +1,5 @@
+part of '../../z_tools.dart';
+
 // used by import file
 String mapExt = '';
 
