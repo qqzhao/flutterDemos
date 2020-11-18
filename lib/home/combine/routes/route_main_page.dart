@@ -72,7 +72,7 @@ class _RouteMainPageState extends State<RouteMainPage> {
 
 Route _buildRoute(RouteSettings settings) {
   print('settings == $settings');
-  var pages = {
+  Map<String, dynamic> pages = {
     '/': (context) => Container(
           width: 100,
           height: 100,
@@ -81,10 +81,10 @@ Route _buildRoute(RouteSettings settings) {
     Routes.pageA: (context) => RoutePageA(),
     Routes.pageB: (context) => RoutePageB(),
     Routes.pageC: (context) => RoutePageC(),
-    Routes.pageModuleM: (context, page) => RoutePageModuleM(page: page),
+    Routes.pageModuleM: (context, Widget page) => RoutePageModuleM(page: page),
     Routes.pageModuleMPage1: (context) => RoutePageModuleMPage1(),
     Routes.pageModuleMPage2: (context) => RoutePageModuleMPage2(),
-    Routes.pageModuleN: (context, page) => RoutePageModuleN(page: page),
+    Routes.pageModuleN: (context, Widget page) => RoutePageModuleN(page: page),
     Routes.pageModuleNPage1: (context) => RoutePageModuleNPage1(),
     Routes.pageModuleNPage2: (context) => RoutePageModuleNPage2(),
 //    Routes.pageModuleNPage2: (context) => Center(
@@ -114,18 +114,18 @@ Route _buildRoute(RouteSettings settings) {
       if (settings.name.contains(separatorS)) {
         List<String> modules = settings.name.split(separatorS).reversed.toList();
         modules.forEach((element) {
-          var builder = pages[element] ?? (context) => Container();
+          dynamic builder = pages[element] ?? (context) => Container();
           if (result == null) {
-            result = builder(context);
+            result = (builder as WidgetBuilder)(context);
           } else {
             /// 这种方式还是无法实现两个页面公用 widget，而是每次都创建了一个新的。
-            result = builder(context, result);
+            result = (builder as TransitionBuilder)(context, result);
           }
         });
       } else {
         var builder = pages[settings.name] ?? (context) => Container();
         print('builder = $builder');
-        result = builder(context);
+        result = (builder as WidgetBuilder)(context);
         print('page = $result');
       }
 

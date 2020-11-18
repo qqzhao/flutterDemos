@@ -53,7 +53,7 @@ class _CommentTextWrapState extends State<CommentTextWrap> {
 
   _getSizes(Duration timeStamp) {
     print('_getSizes');
-    final RenderBox renderContainer = _keyContainer.currentContext.findRenderObject();
+    final RenderBox renderContainer = _keyContainer.currentContext.findRenderObject() as RenderBox;
     final sizeContain = renderContainer.size;
 
     var width = _textSizeWidth(

@@ -8,23 +8,21 @@ class AnimatePage3 extends StatefulWidget {
   _AnimatePage3State createState() => _AnimatePage3State();
 }
 
-class _AnimatePage3State extends State<AnimatePage3>
-    with SingleTickerProviderStateMixin {
+class _AnimatePage3State extends State<AnimatePage3> with SingleTickerProviderStateMixin {
   AnimationController _controller;
-  Animation _animation;
+  Animation<AlignmentGeometry> _animation;
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(vsync: this, duration: new Duration(seconds: 2))
-      ..addListener((){
+      ..addListener(() {
         // 必须有这一句，否则状态不变更。
-        setState(() {
-        });
+        setState(() {});
       });
 
     // 插值，将_controller中的（0，1）映射到AlignmentTween中的（-1，1）
-    Tween _tween = new AlignmentTween(
+    Tween<AlignmentGeometry> _tween = new AlignmentTween(
       begin: new Alignment(-1.0, 0.0),
       end: new Alignment(1.0, 1.0),
     );
@@ -35,9 +33,8 @@ class _AnimatePage3State extends State<AnimatePage3>
 
   @override
   void dispose() {
-
     _controller.dispose();
-    print('anmation3 dispose');
+    print('animation 3 dispose');
 
     // 生成的代码有问题，这一句需要放到最后。(_controller.dispose()语句之后，否则动画过程中退出会出问题。)
     super.dispose();
@@ -68,6 +65,3 @@ class _AnimatePage3State extends State<AnimatePage3>
     );
   }
 }
-
-
-

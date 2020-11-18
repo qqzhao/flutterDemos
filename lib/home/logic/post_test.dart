@@ -104,7 +104,7 @@ void testPost3() async {
   print('_post rsp statusCode = ${response?.statusCode}, ${response?.reasonPhrase}');
   if (response != null) {
     try {
-      var retStr = await response.stream.bytesToString();
+      var retStr = await response.stream.bytesToString() as String;
       var retRes = jsonDecode(retStr);
       print('_post retRes = $retRes');
     } catch (e) {

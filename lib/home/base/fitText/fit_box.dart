@@ -72,8 +72,8 @@ class _ContainerWidgetState extends State<FitBoxPage> {
 
 /////////////////////////////////////////////////////////////////////////////////////
 class MyFlex extends StatefulWidget {
-  final num width;
-  final num height;
+  final double width;
+  final double height;
   final String showText;
 
   MyFlex({this.width, this.height, this.showText = ''});
@@ -83,9 +83,9 @@ class MyFlex extends StatefulWidget {
 }
 
 class _MyFlexState extends State<MyFlex> {
-  num myFontSize;
-  num myOpacity; //control the hide or show
-  final num initialOpacity = 0.0;
+  double myFontSize;
+  double myOpacity; //control the hide or show
+  final double initialOpacity = 0.0;
 
   NotificationListener listener;
 

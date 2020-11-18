@@ -12,7 +12,7 @@ class TETimeCostWidgetState<T extends TETimeCostWidget> extends State with Widge
   String costTimeKey;
 //  TECostDataType costType = TECostDataType.homeworkCost;
 
-  T get widget => super.widget;
+  // T get widget => super.widget;
 
   @override
   void initState() {

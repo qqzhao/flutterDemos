@@ -8,7 +8,7 @@ class SizeChangedLayoutNotification extends StatefulWidget {
 }
 
 class _SizeChangedLayoutNotificationState extends State<SizeChangedLayoutNotification> {
-  num height = 50.0;
+  double height = 50.0;
 
   bool _handleNotification(note) {
     print('note = ${note}');

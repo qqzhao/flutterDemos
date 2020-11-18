@@ -33,7 +33,7 @@ class DefaultBaseConfig extends InheritedWidget {
   }
 
   static BaseConfig of(BuildContext context) {
-    final DefaultBaseConfig result = context.inheritFromWidgetOfExactType(DefaultBaseConfig);
+    final DefaultBaseConfig result = context.inheritFromWidgetOfExactType(DefaultBaseConfig) as DefaultBaseConfig;
     return result?.config ?? rootConfig;
   }
 }

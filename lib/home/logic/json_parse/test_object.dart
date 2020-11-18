@@ -32,11 +32,11 @@ class TestObject with JsonParseInterface {
     if (map != null) {
       try {
         return TestObject(
-          index: map['index'],
-          id: map['id'],
-          age: map['age'],
-          map: map['map']?.cast<String, String>(),
-          list: map['list']?.cast<String>(),
+          index: map['index'] as int,
+          id: map['id'] as String,
+          age: map['age'] as int,
+          map: map['map']?.cast<String, String>() as Map<String, String>,
+          list: map['list']?.cast<String>() as List<String>,
           subObject: TestSubObject().generateObj(map['subObject']),
           subObjectList: convertList<TestSubObject>(map['subObjectList'], TestSubObject()),
           subObjectMap: convertMap<TestSubObject>(map['subObjectMap']),

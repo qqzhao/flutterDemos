@@ -87,7 +87,7 @@ class _TeXViewDocumentExamplesState extends State<TeXViewDocumentExamples> {
       body: ListView(
         physics: ScrollPhysics(),
         children: <Widget>[
-          RadioListTile(
+          RadioListTile<int>(
             value: 0,
             groupValue: radVal,
             onChanged: (val) {
@@ -98,7 +98,7 @@ class _TeXViewDocumentExamplesState extends State<TeXViewDocumentExamples> {
             title: Text("Katex"),
             subtitle: Text("RenderingEngine for Fast Rendering"),
           ),
-          RadioListTile(
+          RadioListTile<int>(
             value: 1,
             groupValue: radVal,
             onChanged: (val) {

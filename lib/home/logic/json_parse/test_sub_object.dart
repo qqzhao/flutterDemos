@@ -40,8 +40,8 @@ class TestSubObject with JsonParseInterface {
     if (map != null) {
       try {
         return TestSubObject(
-          index: map['index'],
-          id: map['id'],
+          index: map['index'] as int,
+          id: map['id'] as String,
         );
       } catch (e) {
         print('解析TestSubObject失败: $e, $map');

@@ -11,7 +11,7 @@ class AnimatePage7 extends StatefulWidget {
 class _AnimatePage7State extends State<AnimatePage7> with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
-  Animation _easyIn;
+  CurvedAnimation _easyIn;
   Animation<double> _scaleAnimation;
 
   /// ignore: unused_field
@@ -22,7 +22,7 @@ class _AnimatePage7State extends State<AnimatePage7> with SingleTickerProviderSt
   void initState() {
     super.initState();
     _controller = AnimationController(vsync: this, duration: new Duration(seconds: 5));
-    Tween _tween = new Tween<double>(
+    Tween<double> _tween = new Tween<double>(
       begin: 0.2,
       end: 1.8,
     );
@@ -31,12 +31,11 @@ class _AnimatePage7State extends State<AnimatePage7> with SingleTickerProviderSt
 
     _rotateAnimation = _tween.animate(new CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn));
 
-    Tween _tween2 = new Tween<double>(
+    Tween<double> _tween2 = new Tween<double>(
       begin: 0.1,
       end: 1.0,
     );
     _sizeAnimation = _tween2.animate(_controller);
-
     _controller.forward();
   }
 

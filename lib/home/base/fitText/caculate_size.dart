@@ -48,7 +48,7 @@ class _CalculatePageState extends State<CalculatePage> {
 
         final keyContext = stickyKey.currentContext;
         if (keyContext != null) {
-          final RenderBox box = keyContext.findRenderObject();
+          final RenderBox box = keyContext.findRenderObject() as RenderBox;
           print('box size = ${box.size}');
         }
       },
@@ -133,7 +133,7 @@ class _CalculateBoxState extends State<CalculateBox> {
     SchedulerBinding.instance.addPostFrameCallback((_) {
       final keyContext = calculateKey.currentContext;
       if (keyContext != null) {
-        final RenderBox box = keyContext.findRenderObject();
+        final RenderBox box = keyContext.findRenderObject() as RenderBox;
         print('box size = ${box.size}');
         if (widget.callback is FrameCallback) {
           widget.callback(box.size);

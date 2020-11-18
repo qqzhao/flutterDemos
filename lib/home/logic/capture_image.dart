@@ -17,7 +17,7 @@ class _TestCaptureImageState extends State<TestCaptureImage> {
 
   // 截图boundary，并且返回图片的二进制数据。
   Future<Uint8List> _capturePng() async {
-    RenderRepaintBoundary boundary = globalKey.currentContext.findRenderObject();
+    RenderRepaintBoundary boundary = globalKey.currentContext.findRenderObject() as RenderRepaintBoundary;
     // pixelRatio 设置截图的清晰程度。但宽高也相应翻倍了。
     ui.Image image = await boundary.toImage(pixelRatio: 2.0);
 

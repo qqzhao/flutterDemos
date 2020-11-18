@@ -24,7 +24,7 @@ class CounterLabel extends StatelessWidget {
         ),
         Selector<NetworkData, int>(
           child: Text('333'),
-          selector: (_, foo) => foo.data['list'].length,
+          selector: (_, foo) => (foo.data['list'] as List).length,
           builder: (BuildContext context, value, Widget child) {
             print('child selector = $child');
             return Text('value = ${value}');

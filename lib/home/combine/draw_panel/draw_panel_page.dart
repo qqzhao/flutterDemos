@@ -96,7 +96,7 @@ class _DrawPanelPageState extends State<DrawPanelPage> {
             points[curFrame].strokeWidth = strokeWidth;
           },
           onPanUpdate: (details) {
-            RenderBox referenceBox = context.findRenderObject();
+            RenderBox referenceBox = context.findRenderObject() as RenderBox;
             Offset localPosition = referenceBox.globalToLocal(details.globalPosition);
             state(() {
               points[curFrame].points.add(localPosition);
@@ -209,7 +209,7 @@ class _DrawPanelPageState extends State<DrawPanelPage> {
             GestureDetector(
               child: Text('save'),
               onTap: () {
-                RenderRepaintBoundary boundary = _repaintKey.currentContext.findRenderObject();
+                RenderRepaintBoundary boundary = _repaintKey.currentContext.findRenderObject() as RenderRepaintBoundary;
                 saveScreenShot2SDCard(boundary, success: () {
                   showToast('save success!');
                 }, fail: () {

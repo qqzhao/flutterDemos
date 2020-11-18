@@ -31,7 +31,7 @@ class Lock {
   }
 
   /// 只有这样才能串行队列顺序执行
-  Future<String> enqueue(Future<String> Function() callback) async {
+  Future enqueue(Future<String> Function() callback) async {
     if (locked) {
       // we use a future as a queue
       Future<String> newLock = this._lock.then((d) => callback());

@@ -157,16 +157,19 @@ class MyRenderObjectToWidgetElement<T extends RenderObject> extends RootRenderOb
     assert(slot == _rootChildSlot);
     assert(renderObject.debugValidateChild(child));
     renderObject.child = child as T;
+    super.insertChildRenderObject(child, slot);
   }
 
   @override
   void moveChildRenderObject(RenderObject child, dynamic slot) {
     assert(false);
+    super.moveChildRenderObject(child, slot);
   }
 
   @override
   void removeChildRenderObject(RenderObject child) {
     assert(renderObject.child == child);
     renderObject.child = null;
+    super.removeChildRenderObject(child);
   }
 }

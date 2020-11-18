@@ -15,8 +15,8 @@ class _StateManageTestPageState extends State<StateManageTestPage> {
     super.didChangeDependencies();
   }
 
-  void _itemClick(index) {
-    var page;
+  void _itemClick(int index) {
+    Widget page;
     switch (index) {
       case 0:
         page = BlocTestPage1();

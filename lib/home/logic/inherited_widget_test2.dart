@@ -96,7 +96,7 @@ class ReportWidget extends InheritedWidget {
   ReportWidget({
     Key key,
     @required this.maps,
-    @required child,
+    @required Widget child,
   })  : assert(maps != null),
         assert(child != null),
         super(
@@ -112,7 +112,7 @@ class ReportWidget extends InheritedWidget {
     final List<ReportWidget> reports = <ReportWidget>[];
     context.visitAncestorElements((Element ancestor) {
       if (ancestor.widget is ReportWidget) {
-        final ReportWidget curReport = ancestor.widget;
+        final ReportWidget curReport = ancestor.widget as ReportWidget;
         reports.add(curReport);
       }
       return true;

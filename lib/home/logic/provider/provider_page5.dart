@@ -11,7 +11,7 @@ class _ProviderTestPage5State extends State<ProviderTestPage5> {
   _ProviderTestPage5Model model;
 
   /// 监听器
-  var _listener;
+  VoidCallback _listener;
 
   @override
   void initState() {

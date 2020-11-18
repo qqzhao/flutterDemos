@@ -9,8 +9,8 @@ class AnimatePage6 extends StatefulWidget {
 }
 
 class _AnimatePage6State extends State<AnimatePage6> with SingleTickerProviderStateMixin {
-  Animation _animation;
-  Animation _easeInAnimation;
+  Animation<AlignmentGeometry> _animation;
+  CurvedAnimation _easeInAnimation;
   AnimationController _controller;
 
   @override
@@ -18,8 +18,8 @@ class _AnimatePage6State extends State<AnimatePage6> with SingleTickerProviderSt
     super.initState();
 
     _controller = new AnimationController(duration: new Duration(seconds: 5), vsync: this);
-    _easeInAnimation = new CurvedAnimation(parent: _controller , curve: Curves.easeIn);
-    Tween _tween = AlignmentTween(
+    _easeInAnimation = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
+    Tween<AlignmentGeometry> _tween = AlignmentTween(
       begin: new Alignment(-1.0, 0.0),
       end: new Alignment(1.0, 0.0),
     );
@@ -54,14 +54,13 @@ class _AnimatePage6State extends State<AnimatePage6> with SingleTickerProviderSt
               alignment: Alignment(-1.0, 0.0),
               child: new Text('Header2'),
             ),
-            new AlignTransition(
-                alignment: _animation, child: new Text('Header')),
+            new AlignTransition(alignment: _animation, child: new Text('Header')),
             new GestureDetector(
               onTap: () {
                 print('test');
-                if (_controller.isCompleted){
+                if (_controller.isCompleted) {
                   _controller.reverse();
-                } else if(_controller.isDismissed){
+                } else if (_controller.isDismissed) {
                   _controller.forward();
                 }
               },

@@ -44,7 +44,7 @@ class _MyBloc {
 
   StreamController _controller = StreamController<_MyBloc>();
 
-  Stream<_MyBloc> get stream => _controller.stream;
+  Stream<_MyBloc> get stream => _controller.stream as Stream<_MyBloc>;
 
   dispose() {
     _controller.close();

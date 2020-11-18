@@ -38,6 +38,12 @@ class RouterPage extends StatelessWidget {
             itemExtent: 40.0,
             itemBuilder: (context, index) {
               var item = routerList.lists[index];
+              String text;
+              if (item is MyRouterList) {
+                text = item.name;
+              } else if (item is MyRouter) {
+                text = item.name;
+              }
               Widget cell = new Container(
                 decoration: new BoxDecoration(
                   color: Colors.white,
@@ -50,7 +56,7 @@ class RouterPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    new Text(item.name),
+                    new Text(text),
                   ],
                 ),
               );

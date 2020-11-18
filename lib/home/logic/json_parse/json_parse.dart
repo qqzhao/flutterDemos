@@ -49,7 +49,7 @@ class _JsonParsePageState extends State<JsonParsePage> {
       index: 39,
       age: 100,
       map: {
-        '123': testStr,
+        '123': testStr.toString(),
       },
       list: [
         '123fajk',

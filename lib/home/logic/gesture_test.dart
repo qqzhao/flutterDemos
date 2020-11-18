@@ -523,7 +523,7 @@ class DemoApp extends StatelessWidget {
 
 class MultipleGestureWidget extends StatelessWidget {
   final Widget child;
-  final Function onTap;
+  final GestureTapCallback onTap;
   MultipleGestureWidget({
     this.child,
     this.onTap,

@@ -226,6 +226,10 @@ analyzer:
 #  enable-experiment:
 #    - non-nullable
 
+  strong-mode:
+    implicit-casts: false
+#    implicit-dynamic: false
+
   errors:
     # 忽略规则
     deprecated_member_use_from_same_package: ignore

@@ -283,7 +283,7 @@ class _ConnectivityOverlayState extends State<ConnectivityOverlay> {
   StreamSubscription<ConnectivityResult> connectivitySubscription;
   bool connected = true;
 
-  static const Widget errorSnackBar = const SnackBar(
+  static const SnackBar errorSnackBar = const SnackBar(
     backgroundColor: Colors.red,
     content: const ListTile(
       title: const Text('No network'),

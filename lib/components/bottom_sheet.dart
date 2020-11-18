@@ -82,7 +82,7 @@ class _BottomSheetState extends State<BottomSheet> {
   final GlobalKey _childKey = new GlobalKey(debugLabel: 'BottomSheet child');
 
   double get _childHeight {
-    final RenderBox renderBox = _childKey.currentContext.findRenderObject();
+    final RenderBox renderBox = _childKey.currentContext.findRenderObject() as RenderBox;
     return renderBox.size.height;
   }
 

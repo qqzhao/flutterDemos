@@ -48,7 +48,7 @@ class TeXViewFullExample extends StatelessWidget {
     );
   }
 
-  getExampleButton(BuildContext context, String title, Widget widget) {
+  Widget getExampleButton(BuildContext context, String title, Widget widget) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: RaisedButton(

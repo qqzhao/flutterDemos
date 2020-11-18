@@ -72,7 +72,7 @@ class WatermarkState extends State<WatermarkPage> {
             FlatButton(
               color: Colors.pinkAccent.withOpacity(0.1),
               onPressed: () {
-                RenderRepaintBoundary boundary = _repaintKey.currentContext.findRenderObject();
+                RenderRepaintBoundary boundary = _repaintKey.currentContext.findRenderObject() as RenderRepaintBoundary;
                 saveScreenShot2SDCard(boundary, success: () {
                   showToast('save success!');
                 }, fail: () {

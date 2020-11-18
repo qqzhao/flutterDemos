@@ -37,7 +37,7 @@ abstract class JsonParseInterface {
   @protected
   Map<String, dynamic> stringToMap(String encoderStr) {
     try {
-      return json.decode(encoderStr, reviver: null);
+      return json.decode(encoderStr, reviver: null) as Map<String, dynamic>;
     } catch (e) {
       print('解析失败');
     }

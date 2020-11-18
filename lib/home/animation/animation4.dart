@@ -17,8 +17,8 @@ class _AnimatePage4State extends State<AnimatePage4> with SingleTickerProviderSt
 
   AnimationController _controller;
 
-  Animation _animation1;
-  Animation _animation2;
+  Animation<AlignmentGeometry> _animation1;
+  Animation<AlignmentGeometry> _animation2;
 
   @override
   void initState() {
@@ -37,13 +37,13 @@ class _AnimatePage4State extends State<AnimatePage4> with SingleTickerProviderSt
         }
       });
 
-    Tween _tween = AlignmentTween(
+    Tween<AlignmentGeometry> _tween = AlignmentTween(
       begin: Alignment(-1.0, 0.0),
       end: Alignment(1.0, 0.0),
     );
     _animation1 = _tween.animate(_controller);
 
-    Tween _tween2 = AlignmentTween(
+    Tween<AlignmentGeometry> _tween2 = AlignmentTween(
       begin: Alignment(-1.0, -1.0),
       end: Alignment(1.0, 1.0),
     );
