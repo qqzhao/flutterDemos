@@ -28,6 +28,7 @@ class _DialogPageState extends State<DialogPage> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     return new Scaffold(
       key: _scaffoldKey,

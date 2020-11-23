@@ -22,6 +22,7 @@ class TestObject with JsonParseInterface {
     this.subObjectMap,
   });
 
+  @override
   TestObject generateObj(dynamic obj) {
     Map map;
     if (obj is Map) {
@@ -49,6 +50,7 @@ class TestObject with JsonParseInterface {
     return null;
   }
 
+  @override
   Map<String, dynamic> toJson() {
     try {
       return {

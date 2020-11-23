@@ -7,12 +7,14 @@ class BaseConfig {
 }
 
 class RootConfig extends BaseConfig {
+  @override
   String get name {
     return 'root_config';
   }
 }
 
 class TestConfig extends BaseConfig {
+  @override
   String get name {
     return 'test_config';
   }

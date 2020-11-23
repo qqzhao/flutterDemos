@@ -51,7 +51,7 @@ class _CommentTextWrapState extends State<CommentTextWrap> {
     super.didUpdateWidget(oldWidget);
   }
 
-  _getSizes(Duration timeStamp) {
+  void _getSizes(Duration timeStamp) {
     print('_getSizes');
     final RenderBox renderContainer = _keyContainer.currentContext.findRenderObject() as RenderBox;
     final sizeContain = renderContainer.size;

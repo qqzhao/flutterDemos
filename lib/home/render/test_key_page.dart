@@ -70,7 +70,7 @@ class _TestKeyPageState extends State<TestKeyPage> {
     );
   }
 
-  _swapTile() {
+  void _swapTile() {
     setState(() {
       widgets.insert(1, widgets.removeAt(0));
       widgets2.insert(1, widgets2.removeAt(0));
@@ -81,8 +81,8 @@ class _TestKeyPageState extends State<TestKeyPage> {
 
 /// 有状态的
 class StatefulColorfulTile extends StatefulWidget {
-  final Key key;
-  StatefulColorfulTile({this.key}) : super(key: key);
+  // final Key key;
+  StatefulColorfulTile({Key key}) : super(key: key);
 
   @override
   _StatefulColorfulTileState createState() => _StatefulColorfulTileState();

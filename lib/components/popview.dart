@@ -88,7 +88,7 @@ class _DialogRoute<T> extends PopupRoute<T> {
 Future<T> showPopView<T>({
   @required BuildContext context,
   bool barrierDismissible = true,
-  Widget child,
+  @required Widget child,
 //  WidgetBuilder builder,
 }) {
   assert(child != null);

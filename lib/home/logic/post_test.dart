@@ -54,7 +54,9 @@ void testPostDelay() async {
         .timeout(Duration(seconds: 3));
   } on TimeoutException catch (e) {
     print('timeout = $e');
-  } catch (e) {}
+  } catch (e) {
+    print('exception = $e');
+  }
 
   print('_post rsp = $response');
   print('_post rsp statusCode = ${response?.statusCode}, ${response?.reasonPhrase}');

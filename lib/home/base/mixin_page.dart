@@ -24,6 +24,7 @@ abstract class Super {
 }
 
 class MySuper implements Super {
+  @override
   void method() {
     print("MySuper");
   }

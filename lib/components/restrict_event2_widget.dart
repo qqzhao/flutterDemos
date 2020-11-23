@@ -71,6 +71,7 @@ class OnlyOnePointerRecognizerWidget2 extends StatelessWidget {
 //    count = 0;
 //  });
 
+  @override
   Widget build(BuildContext context) {
     return RawGestureDetector(
       behavior: HitTestBehavior.opaque,

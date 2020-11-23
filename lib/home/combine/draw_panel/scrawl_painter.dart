@@ -29,6 +29,7 @@ class ScrawlPainter extends CustomPainter {
       ..strokeCap = StrokeCap.round;
   }
 
+  @override
   void paint(Canvas canvas, Size size) {
     if (isClear || points == null || points.isEmpty) {
       return;
@@ -49,5 +50,6 @@ class ScrawlPainter extends CustomPainter {
     }
   }
 
+  @override
   bool shouldRepaint(ScrawlPainter other) => true;
 }

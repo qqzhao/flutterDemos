@@ -13,7 +13,7 @@ class ToastView {
 
   bool dismissed = false;
 
-  _show() async {
+  void _show() async {
     overlayState.insert(overlayEntry);
     controllerShowAnim.forward();
     controllerShowOffset.forward();

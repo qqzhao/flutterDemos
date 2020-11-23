@@ -30,6 +30,7 @@ class TestSubObject with JsonParseInterface {
 //    return null;
 //  }
 
+  @override
   TestSubObject generateObj(dynamic obj) {
     Map map;
     if (obj is Map) {
@@ -52,6 +53,7 @@ class TestSubObject with JsonParseInterface {
   }
 
   /// encoder 定义的解析函数
+  @override
   Map<String, dynamic> toJson() {
     return {
       'index': index,

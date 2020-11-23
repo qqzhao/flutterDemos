@@ -29,7 +29,7 @@ class TETimeCostWidgetState<T extends TETimeCostWidget> extends State with Widge
   }
 
 //  @override // need super call.
-  @mustCallSuper
+  @override
   Widget build(BuildContext context) {
     costTimeKey = 'setId';
     return Container();
@@ -50,7 +50,7 @@ class TETimeCostWidgetState<T extends TETimeCostWidget> extends State with Widge
     }
   }
 
-  _commitExtentCost() {
+  void _commitExtentCost() {
     if (mounted) {
       /// ignore: unused_local_variable
       num cost = DateTime.now().difference(_enterDataTime).inSeconds;

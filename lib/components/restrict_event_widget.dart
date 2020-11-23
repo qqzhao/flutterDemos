@@ -39,7 +39,7 @@ class TapRestrictEventWidget extends SingleChildRenderObjectWidget {
 class RenderRestrictEvent extends RenderProxyBox {
   RenderRestrictEvent({
     RenderBox child,
-    Duration restrictDuration,
+    @required Duration restrictDuration,
     bool ignoringSemantics,
   })  : assert(restrictDuration != null),
         _ignoringSemantics = ignoringSemantics,
