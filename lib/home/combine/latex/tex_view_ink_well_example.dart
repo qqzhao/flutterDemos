@@ -7,7 +7,7 @@ class TeXViewInkWellExample extends StatefulWidget {
 }
 
 class _TeXViewInkWellExampleState extends State<TeXViewInkWellExample> {
-  TeXViewStyle _teXViewStyle = TeXViewStyle(
+  final TeXViewStyle _teXViewStyle = TeXViewStyle(
     margin: TeXViewMargin.all(10),
     padding: TeXViewPadding.all(10),
     borderRadius: TeXViewBorderRadius.all(10),
@@ -82,7 +82,7 @@ class _TeXViewInkWellExampleState extends State<TeXViewInkWellExample> {
 
   void tapCallbackHandler(String id) {
     setState(() {
-      this.tappedId = id;
+      tappedId = id;
     });
   }
 }

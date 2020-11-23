@@ -42,7 +42,7 @@ class _WisdomFitTextPageState extends State<WisdomFitTextPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          textString = textString + ' hello world, index($appendIndex)';
+          textString = '${textString} hello world, index($appendIndex)';
           appendIndex++;
           setState(() {});
         },

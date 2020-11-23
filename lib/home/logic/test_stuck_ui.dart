@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:tools/src/time.dart';
+import 'package:tools/tools.dart';
 
 class TestStuckUIPage extends StatefulWidget {
   @override

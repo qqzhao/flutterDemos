@@ -35,11 +35,11 @@ _MyBloc myBloc = _MyBloc();
 class _MyBloc {
   int _counter = 0;
 
-  StreamController _controller = StreamController<_MyBloc>();
+  final StreamController _controller = StreamController<_MyBloc>();
 
   Stream<_MyBloc> get stream => _controller.stream as Stream<_MyBloc>;
 
-  dispose() {
+  void dispose() {
     _controller.close();
   }
 

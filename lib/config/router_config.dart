@@ -207,4 +207,4 @@ List<dynamic> _globalRouters = [
   MyRouterList(name: 'others', lists: []),
 ];
 
-var globalRouters = MyRouterList(lists: _globalRouters, name: translate('app_bar.title')); //表示
+MyRouterList globalRouters = MyRouterList(lists: _globalRouters, name: translate('app_bar.title')); //表示

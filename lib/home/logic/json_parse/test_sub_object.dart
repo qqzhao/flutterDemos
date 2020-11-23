@@ -59,7 +59,7 @@ class TestSubObject with JsonParseInterface {
     };
   }
 
-  static reviver(Object key, Object value) {
+  static void reviver(Object key, Object value) {
 //    return _TestSubObject(key.toString(), value);
     return null;
   }

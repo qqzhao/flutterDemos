@@ -274,11 +274,11 @@ class _TestArrowBoxPainter extends CustomPainter {
     this.arrowWidth = 20.0,
     this.arrowToTop = 15.0,
   }) {
-    this.borderPaint = new Paint()
+    borderPaint = new Paint()
       ..color = borderColor
       ..strokeWidth = borderWidth
       ..style = PaintingStyle.stroke;
-    this.fillPaint = new Paint()
+    fillPaint = new Paint()
       ..color = fillColor
       ..style = PaintingStyle.fill;
   }

@@ -20,7 +20,6 @@ class TextSize {
   static double _calculateFontSize(Size size, String text) {
     assert(size.width >= 30.0);
     assert(size.height >= 10.0);
-    assert(text.length >= 0);
 
     TextPainter painter = new TextPainter(
       text: new TextSpan(

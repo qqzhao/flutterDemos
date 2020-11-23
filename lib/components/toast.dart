@@ -18,14 +18,14 @@ class ToastView {
     controllerShowAnim.forward();
     controllerShowOffset.forward();
     await Future.delayed(Duration(milliseconds: 3500));
-    this.dismiss();
+    dismiss();
   }
 
-  dismiss() async {
+  void dismiss() async {
     if (dismissed) {
       return;
     }
-    this.dismissed = true;
+    dismissed = true;
     controllerHide.forward();
     await Future.delayed(Duration(milliseconds: 250));
     overlayEntry?.remove();
@@ -34,7 +34,7 @@ class ToastView {
 
 class Toast {
   static ToastView preToast;
-  static show(BuildContext context, String msg) {
+  static void show(BuildContext context, String msg) {
     preToast?.dismiss();
     preToast = null;
 

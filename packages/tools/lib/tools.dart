@@ -1,6 +1,6 @@
 library tools;
 
-import 'src/time.dart';
+export 'src/time.dart';
 
 /// A Calculator.
 class Calculator {

@@ -31,7 +31,7 @@ class _WebViewPlusExampleMainPageState extends State<WebViewPlusExampleMainPage>
             height: _height,
             child: WebViewPlus(
               onWebViewCreated: (controller) {
-                this._controller = controller;
+                _controller = controller;
                 controller.loadUrl('assets/html/testLatex/index.html');
               },
               onPageFinished: (url) {

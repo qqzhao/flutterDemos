@@ -201,9 +201,7 @@ class _DrawPanelPageState extends State<DrawPanelPage> {
             GestureDetector(
               child: Text('clear'),
               onTap: () {
-                setState(() {
-                  reset();
-                });
+                setState(reset);
               },
             ),
             GestureDetector(

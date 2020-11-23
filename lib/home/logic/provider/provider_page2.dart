@@ -8,7 +8,7 @@ class MyCounter2 extends ChangeNotifier {
     return _myValue - 100;
   }
 
-  updateMyValue({int value}) {
+  void updateMyValue({int value}) {
     print('updateMyValue = $value');
     _myValue = value;
     notifyListeners();

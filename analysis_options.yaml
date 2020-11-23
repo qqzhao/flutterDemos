@@ -1,3 +1,5 @@
+include: package:effective_dart/analysis_options.yaml
+
 linter:
   rules:
     # ===========================================
@@ -237,6 +239,19 @@ analyzer:
     avoid_print: ignore
     comment_references: ignore
     diagnostic_describe_all_properties: ignore
+    unnecessary_new: ignore
+    lines_longer_than_80_chars: ignore
+    prefer_relative_imports: ignore
+    public_member_api_docs: ignore
+    omit_local_variable_types: ignore
+    avoid_types_on_closure_parameters: ignore
+    avoid_classes_with_only_static_members: ignore
+    unnecessary_brace_in_string_interps: ignore
+    avoid_catches_without_on_clauses: ignore
+    avoid_function_literals_in_foreach_calls: ignore
+    unnecessary_lambdas: ignore
+    prefer_mixin: ignore
+    prefer_function_declarations_over_variables: ignore
 
     # 警告规则
     avoid_slow_async_io: warning
@@ -251,9 +266,8 @@ analyzer:
     curly_braces_in_flow_control_structures: error
     prefer_equal_for_default_values: error
     unnecessary_this: error
-    unnecessary_new: error
+
     unnecessary_const: error
-    avoid_classes_with_only_static_members: error
     prefer_final_fields: error
     use_setters_to_change_properties: error
     prefer_typing_uninitialized_variables: error

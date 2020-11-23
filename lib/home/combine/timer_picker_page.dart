@@ -9,7 +9,7 @@ class TimerPickerPage extends StatefulWidget {
 
 class _TimerPickerPageState extends State<TimerPickerPage> {
   int selectedValue = 0;
-  FixedExtentScrollController _fixedExtentScrollController = FixedExtentScrollController(initialItem: 3);
+  final FixedExtentScrollController _fixedExtentScrollController = FixedExtentScrollController(initialItem: 3);
 
   @override
   Widget build(BuildContext context) {

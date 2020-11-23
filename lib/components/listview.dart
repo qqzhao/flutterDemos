@@ -4,20 +4,20 @@ import 'package:flutter/rendering.dart';
 class MyListView extends BoxScrollView {
   MyListView.builder({
     Key key,
-    Axis scrollDirection: Axis.vertical,
-    bool reverse: false,
+    Axis scrollDirection = Axis.vertical,
+    bool reverse = false,
     ScrollController controller,
     bool primary,
     ScrollPhysics physics,
-    bool shrinkWrap: false,
+    bool shrinkWrap = false,
     EdgeInsetsGeometry padding,
     this.itemExtent,
     IndexedWidgetBuilder itemBuilder,
     int itemCount,
     this.header,
     this.bottom,
-    bool addAutomaticKeepAlives: true,
-    bool addRepaintBoundaries: true,
+    bool addAutomaticKeepAlives = true,
+    bool addRepaintBoundaries = true,
     double cacheExtent,
   })  : childrenDelegate = new SliverChildBuilderDelegate(
           (context, index) {

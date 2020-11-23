@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(new MaterialApp(
     home: new Center(
-      child: scaff,
+      child: _scaffold,
     ),
   ));
 }
 
-var scaff = new Scaffold(
+var _scaffold = new Scaffold(
   appBar: new AppBar(
     title: new Text('Test Dropdown button'),
     centerTitle: true,
@@ -35,15 +35,10 @@ Widget popMenu = new PopupMenuButton<String>(
       print('onSelect =  $str');
     },
     itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-          new PopupMenuItem<String>(
-              value: 'Menu item value one',
-              child: const Text('Context menu item one')),
-          const PopupMenuItem<String>(
-              enabled: false, child: const Text('A disabled menu item')),
+          new PopupMenuItem<String>(value: 'Menu item value one', child: const Text('Context menu item one')),
+          const PopupMenuItem<String>(enabled: false, child: Text('A disabled menu item')),
           // new PopupMenuDivider(),
-          new PopupMenuItem<String>(
-              value: 'Menu item value Three',
-              child: const Text('Context menu item three')),
+          new PopupMenuItem<String>(value: 'Menu item value Three', child: const Text('Context menu item three')),
         ]);
 
 Widget popMenu2 = new PopupMenuButton<String>(
@@ -54,17 +49,12 @@ Widget popMenu2 = new PopupMenuButton<String>(
     child: new Text('aaaa'),
     initialValue: 'aaaa',
     itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-          new PopupMenuItem<String>(
-              value: 'Menu item value one2',
-              child: const Text('Context menu item one2')),
-          const PopupMenuItem<String>(
-              enabled: false, child: const Text('A disabled menu item')),
+          new PopupMenuItem<String>(value: 'Menu item value one2', child: const Text('Context menu item one2')),
+          const PopupMenuItem<String>(enabled: false, child: Text('A disabled menu item')),
           // new PopupMenuDivider(
           //   height: 16.0,
           // ),
-          new PopupMenuItem<String>(
-              value: 'Menu item value Three',
-              child: const Text('Context menu item three')),
+          new PopupMenuItem<String>(value: 'Menu item value Three', child: const Text('Context menu item three')),
         ]);
 
 class Home extends StatelessWidget {
@@ -97,37 +87,23 @@ class Home extends StatelessWidget {
           width: 300.0,
           height: 100.0,
           child: new ListView.builder(
-            itemCount: 3,
-            itemBuilder: (_, index) {
-              if (index == 2){
-                var c = new PopupMenuButton<String>(
-                    padding: EdgeInsets.zero,
-                    initialValue: 'aaa',
-                    onSelected: null,
-                    child: new ListTile(
-                        title: const Text('An item with a simple menu'),
-                        subtitle: new Text('aaa')
-                    ),
-                    itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
-                      new PopupMenuItem<String>(
-                          value: 'aaa',
-                          child: new Text('aaa')
-                      ),
-                      new PopupMenuItem<String>(
-                          value: 'bbb',
-                          child: new Text('bbb')
-                      ),
-                      new PopupMenuItem<String>(
-                          value: 'ccc',
-                          child: new Text('ccc')
-                      )
-                    ]
-                );
-                return c;
-              }
-              return new Text('index = $index');
-
-            }),
+              itemCount: 3,
+              itemBuilder: (_, index) {
+                if (index == 2) {
+                  var c = new PopupMenuButton<String>(
+                      padding: EdgeInsets.zero,
+                      initialValue: 'aaa',
+                      onSelected: null,
+                      child: new ListTile(title: const Text('An item with a simple menu'), subtitle: new Text('aaa')),
+                      itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
+                            new PopupMenuItem<String>(value: 'aaa', child: new Text('aaa')),
+                            new PopupMenuItem<String>(value: 'bbb', child: new Text('bbb')),
+                            new PopupMenuItem<String>(value: 'ccc', child: new Text('ccc'))
+                          ]);
+                  return c;
+                }
+                return new Text('index = $index');
+              }),
         )
       ],
     );

@@ -186,13 +186,13 @@ class TestNestScrollViewDemo2 extends StatelessWidget {
                   //flexibleSpace高度和appbar高度一致
                   //FlexibleSpaceBar:一个灵活空间控制appbar扩展和伸缩
                   flexibleSpace: const FlexibleSpaceBar(
-                    title: const Text('SliverAppBar'),
+                    title: Text('SliverAppBar'),
                     //centerTitle值表示:appbar缩回去之后是否居中展示title
                     centerTitle: true,
                     //背景,final Widget background;
                     //我们要使用的Image对象必须是const声明的常量对象,对象不可变
-                    background: const Image(
-                      image: const AssetImage("images/lake.jpg"),
+                    background: Image(
+                      image: AssetImage("images/lake.jpg"),
                       fit: BoxFit.cover,
                     ),
                   ),

@@ -36,7 +36,7 @@ FlatButton flatButton2 = new FlatButton.icon(
     splashColor: Colors.red,
     colorBrightness: Brightness.light,
     shape: const CircleBorder(
-      side: const BorderSide(
+      side: BorderSide(
         color: Colors.white24,
         width: 4.0,
       ),

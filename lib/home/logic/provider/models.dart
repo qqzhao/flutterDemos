@@ -22,8 +22,8 @@ class NetworkData with ChangeNotifier {
     print('NetworkData request');
     await Future.delayed(Duration(seconds: 3));
     _data = {
-      'title': _data['title'] + '111_',
-      'name': _data['name'] + '222_',
+      'title': '${_data['title']}111_',
+      'name': '${_data['name']}222_',
       'list': [111, 222, 333, 'aaa'],
     };
 //    notifyListeners();

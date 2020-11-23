@@ -127,7 +127,7 @@ class _TeXViewQuizExampleState extends State<TeXViewQuizExample> {
                         margin: TeXViewMargin.all(10)),
                     normalItemStyle: TeXViewStyle(margin: TeXViewMargin.all(10)),
                     onTap: (id) {
-                      this.selectedOptionId = id;
+                      selectedOptionId = id;
                       setState(() {
                         isWrong = false;
                       });

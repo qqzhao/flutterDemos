@@ -113,7 +113,7 @@ class TestListView2 extends StatefulWidget {
 }
 
 class _TestListView1State extends State<TestListView2> {
-  var scrollController = ScrollController();
+  ScrollController scrollController = ScrollController();
 
   bool _handleNotificationOuter(ScrollNotification note) {
     print('_handleNotificationOuter');

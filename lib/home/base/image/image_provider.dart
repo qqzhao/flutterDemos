@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
-var url = 'http://cms-bucket.ws.126.net/2019/01/28/a3faf186ebe34a849d25ea462e23af8e.jpeg?imageView&thumbnail=550x0';
+String url = 'http://cms-bucket.ws.126.net/2019/01/28/a3faf186ebe34a849d25ea462e23af8e.jpeg?imageView&thumbnail=550x0';
 
 class TestAssetBundle extends CachingAssetBundle {
   @override
@@ -65,7 +65,7 @@ class TextWidget extends StatefulWidget {
 }
 
 class _TextWidgetState extends State<TextWidget> {
-  var string;
+  var _string;
 
   @override
   void initState() {
@@ -76,7 +76,7 @@ class _TextWidgetState extends State<TextWidget> {
       b.then((strValue) {
         print('bValue = $strValue');
         setState(() {
-          string = strValue;
+          _string = strValue;
         });
       });
       a.then((ByteData value) {
@@ -89,7 +89,7 @@ class _TextWidgetState extends State<TextWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: new Text('$string'),
+      child: new Text('$_string'),
     );
   }
 }

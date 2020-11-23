@@ -12,7 +12,7 @@ import 'package:flutter/widgets.dart';
 class _DialogRoute<T> extends PopupRoute<T> {
   _DialogRoute({
     @required this.theme,
-    bool barrierDismissible: true,
+    bool barrierDismissible = true,
     this.barrierLabel,
     @required this.child,
     RouteSettings settings,
@@ -60,7 +60,7 @@ bool _isShowing = false; // 标识是否展示loading
 
 Future<T> showLoading<T>({
   @required BuildContext context,
-  bool barrierDismissible: false,
+  bool barrierDismissible = false,
 //  WidgetBuilder builder,
 }) async {
   if (_isShowing) {
@@ -83,7 +83,7 @@ Future<T> showLoading<T>({
   ));
 }
 
-hideLoading<T>({
+void hideLoading<T>({
   BuildContext context,
 }) {
   if (_isShowing) {

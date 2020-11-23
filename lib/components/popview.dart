@@ -12,7 +12,7 @@ import 'package:flutter/widgets.dart';
 class _DialogRoute<T> extends PopupRoute<T> {
   _DialogRoute({
     @required this.theme,
-    bool barrierDismissible: true,
+    bool barrierDismissible = true,
     this.barrierLabel,
     @required this.child,
     RouteSettings settings,
@@ -87,7 +87,7 @@ class _DialogRoute<T> extends PopupRoute<T> {
 
 Future<T> showPopView<T>({
   @required BuildContext context,
-  bool barrierDismissible: true,
+  bool barrierDismissible = true,
   Widget child,
 //  WidgetBuilder builder,
 }) {

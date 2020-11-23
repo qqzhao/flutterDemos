@@ -15,7 +15,7 @@ class TestObjectWrap with JsonParseInterface {
   }
 
   @override
-  JsonParseInterface generateObj(inputObj) {
+  JsonParseInterface generateObj(dynamic inputObj) {
     Map map;
     if (inputObj is Map) {
       map = inputObj;

@@ -56,7 +56,7 @@ class _CalculatePageState extends State<CalculatePage> {
 
     myTimer = Timer.periodic(Duration(seconds: 2), (_) {
       setState(() {
-        testString = testString + 'append index = $appendIndex;';
+        testString = '${testString} append index = $appendIndex;';
         appendIndex++;
       });
     });

@@ -19,7 +19,7 @@ class _ContainerWidgetState extends State<FitBoxPage> {
         new RaisedButton(
           onPressed: () {
             print("button clicked: $text");
-            String newText = text + 'hello world，';
+            String newText = '${text}hello world，';
             setState(() {
               text = newText;
             });

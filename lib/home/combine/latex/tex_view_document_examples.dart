@@ -92,7 +92,7 @@ class _TeXViewDocumentExamplesState extends State<TeXViewDocumentExamples> {
             groupValue: radVal,
             onChanged: (val) {
               setState(() {
-                this.radVal = val;
+                radVal = val;
               });
             },
             title: Text("Katex"),
@@ -103,7 +103,7 @@ class _TeXViewDocumentExamplesState extends State<TeXViewDocumentExamples> {
             groupValue: radVal,
             onChanged: (val) {
               setState(() {
-                this.radVal = val;
+                radVal = val;
               });
             },
             title: Text("MathJax"),

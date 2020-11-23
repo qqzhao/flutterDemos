@@ -38,7 +38,7 @@ Future saveScreenShot2SDCard(RenderRepaintBoundary boundary, {Function success, 
 
 void saveScreenShot(RenderRepaintBoundary boundary, {Function success, Function fail}) {
   capturePng2List(boundary).then((uint8List) async {
-    if (uint8List == null || uint8List.length == 0) {
+    if (uint8List == null || uint8List.isEmpty) {
       if (fail != null) fail();
       return;
     }

@@ -30,14 +30,14 @@ class ScrawlPainter extends CustomPainter {
   }
 
   void paint(Canvas canvas, Size size) {
-    if (isClear || points == null || points.length == 0) {
+    if (isClear || points == null || points.isEmpty) {
       return;
     }
     for (int i = 0; i < points.length; i++) {
       _linePaint..color = points[i].color;
       _linePaint..strokeWidth = points[i].strokeWidth;
       List<Offset> curPoints = points[i].points;
-      if (curPoints == null || curPoints.length == 0) {
+      if (curPoints == null || curPoints.isEmpty) {
         break;
       }
       for (int i = 0; i < curPoints.length - 1; i++) {

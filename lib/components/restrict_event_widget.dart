@@ -51,7 +51,7 @@ class RenderRestrictEvent extends RenderProxyBox {
   DateTime _lastResponseTime = DateTime.now();
 
   bool _ignoringSemantics;
-  Duration _restrictDuration;
+  final Duration _restrictDuration;
 
   set ignoringSemantics(bool value) {
     if (value == _ignoringSemantics) return;

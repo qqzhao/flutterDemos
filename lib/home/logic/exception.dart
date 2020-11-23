@@ -93,7 +93,7 @@ void exceptionHandle1() {
 void exceptionHandle2() {
   try {
     exceptionCode();
-  } on Error catch (e) {
+  } on Exception catch (e) {
     print('exceptionHandle2 e = $e');
   }
 }
@@ -102,7 +102,7 @@ void exceptionHandle2() {
 void exceptionHandle3() {
   try {
     exceptionCode();
-  } on Error catch (e) {
+  } on Exception catch (e) {
     print('exceptionHandle3 e = $e');
     throw new Exception('error message');
   }

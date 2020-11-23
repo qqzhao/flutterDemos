@@ -86,7 +86,7 @@ class _InnerBox extends StatefulWidget {
 }
 
 class __InnerBoxState extends State<_InnerBox> {
-  var innerColor = Colors.blue;
+  Color innerColor = Colors.blue;
 
   @override
   Widget build(BuildContext context) {

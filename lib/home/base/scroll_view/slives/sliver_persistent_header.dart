@@ -11,14 +11,14 @@ class _SliverPersistentHeaderPageState extends State<SliverPersistentHeaderPage>
   bool _floating = false;
   bool _pinned = true;
 
-  var children = [1, 2, 3, 4, 5, 6, 7, 8]
+  List<Widget> children = [1, 2, 3, 4, 5, 6, 7, 8]
       .map(
         (item) => Container(
-              width: 80.0,
-              height: 80.0,
-              color: Colors.red,
-              child: Text('index = $item'),
-            ),
+          width: 80.0,
+          height: 80.0,
+          color: Colors.red,
+          child: Text('index = $item'),
+        ),
       )
       .toList();
 

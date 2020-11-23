@@ -19,7 +19,7 @@ abstract class JsonParseInterface {
 
   /// 转换list 对象
   @protected
-  List<T> convertList<T>(inputList, JsonParseInterface targetObject) {
+  List<T> convertList<T>(dynamic inputList, JsonParseInterface targetObject) {
     if (inputList is List && targetObject is T) {
       return inputList.map((item) => targetObject.generateObj(item)).toList().cast<T>();
     }
@@ -27,7 +27,7 @@ abstract class JsonParseInterface {
   }
 
   /// 转换Map 对象,
-  Map<String, T> convertMap<T>(inputMap) {
+  Map<String, T> convertMap<T>(dynamic inputMap) {
     if (inputMap is Map) {
       return inputMap.cast<String, T>();
     }

@@ -10,7 +10,7 @@ Future<int> getValue2() async {
   throw new Exception('happen error');
 }
 
-void handleValue(value) {
+void handleValue(dynamic value) {
   print('handle value; value = $value');
 }
 

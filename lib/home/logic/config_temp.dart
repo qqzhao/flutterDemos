@@ -1,2 +1,1 @@
-
-var testVar = '123';
+String testVar = '123';

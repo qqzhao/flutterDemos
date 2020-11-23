@@ -34,9 +34,9 @@ class Lock {
   Future enqueue(Future<String> Function() callback) async {
     if (locked) {
       // we use a future as a queue
-      Future<String> newLock = this._lock.then((d) => callback());
-      this._lock = newLock;
-      return this._lock;
+      Future<String> newLock = _lock.then((d) => callback());
+      _lock = newLock;
+      return _lock;
     }
     return null;
   }

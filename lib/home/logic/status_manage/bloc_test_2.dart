@@ -42,11 +42,11 @@ class _MyBloc {
   int _counter = 0;
   _MyBloc(int count) : _counter = count;
 
-  StreamController _controller = StreamController<_MyBloc>();
+  final StreamController _controller = StreamController<_MyBloc>();
 
   Stream<_MyBloc> get stream => _controller.stream as Stream<_MyBloc>;
 
-  dispose() {
+  void dispose() {
     _controller.close();
   }
 
@@ -66,6 +66,6 @@ class _MyBlocWidget extends InheritedWidget {
 
   @override
   bool updateShouldNotify(_MyBlocWidget oldWidget) {
-    return this.bloc != oldWidget.bloc;
+    return bloc != oldWidget.bloc;
   }
 }

@@ -28,7 +28,7 @@ class _CommentTextWrapState extends State<CommentTextWrap> {
   /// 是否是单行展示
   bool isSingleLine = true;
   TapGestureRecognizer _tapGestureRecognizer;
-  GlobalKey _keyContainer = GlobalKey();
+  final GlobalKey _keyContainer = GlobalKey();
 
   @override
   void initState() {

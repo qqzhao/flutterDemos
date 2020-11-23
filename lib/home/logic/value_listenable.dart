@@ -9,7 +9,7 @@ class ValueListenablePage extends StatefulWidget {
 }
 
 class _ValueListenablePageState extends State<ValueListenablePage> {
-  ValueNotifier<String> _valueNotifier = ValueNotifier('aaa');
+  final ValueNotifier<String> _valueNotifier = ValueNotifier('aaa');
   VoidCallback _listener;
   Timer timer;
 
@@ -21,7 +21,7 @@ class _ValueListenablePageState extends State<ValueListenablePage> {
     _valueNotifier.addListener(_listener);
 
     timer = Timer.periodic(Duration(seconds: 3), (_) {
-      _valueNotifier.value = _valueNotifier.value + '++';
+      _valueNotifier.value = '${_valueNotifier.value}++';
     });
 
     super.initState();
@@ -44,7 +44,7 @@ class _ValueListenablePageState extends State<ValueListenablePage> {
       body: FlatButton(
         onPressed: () {
           print('onPressed');
-          _valueNotifier.value = _valueNotifier.value + '++';
+          _valueNotifier.value = '${_valueNotifier.value}++';
 //          _valueNotifier.notifyListeners();
         },
         child: Container(
