@@ -198,6 +198,7 @@ class MyRenderView extends RenderObject with MyRenderObjectWithChildMixin<Render
     }
   }
 
+  // ignore: code-metrics
   void _updateSystemChrome() {
     final Rect bounds = paintBounds;
     final Offset top = Offset(bounds.center.dx, _window.padding.top / _window.devicePixelRatio);

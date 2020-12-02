@@ -293,6 +293,7 @@ analyzer:
   exclude:
   - plugins/**
   - examples/**
+  - packages/**
   - lib/models/**
   - lib/test_models/**
   - ios/**
@@ -301,9 +302,9 @@ dart_code_metrics:
   anti-patterns:
     - long-method
   metrics:
-    cyclomatic-complexity: 20
+    cyclomatic-complexity: 12
     lines-of-executable-code: 100
-    number-of-arguments: 4
+    number-of-arguments: 4 #不生效？
   metrics-exclude: # 这里排除不生效，需要上面的 exclude
     - test/**
   rules:
