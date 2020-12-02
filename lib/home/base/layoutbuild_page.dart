@@ -7,6 +7,7 @@ class LayoutBuildTestPage extends StatefulWidget {
 
 class _LayoutBuildTestPageState extends State<LayoutBuildTestPage> {
   @override
+  // ignore: long-method
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
@@ -109,7 +110,7 @@ class _LayoutBuildTestPageState extends State<LayoutBuildTestPage> {
                             color: Colors.amber,
                           );
                         }),
-                      )
+                      ),
                     ],
                   ),
                 ),

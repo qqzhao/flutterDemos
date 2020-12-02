@@ -6,11 +6,14 @@ void main() {
 
   int b = 1;
   print('b.runtimeType = ${b.runtimeType}');
+  // ignore: unnecessary_type_check
   print('b is dynamic = ${b is dynamic}');
+  // ignore: unnecessary_type_check
   print('b is Object = ${b is Object}');
 
   dynamic c = 1;
   print('c.runtimeType = ${c.runtimeType}');
+  // ignore: unnecessary_type_check
   print('c is dynamic = ${c is dynamic}');
 
   num d = 1;

@@ -34,7 +34,7 @@ class _ProviderTestPage3State extends State<ProviderTestPage3> {
       providers: [
         ChangeNotifierProvider<_ProviderTestPage3Model>(
           create: (_) => _ProviderTestPage3Model(),
-        )
+        ),
       ],
       child: Builder(builder: (context) {
 //        var modelWatch = context.watch<_ProviderTestPage3Model>();
@@ -98,7 +98,7 @@ class _ProviderTestPage3State extends State<ProviderTestPage3> {
                   MaterialPageRoute(builder: (context) => ProviderTestPage4()),
                 );
               },
-            )
+            ),
           ],
         );
       }),

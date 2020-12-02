@@ -29,7 +29,7 @@ class _RouteMainPageState extends State<RouteMainPage> {
               return MyIntValue(value: 1999);
             },
             dispose: (BuildContext context, MyIntValue value) {},
-          )
+          ),
         ],
         child: Navigator(
           key: Routes.globalKey,
@@ -56,7 +56,7 @@ class _RouteMainPageState extends State<RouteMainPage> {
                   return MyIntValue(value: 999);
                 },
                 dispose: (BuildContext context, MyIntValue value) {},
-              )
+              ),
             ],
             child: Navigator(
               key: Routes.globalKey,

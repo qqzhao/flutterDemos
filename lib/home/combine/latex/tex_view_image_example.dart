@@ -46,7 +46,7 @@ class TeXViewImageExample extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[CircularProgressIndicator(), Text("Rendering...!")],
                     ),
-                  ))
+                  )),
         ],
       ),
     );

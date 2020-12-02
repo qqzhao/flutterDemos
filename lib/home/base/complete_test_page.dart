@@ -9,6 +9,7 @@ class CompleteTestPage extends StatefulWidget {
 
 class _CompleteTestPageState extends State<CompleteTestPage> {
   @override
+  // ignore: long-method
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

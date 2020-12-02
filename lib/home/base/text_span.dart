@@ -34,6 +34,7 @@ class _TestTextSpanPageState extends State<TestTextSpanPage> {
   }
 
   @override
+  // ignore: long-method
   Widget build(BuildContext context) {
     var style = TextStyle(color: Colors.black, fontSize: 44.0);
 

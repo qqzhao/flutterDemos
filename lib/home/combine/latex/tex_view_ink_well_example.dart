@@ -74,7 +74,7 @@ class _TeXViewInkWellExampleState extends State<TeXViewInkWellExample> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[CircularProgressIndicator(), Text("Rendering...!")],
                     ),
-                  ))
+                  )),
         ],
       ),
     );

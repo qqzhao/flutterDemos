@@ -228,6 +228,8 @@ linter:
 analyzer:
 #  enable-experiment:
 #    - non-nullable
+  plugins:
+    - dart_code_metrics
 
   strong-mode:
     implicit-casts: false
@@ -293,3 +295,19 @@ analyzer:
   - examples/**
   - lib/models/**
   - lib/test_models/**
+  - ios/**
+
+dart_code_metrics:
+  anti-patterns:
+    - long-method
+  metrics:
+    cyclomatic-complexity: 20
+    lines-of-executable-code: 100
+    number-of-arguments: 4
+  metrics-exclude: # 这里排除不生效，需要上面的 exclude
+    - test/**
+  rules:
+    # - newline-before-return # 返回之前空一行
+    - no-boolean-literal-compare
+    # - no-empty-block # 空的 block
+    - prefer-trailing-comma-for-collection

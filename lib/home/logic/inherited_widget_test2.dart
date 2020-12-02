@@ -82,7 +82,7 @@ class _InheritedPage2State extends State<InheritedPage2> {
                     ),
                   ),
                 ],
-              )
+              ),
             ],
           )),
         ),

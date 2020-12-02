@@ -242,7 +242,7 @@ class TestWidgetOther extends StatelessWidget {
                   child: FlareAnimationWidget(
                     index: index,
                   ),
-                )
+                ),
               ],
             );
           }),

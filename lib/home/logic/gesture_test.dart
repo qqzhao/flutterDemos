@@ -99,7 +99,7 @@ class TestGestureWidget extends StatelessWidget {
               height: 100.0,
               color: Colors.blue,
             ),
-          )
+          ),
         ],
       ),
     );
@@ -297,7 +297,7 @@ class TestGestureWidget extends StatelessWidget {
               print("down1");
             },
             behavior: HitTestBehavior.translucent,
-          )
+          ),
         ],
       ),
     );
@@ -326,7 +326,7 @@ class TestGestureWidget extends StatelessWidget {
                 print("down1");
               },
               behavior: HitTestBehavior.translucent,
-            )
+            ),
           ],
         ),
       ),
@@ -538,7 +538,7 @@ class MultipleGestureWidget extends StatelessWidget {
             //initializer
             instance.onTap = onTap;
           },
-        )
+        ),
       },
       //Creates the nested container within the first.
       child: child,

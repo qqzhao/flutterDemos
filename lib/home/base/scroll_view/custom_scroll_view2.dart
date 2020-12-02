@@ -147,7 +147,7 @@ class _CustomScrollViewTest2State extends State<CustomScrollViewTest2> {
                     width: double.infinity,
                     child: Text('other'),
                   ),
-                )
+                ),
               ],
             ),
           ),

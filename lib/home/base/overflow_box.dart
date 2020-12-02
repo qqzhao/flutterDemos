@@ -62,7 +62,7 @@ class OverFlowBoxPage extends StatelessWidget {
                     maxLines: 1,
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -102,7 +102,7 @@ class OverFlowBoxPage extends StatelessWidget {
                     maxLines: 1,
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

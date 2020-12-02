@@ -98,13 +98,13 @@ class Home extends StatelessWidget {
                       itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
                             new PopupMenuItem<String>(value: 'aaa', child: new Text('aaa')),
                             new PopupMenuItem<String>(value: 'bbb', child: new Text('bbb')),
-                            new PopupMenuItem<String>(value: 'ccc', child: new Text('ccc'))
+                            new PopupMenuItem<String>(value: 'ccc', child: new Text('ccc')),
                           ]);
                   return c;
                 }
                 return new Text('index = $index');
               }),
-        )
+        ),
       ],
     );
   }

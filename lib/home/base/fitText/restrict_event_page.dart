@@ -9,6 +9,7 @@ class RestrictEventPage extends StatefulWidget {
 
 class _RestrictEventPageState extends State<RestrictEventPage> {
   @override
+  // ignore: long-method
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -62,7 +63,7 @@ class _RestrictEventPageState extends State<RestrictEventPage> {
                         height: 40,
                         color: Colors.purple,
                       ),
-                    )
+                    ),
                   ],
                 ),
                 height: 200,
@@ -103,7 +104,7 @@ class _RestrictEventPageState extends State<RestrictEventPage> {
                         height: 40,
                         color: Colors.purple,
                       ),
-                    )
+                    ),
                   ],
                 ),
                 height: 200,
@@ -123,7 +124,7 @@ class _RestrictEventPageState extends State<RestrictEventPage> {
                       print('blue clicked');
                     },
                     color: Colors.blue,
-                  )
+                  ),
                 ],
               ),
               height: 200,

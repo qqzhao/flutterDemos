@@ -41,7 +41,7 @@ class _TestRotatePageState extends State<TestRotatePage> {
                   ),
                 ),
                 bottom: -sideLength / 2,
-              )
+              ),
             ],
           ),
         ),

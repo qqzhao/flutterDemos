@@ -131,7 +131,7 @@ class _TeXViewQuizExampleState extends State<TeXViewQuizExample> {
                       setState(() {
                         isWrong = false;
                       });
-                    })
+                    }),
               ]),
               style: TeXViewStyle(
                 margin: TeXViewMargin.all(5),
@@ -189,7 +189,7 @@ class _TeXViewQuizExampleState extends State<TeXViewQuizExample> {
                 child: Text("Next"),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

@@ -64,7 +64,7 @@ class TeXExample {
                   width: 250,
                   margin: TeXViewMargin.zeroAuto(),
                   backgroundColor: Colors.green)),
-          TeXViewDocument(body, style: TeXViewStyle(margin: TeXViewMargin.only(top: 10)))
+          TeXViewDocument(body, style: TeXViewStyle(margin: TeXViewMargin.only(top: 10))),
         ]);
   }
 }
@@ -129,7 +129,7 @@ class _TeXViewDocumentExamplesState extends State<TeXViewDocumentExamples> {
                 TeXExample.bohrRadius,
                 TeXExample.chemistryEquations,
                 TeXExample.matrix,
-                if (radVal == 1) ...[TeXExample.others]
+                if (radVal == 1) ...[TeXExample.others],
               ]),
               style: TeXViewStyle(
                 margin: TeXViewMargin.all(10),

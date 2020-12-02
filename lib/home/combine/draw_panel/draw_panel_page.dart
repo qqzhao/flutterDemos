@@ -112,6 +112,7 @@ class _DrawPanelPageState extends State<DrawPanelPage> {
     });
   }
 
+  // ignore: long-method
   Widget _buildBottom() {
     return Container(
       color: Colors.white,

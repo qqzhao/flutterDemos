@@ -41,7 +41,7 @@ class _TestOverflowPageState extends State<TestOverflowPage> {
                           height: 30.0,
                           color: Colors.yellow,
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -72,7 +72,7 @@ class _TestOverflowPageState extends State<TestOverflowPage> {
                             height: 30.0,
                             color: Colors.yellow,
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),

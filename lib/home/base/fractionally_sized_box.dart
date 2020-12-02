@@ -19,12 +19,10 @@ class FractionallBoxPage extends StatelessWidget {
               widthFactor: 0.5,
               heightFactor: 0.5,
               alignment: Alignment.center,
-            )
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-

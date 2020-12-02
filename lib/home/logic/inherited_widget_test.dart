@@ -65,7 +65,7 @@ class _InheritedWidgetTestState extends State<InheritedWidgetTest> {
                 var a = DefaultBaseConfig.of(context);
                 return Text('${a.name}');
               }),
-            )
+            ),
           ],
         ),
       ),

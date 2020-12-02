@@ -48,7 +48,7 @@ class CounterLabel extends StatelessWidget {
               ));
             },
           ),
-        )
+        ),
       ],
     );
   }

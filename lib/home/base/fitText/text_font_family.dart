@@ -52,7 +52,7 @@ class _TextFontFamilyPageState extends State<TextFontFamilyPage> {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

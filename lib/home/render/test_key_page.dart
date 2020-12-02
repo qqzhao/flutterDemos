@@ -34,7 +34,7 @@ class _TestKeyPageState extends State<TestKeyPage> {
       ),
       StatefulColorfulTile(
         key: const Key('2'),
-      )
+      ),
     ];
   }
 

@@ -48,7 +48,7 @@ class _SliverProtoTypeExtentListPageState extends State<SliverProtoTypeExtentLis
                     width: 100.0,
                     height: prototypeItemHeight,
                   ),
-                )
+                ),
               ],
             ),
           ),

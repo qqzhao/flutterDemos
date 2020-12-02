@@ -56,7 +56,7 @@ class _AnimatePage3State extends State<AnimatePage3> with SingleTickerProviderSt
           heightFactor: 0.2,
           widthFactor: 0.2,
           alignment: _animation.value, //
-        )
+        ),
       ],
     );
 

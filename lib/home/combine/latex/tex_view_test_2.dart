@@ -68,7 +68,7 @@ return ['top', 'bottom']
                 child: Text('aaa'),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

@@ -45,7 +45,7 @@ class _AnimatePage2State extends State<AnimatePage2> with SingleTickerProviderSt
     Widget newWidget = new Stack(
       fit: StackFit.expand,
       children: <Widget>[
-        new FractionallySizedBox(
+        FractionallySizedBox(
           child: new Container(
             color: Colors.grey,
             child: new Icon(
@@ -56,7 +56,7 @@ class _AnimatePage2State extends State<AnimatePage2> with SingleTickerProviderSt
           heightFactor: 0.2,
           widthFactor: 0.2,
           alignment: new Alignment(_controller.value, 0.0), //
-        )
+        ),
       ],
     );
 

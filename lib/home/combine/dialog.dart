@@ -57,7 +57,7 @@ class _DialogPageState extends State<DialogPage> {
                                 child: const Text('DISCARD'),
                                 onPressed: () {
                                   Navigator.pop(context, DialogDemoAction.discard);
-                                })
+                                }),
                           ]));
                 }),
             new RaisedButton(
@@ -80,7 +80,7 @@ class _DialogPageState extends State<DialogPage> {
                                 child: const Text('AGREE'),
                                 onPressed: () {
                                   Navigator.pop(context, DialogDemoAction.agree);
-                                })
+                                }),
                           ]));
                 }),
 //            new RaisedButton(

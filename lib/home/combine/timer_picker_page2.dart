@@ -66,7 +66,7 @@ class _TimerPickerPage2State extends State<TimerPickerPage2> {
               },
             );
           }, //
-        )
+        ),
       ],
     );
   }

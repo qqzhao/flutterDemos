@@ -71,7 +71,7 @@ class _ProviderTestPage2State extends State<ProviderTestPage2> {
                     print('builder Selector child');
                     return Text('aaa');
                   }),
-                )
+                ),
               ],
             ),
           ),

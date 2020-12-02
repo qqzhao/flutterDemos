@@ -43,7 +43,7 @@ class _SliverFillViewportPageState extends State<SliverFillViewportPage> {
                     childCount: 10,
                   ),
                   viewportFraction: 1.5,
-                )
+                ),
               ],
             ),
           ),

@@ -68,6 +68,7 @@ dev_dependencies:
   json_serializable: ^3.2.5
   effective_dart: ^1.0.0
   pedantic: ^1.9.2
+  dart_code_metrics: ^2.0.0
 
 dependency_overrides:
 #  protobuf:

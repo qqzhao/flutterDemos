@@ -52,7 +52,7 @@ class _BlocTestPage1State extends State<BlocTestPage3> {
           onPressed: () {
             _globalCounterBloc.add(CounterEvent.decrement);
           },
-        )
+        ),
       ],
     );
   }

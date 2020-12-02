@@ -23,12 +23,12 @@ class ObjectdbTestPage extends StatelessWidget {
       {
         "name": {"first": "Maria", "last": "Smith"},
         "age": 20,
-        "active": false
+        "active": false,
       },
       {
         "name": {"first": "James", "last": "Jones"},
         "age": 32,
-        "active": false
+        "active": false,
       },
     ]);
 
@@ -38,14 +38,14 @@ class ObjectdbTestPage extends StatelessWidget {
     // remove documents
     db.remove({
       Op.inList: {
-        "name.last": ["Jones", "Miller", "Wilson"]
+        "name.last": ["Jones", "Miller", "Wilson"],
       },
       "active": false,
     });
 
     // find documents
     print(await db.find({
-      Op.lte: {"age": 40}
+      Op.lte: {"age": 40},
     }));
 
     // close db

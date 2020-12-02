@@ -83,7 +83,7 @@ class _AnimatePage4State extends State<AnimatePage4> with SingleTickerProviderSt
             ),
           ),
           alignment: _animation2.value,
-        )
+        ),
       ],
     );
 

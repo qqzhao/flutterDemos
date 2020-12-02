@@ -92,10 +92,10 @@ class _TextSpanPage2State extends State<TextSpanPage2> {
                       fontSize: 13.0,
                     ),
                   ),
-                )
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(

@@ -104,10 +104,10 @@ Future<T> showPopView<T>({
 //            color: Colors.red,
               child: new Stack(
             children: <Widget>[
-              new Positioned(
+              Positioned(
                 child: child,
                 bottom: 0.0,
-              )
+              ),
             ],
           )),
         ));

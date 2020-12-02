@@ -54,7 +54,7 @@ class _SliverAppBarPageState extends State<SliverAppBarPage> {
                           Divider(
                             color: Colors.white,
                             height: 3.0,
-                          )
+                          ),
                         ],
                       );
                     },

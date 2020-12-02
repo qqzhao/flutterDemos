@@ -133,7 +133,7 @@ class _CommentTextWrapState extends State<CommentTextWrap> {
                 ),
                 maxLines: 1,
               ),
-            )
+            ),
         ],
       ),
     );

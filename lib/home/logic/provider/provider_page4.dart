@@ -26,7 +26,7 @@ class _ProviderTestPage4State extends State<ProviderTestPage4> {
       providers: [
         ChangeNotifierProvider<_ProviderTestPage4Model>(
           create: (_) => _ProviderTestPage4Model(),
-        )
+        ),
       ],
       child: Builder(builder: (context) {
         return Scaffold(
@@ -48,7 +48,7 @@ class _ProviderTestPage4State extends State<ProviderTestPage4> {
                     },
                   ),
                 ),
-              )
+              ),
             ],
           ),
           persistentFooterButtons: <Widget>[

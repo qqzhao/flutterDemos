@@ -100,9 +100,9 @@ class _TeXViewMiniExampleState extends State<TeXViewMiniExample> {
             ),
             TeXViewDocument(r"""<p>                                
                            When \(a \ne 0 \), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-                           $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>""", style: TeXViewStyle.fromCSS('padding: 15px; color: white; background: green'))
+                           $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>""", style: TeXViewStyle.fromCSS('padding: 15px; color: white; background: green')),
           ]),
-        )
+        ),
       ]),
       style: TeXViewStyle(
         elevation: 10,
