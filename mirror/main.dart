@@ -4,7 +4,7 @@ import 'dart:mirrors';
 
 void main() {
   print('in main');
-  _test7();
+  _test2();
 }
 
 class BaseTest {
@@ -94,18 +94,24 @@ void _test2() {
   ClassMirror classMirror = reflectClass(BaseTest);
 
   InstanceMirror instanceMirror = classMirror.newInstance(Symbol('name1'), [2222, 'bbbb']);
+
+  // 修改实例的值
+  instanceMirror.setField(#varB, 22223);
   BaseTest baseTest3 = instanceMirror.mirrorObj as BaseTest;
   print('baseTest3 = $baseTest3');
 
   BaseTest baseTest2 = BaseTest(varB: 1111, varC: 'vvvvv');
   print('baseTest2 = $baseTest2');
 
-  BaseTest baseTest = (classMirror.newInstance(
-    Symbol.empty,
-    [], // 这里必须是空数组
-    {Symbol('varB'): 111, Symbol('varC'): 'yyyy'},
-  )).reflectee as BaseTest;
+  BaseTest baseTest = (classMirror.newInstance(Symbol(''), [], {#varB: 1112, #varC: 'XXX'})).reflectee as BaseTest;
+  // BaseTest baseTest = (classMirror.newInstance(
+  //   Symbol.empty,
+  //   [], // 这里必须是空数组
+  //   {Symbol('varB'): 111, Symbol('varC'): 'yyyy'},
+  // )).reflectee as BaseTest;
   print('baseTest = $baseTest');
+
+  print('Symbol(\'XX1\') == #XX1: ${Symbol('XX1') == #XX1}');
 }
 
 extension ObjectXX on Object {
@@ -170,4 +176,34 @@ void _test7() {
   print('cm = ${cm.typeVariables}');
   print('cm = ${cm.reflectedType}');
   print('cm = ${cm.originalDeclaration}');
+}
+
+class MyJsonEnable {
+  const MyJsonEnable();
+}
+
+class MyJsonEnable2 {
+  const MyJsonEnable2();
+}
+
+@MyJsonEnable2()
+@MyJsonEnable()
+class IncludeMyJsonClass {}
+
+class ExcludeMyJsonClass {}
+
+/// 测试 metaData
+void _test8() {
+  print('_testMetaData');
+  ClassMirror cm1 = reflectClass(IncludeMyJsonClass);
+  ClassMirror cm2 = reflectClass(ExcludeMyJsonClass);
+
+  bool cm1Enable = cm1.metadata.any((element) => element.reflectee is MyJsonEnable);
+  print('cm1Enable = $cm1Enable');
+
+  bool cm1Enable2 = cm1.metadata.any((element) => element.reflectee is MyJsonEnable2);
+  print('cm1Enable2 = $cm1Enable2');
+
+  bool cm2Enable = cm2.metadata.any((element) => element.reflectee is MyJsonEnable);
+  print('cm2Enable = $cm2Enable');
 }
