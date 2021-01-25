@@ -449,9 +449,37 @@ class TestGestureWidget extends StatelessWidget {
     );
   }
 
+  Widget build17(BuildContext context) {
+    return Listener(
+      onPointerDown: (_) {
+        print('listen pointer down');
+      },
+      child: GestureDetector(
+        onTapDown: (_) => print('outer onTapDown'),
+        child: Container(
+          width: 300.0,
+          height: 300.0,
+          color: Colors.red,
+          child: IgnorePointer(
+            child: GestureDetector(
+              onTapDown: (_) => print('inner tap down'),
+              child: Center(
+                child: Container(
+                  width: 100.0,
+                  height: 100.0,
+                  color: Colors.blue,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return DemoApp();
+    return build17(context);
   }
 }
 
