@@ -111,7 +111,6 @@ class MyRenderObjectToWidgetElement<T extends RenderObject> extends RootRenderOb
   @override
   void update(RenderObjectToWidgetAdapter<T> newWidget) {
     super.update(newWidget);
-    assert(widget == newWidget);
     _rebuild();
   }
 

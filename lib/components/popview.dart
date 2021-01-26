@@ -11,7 +11,6 @@ import 'package:flutter/widgets.dart';
 
 class _DialogRoute<T> extends PopupRoute<T> {
   _DialogRoute({
-    @required this.theme,
     bool barrierDismissible = true,
     this.barrierLabel,
     @required this.child,
@@ -21,7 +20,6 @@ class _DialogRoute<T> extends PopupRoute<T> {
         super(settings: settings);
 
   final Widget child;
-  final ThemeData theme;
 
   @override
   Duration get transitionDuration => const Duration(milliseconds: 450);
@@ -45,7 +43,7 @@ class _DialogRoute<T> extends PopupRoute<T> {
           scopesRoute: true,
           explicitChildNodes: true,
         );
-        return theme != null ? new Theme(data: theme, child: annotatedChild) : annotatedChild;
+        return annotatedChild;
       }),
     );
   }
@@ -115,7 +113,6 @@ Future<T> showPopView<T>({
 
   return Navigator.of(context, rootNavigator: true).push(new _DialogRoute<T>(
     child: _builder(context),
-    theme: Theme.of(context, shadowThemeOnly: true),
     barrierDismissible: barrierDismissible,
     barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
   ));

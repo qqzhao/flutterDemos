@@ -77,7 +77,6 @@ class ChildClass extends SuperClass {
   static int staticMethod(x) => 21;
 }
 
-// ignore: unused_element
 void _test1() {
   ClassMirror cm = reflectClass(ChildClass);
   cm.instanceMembers.forEach((key, value) => print('$key >>> $value'));

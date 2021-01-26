@@ -1,4 +1,4 @@
-import 'dart:ui' as ui show Window, window;
+import 'dart:ui' as ui show SingletonFlutterWindow, window;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -14,7 +14,7 @@ ViewConfiguration createViewConfiguration() {
   );
 }
 
-ui.Window get window => ui.window;
+ui.SingletonFlutterWindow get window => ui.window;
 
 /// 这样写不行
 /// 因为 【WidgetsBinding.instance】中的一些变量还是没有对应上。

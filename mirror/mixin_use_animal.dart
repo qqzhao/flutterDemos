@@ -4,6 +4,14 @@ abstract class Animal {
   // String name;
   @override
   int get hashCode => super.hashCode + 1;
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) {}
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == runtimeType && other.hashCode == hashCode;
+  }
 }
 
 class Cat extends Animal with PrintName {

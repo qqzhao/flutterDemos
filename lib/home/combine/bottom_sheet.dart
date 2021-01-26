@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../components/bottom_sheet.dart' as my;
+// import '../../components/bottom_sheet.dart' as my;
 
 class BottomSheetPage extends StatefulWidget {
   @override
@@ -18,7 +18,7 @@ class _BottomSheetPageState extends State<BottomSheetPage> {
             child: new RaisedButton(
                 child: const Text('SHOW BOTTOM SHEET'),
                 onPressed: () {
-                  my.showModalBottomSheet<void>(
+                  showModalBottomSheet<void>(
                       context: context,
                       builder: (BuildContext context) {
                         return new Container(
