@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'dart:io' show Platform;
-import 'dart:ui' as ui show Scene, SceneBuilder, SingletonFlutterWindow;
+import 'dart:ui' as ui show Scene, SceneBuilder, Window;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -24,7 +24,7 @@ class MyRenderView extends RenderObject with MyRenderObjectWithChildMixin<Render
   MyRenderView({
     RenderBox child,
     @required ViewConfiguration configuration,
-    @required ui.SingletonFlutterWindow window,
+    @required ui.Window window,
   })  : assert(configuration != null),
         _configuration = configuration,
         _window = window {
@@ -52,7 +52,7 @@ class MyRenderView extends RenderObject with MyRenderObjectWithChildMixin<Render
     markNeedsLayout();
   }
 
-  final ui.SingletonFlutterWindow _window;
+  final ui.Window _window;
 
   /// Whether Flutter should automatically compute the desired system UI.
   ///

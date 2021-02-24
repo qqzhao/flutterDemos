@@ -1,4 +1,4 @@
-import 'dart:ui' as ui show SingletonFlutterWindow, window;
+import 'dart:ui' as ui show Window, window;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -7,14 +7,14 @@ import 'render/render_object_to_widget.dart';
 import 'render/render_view.dart';
 
 ViewConfiguration createViewConfiguration() {
-  final double devicePixelRatio = window.devicePixelRatio;
+  final double devicePixelRatio = ui.window.devicePixelRatio;
   return ViewConfiguration(
-    size: window.physicalSize / devicePixelRatio,
+    size: ui.window.physicalSize / devicePixelRatio,
     devicePixelRatio: devicePixelRatio,
   );
 }
 
-ui.SingletonFlutterWindow get window => ui.window;
+ui.Window get window => ui.window;
 
 /// 这样写不行
 /// 因为 【WidgetsBinding.instance】中的一些变量还是没有对应上。
