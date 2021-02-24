@@ -1,4 +1,3 @@
-import 'package:flutter_translate/flutter_translate.dart';
 import 'package:hello/components/test_custom_painter.dart';
 import 'package:hello/home/animation/animation.dart';
 import 'package:hello/home/animation/animation2.dart';
@@ -207,4 +206,4 @@ List<dynamic> _globalRouters = [
   MyRouterList(name: 'others', lists: []),
 ];
 
-MyRouterList globalRouters = MyRouterList(lists: _globalRouters, name: translate('app_bar.title')); //表示
+MyRouterList globalRouters = MyRouterList(lists: _globalRouters, name: 'Demo'); //表示

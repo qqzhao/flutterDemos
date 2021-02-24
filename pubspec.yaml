@@ -52,6 +52,7 @@ dependencies:
   flutter_full_pdf_viewer: ^1.0.6
   flutter_translate: ^1.6.0
   analyzer_plugin: ^0.3.0
+  screen_ratio_adapter: ^1.0.2
 #  flutter_fullpdfview: ^1.0.12
 #  exportable: "^0.1.0"
 
