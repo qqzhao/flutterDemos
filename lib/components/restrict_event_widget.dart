@@ -25,7 +25,7 @@ class TapRestrictEventWidget extends SingleChildRenderObjectWidget {
 
   @override
   void updateRenderObject(BuildContext context, RenderRestrictEvent renderObject) {
-    renderObject..ignoringSemantics = ignoringSemantics;
+    renderObject.ignoringSemantics = ignoringSemantics;
   }
 
   @override

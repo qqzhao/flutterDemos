@@ -46,7 +46,7 @@ Widget popMenu2 = new PopupMenuButton<String>(
     onSelected: (String str) {
       print('onSelect =  $str');
     },
-    child: new Text('aaaa'),
+    child: Text('aaaa'),
     initialValue: 'aaaa',
     itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
           new PopupMenuItem<String>(value: 'Menu item value one2', child: const Text('Context menu item one2')),

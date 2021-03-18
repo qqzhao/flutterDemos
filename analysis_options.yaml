@@ -288,6 +288,7 @@ analyzer:
 
     # 特别重要规则
     must_be_immutable: error
+    sort_child_properties_last: ignore
 
   # 排除的文件和目录
   exclude:

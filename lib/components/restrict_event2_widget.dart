@@ -79,7 +79,7 @@ class OnlyOnePointerRecognizerWidget2 extends StatelessWidget {
         ImmediateMultiDragGestureRecognizer: GestureRecognizerFactoryWithHandlers<ImmediateMultiDragGestureRecognizer>(
           () => ImmediateMultiDragGestureRecognizer(),
           (ImmediateMultiDragGestureRecognizer instance) {
-            instance..onStart = _handleOnStart;
+            instance.onStart = _handleOnStart;
           },
         ),
       },

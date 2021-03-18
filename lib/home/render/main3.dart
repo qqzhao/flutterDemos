@@ -14,6 +14,6 @@ void main() async {
   );
 
   // ignore: invalid_use_of_protected_member
-  WidgetsFlutterBinding.ensureInitialized()..scheduleAttachRootWidget(app);
+  WidgetsFlutterBinding.ensureInitialized().scheduleAttachRootWidget(app);
   return;
 }

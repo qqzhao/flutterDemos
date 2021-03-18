@@ -35,8 +35,8 @@ class ScrawlPainter extends CustomPainter {
       return;
     }
     for (int i = 0; i < points.length; i++) {
-      _linePaint..color = points[i].color;
-      _linePaint..strokeWidth = points[i].strokeWidth;
+      _linePaint.color = points[i].color;
+      _linePaint.strokeWidth = points[i].strokeWidth;
       List<Offset> curPoints = points[i].points;
       if (curPoints == null || curPoints.isEmpty) {
         break;
