@@ -59,8 +59,9 @@ class RoutePageModuleM extends InheritedWidget {
             ));
 
   static RoutePageModuleM of(BuildContext context) {
-    var result = context.inheritFromWidgetOfExactType(RoutePageModuleM);
-    return result as RoutePageModuleM;
+    // var result = context.inheritFromWidgetOfExactType(RoutePageModuleM);
+    var result = context.findAncestorWidgetOfExactType<RoutePageModuleM>();
+    return result;
   }
 
   @override
