@@ -7,6 +7,7 @@ import 'package:hello/home/animation/animation5.dart';
 import 'package:hello/home/animation/animation6.dart';
 import 'package:hello/home/animation/animation7.dart';
 import 'package:hello/home/animation/two_widget.dart';
+import 'package:hello/home/base/canvas_touch_page.dart';
 import 'package:hello/home/base/complete_test_page.dart';
 import 'package:hello/home/base/fitText/base_text.dart';
 import 'package:hello/home/base/fitText/caculate_size.dart';
@@ -140,6 +141,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'RestrictEventPage', routeName: 'RestrictEventPage', widget: RestrictEventPage()),
     MyRouter(name: 'TestTextSpanPage', routeName: 'TestTextSpanPage', widget: TestTextSpanPage()),
     MyRouter(name: 'TextSpanPage2', routeName: 'TextSpanPage2', widget: TextSpanPage2()),
+    MyRouter(name: 'CanvasTouchPage', routeName: 'CanvasTouchPage', widget: CanvasTouchPage()),
   ]),
   MyRouterList(name: 'Animation', lists: [
     MyRouter(name: 'animation', widget: AnimationPage()),
