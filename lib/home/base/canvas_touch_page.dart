@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -41,7 +43,16 @@ class _MyViewModel extends ChangeNotifier {
   VoidCallback callback1;
   VoidCallback callback2;
 
-  void handleTap() {}
+  List<Shape> sharps;
+
+  void handleTap(Offset position) {
+    for (var sharp in sharps) {
+      if (sharp.hitTest(position)) {
+        sharp.callback();
+        break;
+      }
+    }
+  }
 }
 
 class PainterWrap extends StatelessWidget {
@@ -58,16 +69,52 @@ class PainterWrap extends StatelessWidget {
           var model = _MyViewModel();
           model.callback1 = callback1;
           model.callback2 = callback2;
+
+          var path = Path();
+          path.fillType = PathFillType.evenOdd;
+          path.moveTo(0, 0);
+          path.lineTo(0, 100);
+          path.lineTo(100, 100);
+          path.lineTo(100, 0);
+
+          var path2 = Path();
+          path2.fillType = PathFillType.evenOdd;
+          path2.moveTo(100, 0);
+          path2.lineTo(200, 0);
+          path2.lineTo(200, 100);
+          path2.lineTo(100, 100);
+
+          var sharps = [
+            Shape(
+              path: path,
+              color: Colors.purple,
+              callback: () {
+                print('11111');
+                model?.callback1();
+              },
+            ),
+            Shape(
+              path: path2,
+              color: Colors.blue,
+              callback: () {
+                print('22222');
+                model?.callback2();
+              },
+            ),
+          ];
+          model.sharps = sharps;
           return model;
         }),
       ],
       child: Consumer<_MyViewModel>(
         builder: (context, vm, child) {
           return GestureDetector(
-            onTap: vm.handleTap,
+            onTapDown: (detail) {
+              vm.handleTap(detail.localPosition);
+            },
             child: Container(
               child: CustomPaint(
-                painter: _MyPainter(),
+                painter: _MyPainter(shapes: vm.sharps),
               ),
             ),
           );
@@ -78,32 +125,26 @@ class PainterWrap extends StatelessWidget {
 }
 
 class _MyPainter extends CustomPainter {
-  _MyPainter() {
-    path = Path();
-    path.fillType = PathFillType.evenOdd;
-    path.moveTo(0, 0);
-    path.lineTo(0, 100);
-    path.lineTo(100, 100);
-    path.lineTo(100, 0);
+  _MyPainter({this.shapes});
+  // Path path;
+  // Path path2;
 
-    path2 = Path();
-    path2.fillType = PathFillType.evenOdd;
-    path2.moveTo(100, 0);
-    path2.lineTo(200, 0);
-    path2.lineTo(200, 100);
-    path2.lineTo(100, 100);
-  }
-  Path path;
-  Path path2;
+  List<Shape> shapes;
 
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = Paint();
-    paint.color = Colors.blue;
-    paint.style = PaintingStyle.fill;
-    canvas.drawPath(path, paint);
-    paint.color = Colors.purple;
-    canvas.drawPath(path2, paint);
+    // Paint paint = Paint();
+    // paint.color = Colors.blue;
+    // paint.style = PaintingStyle.fill;
+    // canvas.drawPath(path, paint);
+    // paint.color = Colors.purple;
+    // canvas.drawPath(path2, paint);
+    shapes.forEach((element) {
+      Paint paint = Paint();
+      paint.color = element.color;
+      paint.style = PaintingStyle.fill;
+      canvas.drawPath(element.path, paint);
+    });
   }
 
   @override
@@ -111,7 +152,20 @@ class _MyPainter extends CustomPainter {
     return true;
   }
 
-  @override
+  // @override
+  // bool hitTest(Offset position) {
+  //   bool ret = path.contains(position);
+  //   return ret;
+  // }
+}
+
+class Shape {
+  VoidCallback callback;
+  Path path;
+  Color color;
+
+  Shape({this.callback, this.path, this.color});
+
   bool hitTest(Offset position) {
     bool ret = path.contains(position);
     return ret;
