@@ -41,6 +41,7 @@ import 'package:hello/home/base/scroll_view/slives/sliver_app_bar.dart';
 import 'package:hello/home/base/scroll_view/slives/sliver_fill_viewport.dart';
 import 'package:hello/home/base/scroll_view/slives/sliver_persistent_header.dart';
 import 'package:hello/home/base/scroll_view/slives/sliver_prototype_extent_list.dart';
+import 'package:hello/home/base/tab_bar.dart';
 import 'package:hello/home/base/test_box.dart';
 import 'package:hello/home/base/test_mutex_page.dart';
 import 'package:hello/home/base/test_render_box.dart';
@@ -135,6 +136,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'MixinTestPage', routeName: '/base/mixinpage', widget: MixinTestPage()),
     MyRouter(name: 'MutexTestPage', routeName: '/base/mutexpage', widget: MutexTestPage()),
     MyRouter(name: 'Rotate', routeName: '/base/rotat1', widget: TestRotatePage()),
+    MyRouter(name: 'TabBarTest', routeName: '/base/tabBarTest', widget: TabBarPage()),
     MyRouter(name: 'Overflow', routeName: '/base/overflowBox', widget: OverFlowBoxPage()),
     MyRouter(name: 'image/imageProvider', routeName: '/base/image/imageProvider', widget: ImageProviderPage()),
     MyRouter(name: 'overflow', routeName: '/base/overflow', widget: TestOverflowPage()),

@@ -4,7 +4,7 @@ import 'dart:mirrors';
 
 void main() {
   print('in main');
-  _test2();
+  _test1();
 }
 
 class BaseTest {
@@ -16,7 +16,7 @@ class BaseTest {
   int varB = 11;
   String varC = 'StringC';
 
-  BaseTest({this.varB, this.varC});
+  BaseTest({this.varB = 0, this.varC = ''});
 
   BaseTest.name1(this.varB, this.varC);
 
@@ -78,6 +78,7 @@ class ChildClass extends SuperClass {
 }
 
 void _test1() {
+  /// [_ClassMirror]
   ClassMirror cm = reflectClass(ChildClass);
   cm.instanceMembers.forEach((key, value) => print('$key >>> $value'));
 
