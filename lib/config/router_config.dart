@@ -60,6 +60,7 @@ import 'package:hello/home/combine/pdf_preview.dart';
 import 'package:hello/home/combine/pop_drag_view.dart';
 import 'package:hello/home/combine/popview.dart';
 import 'package:hello/home/combine/routes/route_main_page.dart';
+import 'package:hello/home/combine/scroll_to_index_page.dart';
 import 'package:hello/home/combine/timer_picker_page.dart';
 import 'package:hello/home/combine/video_demo.dart';
 import 'package:hello/home/combine/video_demo2.dart';
@@ -160,6 +161,7 @@ List<dynamic> _globalRouters = [
     MyRouter(name: 'SimpleRenderPage', widget: SimpleRenderPage()),
   ]),
   MyRouterList(name: 'Combine', lists: [
+    MyRouter(name: 'ScrollToPageIndexPage', widget: ScrollToPageIndexPage()),
     MyRouter(name: 'Dialog', widget: DialogPage()),
     MyRouter(name: 'PopView', widget: PopViewPage()),
     MyRouter(name: 'PopDragView', widget: PopDragViewPage()),

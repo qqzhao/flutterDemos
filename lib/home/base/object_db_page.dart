@@ -16,7 +16,7 @@ class ObjectdbTestPage extends StatelessWidget {
 
     print('path = $path');
     var db = ObjectDB(path);
-    db.open();
+    // db.open();
 
     // insert documents
     await db.insertMany([

@@ -297,6 +297,7 @@ analyzer:
   - packages/**
   - lib/models/**
   - lib/test_models/**
+  - mirror/**
   - ios/**
 
 dart_code_metrics:

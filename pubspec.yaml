@@ -22,6 +22,7 @@ dependencies:
   flare_flutter: ^1.5.5
   connectivity: '0.4.4'
   device_info: '0.4.0+3'
+  scroll_to_index: any
   oktoast:
   permission_handler:
   flutter_gallery_assets:
