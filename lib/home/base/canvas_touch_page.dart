@@ -40,15 +40,15 @@ class _BoxTestPageState extends State<CanvasTouchPage> {
 }
 
 class _MyViewModel extends ChangeNotifier {
-  VoidCallback callback1;
-  VoidCallback callback2;
+  VoidCallback? callback1;
+  VoidCallback? callback2;
 
-  List<Shape> sharps;
+  List<Shape> sharps = [];
 
   void handleTap(Offset position) {
     for (var sharp in sharps) {
       if (sharp.hitTest(position)) {
-        sharp.callback();
+        sharp.callback?.call();
         break;
       }
     }
@@ -56,8 +56,8 @@ class _MyViewModel extends ChangeNotifier {
 }
 
 class PainterWrap extends StatelessWidget {
-  final VoidCallback callback1;
-  final VoidCallback callback2;
+  final VoidCallback? callback1;
+  final VoidCallback? callback2;
 
   PainterWrap({this.callback1, this.callback2});
 
@@ -90,7 +90,7 @@ class PainterWrap extends StatelessWidget {
               color: Colors.purple,
               callback: () {
                 print('11111');
-                model?.callback1();
+                model.callback1?.call();
               },
             ),
             Shape(
@@ -98,7 +98,7 @@ class PainterWrap extends StatelessWidget {
               color: Colors.blue,
               callback: () {
                 print('22222');
-                model?.callback2();
+                model.callback2?.call();
               },
             ),
           ];
@@ -125,7 +125,7 @@ class PainterWrap extends StatelessWidget {
 }
 
 class _MyPainter extends CustomPainter {
-  _MyPainter({this.shapes});
+  _MyPainter({this.shapes = const []});
   // Path path;
   // Path path2;
 
@@ -141,9 +141,9 @@ class _MyPainter extends CustomPainter {
     // canvas.drawPath(path2, paint);
     shapes.forEach((element) {
       Paint paint = Paint();
-      paint.color = element.color;
+      paint.color = element.color!;
       paint.style = PaintingStyle.fill;
-      canvas.drawPath(element.path, paint);
+      canvas.drawPath(element.path!, paint);
     });
   }
 
@@ -160,14 +160,14 @@ class _MyPainter extends CustomPainter {
 }
 
 class Shape {
-  VoidCallback callback;
-  Path path;
-  Color color;
+  VoidCallback? callback;
+  Path? path;
+  Color? color;
 
   Shape({this.callback, this.path, this.color});
 
   bool hitTest(Offset position) {
-    bool ret = path.contains(position);
+    bool ret = path!.contains(position);
     return ret;
   }
 }

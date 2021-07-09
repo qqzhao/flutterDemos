@@ -8,7 +8,7 @@ class MyCounter2 extends ChangeNotifier {
     return _myValue - 100;
   }
 
-  void updateMyValue({int value}) {
+  void updateMyValue({int value = 0}) {
     print('updateMyValue = $value');
     _myValue = value;
     notifyListeners();
@@ -28,7 +28,7 @@ class _ProviderTestPage2State extends State<ProviderTestPage2> {
       providers: [
         ChangeNotifierProxyProvider<Counter, MyCounter2>(
           create: (_) => MyCounter2(),
-          update: (_, counter, counter2) => counter2..updateMyValue(value: counter.count),
+          update: (_, counter, counter2) => counter2!..updateMyValue(value: counter.count),
         ),
       ],
       child: Scaffold(
@@ -42,12 +42,12 @@ class _ProviderTestPage2State extends State<ProviderTestPage2> {
             child: Column(
               children: <Widget>[
                 Consumer<MyCounter2>(
-                  builder: (BuildContext context, MyCounter2 value, Widget child) {
+                  builder: (BuildContext context, MyCounter2 value, Widget? child) {
                     print('build Consumer');
                     return Column(
                       children: <Widget>[
                         Text('value = ${value.myValue}'),
-                        child,
+                        child!,
                       ],
                     );
                   },
@@ -58,12 +58,12 @@ class _ProviderTestPage2State extends State<ProviderTestPage2> {
                 ),
                 Selector<MyCounter2, int>(
                   selector: (context, vm) => vm.myValue,
-                  builder: (BuildContext context, int value, Widget child) {
+                  builder: (BuildContext context, int value, Widget? child) {
                     print('build Selector');
                     return Column(
                       children: <Widget>[
                         Text('value = ${value}'),
-                        child,
+                        child!,
                       ],
                     );
                   },

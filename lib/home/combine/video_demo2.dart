@@ -105,7 +105,7 @@ class _ButterFlyAssetVideoInList extends StatelessWidget {
 
 /// A filler card to show the video in a list of scrolling contents.
 class _ExampleCard extends StatelessWidget {
-  const _ExampleCard({Key key, this.title}) : super(key: key);
+  const _ExampleCard({Key? key, this.title = ''}) : super(key: key);
 
   final String title;
 
@@ -147,7 +147,7 @@ class _ButterFlyAssetVideo extends StatefulWidget {
 }
 
 class _ButterFlyAssetVideoState extends State<_ButterFlyAssetVideo> {
-  VideoPlayerController _controller;
+  late VideoPlayerController _controller;
 
   @override
   void initState() {
@@ -203,7 +203,7 @@ class _BumbleBeeRemoteVideo extends StatefulWidget {
 }
 
 class _BumbleBeeRemoteVideoState extends State<_BumbleBeeRemoteVideo> {
-  VideoPlayerController _controller;
+  late VideoPlayerController _controller;
 
   /// ignore: unused_element
   Future<ClosedCaptionFile> _loadCaptions() async {
@@ -265,9 +265,9 @@ class _BumbleBeeRemoteVideoState extends State<_BumbleBeeRemoteVideo> {
 }
 
 class _PlayPauseOverlay extends StatelessWidget {
-  const _PlayPauseOverlay({Key key, this.controller}) : super(key: key);
+  _PlayPauseOverlay({Key? key, this.controller}) : super(key: key);
 
-  final VideoPlayerController controller;
+  final VideoPlayerController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -276,7 +276,7 @@ class _PlayPauseOverlay extends StatelessWidget {
         AnimatedSwitcher(
           duration: Duration(milliseconds: 50),
           reverseDuration: Duration(milliseconds: 200),
-          child: controller.value.isPlaying
+          child: controller!.value.isPlaying
               ? SizedBox.shrink()
               : Container(
                   color: Colors.black26,
@@ -291,14 +291,14 @@ class _PlayPauseOverlay extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            controller.value.isPlaying ? controller.pause() : controller.play();
+            controller!.value.isPlaying ? controller!.pause() : controller!.play();
           },
           onHorizontalDragStart: (DragStartDetails details) {},
           onHorizontalDragUpdate: (DragUpdateDetails details) async {
             print('detail value= ${details.delta}');
             double dx = details.delta.dx;
-            var currentDuration = await controller.position;
-            controller.seekTo(currentDuration + Duration(milliseconds: dx.ceil() * 500));
+            var currentDuration = await controller!.position;
+            controller!.seekTo(currentDuration! + Duration(milliseconds: dx.ceil() * 500));
           },
         ),
       ],
@@ -312,7 +312,7 @@ class _PlayerVideoAndPopPage extends StatefulWidget {
 }
 
 class _PlayerVideoAndPopPageState extends State<_PlayerVideoAndPopPage> {
-  VideoPlayerController _videoPlayerController;
+  late VideoPlayerController _videoPlayerController;
   bool startedPlaying = false;
 
   @override
@@ -348,7 +348,7 @@ class _PlayerVideoAndPopPageState extends State<_PlayerVideoAndPopPage> {
         child: FutureBuilder<bool>(
           future: started(),
           builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-            if (snapshot.data) {
+            if (snapshot.data != null) {
               return AspectRatio(
                 aspectRatio: _videoPlayerController.value.aspectRatio,
                 child: VideoPlayer(_videoPlayerController),

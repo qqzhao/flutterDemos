@@ -14,12 +14,12 @@ class _DialogRoute<T> extends PopupRoute<T> {
     bool barrierDismissible = true,
     this.barrierLabel,
     @required this.child,
-    RouteSettings settings,
+    RouteSettings? settings,
   })  : assert(barrierDismissible != null),
         _barrierDismissible = barrierDismissible,
         super(settings: settings);
 
-  final Widget child;
+  final Widget? child;
 
   @override
   Duration get transitionDuration => const Duration(milliseconds: 450);
@@ -32,7 +32,7 @@ class _DialogRoute<T> extends PopupRoute<T> {
   Color get barrierColor => const Color(0x5f000000); // 这里透明处理
 
   @override
-  final String barrierLabel;
+  final String? barrierLabel;
 
   @override
   Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
@@ -56,8 +56,8 @@ class _DialogRoute<T> extends PopupRoute<T> {
 
 bool _isShowing = false; // 标识是否展示loading
 
-Future<T> showLoading<T>({
-  @required BuildContext context,
+Future<T?> showLoading<T>({
+  @required BuildContext? context,
   bool barrierDismissible = false,
 //  WidgetBuilder builder,
 }) async {
@@ -65,7 +65,7 @@ Future<T> showLoading<T>({
     return null;
   }
   _isShowing = true;
-  return Navigator.of(context, rootNavigator: true).push(new _DialogRoute<T>(
+  return Navigator.of(context!, rootNavigator: true).push(new _DialogRoute<T>(
     child: new Center(
       child: new SizedBox(
         width: 35.0,
@@ -81,10 +81,10 @@ Future<T> showLoading<T>({
 }
 
 void hideLoading<T>({
-  BuildContext context,
+  BuildContext? context,
 }) {
   if (_isShowing) {
-    Navigator.of(context).maybePop();
+    Navigator.of(context!).maybePop();
   }
   _isShowing = false;
 }

@@ -13,7 +13,7 @@ void main() {
   print('in main end');
 }
 
-Future<String> handleMessage(String message) async {
+Future<String> handleMessage(String? message) async {
   print('message =$message');
-  return null;
+  return '';
 }

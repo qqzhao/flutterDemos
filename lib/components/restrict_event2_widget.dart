@@ -29,7 +29,7 @@ class OnlyOnePointerRecognizer extends OneSequenceGestureRecognizer {
 }
 
 class OnlyOnePointerRecognizerWidget extends StatelessWidget {
-  final Widget child;
+  final Widget? child;
   OnlyOnePointerRecognizerWidget({this.child});
   @override
   Widget build(BuildContext context) {
@@ -47,10 +47,10 @@ class OnlyOnePointerRecognizerWidget extends StatelessWidget {
 
 class OnlyOnePointerRecognizerWidget2 extends StatelessWidget {
   final int count;
-  final Widget child;
+  final Widget? child;
   OnlyOnePointerRecognizerWidget2({this.child, this.count = 0});
 
-  Drag _handleOnStart(Offset position) {
+  Drag? _handleOnStart(Offset position) {
     if (count < 1) {
 //      setState(() {
 //        count++;

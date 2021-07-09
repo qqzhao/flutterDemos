@@ -5,8 +5,10 @@
 import FlutterMacOS
 import Foundation
 
-import sqflite
+import connectivity_macos
+import path_provider_macos
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
-  SqflitePlugin.register(with: registry.registrar(forPlugin: "SqflitePlugin"))
+  ConnectivityPlugin.register(with: registry.registrar(forPlugin: "ConnectivityPlugin"))
+  PathProviderPlugin.register(with: registry.registrar(forPlugin: "PathProviderPlugin"))
 }

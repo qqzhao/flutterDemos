@@ -5,8 +5,8 @@ import 'time_picker_help.dart';
 
 class Header extends StatelessWidget {
   final String title;
-  final VoidCallback callback;
-  Header({this.title, this.callback});
+  final VoidCallback? callback;
+  Header({this.title = '', this.callback});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,7 +46,7 @@ class Header extends StatelessWidget {
 }
 
 class Bottom extends StatelessWidget {
-  final VoidCallback callback;
+  final VoidCallback? callback;
   Bottom({this.callback});
   @override
   Widget build(BuildContext context) {
@@ -76,8 +76,8 @@ class Bottom extends StatelessWidget {
 }
 
 class _TapedContainer extends StatefulWidget {
-  final Widget child;
-  final VoidCallback callback;
+  final Widget? child;
+  final VoidCallback? callback;
   _TapedContainer({this.child, this.callback});
   @override
   __TapedContainerState createState() => __TapedContainerState();
@@ -103,7 +103,7 @@ class __TapedContainerState extends State<_TapedContainer> {
           _opacity = 1.0;
         });
         if (widget.callback != null) {
-          widget.callback();
+          widget.callback?.call();
         }
       },
       child: Opacity(

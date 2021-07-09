@@ -11,7 +11,7 @@ extension FancyIterable on Iterable<int> {
 typedef EveryWithIndex<E> = Function(E element, int index);
 
 extension IterableExt<E> on Iterable<E> {
-  E get safeFirst {
+  E? get safeFirst {
     Iterator<E> it = iterator;
     if (!it.moveNext()) {
       return null;
@@ -19,7 +19,7 @@ extension IterableExt<E> on Iterable<E> {
     return it.current;
   }
 
-  E get safeLast {
+  E? get safeLast {
     try {
       return last;
     } catch (e) {
@@ -30,10 +30,10 @@ extension IterableExt<E> on Iterable<E> {
   /// 对应 forEach， 增加 index
   void forEachWithIndex(EveryWithIndex<E> f) {
     for (int i = 0; i < length; ++i) {
-      f?.call(this.elementAt(i), i);
+      f.call(elementAt(i), i);
     }
   }
 
   /// 对应 map， 增加 index
-  Iterable<T> mapWithIndex<T>(T Function(E element, int index) f) => Iterable.generate(this.length, (index) => f(this.elementAt(index), index));
+  Iterable<T> mapWithIndex<T>(T Function(E element, int index) f) => Iterable.generate(length, (index) => f(elementAt(index), index));
 }

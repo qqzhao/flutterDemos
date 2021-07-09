@@ -105,14 +105,14 @@ class _SliverPersistentHeaderPageState extends State<SliverPersistentHeaderPage>
 
 class _SliverPersistentHeaderDelegate extends SliverPersistentHeaderDelegate {
   _SliverPersistentHeaderDelegate({
-    @required this.minHeight,
-    @required this.maxHeight,
+    this.minHeight = 0,
+    this.maxHeight = 100,
     @required this.child,
   });
 
   final double minHeight;
   final double maxHeight;
-  final Widget child;
+  final Widget? child;
 
   @override
   double get minExtent => minHeight;

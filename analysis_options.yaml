@@ -292,6 +292,8 @@ analyzer:
 
   # 排除的文件和目录
   exclude:
+  - test/**
+  - test_driver/**
   - plugins/**
   - examples/**
   - packages/**
@@ -299,6 +301,7 @@ analyzer:
   - lib/test_models/**
   - mirror/**
   - ios/**
+
 
 dart_code_metrics:
   anti-patterns:

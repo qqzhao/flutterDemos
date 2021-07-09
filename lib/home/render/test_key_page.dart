@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 /// 对于有状态的 [StatefulColorfulTile],
 class TestKeyPage extends StatefulWidget {
   TestKeyPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -17,9 +17,9 @@ class TestKeyPage extends StatefulWidget {
 }
 
 class _TestKeyPageState extends State<TestKeyPage> {
-  List<Widget> widgets;
-  List<Widget> widgets2;
-  List<Widget> widgets3;
+  late List<Widget> widgets;
+  late List<Widget> widgets2;
+  late List<Widget> widgets3;
 
   @override
   void initState() {
@@ -82,7 +82,7 @@ class _TestKeyPageState extends State<TestKeyPage> {
 /// 有状态的
 class StatefulColorfulTile extends StatefulWidget {
   // final Key key;
-  StatefulColorfulTile({Key key}) : super(key: key);
+  StatefulColorfulTile({Key? key}) : super(key: key);
 
   @override
   _StatefulColorfulTileState createState() => _StatefulColorfulTileState();

@@ -7,7 +7,7 @@ import 'package:path_provider/path_provider.dart';
 
 final String scrawlImagePath = '/screen_shot_scraw.png';
 
-Future<File> getScreenShotFile() async {
+Future<File?> getScreenShotFile() async {
   Directory tempDir = await getTemporaryDirectory();
   String tempPath = '${tempDir.path}$scrawlImagePath';
   File image = File(tempPath);
@@ -15,7 +15,7 @@ Future<File> getScreenShotFile() async {
   return isExist ? image : null;
 }
 
-Future saveScreenShot2SDCard(RenderRepaintBoundary boundary, {Function success, Function fail}) async {
+Future saveScreenShot2SDCard(RenderRepaintBoundary boundary, {Function? success, Function? fail}) async {
   // check storage permission.
 //  PermissionHandler().requestPermissions([PermissionGroup.storage]).then((map) {
 //    print('map = $map');
@@ -36,7 +36,7 @@ Future saveScreenShot2SDCard(RenderRepaintBoundary boundary, {Function success, 
 //  });
 }
 
-void saveScreenShot(RenderRepaintBoundary boundary, {Function success, Function fail}) {
+void saveScreenShot(RenderRepaintBoundary boundary, {Function? success, Function? fail}) {
   capturePng2List(boundary).then((uint8List) async {
     if (uint8List == null || uint8List.isEmpty) {
       if (fail != null) fail();
@@ -47,7 +47,7 @@ void saveScreenShot(RenderRepaintBoundary boundary, {Function success, Function 
   });
 }
 
-void _saveImage(Uint8List uint8List, Directory dir, String fileName, {Function success, Function fail}) async {
+void _saveImage(Uint8List uint8List, Directory dir, String fileName, {Function? success, Function? fail}) async {
   bool isDirExist = Directory(dir.path).existsSync();
   if (!isDirExist) Directory(dir.path).create();
   String tempPath = '${dir.path}$fileName';
@@ -61,7 +61,7 @@ void _saveImage(Uint8List uint8List, Directory dir, String fileName, {Function s
 
 Future<Uint8List> capturePng2List(RenderRepaintBoundary boundary) async {
   ui.Image image = await boundary.toImage();
-  ByteData byteData = await image.toByteData(format: ui.ImageByteFormat.png);
-  Uint8List pngBytes = byteData.buffer.asUint8List();
+  ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+  Uint8List pngBytes = byteData!.buffer.asUint8List();
   return pngBytes;
 }

@@ -16,18 +16,19 @@ var _scaffold = new Scaffold(
   body: new Home(),
 );
 
-Widget dropdownButton = new DropdownButton(
-    items: [
-      new DropdownMenuItem(
-          child: new Align(
-        child: new Text('111'),
-      )),
-      new DropdownMenuItem(child: new Text(' jfdsk fsajkf af222')),
-      new DropdownMenuItem(child: new Text('333')),
-    ],
-    onChanged: (item) {
-      print('onChanged,$item');
-    });
+Widget dropdownButton = DropdownButton<String>(
+  items: [
+    new DropdownMenuItem(
+        child: new Align(
+      child: new Text('111'),
+    )),
+    new DropdownMenuItem(child: new Text(' jfdsk fsajkf af222')),
+    new DropdownMenuItem(child: new Text('333')),
+  ],
+  onChanged: (item) {
+    print('onChanged,$item');
+  },
+);
 
 Widget popMenu = new PopupMenuButton<String>(
     padding: EdgeInsets.zero,

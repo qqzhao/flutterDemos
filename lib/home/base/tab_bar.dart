@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 GlobalKey _globalKey = GlobalKey();
 
 class TabBarPage extends StatefulWidget {
-  const TabBarPage({Key key}) : super(key: key);
+  const TabBarPage({Key? key}) : super(key: key);
 
   @override
   _TabBarPageState createState() => _TabBarPageState();
 }
 
 class _TabBarPageState extends State<TabBarPage> with SingleTickerProviderStateMixin {
-  TabController _controller;
+  late TabController _controller;
   @override
   void initState() {
     super.initState();
@@ -104,8 +104,8 @@ class _TabBarPageState extends State<TabBarPage> with SingleTickerProviderStateM
 }
 
 class _WrapNoRefreshWidget extends StatefulWidget {
-  final Widget child;
-  const _WrapNoRefreshWidget({Key key, this.child}) : super(key: key);
+  final Widget? child;
+  const _WrapNoRefreshWidget({Key? key, this.child}) : super(key: key);
 
   @override
   __WrapNoRefreshWidgetState createState() => __WrapNoRefreshWidgetState();
@@ -116,7 +116,7 @@ class __WrapNoRefreshWidgetState extends State<_WrapNoRefreshWidget> with Automa
   // ignore: must_call_super
   Widget build(BuildContext context) {
     super.build(context);
-    return widget.child;
+    return widget.child ?? Container();
   }
 
   @override
@@ -124,8 +124,8 @@ class __WrapNoRefreshWidgetState extends State<_WrapNoRefreshWidget> with Automa
 }
 
 class _TestOne extends StatefulWidget {
-  final Widget child;
-  const _TestOne({Key key, this.child}) : super(key: key);
+  final Widget? child;
+  const _TestOne({Key? key, this.child}) : super(key: key);
 
   @override
   __TestOneState createState() => __TestOneState();
@@ -133,7 +133,7 @@ class _TestOne extends StatefulWidget {
 
 class __TestOneState extends State<_TestOne> {
   int a = 0;
-  Timer _timer;
+  late Timer _timer;
   @override
   void initState() {
     _timer = Timer.periodic(Duration(seconds: 2), (timer) {
@@ -159,7 +159,7 @@ class __TestOneState extends State<_TestOne> {
             style: TextStyle(color: Colors.red),
           ),
         ),
-        if (widget.child != null) widget.child,
+        if (widget.child != null) widget.child!,
       ],
     );
   }
@@ -167,7 +167,7 @@ class __TestOneState extends State<_TestOne> {
 
 // ignore: unused_element
 class _ColumnWrap extends StatelessWidget {
-  const _ColumnWrap({Key key}) : super(key: key);
+  const _ColumnWrap({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -221,7 +221,7 @@ class _ColumnWrap extends StatelessWidget {
 
 // ignore: unused_element
 class _ListViewWrap extends StatelessWidget {
-  const _ListViewWrap({Key key}) : super(key: key);
+  const _ListViewWrap({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

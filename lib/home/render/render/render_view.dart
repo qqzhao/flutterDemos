@@ -22,9 +22,9 @@ class MyRenderView extends RenderObject with MyRenderObjectWithChildMixin<Render
   ///
   /// The [configuration] must not be null.
   MyRenderView({
-    RenderBox child,
-    @required ViewConfiguration configuration,
-    @required ui.SingletonFlutterWindow window,
+    RenderBox? child,
+    @required ViewConfiguration? configuration,
+    @required ui.SingletonFlutterWindow? window,
   })  : assert(configuration != null),
         _configuration = configuration,
         _window = window {
@@ -36,14 +36,14 @@ class MyRenderView extends RenderObject with MyRenderObjectWithChildMixin<Render
   Size _size = Size.zero;
 
   /// The constraints used for the root layout.
-  ViewConfiguration get configuration => _configuration;
-  ViewConfiguration _configuration;
+  ViewConfiguration? get configuration => _configuration;
+  ViewConfiguration? _configuration;
 
   /// The configuration is initially set by the `configuration` argument
   /// passed to the constructor.
   ///
   /// Always call [prepareInitialFrame] before changing the configuration.
-  set configuration(ViewConfiguration value) {
+  set configuration(ViewConfiguration? value) {
     assert(value != null);
     if (configuration == value) return;
     _configuration = value;
@@ -52,7 +52,7 @@ class MyRenderView extends RenderObject with MyRenderObjectWithChildMixin<Render
     markNeedsLayout();
   }
 
-  final ui.SingletonFlutterWindow _window;
+  final ui.SingletonFlutterWindow? _window;
 
   /// Whether Flutter should automatically compute the desired system UI.
   ///
@@ -83,7 +83,7 @@ class MyRenderView extends RenderObject with MyRenderObjectWithChildMixin<Render
       'This feature was deprecated after v1.10.0.')
   void scheduleInitialFrame() {
     prepareInitialFrame();
-    owner.requestVisualUpdate();
+    owner?.requestVisualUpdate();
   }
 
   /// Bootstrap the rendering pipeline by preparing the first frame.
@@ -102,10 +102,10 @@ class MyRenderView extends RenderObject with MyRenderObjectWithChildMixin<Render
     assert(_rootTransform != null);
   }
 
-  Matrix4 _rootTransform;
+  Matrix4? _rootTransform;
 
   TransformLayer _updateMatricesAndCreateNewRootLayer() {
-    _rootTransform = configuration.toMatrix();
+    _rootTransform = configuration?.toMatrix();
     final TransformLayer rootLayer = TransformLayer(transform: _rootTransform);
     rootLayer.attach(this);
     assert(_rootTransform != null);
@@ -127,14 +127,14 @@ class MyRenderView extends RenderObject with MyRenderObjectWithChildMixin<Render
   @override
   void performLayout() {
     assert(_rootTransform != null);
-    _size = configuration.size;
+    _size = configuration!.size;
     assert(_size.isFinite);
 
-    if (child != null) child.layout(BoxConstraints.tight(_size));
+    if (child != null) child!.layout(BoxConstraints.tight(_size));
   }
 
   @override
-  void rotate({int oldAngle, int newAngle, Duration time}) {
+  void rotate({int? oldAngle, int? newAngle, Duration? time}) {
     assert(false); // nobody tells the screen to rotate, the whole rotate() dance is started from our performResize()
   }
 
@@ -148,8 +148,8 @@ class MyRenderView extends RenderObject with MyRenderObjectWithChildMixin<Render
   /// which is to say, in logical pixels. This is not necessarily the same
   /// coordinate system as that expected by the root [Layer], which will
   /// normally be in physical (device) pixels.
-  bool hitTest(HitTestResult result, {Offset position}) {
-    if (child != null) child.hitTest(BoxHitTestResult.wrap(result), position: position);
+  bool hitTest(HitTestResult result, {Offset? position}) {
+    if (child != null) child!.hitTest(BoxHitTestResult.wrap(result), position: position!);
     result.add(HitTestEntry(this));
     return true;
   }
@@ -164,7 +164,7 @@ class MyRenderView extends RenderObject with MyRenderObjectWithChildMixin<Render
     // Layer hit testing is done using device pixels, so we have to convert
     // the logical coordinates of the event location back to device pixels
     // here.
-    return layer.findAllAnnotations<MouseTrackerAnnotation>(position * configuration.devicePixelRatio).annotations;
+    return layer!.findAllAnnotations<MouseTrackerAnnotation>(position * configuration!.devicePixelRatio).annotations;
   }
 
   @override
@@ -172,13 +172,13 @@ class MyRenderView extends RenderObject with MyRenderObjectWithChildMixin<Render
 
   @override
   void paint(PaintingContext context, Offset offset) {
-    if (child != null) context.paintChild(child, offset);
+    if (child != null) context.paintChild(child!, offset);
   }
 
   @override
   void applyPaintTransform(RenderBox child, Matrix4 transform) {
     assert(_rootTransform != null);
-    transform.multiply(_rootTransform);
+    transform.multiply(_rootTransform!);
     super.applyPaintTransform(child, transform);
   }
 
@@ -189,9 +189,9 @@ class MyRenderView extends RenderObject with MyRenderObjectWithChildMixin<Render
     Timeline.startSync('Compositing', arguments: timelineArgumentsIndicatingLandmarkEvent);
     try {
       final ui.SceneBuilder builder = ui.SceneBuilder();
-      final ui.Scene scene = layer.buildScene(builder);
+      final ui.Scene scene = layer!.buildScene(builder);
       if (automaticSystemUiAdjustment) _updateSystemChrome();
-      _window.render(scene);
+      _window!.render(scene);
       scene.dispose();
     } finally {
       Timeline.finishSync();
@@ -201,14 +201,14 @@ class MyRenderView extends RenderObject with MyRenderObjectWithChildMixin<Render
   // ignore: code-metrics
   void _updateSystemChrome() {
     final Rect bounds = paintBounds;
-    final Offset top = Offset(bounds.center.dx, _window.padding.top / _window.devicePixelRatio);
-    final Offset bottom = Offset(bounds.center.dx, bounds.center.dy - _window.padding.bottom / _window.devicePixelRatio);
-    final SystemUiOverlayStyle upperOverlayStyle = layer.find<SystemUiOverlayStyle>(top);
+    final Offset top = Offset(bounds.center.dx, _window!.padding.top / _window!.devicePixelRatio);
+    final Offset bottom = Offset(bounds.center.dx, bounds.center.dy - _window!.padding.bottom / _window!.devicePixelRatio);
+    final SystemUiOverlayStyle? upperOverlayStyle = layer!.find<SystemUiOverlayStyle>(top);
     // Only android has a customizable system navigation bar.
-    SystemUiOverlayStyle lowerOverlayStyle;
+    SystemUiOverlayStyle? lowerOverlayStyle;
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        lowerOverlayStyle = layer.find<SystemUiOverlayStyle>(bottom);
+        lowerOverlayStyle = layer!.find<SystemUiOverlayStyle>(bottom);
         break;
       case TargetPlatform.fuchsia:
       case TargetPlatform.iOS:
@@ -232,12 +232,12 @@ class MyRenderView extends RenderObject with MyRenderObjectWithChildMixin<Render
   }
 
   @override
-  Rect get paintBounds => Offset.zero & (size * configuration.devicePixelRatio);
+  Rect get paintBounds => Offset.zero & (size * configuration!.devicePixelRatio);
 
   @override
   Rect get semanticBounds {
     assert(_rootTransform != null);
-    return MatrixUtils.transformRect(_rootTransform, Offset.zero & size);
+    return MatrixUtils.transformRect(_rootTransform!, Offset.zero & size);
   }
 
   @override
@@ -249,9 +249,9 @@ class MyRenderView extends RenderObject with MyRenderObjectWithChildMixin<Render
       properties.add(DiagnosticsNode.message('debug mode enabled - ${kIsWeb ? 'Web' : Platform.operatingSystem}'));
       return true;
     }());
-    properties.add(DiagnosticsProperty<Size>('window size', _window.physicalSize, tooltip: 'in physical pixels'));
-    properties.add(DoubleProperty('device pixel ratio', _window.devicePixelRatio, tooltip: 'physical pixels per logical pixel'));
+    properties.add(DiagnosticsProperty<Size>('window size', _window!.physicalSize, tooltip: 'in physical pixels'));
+    properties.add(DoubleProperty('device pixel ratio', _window!.devicePixelRatio, tooltip: 'physical pixels per logical pixel'));
     properties.add(DiagnosticsProperty<ViewConfiguration>('configuration', configuration, tooltip: 'in logical pixels'));
-    if (_window.semanticsEnabled) properties.add(DiagnosticsNode.message('semantics enabled'));
+    if (_window!.semanticsEnabled) properties.add(DiagnosticsNode.message('semantics enabled'));
   }
 }

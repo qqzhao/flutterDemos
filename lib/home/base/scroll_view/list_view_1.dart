@@ -6,9 +6,9 @@ class TestListView1 extends StatefulWidget {
 }
 
 class _TestListView1State extends State<TestListView1> {
-  ScrollPhysics _physics1;
-  ScrollController _controller1;
-  ScrollController _controller2;
+  late ScrollPhysics _physics1;
+  late ScrollController _controller1;
+  late ScrollController _controller2;
   double _lastOffset = 0; // congroller2 偏移值
 
   @override

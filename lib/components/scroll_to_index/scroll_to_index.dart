@@ -490,7 +490,7 @@
 // class AutoScrollTag extends StatefulWidget {
 //   final AutoScrollController controller;
 //   final int index;
-//   final Widget child;
+//   final Widget? child;
 //   final Color? color;
 //   final Color? highlightColor;
 //   final bool disabled;

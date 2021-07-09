@@ -58,7 +58,7 @@ class ImageProviderPage extends StatelessWidget {
 
 class TextWidget extends StatefulWidget {
   final String resource;
-  TextWidget({@required this.resource});
+  TextWidget({this.resource = ''});
 
   @override
   _TextWidgetState createState() => _TextWidgetState();

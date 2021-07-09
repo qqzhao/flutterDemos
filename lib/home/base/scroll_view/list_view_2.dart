@@ -21,10 +21,10 @@ import 'package:flutter/material.dart';
 
 class CustomScrollableScrollPhysics extends ScrollPhysics {
   /// Creates scroll physics that does not let the user scroll.
-  const CustomScrollableScrollPhysics({ScrollPhysics parent}) : super(parent: parent);
+  const CustomScrollableScrollPhysics({ScrollPhysics? parent}) : super(parent: parent);
 
   @override
-  CustomScrollableScrollPhysics applyTo(ScrollPhysics ancestor) {
+  CustomScrollableScrollPhysics applyTo(ScrollPhysics? ancestor) {
     return CustomScrollableScrollPhysics(parent: buildParent(ancestor));
   }
 
@@ -44,10 +44,10 @@ class CustomScrollableScrollPhysics extends ScrollPhysics {
 class Custom2ScrollPhysics extends ScrollPhysics {
   /// Creates scroll physics that prevent the scroll offset from exceeding the
   /// bounds of the content..
-  const Custom2ScrollPhysics({ScrollPhysics parent}) : super(parent: parent);
+  const Custom2ScrollPhysics({ScrollPhysics? parent}) : super(parent: parent);
 
   @override
-  Custom2ScrollPhysics applyTo(ScrollPhysics ancestor) {
+  Custom2ScrollPhysics applyTo(ScrollPhysics? ancestor) {
     return Custom2ScrollPhysics(parent: buildParent(ancestor));
   }
 
@@ -87,14 +87,14 @@ class Custom2ScrollPhysics extends ScrollPhysics {
   }
 
   @override
-  Simulation createBallisticSimulation(ScrollMetrics position, double velocity) {
+  Simulation? createBallisticSimulation(ScrollMetrics position, double velocity) {
     final Tolerance tolerance = this.tolerance;
     if (position.outOfRange) {
-      double end;
+      double? end;
       if (position.pixels > position.maxScrollExtent) end = position.maxScrollExtent;
       if (position.pixels < position.minScrollExtent) end = position.minScrollExtent;
       assert(end != null);
-      return ScrollSpringSimulation(spring, position.pixels, end, math.min(0.0, velocity), tolerance: tolerance);
+      return ScrollSpringSimulation(spring, position.pixels, end!, math.min(0.0, velocity), tolerance: tolerance);
     }
     if (velocity.abs() < tolerance.velocity) return null;
     if (velocity > 0.0 && position.pixels >= position.maxScrollExtent) return null;

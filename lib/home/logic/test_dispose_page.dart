@@ -8,7 +8,7 @@ class TestDisposePage extends StatefulWidget {
 }
 
 class _TestDisposePageState extends State<TestDisposePage> {
-  Timer _timer;
+  late Timer _timer;
   bool showAWidget = true;
 
   @override

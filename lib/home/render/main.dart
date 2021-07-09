@@ -18,13 +18,13 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    SchedulerBinding.instance.addPersistentFrameCallback((timeStamp) {
+    SchedulerBinding.instance!.addPersistentFrameCallback((timeStamp) {
       print('addPersistentFrameCallback:$timeStamp');
     });
-    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+    SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
       print('addPostFrameCallback:$timeStamp');
     });
-    SchedulerBinding.instance.addTimingsCallback((timeStamp) {
+    SchedulerBinding.instance!.addTimingsCallback((timeStamp) {
       print('timeStamp:$timeStamp');
     });
     Timer.periodic(Duration(seconds: 5), (timer) {

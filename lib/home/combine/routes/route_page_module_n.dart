@@ -4,7 +4,7 @@ import 'package:hello/home/combine/routes/route_base.dart';
 class RoutePageModuleN extends StatelessWidget {
   final Widget page;
   RoutePageModuleN({
-    this.page,
+    this.page = const SizedBox(),
   });
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class _RoutePageModuleNPage1State extends State<RoutePageModuleNPage1> {
       body: Center(
         child: GestureDetector(
           onTap: () {
-            Routes.globalKey.currentState.pushNamed('${Routes.pageModuleN}${Routes.moduleSeparator}${Routes.pageModuleNPage2}', arguments: {
+            Routes.globalKey.currentState!.pushNamed('${Routes.pageModuleN}${Routes.moduleSeparator}${Routes.pageModuleNPage2}', arguments: {
               'pageCParams': '111',
               'key2': 222,
             });
@@ -67,7 +67,7 @@ class _RoutePageModuleNPage2State extends State<RoutePageModuleNPage2> {
       body: Center(
         child: GestureDetector(
           onTap: () {
-            Routes.globalKey.currentState.pushNamed('${Routes.pageModuleN}${Routes.moduleSeparator}${Routes.pageModuleMPage2}', arguments: {
+            Routes.globalKey.currentState!.pushNamed('${Routes.pageModuleN}${Routes.moduleSeparator}${Routes.pageModuleMPage2}', arguments: {
               'pageCParams': '111',
               'key2': 222,
             });

@@ -92,7 +92,7 @@ class _TeXViewDocumentExamplesState extends State<TeXViewDocumentExamples> {
             groupValue: radVal,
             onChanged: (val) {
               setState(() {
-                radVal = val;
+                radVal = val!;
               });
             },
             title: Text("Katex"),
@@ -103,51 +103,51 @@ class _TeXViewDocumentExamplesState extends State<TeXViewDocumentExamples> {
             groupValue: radVal,
             onChanged: (val) {
               setState(() {
-                radVal = val;
+                radVal = val!;
               });
             },
             title: Text("MathJax"),
             subtitle: Text("RenderingEngine for Quality Rendering"),
           ),
           TeXView(
-
-              /// configurations: r"""
-              //                   {
-              //                     displayMode: true,
-              //                     macros: {
-              //                       "\\RR": "\\mathbb{R}"
-              //                     }
-              //                   }
-              //                   """
-              renderingEngine: radVal == 0 ? TeXViewRenderingEngine.katex() : TeXViewRenderingEngine.mathjax(),
-              // showLoadingWidget: true,
-              child: TeXViewColumn(children: [
-                TeXExample.introduction,
-                TeXExample.quadraticEquation,
-                TeXExample.relationEnergyPrincipalQuantum,
-                TeXExample.alignedTag,
-                TeXExample.bohrRadius,
-                TeXExample.chemistryEquations,
-                TeXExample.matrix,
-                if (radVal == 1) ...[TeXExample.others],
-              ]),
-              style: TeXViewStyle(
-                margin: TeXViewMargin.all(10),
-                elevation: 10,
-                borderRadius: TeXViewBorderRadius.all(25),
-                border: TeXViewBorder.all(
-                  TeXViewBorderDecoration(borderColor: Colors.blue, borderStyle: TeXViewBorderStyle.Solid, borderWidth: 5),
-                ),
-                backgroundColor: Colors.white,
+            /// configurations: r"""
+            //                   {
+            //                     displayMode: true,
+            //                     macros: {
+            //                       "\\RR": "\\mathbb{R}"
+            //                     }
+            //                   }
+            //                   """
+            renderingEngine: radVal == 0 ? TeXViewRenderingEngine.katex() : TeXViewRenderingEngine.mathjax(),
+            // showLoadingWidget: true,
+            child: TeXViewColumn(children: [
+              TeXExample.introduction,
+              TeXExample.quadraticEquation,
+              TeXExample.relationEnergyPrincipalQuantum,
+              TeXExample.alignedTag,
+              TeXExample.bohrRadius,
+              TeXExample.chemistryEquations,
+              TeXExample.matrix,
+              if (radVal == 1) ...[TeXExample.others],
+            ]),
+            style: TeXViewStyle(
+              margin: TeXViewMargin.all(10),
+              elevation: 10,
+              borderRadius: TeXViewBorderRadius.all(25),
+              border: TeXViewBorder.all(
+                TeXViewBorderDecoration(borderColor: Colors.blue, borderStyle: TeXViewBorderStyle.Solid, borderWidth: 5),
               ),
-              loadingWidgetBuilder: (_) => Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[CircularProgressIndicator(), Text("Rendering...!")],
-                    ),
-                  )),
+              backgroundColor: Colors.white,
+            ),
+            // loadingWidget: Center(
+            //   child: Column(
+            //     crossAxisAlignment: CrossAxisAlignment.center,
+            //     mainAxisSize: MainAxisSize.min,
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: <Widget>[CircularProgressIndicator(), Text("Rendering...!")],
+            //   ),
+            // ),
+          ),
         ],
       ),
     );

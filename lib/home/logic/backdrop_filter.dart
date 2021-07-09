@@ -41,7 +41,7 @@ class _TestBackdropFilterPageState extends State<TestBackdropFilterPage> {
 }
 
 class BackdropFilterWrap extends StatelessWidget {
-  final Widget child;
+  final Widget? child;
   final double width;
   final double height;
   BackdropFilterWrap({@required this.child, this.width = 100.0, this.height = 100.0});

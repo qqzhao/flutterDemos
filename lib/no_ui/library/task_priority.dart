@@ -8,7 +8,7 @@ int _taskSorter(_TaskEntity e1, _TaskEntity e2) {
 final PriorityQueue<_TaskEntity> _taskQueue = HeapPriorityQueue<_TaskEntity>(_taskSorter);
 
 class _TaskEntity {
-  Future<void> Function() task;
+  Future<void> Function()? task;
   int priority;
 
   _TaskEntity({this.task, this.priority = 0});
@@ -40,7 +40,7 @@ void main() async {
 Future<void> runTask() async {
   while (_taskQueue.isNotEmpty) {
     var first = _taskQueue.first;
-    await first.task.call();
+    await first.task?.call();
     _taskQueue.removeFirst();
   }
 }

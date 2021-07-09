@@ -11,7 +11,7 @@ double _textSizeWidth(String text, TextStyle style) {
 
 /// 显示评语内容组件，包含展示和收起按钮。
 class CommentTextWrap extends StatefulWidget {
-  final String text;
+  final String? text;
   final double textSize;
   CommentTextWrap({
     this.text,
@@ -27,7 +27,7 @@ class _CommentTextWrapState extends State<CommentTextWrap> {
 
   /// 是否是单行展示
   bool isSingleLine = true;
-  TapGestureRecognizer _tapGestureRecognizer;
+  late TapGestureRecognizer _tapGestureRecognizer;
   final GlobalKey _keyContainer = GlobalKey();
 
   @override
@@ -38,26 +38,26 @@ class _CommentTextWrapState extends State<CommentTextWrap> {
           showDetail = !showDetail;
         });
       };
-    WidgetsBinding.instance.addPostFrameCallback(_getSizes);
+    WidgetsBinding.instance!.addPostFrameCallback((value) => _getSizes());
     super.initState();
   }
 
   @override
-  void didUpdateWidget(CommentTextWrap oldWidget) {
-    if (oldWidget != null && oldWidget?.text != widget.text) {
-      _getSizes(null);
+  void didUpdateWidget(CommentTextWrap? oldWidget) {
+    if (oldWidget != null && oldWidget.text != widget.text) {
+      _getSizes();
     }
     print('didUpdateWidget');
-    super.didUpdateWidget(oldWidget);
+    super.didUpdateWidget(oldWidget!);
   }
 
-  void _getSizes(Duration timeStamp) {
+  void _getSizes() {
     print('_getSizes');
-    final RenderBox renderContainer = _keyContainer.currentContext.findRenderObject() as RenderBox;
+    final RenderBox renderContainer = _keyContainer.currentContext!.findRenderObject() as RenderBox;
     final sizeContain = renderContainer.size;
 
     var width = _textSizeWidth(
-        widget.text,
+        widget.text ?? '',
         TextStyle(
           fontSize: widget.textSize,
         ));

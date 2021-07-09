@@ -16,7 +16,7 @@ class WebViewPlusExampleMainPage extends StatefulWidget {
 }
 
 class _WebViewPlusExampleMainPageState extends State<WebViewPlusExampleMainPage> {
-  WebViewPlusController _controller;
+  late WebViewPlusController _controller;
   double _height = 100;
 
   @override
@@ -50,7 +50,7 @@ return ['top', 'bottom']
         return total + side;
     }, height)}
                 """;
-                _controller.evaluateJavascript(script).then((string) {
+                _controller.webViewController.evaluateJavascript(script).then((string) {
                   print("string = $string");
                   var height = double.parse(string);
                   setState(() {

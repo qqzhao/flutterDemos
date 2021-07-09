@@ -23,7 +23,7 @@ class RoutePageC extends RootStatelessPage {
         onPressed: () {
           var name = '${Routes.pageModuleM}${Routes.moduleSeparator}${Routes.pageModuleMPage1}';
           name = '${Routes.pageModuleN}${Routes.moduleSeparator}${Routes.pageModuleM}${Routes.moduleSeparator}${Routes.pageModuleMPage1}';
-          Routes.globalKey.currentState.pushNamed(name, arguments: {
+          Routes.globalKey.currentState!.pushNamed(name, arguments: {
             'pageCParams': '111',
             'key2': 222,
           });

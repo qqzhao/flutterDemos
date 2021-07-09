@@ -92,15 +92,15 @@ class _InheritedPage2State extends State<InheritedPage2> {
 }
 
 class ReportWidget extends InheritedWidget {
-  final Map<String, String> maps;
+  final Map<String, String>? maps;
   ReportWidget({
-    Key key,
+    Key? key,
     @required this.maps,
-    @required Widget child,
+    @required Widget? child,
   })  : assert(maps != null),
         assert(child != null),
         super(
-          child: child,
+          child: child!,
           key: key,
         );
 
@@ -121,7 +121,7 @@ class ReportWidget extends InheritedWidget {
 
     /// 里层的对象应该覆盖外层的，所以有 reserve
     reports.reversed.forEach((report) {
-      _map.addAll(report.maps);
+      _map.addAll(report.maps!);
     });
 //    print('reports = $reports');
     return _map;

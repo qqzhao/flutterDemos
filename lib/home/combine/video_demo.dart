@@ -14,11 +14,11 @@ import 'package:video_player/video_player.dart';
 const String beeUri = 'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4';
 
 class VideoCard extends StatelessWidget {
-  final VideoPlayerController controller;
+  final VideoPlayerController? controller;
   final String title;
   final String subtitle;
 
-  const VideoCard({Key key, this.controller, this.title, this.subtitle}) : super(key: key);
+  const VideoCard({Key? key, this.controller, this.title = '', this.subtitle = ''}) : super(key: key);
 
   Widget _buildInlineVideo() {
     return new Padding(
@@ -27,8 +27,8 @@ class VideoCard extends StatelessWidget {
         child: new AspectRatio(
           aspectRatio: 3 / 2,
           child: new Hero(
-            tag: controller,
-            child: new VideoPlayerLoading(controller),
+            tag: controller!,
+            child: new VideoPlayerLoading(controller!),
           ),
         ),
       ),
@@ -44,8 +44,8 @@ class VideoCard extends StatelessWidget {
         child: new AspectRatio(
           aspectRatio: 3 / 2,
           child: new Hero(
-            tag: controller,
-            child: new VideoPlayPause(controller),
+            tag: controller!,
+            child: new VideoPlayPause(controller!),
           ),
         ),
       ),
@@ -68,10 +68,10 @@ class VideoCard extends StatelessWidget {
       );
 
       route.completed.then((void result) {
-        controller.setVolume(0.0);
+        controller!.setVolume(0.0);
       });
 
-      controller.setVolume(1.0);
+      controller!.setVolume(1.0);
       Navigator.of(context).push(route);
     }
 
@@ -103,18 +103,18 @@ class VideoPlayerLoading extends StatefulWidget {
 }
 
 class _VideoPlayerLoadingState extends State<VideoPlayerLoading> {
-  bool _initialized;
+  late bool _initialized;
 
   @override
   void initState() {
     super.initState();
-    _initialized = widget.controller.value.initialized;
+    _initialized = widget.controller.value.isInitialized;
     widget.controller.addListener(() {
 //      print('in listener...');
       if (!mounted) {
         return;
       }
-      final bool controllerInitialized = widget.controller.value.initialized;
+      final bool controllerInitialized = widget.controller.value.isInitialized;
       if (_initialized != controllerInitialized) {
         setState(() {
           _initialized = controllerInitialized;
@@ -148,8 +148,8 @@ class VideoPlayPause extends StatefulWidget {
 }
 
 class _VideoPlayPauseState extends State<VideoPlayPause> {
-  FadeAnimation imageFadeAnimation;
-  VoidCallback listener;
+  FadeAnimation? imageFadeAnimation;
+  VoidCallback? listener;
 
   _VideoPlayPauseState() {
     listener = () {
@@ -162,12 +162,12 @@ class _VideoPlayPauseState extends State<VideoPlayPause> {
   @override
   void initState() {
     super.initState();
-    controller.addListener(listener);
+    controller.addListener(listener!);
   }
 
   @override
   void deactivate() {
-    controller.removeListener(listener);
+    controller.removeListener(listener!);
     super.deactivate();
   }
 
@@ -180,7 +180,7 @@ class _VideoPlayPauseState extends State<VideoPlayPause> {
         new GestureDetector(
           child: new VideoPlayerLoading(controller),
           onTap: () {
-            if (!controller.value.initialized) {
+            if (!(controller.value.isInitialized)) {
               return;
             }
             if (controller.value.isPlaying) {
@@ -203,7 +203,7 @@ class _VideoPlayPauseState extends State<VideoPlayPause> {
 }
 
 class FadeAnimation extends StatefulWidget {
-  final Widget child;
+  final Widget? child;
   final Duration duration;
 
   const FadeAnimation({
@@ -216,7 +216,7 @@ class FadeAnimation extends StatefulWidget {
 }
 
 class _FadeAnimationState extends State<FadeAnimation> with SingleTickerProviderStateMixin {
-  AnimationController animationController;
+  late AnimationController animationController;
 
   @override
   void initState() {
@@ -265,9 +265,9 @@ class _FadeAnimationState extends State<FadeAnimation> with SingleTickerProvider
 }
 
 class ConnectivityOverlay extends StatefulWidget {
-  final Widget child;
-  final Completer<void> connectedCompleter;
-  final GlobalKey<ScaffoldState> scaffoldKey;
+  final Widget? child;
+  final Completer<void>? connectedCompleter;
+  final GlobalKey<ScaffoldState>? scaffoldKey;
 
   const ConnectivityOverlay({
     this.child,
@@ -280,7 +280,7 @@ class ConnectivityOverlay extends StatefulWidget {
 }
 
 class _ConnectivityOverlayState extends State<ConnectivityOverlay> {
-  StreamSubscription<ConnectivityResult> connectivitySubscription;
+  StreamSubscription<ConnectivityResult>? connectivitySubscription;
   bool connected = true;
 
   static const SnackBar errorSnackBar = SnackBar(
@@ -314,10 +314,10 @@ class _ConnectivityOverlayState extends State<ConnectivityOverlay> {
           return;
         }
         if (connectivityResult == ConnectivityResult.none) {
-          widget.scaffoldKey.currentState.showSnackBar(errorSnackBar);
+          widget.scaffoldKey?.currentState?.showSnackBar(errorSnackBar);
         } else {
-          if (!widget.connectedCompleter.isCompleted) {
-            widget.connectedCompleter.complete(null);
+          if (!widget.connectedCompleter!.isCompleted) {
+            widget.connectedCompleter!.complete(null);
           }
         }
       },
@@ -326,16 +326,16 @@ class _ConnectivityOverlayState extends State<ConnectivityOverlay> {
 
   @override
   void dispose() {
-    connectivitySubscription.cancel();
+    connectivitySubscription?.cancel();
     super.dispose();
   }
 
   @override
-  Widget build(BuildContext context) => widget.child;
+  Widget build(BuildContext context) => widget.child ?? Container();
 }
 
 class VideoDemo extends StatefulWidget {
-  const VideoDemo({Key key}) : super(key: key);
+  const VideoDemo({Key? key}) : super(key: key);
 
   static const String routeName = '/video';
 

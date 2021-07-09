@@ -18,7 +18,7 @@ class _BlocTestPage1State extends State<BlocTestPage4> {
       body: StreamBuilder<_MyBloc>(
           stream: myBloc.stream,
           builder: (context, snapshot) {
-            return Text('${snapshot.data.counter}');
+            return Text('${snapshot.data!.counter}');
           }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

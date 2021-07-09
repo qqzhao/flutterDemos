@@ -10,16 +10,16 @@ class MyRenderObjectToWidgetAdapter<T extends RenderObject> extends RenderObject
   MyRenderObjectToWidgetAdapter({
     this.child,
     this.container,
-    this.debugShortDescription,
-  }) : super(key: GlobalObjectKey(container));
+    this.debugShortDescription = 'description',
+  }) : super(key: GlobalObjectKey(container!));
 
   /// The widget below this widget in the tree.
   ///
   /// {@macro flutter.widgets.child}
-  final Widget child;
+  final Widget? child;
 
   /// The [RenderObject] that is the parent of the [Element] created by this widget.
-  final MyRenderObjectWithChildMixin<T> container;
+  final MyRenderObjectWithChildMixin<T>? container;
 
   /// 调试描述
   final String debugShortDescription;
@@ -28,7 +28,7 @@ class MyRenderObjectToWidgetAdapter<T extends RenderObject> extends RenderObject
   MyRenderObjectToWidgetElement<T> createElement() => MyRenderObjectToWidgetElement<T>(this);
 
   @override
-  MyRenderObjectWithChildMixin<T> createRenderObject(BuildContext context) => container;
+  MyRenderObjectWithChildMixin<T> createRenderObject(BuildContext context) => container!;
 
   @override
   void updateRenderObject(BuildContext context, RenderObject renderObject) {}
@@ -40,28 +40,28 @@ class MyRenderObjectToWidgetAdapter<T extends RenderObject> extends RenderObject
   /// the given element will have an update scheduled to switch to this widget.
   ///
   /// Used by [runApp] to bootstrap applications.
-  MyRenderObjectToWidgetElement<T> attachToRenderTree(BuildOwner owner, [MyRenderObjectToWidgetElement<T> element]) {
+  MyRenderObjectToWidgetElement<T> attachToRenderTree(BuildOwner owner, [MyRenderObjectToWidgetElement<T>? element]) {
     if (element == null) {
       owner.lockState(() {
         element = createElement();
         assert(element != null);
-        element.assignOwner(owner);
+        element!.assignOwner(owner);
       });
-      owner.buildScope(element, () {
-        element.mount(null, null);
+      owner.buildScope(element!, () {
+        element!.mount(null, null);
       });
       // This is most likely the first time the framework is ready to produce
       // a frame. Ensure that we are asked for one.
-      SchedulerBinding.instance.ensureVisualUpdate();
+      SchedulerBinding.instance!.ensureVisualUpdate();
     } else {
       element._newWidget = this;
       element.markNeedsBuild();
     }
-    return element;
+    return element!;
   }
 
   @override
-  String toStringShort() => debugShortDescription ?? super.toStringShort();
+  String toStringShort() => debugShortDescription;
 }
 
 /// A [RootRenderObjectElement] that is hosted by a [RenderObject].
@@ -85,13 +85,13 @@ class MyRenderObjectToWidgetElement<T extends RenderObject> extends RootRenderOb
   @override
   MyRenderObjectToWidgetAdapter<T> get widget => super.widget as MyRenderObjectToWidgetAdapter<T>;
 
-  Element _child;
+  Element? _child;
 
   static const Object _rootChildSlot = Object();
 
   @override
   void visitChildren(ElementVisitor visitor) {
-    if (_child != null) visitor(_child);
+    if (_child != null) visitor(_child!);
   }
 
   @override
@@ -102,7 +102,7 @@ class MyRenderObjectToWidgetElement<T extends RenderObject> extends RootRenderOb
   }
 
   @override
-  void mount(Element parent, dynamic newSlot) {
+  void mount(Element? parent, dynamic newSlot) {
     assert(parent == null);
     super.mount(parent, newSlot);
     _rebuild();
@@ -116,14 +116,14 @@ class MyRenderObjectToWidgetElement<T extends RenderObject> extends RootRenderOb
 
   // When we are assigned a new widget, we store it here
   // until we are ready to update to it.
-  Widget _newWidget;
+  Widget? _newWidget;
 
   @override
   void performRebuild() {
     if (_newWidget != null) {
       // _newWidget can be null if, for instance, we were rebuilt
       // due to a reassemble.
-      final Widget newWidget = _newWidget;
+      final Widget newWidget = _newWidget!;
       _newWidget = null;
       update(newWidget as RenderObjectToWidgetAdapter<T>);
     }

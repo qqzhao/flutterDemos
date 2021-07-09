@@ -1,4 +1,4 @@
-import 'package:file_uploader/store.dart';
+// import 'package:file_uploader/store.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
@@ -13,7 +13,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-    UploadTaskProvider.open();
+    // UploadTaskProvider.open();
     super.initState();
   }
 
@@ -43,14 +43,14 @@ class _MyAppState extends State<MyApp> {
 }
 
 void test1() async {
-  await UploadTaskProvider.insert(UploadTaskItem(taskId: 'id1', data: '1111'));
-  await UploadTaskProvider.insert(UploadTaskItem(taskId: 'id2', data: '1111'));
-  await UploadTaskProvider.insert(UploadTaskItem(taskId: 'id3', data: '3333'));
-
-  var items = await UploadTaskProvider.getItems();
-  print('item = ${items}');
-
-  await UploadTaskProvider.remove('id1');
-  items = await UploadTaskProvider.getItems(limit: 1);
-  print('item = ${items}');
+  // await UploadTaskProvider.insert(UploadTaskItem(taskId: 'id1', data: '1111'));
+  // await UploadTaskProvider.insert(UploadTaskItem(taskId: 'id2', data: '1111'));
+  // await UploadTaskProvider.insert(UploadTaskItem(taskId: 'id3', data: '3333'));
+  //
+  // var items = await UploadTaskProvider.getItems();
+  // print('item = ${items}');
+  //
+  // await UploadTaskProvider.remove('id1');
+  // items = await UploadTaskProvider.getItems(limit: 1);
+  // print('item = ${items}');
 }

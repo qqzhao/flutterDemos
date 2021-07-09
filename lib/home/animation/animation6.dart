@@ -9,9 +9,9 @@ class AnimatePage6 extends StatefulWidget {
 }
 
 class _AnimatePage6State extends State<AnimatePage6> with SingleTickerProviderStateMixin {
-  Animation<AlignmentGeometry> _animation;
-  CurvedAnimation _easeInAnimation;
-  AnimationController _controller;
+  late Animation<AlignmentGeometry> _animation;
+  late CurvedAnimation _easeInAnimation;
+  late AnimationController _controller;
 
   @override
   void initState() {

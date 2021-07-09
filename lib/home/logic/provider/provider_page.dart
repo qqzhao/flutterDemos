@@ -10,7 +10,7 @@ class ProviderPageTest extends StatefulWidget {
 }
 
 class _ProviderPageTestState extends State<ProviderPageTest> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -62,8 +62,9 @@ class _ProviderPageTestState extends State<ProviderPageTest> with SingleTickerPr
 }
 
 class ExampleLocalizations {
-  static ExampleLocalizations of(BuildContext context) {
-    return Localizations.of<ExampleLocalizations>(context, ExampleLocalizations);
+  static ExampleLocalizations? of(BuildContext context) {
+    var res = Localizations.of<ExampleLocalizations>(context, ExampleLocalizations);
+    return res;
   }
 
   const ExampleLocalizations(this._count);
@@ -91,7 +92,7 @@ class _ExampleLocalizationsDelegate extends LocalizationsDelegate<ExampleLocaliz
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key key}) : super(key: key);
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +105,7 @@ class MyHomePage extends StatelessWidget {
 }
 
 class IncrementCounterButton extends StatelessWidget {
-  const IncrementCounterButton({Key key}) : super(key: key);
+  const IncrementCounterButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -125,10 +126,10 @@ class IncrementCounterButton extends StatelessWidget {
 }
 
 class Title extends StatelessWidget {
-  const Title({Key key}) : super(key: key);
+  const Title({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Text(ExampleLocalizations.of(context).title);
+    return Text(ExampleLocalizations.of(context)!.title);
   }
 }

@@ -6,7 +6,7 @@ void main() {
 //    final counterTextFinder = find.byValueKey('counter');
     final buttonFinder = find.byValueKey('button1');
 
-    FlutterDriver driver;
+    late FlutterDriver driver;
 
     setUpAll(() async {
       driver = await FlutterDriver.connect();

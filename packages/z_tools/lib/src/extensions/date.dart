@@ -8,7 +8,7 @@ extension DateTimeExt2 on DateTime {
     var now = new DateTime.now();
     var begin = DateTime(now.year, now.month, now.day);
     var end = DateTime(now.year, now.month, now.day).add(Duration(days: 1));
-    return this.millisecondsSinceEpoch >= begin.millisecondsSinceEpoch && this.millisecondsSinceEpoch < end.millisecondsSinceEpoch;
+    return millisecondsSinceEpoch >= begin.millisecondsSinceEpoch && millisecondsSinceEpoch < end.millisecondsSinceEpoch;
   }
 
   /// 判断一个日期是否是明天内
@@ -16,6 +16,6 @@ extension DateTimeExt2 on DateTime {
     var now = new DateTime.now();
     var begin = DateTime(now.year, now.month, now.day).add(Duration(days: 1));
     var end = DateTime(now.year, now.month, now.day).add(Duration(days: 2));
-    return this.millisecondsSinceEpoch >= begin.millisecondsSinceEpoch && this.millisecondsSinceEpoch < end.millisecondsSinceEpoch;
+    return millisecondsSinceEpoch >= begin.millisecondsSinceEpoch && millisecondsSinceEpoch < end.millisecondsSinceEpoch;
   }
 }

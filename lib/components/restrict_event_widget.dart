@@ -6,10 +6,10 @@ import 'package:flutter/rendering.dart';
 /// restrictDuration 指定多久内不允许再次接收事件。
 class TapRestrictEventWidget extends SingleChildRenderObjectWidget {
   const TapRestrictEventWidget({
-    Key key,
-    this.ignoringSemantics,
+    Key? key,
+    this.ignoringSemantics = true,
     this.restrictDuration = const Duration(milliseconds: 100),
-    Widget child,
+    Widget? child,
   }) : super(key: key, child: child);
 
   final Duration restrictDuration;
@@ -38,11 +38,10 @@ class TapRestrictEventWidget extends SingleChildRenderObjectWidget {
 
 class RenderRestrictEvent extends RenderProxyBox {
   RenderRestrictEvent({
-    RenderBox child,
-    @required Duration restrictDuration,
-    bool ignoringSemantics,
-  })  : assert(restrictDuration != null),
-        _ignoringSemantics = ignoringSemantics,
+    RenderBox? child,
+    Duration restrictDuration = const Duration(milliseconds: 20),
+    bool ignoringSemantics = true,
+  })  : _ignoringSemantics = ignoringSemantics,
         _restrictDuration = restrictDuration,
         super(child);
 
@@ -78,13 +77,13 @@ class RenderRestrictEvent extends RenderProxyBox {
   }
 
   @override
-  bool hitTest(BoxHitTestResult result, {Offset position}) {
-    return _canResponseEvent && super.hitTest(result, position: position);
+  bool hitTest(BoxHitTestResult result, {Offset? position}) {
+    return _canResponseEvent && super.hitTest(result, position: position!);
   }
 
   @override
   void visitChildrenForSemantics(RenderObjectVisitor visitor) {
-    if (child != null && !_effectiveIgnoringSemantics) visitor(child);
+    if (child != null && !_effectiveIgnoringSemantics) visitor(child!);
   }
 
   @override

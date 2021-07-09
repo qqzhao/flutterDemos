@@ -5,8 +5,8 @@ class TestSubObject with JsonParseInterface {
   final String id;
 
   TestSubObject({
-    this.index,
-    this.id,
+    this.index = 0,
+    this.id = '',
   });
 //  _TestSubObject.map({
 //    this.index,
@@ -31,8 +31,8 @@ class TestSubObject with JsonParseInterface {
 //  }
 
   @override
-  TestSubObject generateObj(dynamic obj) {
-    Map map;
+  TestSubObject? generateObj(dynamic obj) {
+    Map? map;
     if (obj is Map) {
       map = obj;
     } else if (obj is String) {

@@ -2,14 +2,14 @@ import 'package:hello/home/logic/json_parse/json_parse_interface.dart';
 import 'package:hello/home/logic/json_parse/test_sub_object.dart';
 
 class TestObject with JsonParseInterface {
-  final int index;
-  final String id;
-  final num age;
-  final Map<String, String> map;
-  final List<String> list;
-  final TestSubObject subObject;
-  final List<TestSubObject> subObjectList;
-  final Map<String, TestSubObject> subObjectMap;
+  final int? index;
+  final String? id;
+  final num? age;
+  final Map<String, String>? map;
+  final List<String>? list;
+  final TestSubObject? subObject;
+  final List<TestSubObject>? subObjectList;
+  final Map<String, TestSubObject>? subObjectMap;
 
   TestObject({
     this.index,
@@ -23,8 +23,8 @@ class TestObject with JsonParseInterface {
   });
 
   @override
-  TestObject generateObj(dynamic obj) {
-    Map map;
+  TestObject? generateObj(dynamic obj) {
+    Map? map;
     if (obj is Map) {
       map = obj;
     } else if (obj is String) {
@@ -51,7 +51,7 @@ class TestObject with JsonParseInterface {
   }
 
   @override
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic>? toJson() {
     try {
       return {
         'index': index,
@@ -59,7 +59,7 @@ class TestObject with JsonParseInterface {
         'age': age,
         'map': map,
         'list': list,
-        'subObject': subObject.toJson(),
+        'subObject': subObject!.toJson(),
         'subObjectList': subObjectList,
         'subObjectMap': subObjectMap,
       };

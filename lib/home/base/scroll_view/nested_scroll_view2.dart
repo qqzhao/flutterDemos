@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 const String _kGalleryAssetsPackage = 'flutter_gallery_assets';
 
 class _Page {
-  _Page({this.label});
+  _Page({this.label = ''});
   final String label;
   String get id => label[0];
   @override
@@ -15,7 +15,7 @@ class _Page {
 }
 
 class _CardData {
-  const _CardData({this.title, this.imageAsset, this.imageAssetPackage});
+  const _CardData({this.title = '', this.imageAsset = '', this.imageAssetPackage = ''});
   final String title;
   final String imageAsset;
   final String imageAssetPackage;
@@ -72,8 +72,8 @@ final Map<_Page, List<_CardData>> _allPages = <_Page, List<_CardData>>{
 class _CardDataItem extends StatelessWidget {
   const _CardDataItem({this.page, this.data});
 
-  final _Page page;
-  final _CardData data;
+  final _Page? page;
+  final _CardData? data;
 
   @override
   Widget build(BuildContext context) {
@@ -85,21 +85,21 @@ class _CardDataItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Align(
-              alignment: page.id == 'H' ? Alignment.centerLeft : Alignment.centerRight,
-              child: CircleAvatar(child: Text('${page.id}')),
+              alignment: page!.id == 'H' ? Alignment.centerLeft : Alignment.centerRight,
+              child: CircleAvatar(child: Text('${page!.id}')),
             ),
             SizedBox(
               width: 144.0,
               height: 144.0,
               child: Image.asset(
-                data.imageAsset,
-                package: data.imageAssetPackage,
+                data!.imageAsset,
+                package: data!.imageAssetPackage,
                 fit: BoxFit.contain,
               ),
             ),
             Center(
               child: Text(
-                data.title,
+                data!.title,
                 style: Theme.of(context).textTheme.title,
               ),
             ),

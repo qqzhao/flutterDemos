@@ -113,9 +113,9 @@ class _WidgetSizeTestPageState extends State<WidgetSizeTestPage> {
 
 class _Cell extends StatelessWidget {
   final String title;
-  final VoidCallback callback;
+  final VoidCallback? callback;
 
-  _Cell({this.title, this.callback});
+  _Cell({this.title = '', this.callback});
 
   @override
   Widget build(BuildContext context) {

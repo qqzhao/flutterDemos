@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 class BackGroundHandleWidget2 extends StatefulWidget {
-  final Widget child;
+  final Widget? child;
   final bool needShow;
   BackGroundHandleWidget2({
     this.child,
@@ -18,12 +18,12 @@ class _BackGroundHandleWidgetState extends State<BackGroundHandleWidget2> with W
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance!.addObserver(this);
   }
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
+    WidgetsBinding.instance!.removeObserver(this);
     super.dispose();
   }
 

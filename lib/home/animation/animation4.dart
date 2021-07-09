@@ -15,10 +15,10 @@ class _AnimatePage4State extends State<AnimatePage4> with SingleTickerProviderSt
   static const faceRightAngle = pi / 2;
   double _angle = faceRightAngle;
 
-  AnimationController _controller;
+  late AnimationController _controller;
 
-  Animation<AlignmentGeometry> _animation1;
-  Animation<AlignmentGeometry> _animation2;
+  late Animation<AlignmentGeometry> _animation1;
+  late Animation<AlignmentGeometry> _animation2;
 
   @override
   void initState() {

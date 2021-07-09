@@ -7,7 +7,7 @@ class NotificationTestPage extends StatefulWidget {
 }
 
 class _NotificationTestPageState extends State<NotificationTestPage> {
-  Object _message;
+  Object? _message;
   @override
   void initState() {
     super.initState();

@@ -8,10 +8,10 @@ class ProviderTestPage5 extends StatefulWidget {
 }
 
 class _ProviderTestPage5State extends State<ProviderTestPage5> {
-  _ProviderTestPage5Model model;
+  _ProviderTestPage5Model? model;
 
   /// 监听器
-  VoidCallback _listener;
+  late VoidCallback _listener;
 
   @override
   void initState() {
@@ -31,7 +31,7 @@ class _ProviderTestPage5State extends State<ProviderTestPage5> {
   Widget build(BuildContext context) {
     if (model == null) {
       model = _ProviderTestPage5Model(read: context.read);
-      model.addListener(_listener);
+      model!.addListener(_listener);
     }
 
     return Builder(
@@ -43,7 +43,7 @@ class _ProviderTestPage5State extends State<ProviderTestPage5> {
           body: Container(
             height: 100,
             child: Center(
-              child: Text('aaa:${model.counter}'),
+              child: Text('aaa:${model!.counter}'),
             ),
           ),
           persistentFooterButtons: <Widget>[
@@ -51,7 +51,7 @@ class _ProviderTestPage5State extends State<ProviderTestPage5> {
               heroTag: 'tag1',
               child: Text('11'),
               onPressed: () {
-                model.increase();
+                model!.increase();
               },
             ),
             FloatingActionButton(
@@ -72,7 +72,7 @@ class _ProviderTestPage5State extends State<ProviderTestPage5> {
 
 class _ProviderTestPage5Model extends ChangeNotifier {
 //  final BuildContext context;
-  final Locator read;
+  final Locator? read;
   _ProviderTestPage5Model({
     this.read,
   });
@@ -88,6 +88,6 @@ class _ProviderTestPage5Model extends ChangeNotifier {
 
   /// 有什么用呢？
   void printFun() {
-    print(read<_ProviderTestPage5Model>().counter);
+    print(read!<_ProviderTestPage5Model>().counter);
   }
 }

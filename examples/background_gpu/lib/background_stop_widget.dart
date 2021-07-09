@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 /// 这种方式不生效，还是会crash
 /// 因为获取状态有延迟
 class BackGroundHandleWidget extends StatefulWidget {
-  final Widget child;
+  final Widget? child;
   BackGroundHandleWidget({
     this.child,
   });
@@ -18,12 +18,12 @@ class _BackGroundHandleWidgetState extends State<BackGroundHandleWidget> with Wi
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance!.addObserver(this);
   }
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
+    WidgetsBinding.instance!.removeObserver(this);
     super.dispose();
   }
 

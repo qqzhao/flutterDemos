@@ -6,27 +6,25 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_translate/flutter_translate.dart';
 import 'package:hello/global.dart';
 import 'package:hello/home/base/object_db_page.dart';
-import 'package:hello/home/logic/config_temp.dart' as config2;
 import 'package:hello/utils/route.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:screen_ratio_adapter/screen_ratio_adapter.dart';
+// import 'package:screen_ratio_adapter/screen_ratio_adapter.dart';
 import 'package:z_tools/z_tools.dart';
 
 import './components/custom_navigator_observe.dart';
 import 'config/router_config.dart';
-import 'home/logic/config_temp.dart' as config;
 
 ///设计稿尺寸，单位应是pt或dp
 //var uiSize = BlueprintsRectangle(300, 510);
 //var uiSize = BlueprintsRectangle(721, 628);
-var uiSize = BlueprintsRectangle(375, 878);
+// var uiSize = BlueprintsRectangle(375, 878);
 
 Brightness curBright = Brightness.light;
 
 void main() async {
   // testNull();
   debugWidgetSize = false;
-  var _isProduct = bool.fromEnvironment("dart.vm.product");
+  var _isProduct = true; //bool.fromEnvironment("dart.vm.product");
   print('_isProduct = $_isProduct');
   // print('_isDartStreamEnabled = $_isDartStreamEnabled');
   // var delegate = await LocalizationDelegate.create(fallbackLocale: 'en', supportedLocales: ['zh', 'en', 'es']);
@@ -40,16 +38,16 @@ void main() async {
 //   print('test1Str = $test1Str');
 
   runZoned(
-    () => runFxApp(
+    () => runApp(
       CalculateWidgetAppContainer(
         child: Center(
           // child: LocalizedApp(delegate, MyApp()),
           child: MyApp(),
         ),
       ),
-      uiBlueprints: uiSize,
-      onEnsureInitialized: () {},
-      enableLog: false,
+      // uiBlueprints: uiSize,
+      // onEnsureInitialized: () {},
+      // enableLog: false,
     ),
     onError: (Object obj, StackTrace stack) {
       print('global exception: obj = $obj;\nstack = $stack');
@@ -102,15 +100,16 @@ class _MyAppState extends State<MyApp> {
             accentColorBrightness: curBright,
 //          fontFamily: 'rokkittFamily', //PingFang SC
           ),
+          initialRoute: '/',
           home: RouterPage(
             routerList: globalRouters,
           ),
-          builder: FxTransitionBuilder(builder: null),
-//        home: GestureTestPage(), //GestureTestPage(),
+          // builder: FxTransitionBuilder(builder: null),
+          // home: GestureTestPage(), //GestureTestPage(),
           navigatorKey: globalKey,
-          routes: {
-            '/base/objectpage': (BuildContext context) => new ObjectdbTestPage(),
-          },
+          // routes: {
+          //   '/base/objectpage': (BuildContext context) => new ObjectdbTestPage(),
+          // },
         ),
       ),
     );
@@ -121,12 +120,6 @@ class MyAppIgnore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var localizationDelegate = LocalizedApp.of(context).delegate;
-
-    print('config origin= ${config.testVar}');
-    print('config2 origin= ${config2.testVar}');
-    config.testVar = '345 by main';
-    print('config = ${config.testVar}');
-    print('config2 = ${config2.testVar}');
     // dark: 电池条显示白色, 但是页面都是黑底、白字（白字看不见
     // ）
     // light: 电池条显示黑色（默认）
@@ -173,7 +166,7 @@ class MyAppIgnore extends StatelessWidget {
           home: RouterPage(
             routerList: globalRouters,
           ),
-          builder: FxTransitionBuilder(builder: null),
+          // builder: FxTransitionBuilder(builder: null),
 //        home: GestureTestPage(), //GestureTestPage(),
           navigatorKey: globalKey,
           routes: {

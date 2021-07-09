@@ -13,14 +13,14 @@ class Point {
 class ScrawlPainter extends CustomPainter {
   final double strokeWidth;
   final Color strokeColor;
-  Paint _linePaint;
+  late Paint _linePaint;
   final bool isClear;
   final List<Point> points;
 
   ScrawlPainter({
-    @required this.points,
-    @required this.strokeColor,
-    @required this.strokeWidth,
+    this.points = const [],
+    this.strokeColor = Colors.red,
+    this.strokeWidth = 2,
     this.isClear = true,
   }) {
     _linePaint = Paint()

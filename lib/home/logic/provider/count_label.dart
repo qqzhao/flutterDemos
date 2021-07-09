@@ -4,7 +4,7 @@ import 'package:hello/home/logic/provider/provider_page2.dart';
 import 'package:provider/provider.dart';
 
 class CounterLabel extends StatelessWidget {
-  const CounterLabel({Key key}) : super(key: key);
+  const CounterLabel({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +25,14 @@ class CounterLabel extends StatelessWidget {
         Selector<NetworkData, int>(
           child: Text('333'),
           selector: (_, foo) => (foo.data['list'] as List).length,
-          builder: (BuildContext context, value, Widget child) {
+          builder: (BuildContext context, value, Widget? child) {
             print('child selector = $child');
             return Text('value = ${value}');
           },
         ),
         Consumer<NetworkData>(
           child: Text('333'),
-          builder: (BuildContext context, value, Widget child) {
+          builder: (BuildContext context, value, Widget? child) {
             print('child consumer = $child');
             return Text('value consumer = ${value.data['list'].length}');
           },

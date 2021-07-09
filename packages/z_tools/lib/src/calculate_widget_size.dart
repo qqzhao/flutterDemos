@@ -12,7 +12,7 @@ Widget _currentWidget = Container(
 );
 
 /// 外层 state，调用这个进行刷新
-__WidgetContainerState _containerState;
+__WidgetContainerState? _containerState;
 
 /// 是否打开调试开关: 背景目前为红色
 /// 注意：需要在  main函数中设置才生效
@@ -47,14 +47,14 @@ class __WidgetContainerState extends State<_WidgetContainer> {
 Future<Size> getWidgetSize(Widget widget) async {
   _currentWidget = widget;
   // ignore: invalid_use_of_protected_member
-  _containerState.setState(() {});
+  _containerState!.setState(() {});
   await Future.delayed(Duration(milliseconds: 32));
-  Size size = _currentKey?.currentContext?.size ?? Size.zero;
+  Size size = _currentKey.currentContext?.size ?? Size.zero;
   return size;
 }
 
 class CalculateWidgetAppContainer extends StatelessWidget {
-  final Widget child;
+  final Widget? child;
   CalculateWidgetAppContainer({this.child});
 
   @override
@@ -65,7 +65,7 @@ class CalculateWidgetAppContainer extends StatelessWidget {
       child: Stack(
         children: [
           Stack(children: [
-            child,
+            child!,
             Opacity(
               opacity: debugWidgetSize ? 1.0 : 0.01,
               child: _WidgetContainer(),

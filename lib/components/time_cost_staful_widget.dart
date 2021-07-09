@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class TETimeCostWidget extends StatefulWidget {
-  TETimeCostWidget({Key key}) : super(key: key);
+  TETimeCostWidget({Key? key}) : super(key: key);
 
   @override
   TETimeCostWidgetState createState() => TETimeCostWidgetState();
 }
 
 class TETimeCostWidgetState<T extends TETimeCostWidget> extends State with WidgetsBindingObserver {
-  DateTime _enterDataTime; // 需要初始化state的时候传入
-  String costTimeKey;
+  late DateTime _enterDataTime; // 需要初始化state的时候传入
+  late String costTimeKey;
 //  TECostDataType costType = TECostDataType.homeworkCost;
 
   // T get widget => super.widget;
@@ -17,14 +17,14 @@ class TETimeCostWidgetState<T extends TETimeCostWidget> extends State with Widge
   @override
   void initState() {
     _enterDataTime = DateTime.now();
-    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance!.addObserver(this);
     super.initState();
   }
 
   @override
   void dispose() {
     _commitExtentCost();
-    WidgetsBinding.instance.removeObserver(this);
+    WidgetsBinding.instance!.removeObserver(this);
     super.dispose();
   }
 

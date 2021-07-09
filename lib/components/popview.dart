@@ -14,12 +14,12 @@ class _DialogRoute<T> extends PopupRoute<T> {
     bool barrierDismissible = true,
     this.barrierLabel,
     @required this.child,
-    RouteSettings settings,
+    RouteSettings? settings,
   })  : assert(barrierDismissible != null),
         _barrierDismissible = barrierDismissible,
         super(settings: settings);
 
-  final Widget child;
+  final Widget? child;
 
   @override
   Duration get transitionDuration => const Duration(milliseconds: 450);
@@ -32,7 +32,7 @@ class _DialogRoute<T> extends PopupRoute<T> {
   Color get barrierColor => const Color(0x3f000000); // 这里透明处理
 
   @override
-  final String barrierLabel;
+  final String? barrierLabel;
 
   @override
   Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
@@ -83,13 +83,14 @@ class _DialogRoute<T> extends PopupRoute<T> {
   }
 }
 
-Future<T> showPopView<T>({
-  @required BuildContext context,
+Future<T?> showPopView<T>({
+  @required BuildContext? context,
   bool barrierDismissible = true,
-  @required Widget child,
+  @required Widget? child,
 //  WidgetBuilder builder,
 }) {
   assert(child != null);
+  assert(context != null);
   WidgetBuilder _builder = (context) {
     //BuildContext context
     return new GestureDetector(
@@ -103,7 +104,7 @@ Future<T> showPopView<T>({
               child: new Stack(
             children: <Widget>[
               Positioned(
-                child: child,
+                child: child!,
                 bottom: 0.0,
               ),
             ],
@@ -111,7 +112,7 @@ Future<T> showPopView<T>({
         ));
   };
 
-  return Navigator.of(context, rootNavigator: true).push(new _DialogRoute<T>(
+  return Navigator.of(context!, rootNavigator: true).push(_DialogRoute<T>(
     child: _builder(context),
     barrierDismissible: barrierDismissible,
     barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,

@@ -15,15 +15,15 @@ class DialogPage extends StatefulWidget {
 class _DialogPageState extends State<DialogPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  void showDemoDialog<T>({BuildContext context, Widget child}) {
+  void showDemoDialog<T>({BuildContext? context, Widget? child}) {
     showDialog<T>(
-      context: context,
-      builder: (BuildContext context) => child,
-    ).then<void>((T value) {
+      context: context!,
+      builder: (BuildContext context) => child!,
+    ).then<void>((T? value) {
       // The value passed to Navigator.pop() or null.
       print('aaaa');
       if (value != null) {
-        _scaffoldKey.currentState.showSnackBar(new SnackBar(content: new Text('You selected: $value')));
+        _scaffoldKey.currentState!.showSnackBar(new SnackBar(content: new Text('You selected: $value')));
       }
     });
   }

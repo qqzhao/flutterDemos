@@ -17,14 +17,14 @@ const String viewTypeString = 'plugins.platform_view_test';
 typedef void PlatformDemoViewCreatedCallback(PlatformDemoViewController controller);
 
 class PlatformDemoViewController {
-  MethodChannel _channel;
+  late MethodChannel _channel;
 
   PlatformDemoViewController.init(int id) {
     _channel = new MethodChannel('platform_view_test_$id');
   }
 
   Future<void> loadUrl(String url) async {
-    assert(url != null);
+    // assert(url != null);
     return _channel.invokeMethod('loadUrl', url);
   }
 
@@ -34,14 +34,14 @@ class PlatformDemoViewController {
 }
 
 class PlatformDemoView extends StatefulWidget {
-  final PlatformDemoViewCreatedCallback onCreated;
+  final PlatformDemoViewCreatedCallback? onCreated;
   final x;
   final y;
   final width;
   final height;
 
   PlatformDemoView({
-    Key key,
+    Key? key,
     @required this.onCreated,
     @required this.x,
     @required this.y,
@@ -117,11 +117,11 @@ class _PlatformDemoViewState extends State<PlatformDemoView> {
     }
   }
 
-  Future<void> onPlatformViewCreated(id) async {
+  Future<void> onPlatformViewCreated(int id) async {
     if (widget.onCreated == null) {
       return;
     }
 
-    widget.onCreated(new PlatformDemoViewController.init(id));
+    widget.onCreated?.call(new PlatformDemoViewController.init(id));
   }
 }

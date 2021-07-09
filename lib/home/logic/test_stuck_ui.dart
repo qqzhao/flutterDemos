@@ -11,7 +11,7 @@ class TestStuckUIPage extends StatefulWidget {
 }
 
 class _TestStuckUIPageState extends State<TestStuckUIPage> {
-  Timer _timer;
+  Timer? _timer;
   @override
   void initState() {
     // TODO: implement initState
@@ -23,7 +23,7 @@ class _TestStuckUIPageState extends State<TestStuckUIPage> {
 
   @override
   void dispose() {
-    _timer.cancel();
+    _timer!.cancel();
     super.dispose();
   }
 
@@ -65,7 +65,7 @@ class _TestStuckUIPageState extends State<TestStuckUIPage> {
 }
 
 /// 点击 tap1 效果比较明显，可以查找到 `costLongTimeFunc`。
-void costLongTimeFunc(String str) {
+void costLongTimeFunc(String? str) {
   Timeline.startSync('costLongTimeFunc');
   TimeDurationTool.start('test1');
 

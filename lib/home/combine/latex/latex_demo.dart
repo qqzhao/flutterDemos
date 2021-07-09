@@ -78,14 +78,14 @@ class _TeXViewMiniExampleState extends State<TeXViewMiniExample> {
   @override
   Widget build(BuildContext context) {
     return TeXView(
-      loadingWidgetBuilder: (context) => Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[CircularProgressIndicator(), Text("Rendering...")],
-        ),
-      ),
+      // loadingWidget: Center(
+      //   child: Column(
+      //     crossAxisAlignment: CrossAxisAlignment.center,
+      //     mainAxisSize: MainAxisSize.min,
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     children: <Widget>[CircularProgressIndicator(), Text("Rendering...")],
+      //   ),
+      // ),
       child: TeXViewColumn(children: [
         TeXViewInkWell(
           id: "id_0",

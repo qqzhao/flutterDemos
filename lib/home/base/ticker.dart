@@ -9,7 +9,7 @@ class TickerTestPage extends StatefulWidget {
 }
 
 class _TickerTestPageState extends State<TickerTestPage> {
-  Ticker _ticker;
+  late Ticker _ticker;
   var _count = 0;
 
   @override

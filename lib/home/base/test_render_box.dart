@@ -13,10 +13,10 @@ class CircleView extends SingleChildRenderObjectWidget {
 
 class RenderCircle extends RenderBox {
   //布局设置为最大，相当于android的match_parent
-  Paint _paint;
+  late Paint _paint;
 
   /// ignore: unused_field
-  Path _path;
+  late Path _path;
 
   RenderCircle() {
     _paint = Paint();
@@ -57,11 +57,11 @@ class CircleView2 extends SingleChildRenderObjectWidget {
 
 class RenderCircle2 extends RenderBox {
   //布局设置为最大，相当于android的match_parent
-  Paint _paint;
-  Path _path;
+  late Paint _paint;
+  late Path _path;
   double textWidth = 100;
   double textFontSize = 12.0;
-  ui.Paragraph paragraph;
+  late ui.Paragraph paragraph;
 
   RenderCircle2() {
     _paint = Paint();

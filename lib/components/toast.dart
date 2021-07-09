@@ -4,19 +4,19 @@ import 'package:flutter/material.dart';
 /// ToastView 显示
 ///
 class ToastView {
-  final OverlayEntry overlayEntry;
-  final OverlayState overlayState;
-  final AnimationController controllerShowAnim;
-  final AnimationController controllerShowOffset;
-  final AnimationController controllerHide;
+  final OverlayEntry? overlayEntry;
+  final OverlayState? overlayState;
+  final AnimationController? controllerShowAnim;
+  final AnimationController? controllerShowOffset;
+  final AnimationController? controllerHide;
   ToastView({this.overlayEntry, this.overlayState, this.controllerHide, this.controllerShowAnim, this.controllerShowOffset});
 
   bool dismissed = false;
 
   void _show() async {
-    overlayState.insert(overlayEntry);
-    controllerShowAnim.forward();
-    controllerShowOffset.forward();
+    overlayState!.insert(overlayEntry!);
+    controllerShowAnim!.forward();
+    controllerShowOffset!.forward();
     await Future.delayed(Duration(milliseconds: 3500));
     dismiss();
   }
@@ -26,21 +26,21 @@ class ToastView {
       return;
     }
     dismissed = true;
-    controllerHide.forward();
+    controllerHide!.forward();
     await Future.delayed(Duration(milliseconds: 250));
     overlayEntry?.remove();
   }
 }
 
 class Toast {
-  static ToastView preToast;
+  static ToastView? preToast;
   static void show(BuildContext context, String msg) {
     preToast?.dismiss();
     preToast = null;
 
     var overlayState = Overlay.of(context);
     var controllerShowAnim = new AnimationController(
-      vsync: overlayState,
+      vsync: overlayState!,
       duration: Duration(milliseconds: 250),
     );
     var controllerShowOffset = new AnimationController(
@@ -112,31 +112,31 @@ class Toast {
 }
 
 class ToastWidget extends StatelessWidget {
-  final Widget child;
-  final Animation<double> opacityAnim1;
-  final Animation<double> opacityAnim2;
-  final Animation<double> offsetAnim;
+  final Widget? child;
+  final Animation<double>? opacityAnim1;
+  final Animation<double>? opacityAnim2;
+  final Animation<double>? offsetAnim;
 
   ToastWidget({this.child, this.offsetAnim, this.opacityAnim1, this.opacityAnim2});
 
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: opacityAnim1,
+      animation: opacityAnim1!,
       child: child,
       builder: (context, childToBuild) {
         return Opacity(
-          opacity: opacityAnim1.value,
+          opacity: opacityAnim1!.value,
           child: AnimatedBuilder(
-            animation: offsetAnim,
+            animation: offsetAnim!,
             builder: (context, _) {
               return Transform.translate(
-                offset: Offset(0, offsetAnim.value),
+                offset: Offset(0, offsetAnim!.value),
                 child: AnimatedBuilder(
-                  animation: opacityAnim2,
+                  animation: opacityAnim2!,
                   builder: (context, _) {
                     return Opacity(
-                      opacity: opacityAnim2.value,
+                      opacity: opacityAnim2!.value,
                       child: childToBuild,
                     );
                   },

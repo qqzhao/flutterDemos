@@ -24,9 +24,9 @@ class CustomScrollViewTest2 extends StatefulWidget {
 
 class _CustomScrollViewTest2State extends State<CustomScrollViewTest2> {
   int selectIndex = 0;
-  ScrollController _scrollController;
-  double threshold1;
-  double threshold2;
+  late ScrollController _scrollController;
+  double? threshold1;
+  double? threshold2;
   GlobalKey globalKey1 = GlobalKey();
 
   @override
@@ -54,9 +54,9 @@ class _CustomScrollViewTest2State extends State<CustomScrollViewTest2> {
     _checkAndCalculateThreshold();
     print('offsetY = $offsetY');
     var index = 0;
-    if (offsetY >= threshold1 && offsetY < threshold2) {
+    if (offsetY >= threshold1! && offsetY < threshold2!) {
       index = 1;
-    } else if (offsetY >= threshold2) {
+    } else if (offsetY >= threshold2!) {
       index = 2;
     }
     setState(() {
@@ -74,7 +74,7 @@ class _CustomScrollViewTest2State extends State<CustomScrollViewTest2> {
       });
     });
     _scrollController.animateTo(
-      threshold1 * index,
+      threshold1! * index,
       duration: durationTime,
       curve: Curves.easeInOut,
     );
@@ -82,7 +82,7 @@ class _CustomScrollViewTest2State extends State<CustomScrollViewTest2> {
 
   void _selectCell({int index = 0, int level = 0}) {
     print('_selectCell index=$index, level = $level');
-//    final RenderBox object = globalKey1.currentContext.findRenderObject();
+//    final RenderBox object = globalKey1.currentContext!.findRenderObject();
 //    print('object size = ${object.size}');
   }
 
@@ -166,8 +166,8 @@ class _CustomScrollViewTest2State extends State<CustomScrollViewTest2> {
 typedef SliverBlockWidgetCallback = void Function(int index);
 
 class SliverBlockWidget extends StatelessWidget {
-  final List<String> strings;
-  final SliverBlockWidgetCallback callback;
+  final List<String>? strings;
+  final SliverBlockWidgetCallback? callback;
   SliverBlockWidget({
     @required this.strings,
     @required this.callback,
@@ -188,11 +188,11 @@ class SliverBlockWidget extends StatelessWidget {
         ),
         delegate: SliverChildBuilderDelegate(
           (BuildContext context, int index) {
-            var char = strings[index];
+            var char = strings![index];
             return GestureDetector(
               onTap: () {
                 if (callback is SliverBlockWidgetCallback) {
-                  callback(index);
+                  callback?.call(index);
                 }
               },
               child: Container(
@@ -218,9 +218,9 @@ class SliverBlockWidget extends StatelessWidget {
 class AppBarItemWidget extends StatelessWidget {
   final bool isSelected;
   final String text;
-  final VoidCallback callback;
+  final VoidCallback? callback;
   final String elementId;
-  AppBarItemWidget({this.isSelected, this.text = '', this.callback, this.elementId});
+  AppBarItemWidget({this.isSelected = false, this.text = '', this.callback, this.elementId = ''});
   @override
   Widget build(BuildContext context) {
     var _selectedColor = Colors.purple;

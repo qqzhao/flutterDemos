@@ -8,7 +8,7 @@ class WebSocketTestPage extends StatefulWidget {
 }
 
 class _WebSocketTestPageState extends State<WebSocketTestPage> {
-  IOWebSocketChannel channel;
+  late IOWebSocketChannel channel;
   int count = 0;
   @override
   void initState() {

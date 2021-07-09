@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-BuildContext contextInSecond;
-State stateInSecond;
+late BuildContext contextInSecond;
+late State stateInSecond;
 
 class SecondTestPage extends StatefulWidget {
   @override

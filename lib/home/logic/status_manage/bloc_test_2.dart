@@ -59,10 +59,10 @@ class _MyBloc {
 }
 
 class _MyBlocWidget extends InheritedWidget {
-  final _MyBloc bloc;
-  _MyBlocWidget({this.bloc, Key key, Widget child}) : super(key: key, child: child);
+  final _MyBloc? bloc;
+  _MyBlocWidget({this.bloc, Key? key, Widget? child}) : super(key: key, child: child!);
 
-  static _MyBloc of(BuildContext context) => context.dependOnInheritedWidgetOfExactType<_MyBlocWidget>().bloc;
+  static _MyBloc of(BuildContext context) => context.dependOnInheritedWidgetOfExactType<_MyBlocWidget>()!.bloc!;
 
   @override
   bool updateShouldNotify(_MyBlocWidget oldWidget) {

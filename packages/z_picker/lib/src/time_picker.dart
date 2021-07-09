@@ -16,19 +16,19 @@ typedef TimePickerCallback = void Function(DateTime time);
 class TCRTimePicker extends StatefulWidget {
   final String title;
   final double height;
-  final TimePickerCallback callback;
-  final DateTime beginTime;
-  final DateTime selectTime;
+  final TimePickerCallback? callback;
+  final DateTime? beginTime;
+  final DateTime? selectTime;
 
   TCRTimePicker({
-    this.title,
+    this.title = '',
     this.height = _defaultHeight,
     this.callback,
     this.beginTime,
     this.selectTime,
   }) : super() {
     if (beginTime != null && selectTime != null) {
-      assert(!beginTime.isAfter(selectTime), 'TCRTimePicker中 beginTime应该在selectTime之前');
+      assert(!beginTime!.isAfter(selectTime!), 'TCRTimePicker中 beginTime应该在selectTime之前');
     }
   }
 
@@ -37,13 +37,13 @@ class TCRTimePicker extends StatefulWidget {
 }
 
 class _TCRTimePickerState extends State<TCRTimePicker> {
-  int _dateIndex;
-  int _halfIndex;
-  int _hourIndex;
-  int _minuteIndex;
-  int _secondIndex;
-  List<DateTime> _dateList;
-  Timer _timer;
+  int _dateIndex = 0;
+  int _halfIndex = 0;
+  int _hourIndex = 0;
+  int _minuteIndex = 0;
+  int _secondIndex = 0;
+  List<DateTime> _dateList = [];
+  late Timer _timer;
 
   @override
   void initState() {
@@ -60,12 +60,12 @@ class _TCRTimePickerState extends State<TCRTimePicker> {
 
   @override
   void dispose() {
-    _timer?.cancel();
+    _timer.cancel();
     super.dispose();
   }
 
   void _updateData() {
-    _dateList = TimerPickerHelper.generateDatesList(widget.beginTime, 100);
+    _dateList = TimerPickerHelper.generateDatesList(widget.beginTime!, 100);
     var selectTime = widget.selectTime ?? DateTime.now();
     _updateAllIndex(selectTime);
     // 这里特殊处理，需要再计算一次(条件：selectTime.minute > 55)
@@ -109,14 +109,14 @@ class _TCRTimePickerState extends State<TCRTimePicker> {
       ),
       child: SafeArea(
         child: Container(
-          height: widget.height ?? _defaultHeight,
+          height: widget.height,
           child: Column(
             children: <Widget>[
               Header(
                 callback: () {
                   Navigator.of(context).maybePop();
                 },
-                title: widget.title ?? TimerPickerHelper.defaultTimeString,
+                title: widget.title,
               ),
               Expanded(
                 child: Container(
@@ -190,7 +190,7 @@ class _TCRTimePickerState extends State<TCRTimePicker> {
                 callback: () {
                   Navigator.of(context).maybePop();
                   if (widget.callback != null) {
-                    widget.callback(_generateSelectTime());
+                    widget.callback?.call(_generateSelectTime());
                   }
                 },
               ),

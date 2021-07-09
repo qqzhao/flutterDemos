@@ -8,7 +8,7 @@ class AnimatePage2 extends StatefulWidget {
 }
 
 class _AnimatePage2State extends State<AnimatePage2> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
 //  Ticker _ticker;
 

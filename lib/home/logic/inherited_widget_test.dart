@@ -23,11 +23,10 @@ class TestConfig extends BaseConfig {
 BaseConfig rootConfig = RootConfig();
 
 class DefaultBaseConfig extends InheritedWidget {
-  final BaseConfig config;
-  const DefaultBaseConfig({Key key, @required this.config, @required Widget child})
+  final BaseConfig? config;
+  const DefaultBaseConfig({Key? key, @required this.config, @required Widget? child})
       : assert(config != null),
-        assert(child != null),
-        super(key: key, child: child);
+        super(key: key, child: child ?? const SizedBox(width: 0, height: 0));
 
   @override
   bool updateShouldNotify(DefaultBaseConfig oldWidget) {
@@ -36,7 +35,7 @@ class DefaultBaseConfig extends InheritedWidget {
 
   static BaseConfig of(BuildContext context) {
     // final DefaultBaseConfig result = context.inheritFromWidgetOfExactType(DefaultBaseConfig) as DefaultBaseConfig;
-    final DefaultBaseConfig result = context.findAncestorWidgetOfExactType<DefaultBaseConfig>();
+    DefaultBaseConfig? result = context.findAncestorWidgetOfExactType<DefaultBaseConfig>();
     return result?.config ?? rootConfig;
   }
 }

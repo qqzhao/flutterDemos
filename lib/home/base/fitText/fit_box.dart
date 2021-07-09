@@ -76,18 +76,18 @@ class MyFlex extends StatefulWidget {
   final double height;
   final String showText;
 
-  MyFlex({this.width, this.height, this.showText = ''});
+  MyFlex({this.width = 100, this.height = 100, this.showText = ''});
 
   @override
   _MyFlexState createState() => _MyFlexState();
 }
 
 class _MyFlexState extends State<MyFlex> {
-  double myFontSize;
-  double myOpacity; //control the hide or show
+  double? myFontSize;
+  double? myOpacity; //control the hide or show
   final double initialOpacity = 0.0;
 
-  NotificationListener listener;
+  NotificationListener? listener;
 
   @override
   void initState() {

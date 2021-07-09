@@ -46,7 +46,7 @@ void _innerPrint(message) {
 //  return zipFilePath;
 //}
 
-Future<String> zipEncoderDir(String dirPath) async {
+Future<String?> zipEncoderDir(String dirPath) async {
   String newDirPath = dirPath ?? '';
   if (newDirPath.isEmpty) {
     print('zipEncoderDir , newDirPath === null');

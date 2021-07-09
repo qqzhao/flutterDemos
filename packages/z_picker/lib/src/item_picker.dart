@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'time_picker_help.dart';
 
 import 'assistant.dart';
 import 'cupertino_picker_wrap.dart';
 import 'flexible.dart';
+import 'time_picker_help.dart';
 
 const double _defaultHeight = 345.0;
 
@@ -16,11 +16,11 @@ class TCRItemPicker extends StatefulWidget {
   final String title;
   final double height;
   final List<String> items;
-  final ItemPickerCallback callback;
+  final ItemPickerCallback? callback;
 
   TCRItemPicker({
     this.initialIndex = 0,
-    this.title,
+    this.title = '',
     this.height = _defaultHeight,
     this.items = const [],
     this.callback,
@@ -37,7 +37,7 @@ class _TCRItemPickerState extends State<TCRItemPicker> {
 
   @override
   void initState() {
-    _selectedValue = widget.initialIndex ?? 0;
+    _selectedValue = widget.initialIndex;
     super.initState();
   }
 
@@ -55,14 +55,14 @@ class _TCRItemPickerState extends State<TCRItemPicker> {
       ),
       child: SafeArea(
         child: Container(
-          height: widget.height ?? _defaultHeight,
+          height: widget.height,
           child: Column(
             children: <Widget>[
               Header(
                 callback: () {
                   Navigator.of(context).maybePop();
                 },
-                title: widget.title ?? 'Title',
+                title: widget.title,
               ),
               Expanded(
                 child: Container(
@@ -83,7 +83,7 @@ class _TCRItemPickerState extends State<TCRItemPicker> {
                 callback: () {
                   Navigator.of(context).maybePop();
                   if (widget.callback != null) {
-                    widget.callback(_selectedValue, widget.items[_selectedValue]);
+                    widget.callback?.call(_selectedValue, widget.items[_selectedValue]);
                   }
                 },
               ),

@@ -32,5 +32,5 @@ class NetworkData with ChangeNotifier {
 
 class MyIntValue {
   final int value2;
-  MyIntValue({this.value2});
+  MyIntValue({this.value2 = 0});
 }

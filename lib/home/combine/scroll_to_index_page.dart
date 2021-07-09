@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 class ScrollToPageIndexPage extends StatefulWidget {
-  const ScrollToPageIndexPage({Key key}) : super(key: key);
+  const ScrollToPageIndexPage({Key? key}) : super(key: key);
 
   @override
   _ScrollToPageIndexPageState createState() => _ScrollToPageIndexPageState();
@@ -14,7 +14,7 @@ class ItemType {
   Color color;
   String title;
 
-  ItemType({this.height, this.color, this.title});
+  ItemType({this.height = 0, this.color = Colors.black, this.title = ''});
 }
 
 class _ScrollToPageIndexPageState extends State<ScrollToPageIndexPage> {

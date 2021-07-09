@@ -54,15 +54,15 @@ class _WisdomFitTextPageState extends State<WisdomFitTextPage> {
 
 class _FitTextBox extends StatefulWidget {
   final String showText;
-  final Widget fixedHeightHeaderWidget;
-  final Widget fixedHeightBottomWidget;
-  _FitTextBox({this.showText, this.fixedHeightHeaderWidget, this.fixedHeightBottomWidget});
+  final Widget? fixedHeightHeaderWidget;
+  final Widget? fixedHeightBottomWidget;
+  _FitTextBox({this.showText = '', this.fixedHeightHeaderWidget, this.fixedHeightBottomWidget});
   @override
   __FitTextBoxState createState() => __FitTextBoxState();
 }
 
 class __FitTextBoxState extends State<_FitTextBox> {
-  double _realFontSize;
+  late double _realFontSize;
   bool _layoutReady = false;
   bool _needCenter = false;
   bool _needScroll = false;

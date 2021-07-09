@@ -39,14 +39,14 @@ extension StringUpdateUrl on String {
 }
 
 extension StringTextHeight on String {
-  double textSizeHeight({TextStyle style, double maxWidth = 100}) {
+  double textSizeHeight({TextStyle? style, double maxWidth = 100}) {
     final TextPainter textPainter = TextPainter(text: TextSpan(text: this, style: style), maxLines: 100000, textDirection: TextDirection.ltr)
       ..layout(minWidth: 0, maxWidth: maxWidth);
     return textPainter.size.height;
   }
 
   /// maxLines 不生效，只可以根据宽度计算高度，所以这里只有一行。
-  double textSizeWidthContext({BuildContext context, TextStyle style}) {
+  double textSizeWidthContext({BuildContext? context, TextStyle? style}) {
     final Size size = (TextPainter(
             text: TextSpan(text: this, style: style),
             maxLines: 1,

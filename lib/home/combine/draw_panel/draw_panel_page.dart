@@ -20,7 +20,7 @@ class _DrawPanelPageState extends State<DrawPanelPage> {
     Colors.greenAccent,
   ];
   static final List<double> lineWidths = [5.0, 8.0, 10.0];
-  File imageFile;
+  File? imageFile;
   int selectedLine = 0;
   Color selectedColor = colors[0];
   List<Point> points = [Point(colors[0], lineWidths[0], [])];
@@ -36,7 +36,7 @@ class _DrawPanelPageState extends State<DrawPanelPage> {
     super.initState();
     getScreenShotFile().then((file) {
       setState(() {
-        imageFile = file;
+        imageFile = file!;
       });
     });
   }
@@ -58,7 +58,7 @@ class _DrawPanelPageState extends State<DrawPanelPage> {
                     child: Stack(
                       alignment: Alignment.center,
                       children: <Widget>[
-                        (imageFile == null) ? Image.asset('assets/images/sound_bg.png') : Image.file(imageFile),
+                        (imageFile == null) ? Image.asset('assets/images/sound_bg.png') : Image.file(imageFile!),
                         Positioned(
                           child: _buildCanvas(),
                           top: 0.0,
@@ -208,7 +208,7 @@ class _DrawPanelPageState extends State<DrawPanelPage> {
             GestureDetector(
               child: Text('save'),
               onTap: () {
-                RenderRepaintBoundary boundary = _repaintKey.currentContext.findRenderObject() as RenderRepaintBoundary;
+                RenderRepaintBoundary boundary = _repaintKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
                 saveScreenShot2SDCard(boundary, success: () {
                   showToast('save success!');
                 }, fail: () {

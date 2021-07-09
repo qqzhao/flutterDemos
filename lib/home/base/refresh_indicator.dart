@@ -34,7 +34,7 @@ class _RefreshIndicatorPageState extends State<RefreshIndicatorPage> {
             children: <Widget>[
               new Text('aaa'),
               new Text('bbb'),
-              new Text(snapshot.data),
+              new Text(snapshot.data!),
             ],
           );
         }

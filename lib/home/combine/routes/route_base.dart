@@ -32,7 +32,7 @@ class Routes {
 // RootStatelessPage
 // ignore: must_be_immutable
 abstract class RootStatelessPage extends StatelessWidget {
-  Object arguments;
+  Object? arguments;
   RootStatelessPage({this.arguments});
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ abstract class RootStatelessPage extends StatelessWidget {
 // RootStatefulPage
 // ignore: must_be_immutable
 abstract class RootStatefulPage extends StatefulWidget {
-  Object arguments;
+  Object? arguments;
   RootStatefulPage({this.arguments});
   @override
   RootStatefulPageState createState() => RootStatefulPageState();

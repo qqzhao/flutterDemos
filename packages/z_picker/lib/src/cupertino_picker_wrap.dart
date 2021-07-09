@@ -6,15 +6,15 @@ import 'flexible.dart';
 class CupertinoPickerWrap extends StatefulWidget {
   final int selectedIndex;
   final List<String> items;
-  final ValueChanged<int> onChange;
-  CupertinoPickerWrap({this.selectedIndex, this.items, this.onChange});
+  final ValueChanged<int>? onChange;
+  CupertinoPickerWrap({this.selectedIndex = 0, this.items = const ['item0'], this.onChange});
 
   @override
   _CupertinoPickerWrapState createState() => _CupertinoPickerWrapState();
 }
 
 class _CupertinoPickerWrapState extends State<CupertinoPickerWrap> {
-  FixedExtentScrollController _fixedExtentScrollController;
+  late FixedExtentScrollController _fixedExtentScrollController;
 
   @override
   void initState() {

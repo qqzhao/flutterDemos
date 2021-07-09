@@ -9,11 +9,11 @@ class AnimationPage extends StatefulWidget {
 }
 
 class _AnimationPageState extends State<AnimationPage> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
-  double startHeight;
-  double currentHeight;
-  double endHeight;
+  late double startHeight;
+  late double currentHeight;
+  late double endHeight;
 
   @override
   void initState() {
@@ -21,7 +21,7 @@ class _AnimationPageState extends State<AnimationPage> with SingleTickerProvider
     _controller = AnimationController(vsync: this, duration: new Duration(seconds: 3), debugLabel: 'test')
       ..addListener(() {
         setState(() {
-          currentHeight = lerpDouble(startHeight, endHeight, _controller.value);
+          currentHeight = lerpDouble(startHeight, endHeight, _controller.value) ?? 0;
         });
       })
       ..addStatusListener((AnimationStatus state) {

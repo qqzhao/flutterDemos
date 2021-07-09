@@ -6,11 +6,11 @@ abstract class JsonParseInterface {
   /// encoder 定义的解析函数
   /// 子类必须实现
   @protected
-  Map<String, dynamic> toJson();
+  Map<String, dynamic>? toJson();
 
   /// 子类必须实现
   @protected
-  JsonParseInterface generateObj(dynamic inputObj);
+  JsonParseInterface? generateObj(dynamic inputObj);
 
   String jsonString() {
     var encoderStr = json.encode(this);
@@ -23,7 +23,7 @@ abstract class JsonParseInterface {
     if (inputList is List && targetObject is T) {
       return inputList.map((item) => targetObject.generateObj(item)).toList().cast<T>();
     }
-    return null;
+    return [];
   }
 
   /// 转换Map 对象,
@@ -31,11 +31,11 @@ abstract class JsonParseInterface {
     if (inputMap is Map) {
       return inputMap.cast<String, T>();
     }
-    return null;
+    return {};
   }
 
   @protected
-  Map<String, dynamic> stringToMap(String encoderStr) {
+  Map<String, dynamic>? stringToMap(String encoderStr) {
     try {
       return json.decode(encoderStr, reviver: null) as Map<String, dynamic>;
     } catch (e) {

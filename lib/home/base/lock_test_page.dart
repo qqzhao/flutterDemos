@@ -3,29 +3,29 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class Lock {
-  Future _lock;
-  Completer _completer;
+  Future? _lock;
+  Completer? _completer;
 
   bool get locked => _lock != null;
 
   void lock() {
     if (!locked) {
       _completer = new Completer();
-      _lock = _completer.future;
+      _lock = _completer!.future;
     }
   }
 
   /// 解锁的那一刻开始顺序执行
   void unlock() {
     if (locked) {
-      _completer.complete();
+      _completer!.complete();
       _lock = null;
     }
   }
 
   void clear([String msg = "cancelled"]) {
     if (locked) {
-      _completer.completeError(msg);
+      _completer!.completeError(msg);
       _lock = null;
     }
   }
@@ -34,7 +34,7 @@ class Lock {
   Future enqueue(Future<String> Function() callback) async {
     if (locked) {
       // we use a future as a queue
-      Future<String> newLock = _lock.then((d) => callback());
+      Future<String> newLock = _lock!.then((d) => callback());
       _lock = newLock;
       return _lock;
     }

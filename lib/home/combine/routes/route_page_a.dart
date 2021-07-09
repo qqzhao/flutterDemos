@@ -27,7 +27,7 @@ class _RoutePageAState extends State<RoutePageA> {
         onPressed: () {
           var value = Provider.of<MyIntValue>(context, listen: false).value;
           print('value = $value');
-          Routes.globalKey.currentState.pushNamed(Routes.pageB, arguments: {
+          Routes.globalKey.currentState!.pushNamed(Routes.pageB, arguments: {
             'pageAParams': '111',
             'key2': 222,
           });

@@ -70,7 +70,7 @@ void testPost2() async {
 
   var response = await request.send();
   print('_post rsp statusCode = ${response.statusCode}, ${response.reasonPhrase}');
-  if (response?.statusCode == 200) {
+  if (response.statusCode == 200) {
     try {
       var retStr = await response.stream.bytesToString();
       var retRes = jsonDecode(retStr);
@@ -97,7 +97,7 @@ void testPost3() async {
     print('send request');
     response = await request.send().timeout(Duration(seconds: 10), onTimeout: () {
       print('on Timeout');
-      return http.StreamedResponse(null, 504);
+      return http.StreamedResponse(Stream.empty(), 504);
     });
   } catch (e) {
     print('e = $e');

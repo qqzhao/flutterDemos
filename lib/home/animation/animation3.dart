@@ -9,8 +9,8 @@ class AnimatePage3 extends StatefulWidget {
 }
 
 class _AnimatePage3State extends State<AnimatePage3> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<AlignmentGeometry> _animation;
+  late AnimationController _controller;
+  late Animation<AlignmentGeometry> _animation;
 
   @override
   void initState() {

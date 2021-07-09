@@ -14,7 +14,7 @@ class RouteMainPage extends StatefulWidget {
 
 class MyIntValue {
   final int value;
-  MyIntValue({this.value});
+  MyIntValue({this.value = 0});
 }
 
 class _RouteMainPageState extends State<RouteMainPage> {
@@ -45,28 +45,28 @@ class _RouteMainPageState extends State<RouteMainPage> {
       );
     }
 
-    return Material(
-      key: Routes.rootKey,
-      child: Builder(
-        builder: (context) {
-          return MultiProvider(
-            providers: [
-              Provider<MyIntValue>(
-                create: (BuildContext context) {
-                  return MyIntValue(value: 999);
-                },
-                dispose: (BuildContext context, MyIntValue value) {},
-              ),
-            ],
-            child: Navigator(
-              key: Routes.globalKey,
-              initialRoute: Routes.pageA,
-              onGenerateRoute: _buildRoute,
-            ),
-          );
-        },
-      ),
-    );
+    // return Material(
+    //   key: Routes.rootKey,
+    //   child: Builder(
+    //     builder: (context) {
+    //       return MultiProvider(
+    //         providers: [
+    //           Provider<MyIntValue>(
+    //             create: (BuildContext context) {
+    //               return MyIntValue(value: 999);
+    //             },
+    //             dispose: (BuildContext context, MyIntValue value) {},
+    //           ),
+    //         ],
+    //         child: Navigator(
+    //           key: Routes.globalKey,
+    //           initialRoute: Routes.pageA,
+    //           onGenerateRoute: _buildRoute,
+    //         ),
+    //       );
+    //     },
+    //   ),
+    // );
   }
 }
 
@@ -109,10 +109,10 @@ Route _buildRoute(RouteSettings settings) {
 
   return MaterialPageRoute(
     builder: (context) {
-      Widget result;
+      Widget? result;
       var separatorS = Routes.moduleSeparator;
-      if (settings.name.contains(separatorS)) {
-        List<String> modules = settings.name.split(separatorS).reversed.toList();
+      if (settings.name!.contains(separatorS)) {
+        List<String> modules = settings.name!.split(separatorS).reversed.toList();
         modules.forEach((element) {
           dynamic builder = pages[element] ?? (context) => Container();
           if (result == null) {
@@ -129,7 +129,7 @@ Route _buildRoute(RouteSettings settings) {
         print('page = $result');
       }
 
-      return result;
+      return result!;
     },
     settings: settings,
   );

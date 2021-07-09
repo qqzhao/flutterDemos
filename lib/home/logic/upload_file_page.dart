@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:file_uploader/file_uploader.dart';
+// import 'package:file_uploader/file_uploader.dart';
 import 'package:flutter/material.dart';
 
 class UploadFilePage extends StatefulWidget {
@@ -21,17 +21,17 @@ class _UploadFilePageState extends State<UploadFilePage> {
 
   @override
   void initState() {
-    initFiles();
-    FileUploader.init();
-    super.initState();
-    FileUploader.finishStream.listen((res) {
-      print('taskId = ${res.taskId}');
-      print('success = ${res.success}');
-    });
-
-    FileUploader.progressStream.listen((res) {
-      print('progressStream = ${res}');
-    });
+    // initFiles();
+    // FileUploader.init();
+    // super.initState();
+    // FileUploader.finishStream.listen((res) {
+    //   print('taskId = ${res.taskId}');
+    //   print('success = ${res.success}');
+    // });
+    //
+    // FileUploader.progressStream.listen((res) {
+    //   print('progressStream = ${res}');
+    // });
   }
 
   @override
@@ -96,15 +96,15 @@ Future<void> initFiles() async {
 }
 
 void _config1() async {
-  var config = FileUploaderConfig(url: 'http://localhost:3000/uploadFiles', archived: true, onWifiUse: true);
-  print('archived = true');
-  FileUploader.init(conf: config);
+  // var config = FileUploaderConfig(url: 'http://localhost:3000/uploadFiles', archived: true, onWifiUse: true);
+  // print('archived = true');
+  // FileUploader.init(conf: config);
 }
 
 void _config2() async {
-  var config = FileUploaderConfig(url: 'http://localhost:3000/uploadFiles', archived: false, onWifiUse: true);
-  print('archived = false');
-  FileUploader.init(conf: config);
+  // var config = FileUploaderConfig(url: 'http://localhost:3000/uploadFiles', archived: false, onWifiUse: true);
+  // print('archived = false');
+  // FileUploader.init(conf: config);
 }
 
 Future<void> uploadFile() async {
@@ -113,7 +113,7 @@ Future<void> uploadFile() async {
 //    [file5.path],
 //  );
 //  FileUploader.enqueue([file1.path, file2.path]);
-  FileUploader.enqueue([file6.path], immediately: true);
+//   FileUploader.enqueue([file6.path], immediately: true);
 //  FileUploader.enqueue([file1.path], immediately: true);
 }
 
@@ -122,8 +122,8 @@ Future<void> uploadFile2() async {
 //  FileUploader.enqueue(
 //    [file5.path],
 //  );
-  String taskId = await FileUploader.enqueue([file1.path, file2.path], immediately: true);
-  print('taskId begin: $taskId');
+//   String taskId = await FileUploader.enqueue([file1.path, file2.path], immediately: true);
+//   print('taskId begin: $taskId');
 }
 
 Future<void> uploadFile3() async {
@@ -131,5 +131,5 @@ Future<void> uploadFile3() async {
 //  FileUploader.enqueue(
 //    [file5.path],
 //  );
-  FileUploader.enqueue([file1.path], immediately: false);
+//   FileUploader.enqueue([file1.path], immediately: false);
 }

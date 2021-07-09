@@ -20,18 +20,18 @@ var connect = Connectivity();
 /// log开关
 bool enableLog = false;
 
-FileUploaderConfig defaultConfig = FileUploaderConfig(url: 'http://localhost:3000/uploadFiles', archived: true, onWifiUse: true);
+const FileUploaderConfig defaultConfig = FileUploaderConfig(url: 'http://localhost:3000/uploadFiles', archived: true, onWifiUse: true);
 
 class FileUploaderConfig {
   final String url;
   final bool archived; // 是否压缩
   final bool onWifiUse; // 只在wifi下上传
-  FileUploaderConfig({this.url, this.archived, this.onWifiUse});
+  const FileUploaderConfig({this.url = 'https://qq.com', this.archived = false, this.onWifiUse = false});
 }
 
 FileUploaderConfig _config = defaultConfig; // 环境配置
-Map<String, String> commonHeaders;
-Map<String, String> commonFields;
+late Map<String, String> commonHeaders;
+late Map<String, String> commonFields;
 
 void _innerPrint(str) {
   if (enableLog) {
@@ -200,11 +200,11 @@ class UploadTaskSession extends TaskSession<UploadTaskItem> with WidgetsBindingO
   }
 
   init() {
-    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance!.addObserver(this);
   }
 
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
+    WidgetsBinding.instance!.removeObserver(this);
   }
 
   void didChangeAppLifecycleState(AppLifecycleState state) {
@@ -351,14 +351,14 @@ class TaskParamsStruct {
   bool immediately;
 
   TaskParamsStruct({
-    this.taskId,
-    this.filePaths,
-    this.headers,
-    this.fields,
-    this.config,
+    this.taskId = '',
+    this.filePaths = const [],
+    this.headers = const {},
+    this.fields = const {},
+    this.config = defaultConfig,
     this.isWifi = false,
-    this.dirPath,
-    this.archived,
+    this.dirPath = '',
+    this.archived = true,
     this.immediately = false,
   });
 

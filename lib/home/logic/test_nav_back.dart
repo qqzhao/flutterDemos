@@ -46,7 +46,7 @@ class TestBavBPage extends StatefulWidget {
   _TestBavBPageState createState() => _TestBavBPageState();
 }
 
-void _popAction({BuildContext context}) {
+void _popAction({BuildContext? context}) {
   print('pop TestBavBPage');
 
 //  /// 不受WillPopScope 返回值影响。相当于强制退出。maybePop 会受到WillPopScope的影响。物理返回键相当于调用Maybe的方法。
@@ -54,7 +54,7 @@ void _popAction({BuildContext context}) {
 
   /// 不加任何东西，发生下面的异常。
   /// global exception: obj = type 'MaterialPageRoute<dynamic>' is not a subtype of type 'Route<String>';
-  Navigator.of(context).maybePop('maybe return string');
+  Navigator.of(context!).maybePop('maybe return string');
 }
 
 class _TestBavBPageState extends State<TestBavBPage> {

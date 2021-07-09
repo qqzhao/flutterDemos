@@ -40,7 +40,7 @@ class _SimpleRenderPage2State extends State<SimpleRenderPage2> {
 class ColorfulWidget extends StatefulWidget {
   final Color color;
   // final Key key;
-  ColorfulWidget({this.color, Key key}) : super(key: key);
+  ColorfulWidget({this.color = Colors.red, Key? key}) : super(key: key);
 
   @override
   _ColorfulWidgetState createState() => _ColorfulWidgetState();

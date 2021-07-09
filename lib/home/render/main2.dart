@@ -34,10 +34,10 @@ void main() async {
 //  return;
   WidgetsFlutterBinding.ensureInitialized();
 
-  var buildOwner = WidgetsBinding.instance.buildOwner;
-//  var renderView = WidgetsBinding.instance.renderView;
+  var buildOwner = WidgetsBinding.instance!.buildOwner;
+//  var renderView = WidgetsBinding.instance!.renderView;
   var renderView = MyRenderView(configuration: createViewConfiguration(), window: window);
-  renderView.attach(WidgetsBinding.instance.pipelineOwner);
+  renderView.attach(WidgetsBinding.instance!.pipelineOwner);
   renderView.prepareInitialFrame();
 
   var renderViewElement = MyRenderObjectToWidgetAdapter<RenderBox>(
@@ -46,12 +46,12 @@ void main() async {
     child: app,
   );
 
-  renderViewElement.attachToRenderTree(buildOwner, null);
+  // renderViewElement.attachToRenderTree(buildOwner!, null);
 
-//  WidgetsBinding.instance.renderView = renderView;
+//  WidgetsBinding.instance!.renderView = renderView;
 
   window.scheduleFrame();
 
-//  WidgetsBinding.instance.scheduleAttachRootWidget(app);
-//  WidgetsBinding.instance.scheduleWarmUpFrame();
+//  WidgetsBinding.instance!.scheduleAttachRootWidget(app);
+//  WidgetsBinding.instance!.scheduleWarmUpFrame();
 }

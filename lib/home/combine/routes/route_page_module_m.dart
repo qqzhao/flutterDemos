@@ -41,10 +41,10 @@ class RoutePageModuleMViewModel extends ChangeNotifier {
 //}
 
 class RoutePageModuleM extends InheritedWidget {
-  final Widget page;
+  final Widget? page;
   RoutePageModuleM({
     this.page,
-    Key key,
+    Key? key,
   }) : super(
             key: key,
             child: MultiProvider(
@@ -58,7 +58,7 @@ class RoutePageModuleM extends InheritedWidget {
               ),
             ));
 
-  static RoutePageModuleM of(BuildContext context) {
+  static RoutePageModuleM? of(BuildContext context) {
     // var result = context.inheritFromWidgetOfExactType(RoutePageModuleM);
     var result = context.findAncestorWidgetOfExactType<RoutePageModuleM>();
     return result;
@@ -90,7 +90,7 @@ class _RoutePageModuleMPage1State extends State<RoutePageModuleMPage1> {
             print('aa = $aa');
 
             // '${Routes.pageModuleM}${Routes.moduleSeparator}${Routes.pageModuleMPage2}'
-            Routes.globalKey.currentState.pushNamed(Routes.gen([Routes.pageModuleM, Routes.pageModuleMPage2]), arguments: {
+            Routes.globalKey.currentState!.pushNamed(Routes.gen([Routes.pageModuleM, Routes.pageModuleMPage2]), arguments: {
               'pageCParams': '111',
               'key2': 222,
               'RoutePageModuleMObj': aa,
@@ -134,7 +134,7 @@ class _RoutePageModuleMPage2State extends State<RoutePageModuleMPage2> {
       body: Center(
         child: GestureDetector(
           onTap: () {
-            Routes.globalKey.currentState.pushNamed('${Routes.pageModuleN}${Routes.moduleSeparator}${Routes.pageModuleNPage1}', arguments: {
+            Routes.globalKey.currentState!.pushNamed('${Routes.pageModuleN}${Routes.moduleSeparator}${Routes.pageModuleNPage1}', arguments: {
               'pageCParams': '111',
               'key2': 222,
             });

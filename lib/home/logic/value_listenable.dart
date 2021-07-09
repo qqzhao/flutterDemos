@@ -10,8 +10,8 @@ class ValueListenablePage extends StatefulWidget {
 
 class _ValueListenablePageState extends State<ValueListenablePage> {
   final ValueNotifier<String> _valueNotifier = ValueNotifier('aaa');
-  VoidCallback _listener;
-  Timer timer;
+  late VoidCallback _listener;
+  late Timer timer;
 
   @override
   void initState() {

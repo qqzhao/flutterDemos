@@ -10,7 +10,7 @@ class LoadingPage extends StatefulWidget {
 }
 
 class _LoadingPageState extends State<LoadingPage> {
-  Timer dismissTimer;
+  Timer? dismissTimer;
 
   @override
   Widget build(BuildContext context) {

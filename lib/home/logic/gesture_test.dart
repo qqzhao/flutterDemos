@@ -486,18 +486,18 @@ class TestGestureWidget extends StatelessWidget {
 class WrapListen extends StatelessWidget {
   final double width;
   final double height;
-  final Widget child;
+  final Widget? child;
   final Color color;
-  final Function onTap;
+  final Function? onTap;
   final String name;
 
   WrapListen({
-    this.width,
-    this.height,
+    this.width = 100,
+    this.height = 100,
     this.child,
-    this.color,
+    this.color = Colors.red,
     this.onTap,
-    this.name,
+    this.name = 'name',
   });
 
   @override
@@ -550,8 +550,8 @@ class DemoApp extends StatelessWidget {
 }
 
 class MultipleGestureWidget extends StatelessWidget {
-  final Widget child;
-  final GestureTapCallback onTap;
+  final Widget? child;
+  final GestureTapCallback? onTap;
   MultipleGestureWidget({
     this.child,
     this.onTap,

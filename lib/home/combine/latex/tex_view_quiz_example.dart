@@ -6,7 +6,7 @@ class Quiz {
   final List<QuizOption> options;
   final String correctOptionId;
 
-  Quiz({this.statement, this.options, this.correctOptionId});
+  Quiz({this.statement = '', this.options = const [], this.correctOptionId = ''});
 }
 
 class QuizOption {
@@ -23,7 +23,7 @@ class TeXViewQuizExample extends StatefulWidget {
 
 class _TeXViewQuizExampleState extends State<TeXViewQuizExample> {
   int currentQuizIndex = 0;
-  String selectedOptionId;
+  String? selectedOptionId;
   bool isWrong = false;
 
   List<Quiz> quizList = [
@@ -114,42 +114,43 @@ class _TeXViewQuizExampleState extends State<TeXViewQuizExample> {
             ),
           ),
           TeXView(
-              child: TeXViewColumn(children: [
-                TeXViewDocument(quizList[currentQuizIndex].statement, style: TeXViewStyle(textAlign: TeXViewTextAlign.Center)),
-                TeXViewGroup(
-                    children: quizList[currentQuizIndex].options.map((QuizOption option) {
-                      return TeXViewGroupItem(
-                          rippleEffect: false, id: option.id, child: TeXViewDocument(option.option, style: TeXViewStyle(padding: TeXViewPadding.all(10))));
-                    }).toList(),
-                    selectedItemStyle: TeXViewStyle(
-                        borderRadius: TeXViewBorderRadius.all(10),
-                        border: TeXViewBorder.all(TeXViewBorderDecoration(borderWidth: 3, borderColor: Colors.green[900])),
-                        margin: TeXViewMargin.all(10)),
-                    normalItemStyle: TeXViewStyle(margin: TeXViewMargin.all(10)),
-                    onTap: (id) {
-                      selectedOptionId = id;
-                      setState(() {
-                        isWrong = false;
-                      });
-                    }),
-              ]),
-              style: TeXViewStyle(
-                margin: TeXViewMargin.all(5),
-                padding: TeXViewPadding.all(10),
-                borderRadius: TeXViewBorderRadius.all(10),
-                border: TeXViewBorder.all(
-                  TeXViewBorderDecoration(borderColor: Colors.blue, borderStyle: TeXViewBorderStyle.Solid, borderWidth: 5),
-                ),
-                backgroundColor: Colors.white,
+            child: TeXViewColumn(children: [
+              TeXViewDocument(quizList[currentQuizIndex].statement, style: TeXViewStyle(textAlign: TeXViewTextAlign.Center)),
+              TeXViewGroup(
+                  children: quizList[currentQuizIndex].options.map((QuizOption option) {
+                    return TeXViewGroupItem(
+                        rippleEffect: false, id: option.id, child: TeXViewDocument(option.option, style: TeXViewStyle(padding: TeXViewPadding.all(10))));
+                  }).toList(),
+                  selectedItemStyle: TeXViewStyle(
+                      borderRadius: TeXViewBorderRadius.all(10),
+                      border: TeXViewBorder.all(TeXViewBorderDecoration(borderWidth: 3, borderColor: Colors.green[900])),
+                      margin: TeXViewMargin.all(10)),
+                  normalItemStyle: TeXViewStyle(margin: TeXViewMargin.all(10)),
+                  onTap: (id) {
+                    selectedOptionId = id;
+                    setState(() {
+                      isWrong = false;
+                    });
+                  }),
+            ]),
+            style: TeXViewStyle(
+              margin: TeXViewMargin.all(5),
+              padding: TeXViewPadding.all(10),
+              borderRadius: TeXViewBorderRadius.all(10),
+              border: TeXViewBorder.all(
+                TeXViewBorderDecoration(borderColor: Colors.blue, borderStyle: TeXViewBorderStyle.Solid, borderWidth: 5),
               ),
-              loadingWidgetBuilder: (_) => Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[CircularProgressIndicator(), Text("Rendering...!")],
-                    ),
-                  )),
+              backgroundColor: Colors.white,
+            ),
+            // loadingWidget: Center(
+            //   child: Column(
+            //     crossAxisAlignment: CrossAxisAlignment.center,
+            //     mainAxisSize: MainAxisSize.min,
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: <Widget>[CircularProgressIndicator(), Text("Rendering...!")],
+            //   ),
+            // ),
+          ),
           if (isWrong)
             Padding(
               padding: const EdgeInsets.all(20),

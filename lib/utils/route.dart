@@ -3,9 +3,9 @@ import 'package:hello/components/toast.dart';
 
 class MyRouter {
   MyRouter({
-    this.name,
-    this.widget,
-    this.routeName,
+    this.name = '',
+    this.widget = const SizedBox(),
+    this.routeName = '',
   });
   final String name;
   final String routeName;
@@ -13,14 +13,14 @@ class MyRouter {
 }
 
 class MyRouterList {
-  MyRouterList({this.lists, this.name});
+  MyRouterList({this.lists = const [], this.name = ''});
 
   final List<dynamic> lists;
   final String name;
 }
 
 class RouterPage extends StatelessWidget {
-  final MyRouterList routerList;
+  final MyRouterList? routerList;
   RouterPage({this.routerList});
 
   @override
@@ -28,17 +28,17 @@ class RouterPage extends StatelessWidget {
     assert(routerList != null, '---->\nRouterPage paras routerList should not null , Please set it valid.. ');
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('${routerList.name}'),
+        title: new Text('${routerList!.name}'),
       ),
       body: new Container(
         color: Colors.white,
         child: new ListView.builder(
-            itemCount: routerList.lists.length,
+            itemCount: routerList!.lists.length,
             shrinkWrap: true,
             itemExtent: 40.0,
             itemBuilder: (context, index) {
-              var item = routerList.lists[index];
-              String text;
+              var item = routerList!.lists[index];
+              String text = '';
               if (item is MyRouterList) {
                 text = item.name;
               } else if (item is MyRouter) {

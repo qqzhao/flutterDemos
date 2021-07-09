@@ -11,13 +11,13 @@ class MutexTestPage extends StatefulWidget {
 var _writeFileMutex = new Mutex();
 
 class _MutexTestPageState extends State<MutexTestPage> {
-  Timer _timer;
+  Timer? _timer;
   int _counter = 0;
 
   @override
   void dispose() {
     if (_timer != null) {
-      _timer.cancel();
+      _timer!.cancel();
       _timer = null;
     }
     super.dispose();
@@ -33,7 +33,7 @@ class _MutexTestPageState extends State<MutexTestPage> {
     // 这种dispose 之后不会释放。所以，快速点击返回之后会报错。
     Timer(new Duration(seconds: 5), () {
       print('time cancel xxx');
-      _timer.cancel();
+      _timer!.cancel();
       _timer = null;
     });
   }

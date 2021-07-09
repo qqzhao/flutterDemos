@@ -27,7 +27,7 @@ class FlareAnimationWidget extends StatelessWidget {
                     alignment: Alignment.center,
                     fit: BoxFit.contain,
                     color: Color(0xFF000000),
-                    animation: isPlaying ? 'playing' : 'normal',
+                    animation: 'normal', // isPlaying ? 'playing' :
                     callback: (String str) {
                       print('callback str = $str');
                     },
@@ -48,9 +48,9 @@ class TestCustomPainterInListView extends StatefulWidget {
 
 class _TestCustomPainterInListViewState extends State<TestCustomPainterInListView> with SingleTickerProviderStateMixin {
   int testCount = 0;
-  Timer timer;
-  AnimationController animationController;
-  Animation animation;
+  late Timer timer;
+  late AnimationController animationController;
+  late Animation animation;
 
   @override
   void initState() {
@@ -80,25 +80,25 @@ class _TestCustomPainterInListViewState extends State<TestCustomPainterInListVie
 
   @override
   void dispose() {
-    timer?.cancel();
-    animationController?.dispose();
+    timer.cancel();
+    animationController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    bool titleAnimation = false;
+    bool _titleAnimation = false;
     var textWidget = Container(
-      padding: new EdgeInsets.only(left: (animationController?.value ?? 0) * 180.0),
+      padding: new EdgeInsets.only(left: animationController.value * 180.0),
       child: Text('test custom painter :$testCount'),
     );
     return Scaffold(
       appBar: AppBar(
-        title: titleAnimation ? textWidget : Container(),
+        title: Container(),
       ),
       body: Column(
         children: <Widget>[
-          titleAnimation ? Container() : textWidget,
+          textWidget,
           Expanded(
             child: TestWidgetOther(),
           ),
@@ -261,8 +261,8 @@ class _TestArrowBoxPainter extends CustomPainter {
   final double arrowHeight;
   final double arrowWidth;
 
-  Paint borderPaint;
-  Paint fillPaint;
+  late Paint borderPaint;
+  late Paint fillPaint;
 
   _TestArrowBoxPainter({
     this.radius = 1.0,

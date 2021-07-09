@@ -7,10 +7,10 @@ class TestTextSpanPage extends StatefulWidget {
 }
 
 class _TestTextSpanPageState extends State<TestTextSpanPage> {
-  TapGestureRecognizer _recognizer1;
-  TapGestureRecognizer _recognizer2;
-  TapGestureRecognizer _recognizer3;
-  TapGestureRecognizer _recognizer4;
+  late TapGestureRecognizer _recognizer1;
+  late TapGestureRecognizer _recognizer2;
+  late TapGestureRecognizer _recognizer3;
+  late TapGestureRecognizer _recognizer4;
 
   @override
   void initState() {

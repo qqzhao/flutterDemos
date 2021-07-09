@@ -2,9 +2,9 @@ package io.flutter.plugins;
 
 import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.plugins.connectivity.ConnectivityPlugin;
+import com.tencent.file_uploader.FileUploaderPlugin;
 import com.bluechilli.flutteruploader.FlutterUploaderPlugin;
 import com.tekartik.sqflite.SqflitePlugin;
-import com.tencent.file_uploader.FileUploaderPlugin;
 
 /**
  * Generated file. Do not edit.
@@ -15,9 +15,9 @@ public final class GeneratedPluginRegistrant {
       return;
     }
     ConnectivityPlugin.registerWith(registry.registrarFor("io.flutter.plugins.connectivity.ConnectivityPlugin"));
+    FileUploaderPlugin.registerWith(registry.registrarFor("com.tencent.file_uploader.FileUploaderPlugin"));
     FlutterUploaderPlugin.registerWith(registry.registrarFor("com.bluechilli.flutteruploader.FlutterUploaderPlugin"));
     SqflitePlugin.registerWith(registry.registrarFor("com.tekartik.sqflite.SqflitePlugin"));
-    FileUploaderPlugin.registerWith(registry.registrarFor("com.tencent.file_uploader.FileUploaderPlugin"));
   }
 
   private static boolean alreadyRegisteredWith(PluginRegistry registry) {

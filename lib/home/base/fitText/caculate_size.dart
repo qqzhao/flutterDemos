@@ -10,9 +10,9 @@ class CalculatePage extends StatefulWidget {
 
 class _CalculatePageState extends State<CalculatePage> {
   final controller = ScrollController();
-  OverlayEntry sticky;
+  OverlayEntry? sticky;
   GlobalKey stickyKey = GlobalKey();
-  Timer myTimer;
+  Timer? myTimer;
 
   String testString = 'hello world. this is a long sentence. Please waiting for a moment.';
   double testHeight = 30.0;
@@ -21,7 +21,7 @@ class _CalculatePageState extends State<CalculatePage> {
   @override
   void initState() {
     if (sticky != null) {
-      sticky.remove();
+      sticky?.remove();
     }
 
     /// 初始化OverlayEntry实体， 覆盖到顶层。这里没用。
@@ -41,10 +41,10 @@ class _CalculatePageState extends State<CalculatePage> {
 
     /// not possible inside initState
     /// 帧回调后，将上面的overlay实体插入到构建树中
-    SchedulerBinding.instance.addPostFrameCallback(
+    SchedulerBinding.instance!.addPostFrameCallback(
       (_) {
         print('addPostFrameCallback callback');
-        Overlay.of(context).insert(sticky);
+        Overlay.of(context)!.insert(sticky!);
 
         final keyContext = stickyKey.currentContext;
         if (keyContext != null) {
@@ -67,8 +67,8 @@ class _CalculatePageState extends State<CalculatePage> {
   @override
   void dispose() {
     // remove possible overlays on dispose. As they would be visible even after [Navigator.push]
-    myTimer.cancel();
-    sticky.remove();
+    myTimer?.cancel();
+    sticky?.remove();
     super.dispose();
   }
 
@@ -118,8 +118,8 @@ typedef FrameCallback = void Function(Size size);
 class CalculateBox extends StatefulWidget {
   CalculateBox({this.child, this.callback});
 
-  final Widget child;
-  final FrameCallback callback;
+  final Widget? child;
+  final FrameCallback? callback;
 
   @override
   _CalculateBoxState createState() => _CalculateBoxState();
@@ -130,18 +130,18 @@ class _CalculateBoxState extends State<CalculateBox> {
 
   @override
   void initState() {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
+    SchedulerBinding.instance!.addPostFrameCallback((_) {
       final keyContext = calculateKey.currentContext;
       if (keyContext != null) {
         final RenderBox box = keyContext.findRenderObject() as RenderBox;
         print('box size = ${box.size}');
         if (widget.callback is FrameCallback) {
-          widget.callback(box.size);
+          widget.callback?.call(box.size);
         }
       }
     });
 //    // 每一帧回调只会都会执行
-//    SchedulerBinding.instance.addPersistentFrameCallback((aaa) {
+//    SchedulerBinding.instance!.addPersistentFrameCallback((aaa) {
 //      print('aaa = $aaa');
 //    });
     super.initState();

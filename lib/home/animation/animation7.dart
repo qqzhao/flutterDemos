@@ -9,14 +9,14 @@ class AnimatePage7 extends StatefulWidget {
 }
 
 class _AnimatePage7State extends State<AnimatePage7> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
-  CurvedAnimation _easyIn;
-  Animation<double> _scaleAnimation;
+  late CurvedAnimation _easyIn;
+  late Animation<double> _scaleAnimation;
 
   /// ignore: unused_field
-  Animation<double> _rotateAnimation;
-  Animation<double> _sizeAnimation;
+  late Animation<double> _rotateAnimation;
+  late Animation<double> _sizeAnimation;
 
   @override
   void initState() {
@@ -45,7 +45,7 @@ class _AnimatePage7State extends State<AnimatePage7> with SingleTickerProviderSt
     super.dispose();
   }
 
-  Widget _buildContent(BuildContext context, Widget child) {
+  Widget _buildContent(BuildContext context, Widget? child) {
     return new Material(
       textStyle: new TextStyle(
         fontSize: 40.0,
@@ -55,7 +55,7 @@ class _AnimatePage7State extends State<AnimatePage7> with SingleTickerProviderSt
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            child,
+            child ?? Container(),
             new ScaleTransition(
               scale: _scaleAnimation,
               child: new Text('ZZ'),

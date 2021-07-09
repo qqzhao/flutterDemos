@@ -40,7 +40,7 @@ class _JsonParsePageState extends State<JsonParsePage> {
     var encoderStr = json.encode(subObject.toJson());
     print('edcoderStr = $encoderStr');
     var map = json.decode(encoderStr);
-    TestSubObject subObject2 = TestSubObject().generateObj(map);
+    TestSubObject? subObject2 = TestSubObject().generateObj(map);
     print('subObject2 = $subObject2');
 
     print('\n =============================');
@@ -61,7 +61,7 @@ class _JsonParsePageState extends State<JsonParsePage> {
     encoderStr = json.encode(_testObject.toJson());
     print('edcoderStr = $encoderStr');
     map = json.decode(encoderStr);
-    TestObject _testObject2 = TestObject().generateObj(map);
+    TestObject? _testObject2 = TestObject().generateObj(map);
     print('_testSubObject2 = $_testObject2');
   }
 

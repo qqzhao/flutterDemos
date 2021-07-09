@@ -90,7 +90,7 @@ class CounterBloc extends Bloc<CounterEvent, int> {
 /// 监听事件的回调
 class SimpleBlocDelegate extends BlocObserver {
   @override
-  void onEvent(Bloc bloc, Object event) {
+  void onEvent(Bloc bloc, Object? event) {
     print('bloc: ${bloc.runtimeType}, event: $event');
     super.onEvent(bloc, event);
   }
@@ -113,7 +113,7 @@ class SimpleBlocDelegate extends BlocObserver {
 }
 
 abstract class AbstractA {
-  int _counter;
+  late int _counter;
 
   int get counter => _counter;
 

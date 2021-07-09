@@ -17,15 +17,15 @@ class _TestCaptureImageState extends State<TestCaptureImage> {
 
   // 截图boundary，并且返回图片的二进制数据。
   Future<Uint8List> _capturePng() async {
-    RenderRepaintBoundary boundary = globalKey.currentContext.findRenderObject() as RenderRepaintBoundary;
+    RenderRepaintBoundary boundary = globalKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
     // pixelRatio 设置截图的清晰程度。但宽高也相应翻倍了。
     ui.Image image = await boundary.toImage(pixelRatio: 2.0);
 
     print('image width = ${image.width}');
     print('image height = ${image.height}');
     // 注意：png是压缩后格式，如果需要图片的原始像素数据，请使用rawRgba
-    ByteData byteData = await image.toByteData(format: ui.ImageByteFormat.png);
-    Uint8List pngBytes = byteData.buffer.asUint8List();
+    ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+    Uint8List pngBytes = byteData!.buffer.asUint8List();
     Directory directory = await getTemporaryDirectory();
     print('directory = $directory');
     var path = join(directory.path, 'test.png');

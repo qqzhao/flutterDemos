@@ -34,7 +34,7 @@ class _RoutePageBState extends RootStatefulPageState<RoutePageB> {
         onPressed: () {
           var value = Provider.of<MyIntValue>(context, listen: false).value;
           print('value = $value');
-          Routes.globalKey.currentState.pushReplacementNamed(Routes.pageC, arguments: {
+          Routes.globalKey.currentState!.pushReplacementNamed(Routes.pageC, arguments: {
             'pageBParams': '111',
             'key2': 222,
           });

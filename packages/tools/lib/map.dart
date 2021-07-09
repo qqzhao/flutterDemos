@@ -10,7 +10,7 @@ String join(Map map, {String separator = ''}) {
 
     if (!iterator.moveNext()) return '';
     StringBuffer buffer = StringBuffer();
-    if (separator == null || separator == '') {
+    if (separator == '') {
       do {
         buffer.write('${entryToString(iterator.current)};');
       } while (iterator.moveNext());

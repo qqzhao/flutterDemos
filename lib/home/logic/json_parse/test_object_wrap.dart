@@ -2,7 +2,7 @@ import 'package:hello/home/logic/json_parse/json_parse_interface.dart';
 import 'package:hello/home/logic/json_parse/test_object.dart';
 
 class TestObjectWrap with JsonParseInterface {
-  final List<TestObject> testObjectList;
+  final List<TestObject>? testObjectList;
   TestObjectWrap({
     this.testObjectList,
   });
@@ -15,8 +15,8 @@ class TestObjectWrap with JsonParseInterface {
   }
 
   @override
-  JsonParseInterface generateObj(dynamic inputObj) {
-    Map map;
+  JsonParseInterface? generateObj(dynamic inputObj) {
+    Map? map;
     if (inputObj is Map) {
       map = inputObj;
     } else if (inputObj is String) {

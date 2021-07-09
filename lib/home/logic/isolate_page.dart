@@ -4,8 +4,8 @@ import 'dart:isolate';
 import 'package:flutter/material.dart';
 
 /// ignore_for_file: avoid_as
-Isolate isolateInstance;
-ReceivePort responseInstance;
+late Isolate isolateInstance;
+late ReceivePort responseInstance;
 //ReceivePort answerInstance;
 
 Future<dynamic> asyncFuncCreate(String str) async {

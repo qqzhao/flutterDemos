@@ -16,7 +16,7 @@ class _StateManageTestPageState extends State<StateManageTestPage> {
   }
 
   void _itemClick(int index) {
-    Widget page;
+    Widget? page;
     switch (index) {
       case 0:
         page = BlocTestPage1();
@@ -32,7 +32,7 @@ class _StateManageTestPageState extends State<StateManageTestPage> {
         break;
     }
 
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => page));
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => page!));
   }
 
   @override
