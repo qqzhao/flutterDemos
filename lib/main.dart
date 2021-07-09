@@ -8,16 +8,16 @@ import 'package:hello/global.dart';
 import 'package:hello/home/base/object_db_page.dart';
 import 'package:hello/utils/route.dart';
 import 'package:oktoast/oktoast.dart';
-// import 'package:screen_ratio_adapter/screen_ratio_adapter.dart';
 import 'package:z_tools/z_tools.dart';
 
 import './components/custom_navigator_observe.dart';
+import 'components/flutter_screen_ratio_adapter/screen_ratio_adapter.dart';
 import 'config/router_config.dart';
 
 ///设计稿尺寸，单位应是pt或dp
 //var uiSize = BlueprintsRectangle(300, 510);
-//var uiSize = BlueprintsRectangle(721, 628);
-// var uiSize = BlueprintsRectangle(375, 878);
+// var uiSize = BlueprintsRectangle(721, 628);
+var uiSize = BlueprintsRectangle(375, 878);
 
 Brightness curBright = Brightness.light;
 
@@ -38,16 +38,16 @@ void main() async {
 //   print('test1Str = $test1Str');
 
   runZoned(
-    () => runApp(
+    () => runFxApp(
       CalculateWidgetAppContainer(
         child: Center(
           // child: LocalizedApp(delegate, MyApp()),
           child: MyApp(),
         ),
       ),
-      // uiBlueprints: uiSize,
-      // onEnsureInitialized: () {},
-      // enableLog: false,
+      uiBlueprints: uiSize,
+      onEnsureInitialized: () {},
+      enableLog: false,
     ),
     onError: (Object obj, StackTrace stack) {
       print('global exception: obj = $obj;\nstack = $stack');
@@ -104,7 +104,7 @@ class _MyAppState extends State<MyApp> {
           home: RouterPage(
             routerList: globalRouters,
           ),
-          // builder: FxTransitionBuilder(builder: null),
+          builder: FxTransitionBuilder(builder: null),
           // home: GestureTestPage(), //GestureTestPage(),
           navigatorKey: globalKey,
           // routes: {
