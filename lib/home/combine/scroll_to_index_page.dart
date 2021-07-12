@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:scroll_to_index/scroll_to_index.dart';
+import 'package:hello/components/scroll_to_index/auto_scroll_tag.dart';
+import 'package:hello/components/scroll_to_index/scroll_to_index.dart';
 
 class ScrollToPageIndexPage extends StatefulWidget {
   const ScrollToPageIndexPage({Key? key}) : super(key: key);
@@ -99,6 +100,12 @@ class _ScrollToPageIndexPageState extends State<ScrollToPageIndexPage> {
             ),
           )
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          controller.highlight(1, highlightDuration: Duration(seconds: 1));
+        },
+        child: Text('1'),
       ),
     );
   }
