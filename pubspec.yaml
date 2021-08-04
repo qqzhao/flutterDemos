@@ -49,6 +49,8 @@ dependencies:
     path: packages/z_notification
   z_tools:
     path: packages/z_tools
+  date_range_picker:
+    path: packages/date_range_picker
   json_annotation: ^3.0.1
   webview_flutter_plus: ^0.2.2
 #  flutter_full_pdf_viewer: ^1.0.6

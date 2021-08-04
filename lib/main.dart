@@ -17,7 +17,7 @@ import 'config/router_config.dart';
 ///设计稿尺寸，单位应是pt或dp
 //var uiSize = BlueprintsRectangle(300, 510);
 // var uiSize = BlueprintsRectangle(721, 628);
-var uiSize = BlueprintsRectangle(375, 878);
+var uiSize = BlueprintsRectangle(640, 1024);
 
 Brightness curBright = Brightness.light;
 
@@ -63,6 +63,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    // var size = MediaQuery.of(context).size;
+    // print('size = $size');
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
