@@ -44,7 +44,7 @@ class MonthItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100.w,
+      // height: 100.w,
       child: Column(
         children: [
           Row(
@@ -375,18 +375,22 @@ class _MonthItemState extends State<_MonthItem> {
         //   ),
         // ),
         Container(
-          padding: EdgeInsets.only(left: 30.w, right: 30.5.w),
+          padding: EdgeInsets.symmetric(horizontal: 24.w),
           width: maxWidth,
           margin: EdgeInsets.only(bottom: 12.w),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: ['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((e) {
               return Container(
-                child: Text(
-                  '$e',
-                  style: TextStyle(
-                    fontSize: 16.w,
-                    color: Color(0xFF80838D),
+                color: Colors.transparent,
+                width: 20.w,
+                child: Center(
+                  child: Text(
+                    '$e',
+                    style: TextStyle(
+                      fontSize: 16.w,
+                      color: Color(0xFF80838D),
+                    ),
                   ),
                 ),
               );

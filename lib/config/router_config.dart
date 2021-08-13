@@ -31,6 +31,7 @@ import 'package:hello/home/base/refresh_indicator.dart';
 import 'package:hello/home/base/rotate_test_page.dart';
 import 'package:hello/home/base/scroll_view/custom_scroll_view.dart';
 import 'package:hello/home/base/scroll_view/custom_scroll_view2.dart';
+import 'package:hello/home/base/scroll_view/grid_view.dart';
 import 'package:hello/home/base/scroll_view/list_view_1.dart';
 import 'package:hello/home/base/scroll_view/list_view_2.dart';
 import 'package:hello/home/base/scroll_view/listview.dart';
@@ -108,6 +109,7 @@ List<dynamic> _globalRouters = [
       ]),
       MyRouter(name: 'listview1', routeName: '/base/listview1', widget: TestListView1()),
       MyRouter(name: 'listview2', routeName: '/base/listview2', widget: TestListView2()),
+      MyRouter(name: 'gridview1', routeName: '/base/GridViewPage', widget: GridViewPage()),
       MyRouter(name: 'customScrollview', routeName: '/base/scroll/customScrollview', widget: TestCustomScrollView()),
       MyRouter(name: 'nestedScrollview', routeName: '/base/scroll/nestedScrollview', widget: TestNestScrollViewDemo()),
       MyRouter(name: 'nestedScrollview2', routeName: '/base/scroll/nestedScrollview2', widget: TestNestScrollViewDemo2()),
