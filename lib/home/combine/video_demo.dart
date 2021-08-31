@@ -5,7 +5,7 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:connectivity/connectivity.dart';
+// import 'package:connectivity/connectivity.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -279,6 +279,10 @@ class ConnectivityOverlay extends StatefulWidget {
   _ConnectivityOverlayState createState() => new _ConnectivityOverlayState();
 }
 
+enum ConnectivityResult { none }
+
+class Connectivity {}
+
 class _ConnectivityOverlayState extends State<ConnectivityOverlay> {
   StreamSubscription<ConnectivityResult>? connectivitySubscription;
   bool connected = true;
@@ -294,15 +298,15 @@ class _ConnectivityOverlayState extends State<ConnectivityOverlay> {
   );
 
   Stream<ConnectivityResult> connectivityStream() async* {
-    final Connectivity connectivity = new Connectivity();
-    ConnectivityResult previousResult = await connectivity.checkConnectivity();
-    yield previousResult;
-    await for (ConnectivityResult result in connectivity.onConnectivityChanged) {
-      if (result != previousResult) {
-        yield result;
-        previousResult = result;
-      }
-    }
+    // final Connectivity connectivity = new Connectivity();
+    // ConnectivityResult previousResult = await connectivity.checkConnectivity();
+    // yield previousResult;
+    // await for (ConnectivityResult result in connectivity.onConnectivityChanged) {
+    //   if (result != previousResult) {
+    //     yield result;
+    //     previousResult = result;
+    //   }
+    // }
   }
 
   @override
