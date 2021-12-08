@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tools/map.dart';
-import 'package:tools/tools.dart';
+import 'package:z_tools/z_tools.dart';
 
 class ToolsDebugPage extends StatefulWidget {
   @override

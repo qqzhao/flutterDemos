@@ -11,20 +11,17 @@ class _NotificationTestPageState extends State<NotificationTestPage> {
   @override
   void initState() {
     super.initState();
-    NotificationCenter.shared.addObserver(
-        observer: this,
-        key: 'testKey',
-        callback: (message) {
-          print('data from message: $message');
-          setState(() {
-            _message = message;
-          });
-        });
+    NotificationCenter.shared.addObserver(this, key: 'testKey', callback: (message) {
+      print('data from message: $message');
+      setState(() {
+        _message = message;
+      });
+    });
   }
 
   @override
   void dispose() {
-    NotificationCenter.shared.removeObserver(observer: this);
+    NotificationCenter.shared.removeObserver(this);
     super.dispose();
   }
 

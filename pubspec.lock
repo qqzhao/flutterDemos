@@ -120,13 +120,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.3"
-  date_range_picker:
-    dependency: "direct main"
-    description:
-      path: "packages/date_range_picker"
-      relative: true
-    source: path
-    version: "0.0.1"
   deeply:
     dependency: transitive
     description:
@@ -530,13 +523,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.2.19"
-  tools:
-    dependency: "direct main"
-    description:
-      path: "packages/tools"
-      relative: true
-    source: path
-    version: "0.0.1"
   typed_data:
     dependency: transitive
     description:
@@ -635,27 +621,34 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.1.0"
+  z_date_range_picker:
+    dependency: "direct main"
+    description:
+      name: z_date_range_picker
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.2"
   z_notification:
     dependency: "direct main"
     description:
-      path: "packages/z_notification"
-      relative: true
-    source: path
-    version: "0.0.1"
+      name: z_notification
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.4"
   z_picker:
     dependency: "direct main"
     description:
-      path: "packages/z_picker"
-      relative: true
-    source: path
-    version: "0.0.1"
+      name: z_picker
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.2"
   z_tools:
     dependency: "direct main"
     description:
-      path: "packages/z_tools"
-      relative: true
-    source: path
-    version: "0.0.2"
+      name: z_tools
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.4"
 sdks:
   dart: ">=2.12.0 <3.0.0"
   flutter: ">=2.0.0"
