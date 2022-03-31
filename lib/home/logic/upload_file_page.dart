@@ -21,6 +21,7 @@ class _UploadFilePageState extends State<UploadFilePage> {
 
   @override
   void initState() {
+    super.initState();
     // initFiles();
     // FileUploader.init();
     // super.initState();

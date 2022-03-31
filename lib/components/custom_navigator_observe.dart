@@ -27,5 +27,20 @@ class CustomNavObserver extends NavigatorObserver {
   @override
   void didStopUserGesture() {
 //    print('didStopUserGesture');
+    testNullSafety();
+    testNoNullSafety();
   }
+}
+
+void testNullSafety() {
+  double? a = 0;
+  a = null;
+  print('test null safety close = $a');
+}
+
+void testNoNullSafety() {
+  // double a = 0;
+  // if (a != null) {
+  //   print('xxx');
+  // }
 }

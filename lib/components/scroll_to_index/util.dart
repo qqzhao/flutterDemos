@@ -10,7 +10,7 @@ import 'dart:collection';
 import 'package:flutter/animation.dart';
 
 /// used to invoke async functions in order
-Future<T> co<T>(key, FutureOr<T> action()) async {
+Future<T> co<T>(key, FutureOr<T> Function() action) async {
   for (;;) {
     final c = _locks[key];
     if (c == null) break;

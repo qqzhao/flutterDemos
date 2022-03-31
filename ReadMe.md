@@ -16,3 +16,9 @@
 
 flutter drive --target=test_drive/database/database.dart  # --use-existing-app=http://127.0.0.1:49538
 ```
+
+## 非空安全运行
+
+```
+flutter run --no-sound-null-safety
+```

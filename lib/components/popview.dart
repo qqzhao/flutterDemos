@@ -15,8 +15,7 @@ class _DialogRoute<T> extends PopupRoute<T> {
     this.barrierLabel,
     @required this.child,
     RouteSettings? settings,
-  })  : assert(barrierDismissible != null),
-        _barrierDismissible = barrierDismissible,
+  })  : _barrierDismissible = barrierDismissible,
         super(settings: settings);
 
   final Widget? child;

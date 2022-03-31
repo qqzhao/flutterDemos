@@ -35,8 +35,8 @@ dependencies:
   provider: ^5.0.0
   bloc: ^7.0.0
   flutter_tex:
-  platform_view_test:
-    path: 'plugins/platform_view_test'
+#  platform_view_test:
+#    path: 'plugins/platform_view_test'
 #  file_uploader:
 #    path: plugins/file_uploader
 #  flutter_utils_z:

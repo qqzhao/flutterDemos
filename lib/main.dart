@@ -24,6 +24,9 @@ Brightness curBright = Brightness.light;
 void main() async {
   // testNull();
   debugWidgetSize = false;
+  // double? a = 0;
+  // a = null;
+  // print('test null safety close = $a');
   var _isProduct = true; //bool.fromEnvironment("dart.vm.product");
   print('_isProduct = $_isProduct');
   // print('_isDartStreamEnabled = $_isDartStreamEnabled');

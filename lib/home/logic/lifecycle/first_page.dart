@@ -70,7 +70,7 @@ class _FirstTestPageState extends State<FirstTestPage> {
       print('contextInsecond = $contextInSecond');
 //      Element ele = contextInSecond;
 //      assert(contextInSecond == stateInSecond.context, 'exception aaa');
-      if (stateInSecond != null && stateInSecond.mounted) {
+      if (stateInSecond.mounted) {
         print('contextInsecond2 = ${MediaQuery.of(contextInSecond).size.height}');
         print('contextInsecond3 = ${contextInSecond.size}');
       } else {

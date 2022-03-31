@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:collection';
-import 'dart:io';
 import 'dart:ui' as ui show window, PointerDataPacket;
 
 import 'package:flutter/cupertino.dart';
@@ -98,6 +97,7 @@ class FxWidgetsFlutterBinding extends WidgetsFlutterBinding {
     return WidgetsBinding.instance!;
   }
 
+  @override
   @protected
   void scheduleAttachRootWidget(Widget rootWidget) {
     Timer.run(() {
@@ -199,6 +199,7 @@ class FxWidgetsFlutterBinding extends WidgetsFlutterBinding {
     _samplingInterval,
   );
 
+  @override
   void handlePointerEvent(PointerEvent event) {
     assert(!locked);
 
@@ -242,7 +243,6 @@ class FxWidgetsFlutterBinding extends WidgetsFlutterBinding {
       return true;
     }());
     if (hitTestResult != null || event is PointerAddedEvent || event is PointerRemovedEvent) {
-      assert(event.position != null);
       dispatchEvent(event, hitTestResult);
     }
   }
@@ -261,31 +261,29 @@ class _RoorRenderObjectWidget extends SingleChildRenderObjectWidget {
 
   @override
   RenderObject createRenderObject(BuildContext context) {
-    _assertOnFuture(() => Info.instance == null,
-        errorMsg: "\nError:'FxTransitionBuilder' is not configured"
-            "\nMaterialApp("
-            "\n  ......"
-            "\n  builder: FxTransitionBuilder(builder: null),"
-            "\n  ......"
-            "\n);");
+    // _assertOnFuture(() => Info.instance == null,
+    //     errorMsg: "\nError:'FxTransitionBuilder' is not configured"
+    //         "\nMaterialApp("
+    //         "\n  ......"
+    //         "\n  builder: FxTransitionBuilder(builder: null),"
+    //         "\n  ......"
+    //         "\n);");
     return RenderPadding(padding: EdgeInsets.all(0));
   }
 
-  void _assertOnFuture(ValueGetter<bool> conditions, {String errorMsg = "", int time = 1000}) {
-    if (Info.isRelease) return;
-    Future.delayed(Duration(milliseconds: time), () {
-      if (conditions.call()) throw FormatException(errorMsg);
-    });
-    Future.delayed(Duration(milliseconds: (time * 1.5).toInt()), () {
-      if (conditions.call()) exit(0);
-    });
-  }
+  // void _assertOnFuture(ValueGetter<bool> conditions, {String errorMsg = "", int time = 1000}) {
+  //   if (Info.isRelease) return;
+  //   Future.delayed(Duration(milliseconds: time), () {
+  //     if (conditions.call()) throw FormatException(errorMsg);
+  //   });
+  //   Future.delayed(Duration(milliseconds: (time * 1.5).toInt()), () {
+  //     if (conditions.call()) exit(0);
+  //   });
+  // }
 }
 
 // const Duration _defaultSamplingOffset = Duration(milliseconds: -38);
 const Duration _samplingInterval = Duration(microseconds: 16667);
-
-typedef _HandleSampleTimeChangedCallback = void Function();
 
 class _Resampler {
   _Resampler(this._handlePointerEvent, this._handleSampleTimeChanged, this._samplingInterval);
@@ -312,7 +310,7 @@ class _Resampler {
   final HandleEventCallback _handlePointerEvent;
 
   // Callback used to handle sample time changes.
-  final _HandleSampleTimeChangedCallback _handleSampleTimeChanged;
+  final void Function() _handleSampleTimeChanged;
 
   // Interval used for sampling.
   final Duration _samplingInterval;

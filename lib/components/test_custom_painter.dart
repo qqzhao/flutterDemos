@@ -14,7 +14,7 @@ class FlareAnimationWidget extends StatelessWidget {
   FlareAnimationWidget({this.index = -1});
   @override
   Widget build(BuildContext context) {
-    bool isPlaying = false;
+    // bool isPlaying = false;
     return Container(
       child: Row(
         children: <Widget>[
@@ -87,7 +87,7 @@ class _TestCustomPainterInListViewState extends State<TestCustomPainterInListVie
 
   @override
   Widget build(BuildContext context) {
-    bool _titleAnimation = false;
+    // bool _titleAnimation = false;
     var textWidget = Container(
       padding: new EdgeInsets.only(left: animationController.value * 180.0),
       child: Text('test custom painter :$testCount'),

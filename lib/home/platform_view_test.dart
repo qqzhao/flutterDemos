@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:platform_view_test/platform_view_test.dart';
+// import 'package:platform_view_test/platform_view_test.dart';
 
 class PlatformViewTestPage extends StatefulWidget {
   @override
@@ -7,7 +7,7 @@ class PlatformViewTestPage extends StatefulWidget {
 }
 
 class _PlatformViewTestPageState extends State<PlatformViewTestPage> {
-  late PlatformDemoViewController _controller;
+  // late PlatformDemoViewController _controller;
 //  double _platformViewX = 0.0;
   double outHeight = 200.0;
   double innerHeight = 100.0;
@@ -34,16 +34,16 @@ class _PlatformViewTestPageState extends State<PlatformViewTestPage> {
                   color: Colors.red[200],
                   child: SizedBox(
                     height: innerHeight,
-                    child: PlatformDemoView(
-                        onCreated: (controller) {
-                          _controller = controller;
-                          _controller.reloadView();
-//                      _controller.loadUrl('aaa');
-                        },
-                        x: 0,
-                        y: 0,
-                        width: 100,
-                        height: innerHeight),
+//                     child: PlatformDemoView(
+//                         onCreated: (controller) {
+//                           _controller = controller;
+//                           _controller.reloadView();
+// //                      _controller.loadUrl('aaa');
+//                         },
+//                         x: 0,
+//                         y: 0,
+//                         width: 100,
+//                         height: innerHeight),
                   ),
                 ),
               ],
@@ -66,7 +66,7 @@ class _PlatformViewTestPageState extends State<PlatformViewTestPage> {
           ),
         ),
         onTap: () {
-          _controller.reloadView();
+          // _controller.reloadView();
           setState(() {
             outHeight = 300.0;
             innerHeight = 150.0;

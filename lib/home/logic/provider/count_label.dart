@@ -20,7 +20,7 @@ class CounterLabel extends StatelessWidget {
         Text(
           '${counter.count}, ${data.data['name']}',
           // ignore: deprecated_member_use
-          style: Theme.of(context).textTheme.display1,
+          // style: Theme.of(context).textTheme.display1,
         ),
         Selector<NetworkData, int>(
           child: Text('333'),

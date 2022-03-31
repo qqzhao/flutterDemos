@@ -139,9 +139,13 @@ enum AutoScrollPosition { begin, middle, end }
 mixin AutoScrollControllerMixin on ScrollController implements AutoScrollController {
   @override
   final Map<int, AutoScrollTagState> tagMap = <int, AutoScrollTagState>{};
+  @override
   double? get suggestedRowHeight;
+  @override
   ViewportBoundaryGetter get viewportBoundaryGetter;
+  @override
   AxisValueGetter get beginGetter;
+  @override
   AxisValueGetter get endGetter;
 
   bool __isAutoScrolling = false;
@@ -377,7 +381,7 @@ mixin AutoScrollControllerMixin on ScrollController implements AutoScrollControl
   /// bring the state node (already created but all of it may not be fully in the viewport) into viewport
   /// 将已经存在的 state 的节点可视化。可能不可视或者不完全可视。
   /// 回调 move 是真正的移动，这个函数只是计算 offset 的值。
-  Future _bringIntoViewportIfNeed(int index, AutoScrollPosition? preferPosition, Future move(double offset)) async {
+  Future _bringIntoViewportIfNeed(int index, AutoScrollPosition? preferPosition, Future Function(double offset) move) async {
     /// 注意 begin > end, 可以这样理解：方向向下，begin 在 end 的下边。
     final begin = _directionalOffsetToRevealInViewport(index, 0);
     final end = _directionalOffsetToRevealInViewport(index, 1);

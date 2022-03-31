@@ -62,10 +62,10 @@ class RenderRestrictEvent extends RenderProxyBox {
   bool get _effectiveIgnoringSemantics => ignoringSemantics;
 
   bool get _canResponseEvent {
-    if (_lastResponseTime == null) {
-      _lastResponseTime = DateTime.now();
-      return true;
-    }
+    // if (_lastResponseTime == null) {
+    //   _lastResponseTime = DateTime.now();
+    //   return true;
+    // }
 
     if (DateTime.now().difference(_lastResponseTime).compareTo(_restrictDuration) >= 0) {
       _lastResponseTime = DateTime.now();
@@ -94,7 +94,8 @@ class RenderRestrictEvent extends RenderProxyBox {
       DiagnosticsProperty<bool>(
         'ignoringSemantics',
         _effectiveIgnoringSemantics,
-        description: ignoringSemantics == null ? 'implicitly $_effectiveIgnoringSemantics' : null,
+        description: null,
+        // description: ignoringSemantics == null ? 'implicitly $_effectiveIgnoringSemantics' : null,
       ),
     );
   }

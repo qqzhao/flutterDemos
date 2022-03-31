@@ -9,7 +9,7 @@ late ReceivePort responseInstance;
 //ReceivePort answerInstance;
 
 Future<dynamic> asyncFuncCreate(String str) async {
-  if (isolateInstance != null) {
+  if (str.isNotEmpty) {
     print('1111');
 //    final sendPort = await responseInstance.first as SendPort;
     final sendPort = isolateInstance.controlPort;

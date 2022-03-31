@@ -13,7 +13,7 @@ class _TimerPickerPageState extends State<TimeRangePickerPage> {
   CustomDateTimeRange dateTimeRange = CustomDateTimeRange();
 
   void _showDataPicker() async {
-    Locale myLocale = Localizations.localeOf(context);
+    // Locale myLocale = Localizations.localeOf(context);
     await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(2016), lastDate: DateTime(2030), locale: Locale("zh", "CH"));
     // await showTimePicker(context: context, initialTime: TimeOfDay.now());
   }
@@ -40,9 +40,9 @@ class _TimerPickerPageState extends State<TimeRangePickerPage> {
     //结果
     _dateSelectText = selectTimeRange.toString();
     //选择结果中的开始时间
-    DateTime selectStart = selectTimeRange!.start;
+    // DateTime selectStart = selectTimeRange!.start;
     //选择结果中的结束时间
-    DateTime selectEnd = selectTimeRange.end;
+    // DateTime selectEnd = selectTimeRange.end;
 
     setState(() {});
   }

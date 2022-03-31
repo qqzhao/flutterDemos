@@ -11,7 +11,7 @@ class _NotificationTestPageState extends State<NotificationTestPage> {
   @override
   void initState() {
     super.initState();
-    NotificationCenter.shared.addObserver(this, key: 'testKey', callback: (message) {
+    NotificationCenter.instance.addObserver(this, key: 'testKey', callback: (message) {
       print('data from message: $message');
       setState(() {
         _message = message;
@@ -21,7 +21,7 @@ class _NotificationTestPageState extends State<NotificationTestPage> {
 
   @override
   void dispose() {
-    NotificationCenter.shared.removeObserver(this);
+    NotificationCenter.instance.removeObserver(this);
     super.dispose();
   }
 
@@ -60,7 +60,7 @@ class _NotificationTest2PageState extends State<NotificationTest2Page> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print('post data');
-          NotificationCenter.shared.post(key: 'testKey', sendObject: this, data: '11,22,33');
+          NotificationCenter.instance.post(key: 'testKey', sendObject: this, data: '11,22,33');
         },
       ),
     );

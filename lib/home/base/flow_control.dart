@@ -10,9 +10,9 @@ class _FlowControlPageState extends State<FlowControlPage> {
   @override
   Widget build(BuildContext context) {
     print('build =====');
-    var block = (msg) {
-      print('---$msg');
-    };
+    // var block = (msg) {
+    //   print('---$msg');
+    // };
 
     return Scaffold(
       appBar: AppBar(
