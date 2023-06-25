@@ -82,18 +82,18 @@ class RouterPage extends StatelessWidget {
               );
             }),
       ),
-      floatingActionButton: FlatButton.icon(
-          onPressed: () {
-            print('test icon');
-            Toast.show(context, 'aaa');
-            Locale myLocale = Localizations.localeOf(context);
-            print('myLocale = $myLocale');
-          },
-          icon: Icon(
-            Icons.event,
-            color: Colors.blue,
-          ),
-          label: Text('event button')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('test icon');
+          Toast.show(context, 'aaa');
+          Locale myLocale = Localizations.localeOf(context);
+          print('myLocale = $myLocale');
+        },
+        child: Icon(
+          Icons.event,
+          color: Colors.blue,
+        ),
+      ),
     );
   }
 }

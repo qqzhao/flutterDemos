@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:hello/buttons/raise_button.dart';
 import 'package:hello/home/logic/lifecycle/second_page.dart';
 
 class FirstTestPage extends StatefulWidget {
@@ -25,12 +26,12 @@ class _FirstTestPageState extends State<FirstTestPage> {
           ),
         ),
       ),
-      floatingActionButton: FlatButton.icon(
-          onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => SecondTestPage()));
-          },
-          icon: Icon(Icons.add),
-          label: Text('')),
+      floatingActionButton: FlatButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => SecondTestPage()));
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 

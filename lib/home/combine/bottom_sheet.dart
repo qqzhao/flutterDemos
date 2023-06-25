@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello/buttons/raise_button.dart';
 
 // import '../../components/bottom_sheet.dart' as my;
 
@@ -15,7 +16,7 @@ class _BottomSheetPageState extends State<BottomSheetPage> {
     return new Scaffold(
         appBar: new AppBar(title: const Text('Modal bottom sheet')),
         body: new Center(
-            child: new RaisedButton(
+            child: RaisedButton(
                 child: const Text('SHOW BOTTOM SHEET'),
                 onPressed: () {
                   showModalBottomSheet<void>(

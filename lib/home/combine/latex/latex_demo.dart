@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tex/flutter_tex.dart';
+import 'package:hello/buttons/raise_button.dart';
 import 'package:hello/home/combine/latex/tex_view_document_examples.dart';
 import 'package:hello/home/combine/latex/tex_view_image_example.dart';
 import 'package:hello/home/combine/latex/tex_view_ink_well_example.dart';
@@ -52,8 +53,8 @@ class TeXViewFullExample extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: RaisedButton(
-        elevation: 5,
-        color: Colors.white,
+        // elevation: 5,
+        // color: Colors.white,
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) => widget));
         },

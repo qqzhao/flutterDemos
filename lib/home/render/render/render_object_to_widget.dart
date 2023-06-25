@@ -151,24 +151,30 @@ class MyRenderObjectToWidgetElement<T extends RenderObject> extends RootRenderOb
   @override
   MyRenderObjectWithChildMixin<T> get renderObject => super.renderObject as MyRenderObjectWithChildMixin<T>;
 
+  // @override
+  // void insertRenderObjectChild(covariant RenderObject child, covariant Object? slot) {
+  //   // TODO: implement insertRenderObjectChild
+  //   super.insertRenderObjectChild(child, slot);
+  // }
+
   @override
-  void insertChildRenderObject(RenderObject child, dynamic slot) {
+  void insertRenderObjectChild(RenderObject child, covariant Object? slot) {
     assert(slot == _rootChildSlot);
     assert(renderObject.debugValidateChild(child));
     renderObject.child = child as T;
-    super.insertChildRenderObject(child, slot);
+    super.insertRenderObjectChild(child, slot);
   }
 
-  @override
-  void moveChildRenderObject(RenderObject child, dynamic slot) {
-    assert(false);
-    super.moveChildRenderObject(child, slot);
-  }
+  // @override
+  // void moveRenderObjectChild(covariant RenderObject child, covariant Object? oldSlot, covariant Object? newSlot) {
+  //   assert(false);
+  //   super.moveRenderObjectChild(child, slot);
+  // }
 
   @override
-  void removeChildRenderObject(RenderObject child) {
+  void removeRenderObjectChild(covariant RenderObject child, covariant Object? slot) {
     assert(renderObject.child == child);
     renderObject.child = null;
-    super.removeChildRenderObject(child);
+    super.removeRenderObjectChild(child, slot);
   }
 }

@@ -68,47 +68,46 @@ final Map<_Page, List<_CardData>> _allPages = <_Page, List<_CardData>>{
   ],
 };
 
-/// ignore: unused_element
-class _CardDataItem extends StatelessWidget {
-  const _CardDataItem({this.page, this.data});
-
-  final _Page? page;
-  final _CardData? data;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Align(
-              alignment: page!.id == 'H' ? Alignment.centerLeft : Alignment.centerRight,
-              child: CircleAvatar(child: Text('${page!.id}')),
-            ),
-            SizedBox(
-              width: 144.0,
-              height: 144.0,
-              child: Image.asset(
-                data!.imageAsset,
-                package: data!.imageAssetPackage,
-                fit: BoxFit.contain,
-              ),
-            ),
-            Center(
-              child: Text(
-                data!.title,
-                // style: Theme.of(context).textTheme.title,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+// class _CardDataItem extends StatelessWidget {
+//   const _CardDataItem({this.page, this.data});
+//
+//   final _Page? page;
+//   final _CardData? data;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Card(
+//       child: Padding(
+//         padding: const EdgeInsets.all(16.0),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.stretch,
+//           mainAxisAlignment: MainAxisAlignment.start,
+//           children: <Widget>[
+//             Align(
+//               alignment: page!.id == 'H' ? Alignment.centerLeft : Alignment.centerRight,
+//               child: CircleAvatar(child: Text('${page!.id}')),
+//             ),
+//             SizedBox(
+//               width: 144.0,
+//               height: 144.0,
+//               child: Image.asset(
+//                 data!.imageAsset,
+//                 package: data!.imageAssetPackage,
+//                 fit: BoxFit.contain,
+//               ),
+//             ),
+//             Center(
+//               child: Text(
+//                 data!.title,
+//                 // style: Theme.of(context).textTheme.title,
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class TestNestScrollViewDemo2 extends StatelessWidget {
 //  static const String routeName = '/material/tabs';

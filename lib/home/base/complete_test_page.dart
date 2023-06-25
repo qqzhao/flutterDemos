@@ -21,7 +21,7 @@ class _CompleteTestPageState extends State<CompleteTestPage> {
             width: 100.0,
             height: 100.0,
             color: Colors.blue,
-            child: FlatButton(
+            child: FloatingActionButton(
               onPressed: () async {
                 print('ontap');
                 var test = _TestComplete();
@@ -38,7 +38,7 @@ class _CompleteTestPageState extends State<CompleteTestPage> {
             width: 100.0,
             height: 100.0,
             color: Colors.blue,
-            child: FlatButton(
+            child: FloatingActionButton(
               onPressed: () async {
                 print('ontap2');
                 var test = _TestComplete3();
@@ -54,7 +54,7 @@ class _CompleteTestPageState extends State<CompleteTestPage> {
             width: 100.0,
             height: 100.0,
             color: Colors.blue,
-            child: FlatButton(
+            child: FloatingActionButton(
               onPressed: () async {
                 print('ontap3');
                 var test = _TestComplete4();

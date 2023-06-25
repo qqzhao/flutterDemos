@@ -15,9 +15,10 @@ class _WebViewFlutterTestPageState extends State<WebViewFlutterTestPage> {
     return JavascriptChannel(
         name: 'Toaster',
         onMessageReceived: (JavascriptMessage message) {
-          Scaffold.of(context).showSnackBar(
-            SnackBar(content: Text(message.message)),
-          );
+          print('message = $message');
+          // Scaffold.of(context).showBottomSheet(
+          //   SnackBar(content: Text(message.message)),
+          // );
         });
   }
 

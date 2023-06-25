@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
+// ignore: unused_element
 int _buildCount = 0;
 bool needShowSpeak = true;
 bool openTimer = false;
@@ -105,7 +105,7 @@ class _TestCustomPainterInListViewState extends State<TestCustomPainterInListVie
         ],
       ),
       floatingActionButton: openTitleAnimation
-          ? FlatButton(
+          ? FloatingActionButton(
               onPressed: () {
                 animationController.forward();
               },
@@ -251,78 +251,88 @@ class TestWidgetOther extends StatelessWidget {
 }
 
 class _TestArrowBoxPainter extends CustomPainter {
-  final double radius;
-  final double borderDistance;
-  final Color borderColor;
-  final Color fillColor;
-  final double borderWidth;
-
-  final double arrowToTop;
-  final double arrowHeight;
-  final double arrowWidth;
-
-  late Paint borderPaint;
-  late Paint fillPaint;
-
-  _TestArrowBoxPainter({
-    this.radius = 1.0,
-    this.borderDistance = 1.0,
-    this.borderColor = Colors.blue,
-    this.fillColor = Colors.red,
-    this.borderWidth = 1.0,
-    this.arrowHeight = 20.0,
-    this.arrowWidth = 20.0,
-    this.arrowToTop = 15.0,
-  }) {
-    borderPaint = new Paint()
-      ..color = borderColor
-      ..strokeWidth = borderWidth
-      ..style = PaintingStyle.stroke;
-    fillPaint = new Paint()
-      ..color = fillColor
-      ..style = PaintingStyle.fill;
-  }
+  @override
+  void paint(Canvas canvas, Size size) {}
 
   @override
-  bool shouldRepaint(_TestArrowBoxPainter old) {
-    print('shouldRepaint in ');
-    return false;
-  }
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    _buildCount++;
-    print('paint in : $_buildCount');
-    double radius = this.radius;
-    if (radius > size.width / 2.0) {
-      radius = size.width / 2.0;
-    }
-    if (radius > size.height / 2.0) {
-      radius = size.height / 2.0;
-    }
-
-    var arrowToTop = this.arrowToTop;
-    if (arrowToTop <= radius) {
-      arrowToTop = radius;
-    }
-
-    final Path p = new Path()
-      ..moveTo(radius, -borderDistance)
-      ..lineTo(size.width - radius, -borderDistance) // 上边线
-      ..arcTo(Rect.fromCircle(center: Offset(size.width - radius, radius), radius: radius + borderDistance), -pi / 2.0, pi / 2.0, false)
-      ..lineTo(size.width + borderDistance, size.height - radius) // 右边线
-      ..arcTo(Rect.fromCircle(center: Offset(size.width - radius, size.height - radius), radius: radius + borderDistance), 0.0, pi / 2.0, false)
-      ..lineTo(radius, size.height + borderDistance) // 下边线
-      ..arcTo(Rect.fromCircle(center: Offset(radius, size.height - radius), radius: radius + borderDistance), pi / 2.0, pi / 2.0, false)
-      ..lineTo(-borderDistance, arrowToTop + arrowHeight) //左边线
-      ..arcToPoint(Offset(-borderDistance - arrowWidth, arrowToTop - 2.0), radius: Radius.circular(25.0)) //
-      ..arcToPoint(Offset(-borderDistance, arrowToTop), radius: Radius.circular(20.0), clockwise: false) //
-      ..lineTo(-borderDistance, radius) //左边线
-      ..arcTo(Rect.fromCircle(center: Offset(radius, radius), radius: radius + borderDistance), pi, pi / 2.0, false)
-      ..close();
-
-    canvas.drawPath(p, borderPaint); //描边
-    canvas.drawShadow(p, Color(0x2207050A), 5.0, true); //给边框加shader
-    canvas.drawPath(p, fillPaint); //填充
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    throw UnimplementedError();
   }
 }
+
+// class _TestArrowBoxPainter extends CustomPainter {
+//   final double? radius;
+//   final double? borderDistance;
+//   final Color borderColor;
+//   final Color fillColor;
+//   final double borderWidth;
+//
+//   final double arrowToTop;
+//   final double arrowHeight;
+//   final double arrowWidth;
+//
+//   late Paint borderPaint;
+//   late Paint fillPaint;
+//
+//   _TestArrowBoxPainter({
+//     this.radius = 1.0,
+//     this.borderDistance = 1.0,
+//     this.borderColor = Colors.blue,
+//     this.fillColor = Colors.red,
+//     this.borderWidth = 1.0,
+//     this.arrowHeight = 20.0,
+//     this.arrowWidth = 20.0,
+//     this.arrowToTop = 15.0,
+//   }) {
+//     borderPaint = new Paint()
+//       ..color = borderColor
+//       ..strokeWidth = borderWidth
+//       ..style = PaintingStyle.stroke;
+//     fillPaint = new Paint()
+//       ..color = fillColor
+//       ..style = PaintingStyle.fill;
+//   }
+//
+//   @override
+//   bool shouldRepaint(_TestArrowBoxPainter old) {
+//     print('shouldRepaint in ');
+//     return false;
+//   }
+//
+//   @override
+//   void paint(Canvas canvas, Size size) {
+//     _buildCount++;
+//     print('paint in : $_buildCount');
+//     double radius = this.radius ?? 1.0;
+//     if (radius > size.width / 2.0) {
+//       radius = size.width / 2.0;
+//     }
+//     if (radius > size.height / 2.0) {
+//       radius = size.height / 2.0;
+//     }
+//
+//     var arrowToTop = this.arrowToTop;
+//     if (arrowToTop <= radius) {
+//       arrowToTop = radius;
+//     }
+//
+//     final Path p = new Path()
+//       ..moveTo(radius, -borderDistance)
+//       ..lineTo(size.width - radius, -borderDistance) // 上边线
+//       ..arcTo(Rect.fromCircle(center: Offset(size.width - radius, radius), radius: radius + borderDistance), -pi / 2.0, pi / 2.0, false)
+//       ..lineTo(size.width + borderDistance, size.height - radius) // 右边线
+//       ..arcTo(Rect.fromCircle(center: Offset(size.width - radius, size.height - radius), radius: radius + borderDistance), 0.0, pi / 2.0, false)
+//       ..lineTo(radius, size.height + borderDistance) // 下边线
+//       ..arcTo(Rect.fromCircle(center: Offset(radius, size.height - radius), radius: radius + borderDistance), pi / 2.0, pi / 2.0, false)
+//       ..lineTo(-borderDistance, arrowToTop + arrowHeight) //左边线
+//       ..arcToPoint(Offset(-borderDistance - arrowWidth, arrowToTop - 2.0), radius: Radius.circular(25.0)) //
+//       ..arcToPoint(Offset(-borderDistance, arrowToTop), radius: Radius.circular(20.0), clockwise: false) //
+//       ..lineTo(-borderDistance, radius) //左边线
+//       ..arcTo(Rect.fromCircle(center: Offset(radius, radius), radius: radius + borderDistance), pi, pi / 2.0, false)
+//       ..close();
+//
+//     canvas.drawPath(p, borderPaint); //描边
+//     canvas.drawShadow(p, Color(0x2207050A), 5.0, true); //给边框加shader
+//     canvas.drawPath(p, fillPaint); //填充
+//   }
+// }

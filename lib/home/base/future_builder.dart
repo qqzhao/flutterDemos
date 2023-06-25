@@ -29,7 +29,7 @@ class FutureBuildPage2 extends StatelessWidget {
         ),
         body: new Column(
           children: <Widget>[
-            new FlatButton(
+            FloatingActionButton(
                 onPressed: () async {
                   print('refresh...');
                   _caculateText2();
@@ -109,7 +109,7 @@ class _FutureBuildPageState extends State<FutureBuildPage> {
         ),
         body: new Column(
           children: <Widget>[
-            new FlatButton(
+            FloatingActionButton(
                 onPressed: () async {
                   print('refresh...');
                   _loadData();

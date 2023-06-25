@@ -13,11 +13,11 @@ class _BlocTestPage1State extends State<BlocTestPage3> {
   int _counter = 0;
   @override
   void initState() {
-    _globalCounterBloc.listen((int value) {
-      setState(() {
-        _counter = value;
-      });
-    });
+    // _globalCounterBloc.onEvent = ((event) {
+    //   setState(() {
+    //     _counter = event.;
+    //   });
+    // });
     super.initState();
   }
 
@@ -59,6 +59,7 @@ class _BlocTestPage1State extends State<BlocTestPage3> {
 }
 
 CounterBloc _globalCounterBloc = CounterBloc();
+
 enum CounterEvent { increment, decrement }
 
 /// 感觉有点类似于 ChangeNotifier，需要监听

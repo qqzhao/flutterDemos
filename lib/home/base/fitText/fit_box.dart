@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:hello/utils/text_size_cal.dart';
 
 /// MyFlex 中是传入的宽高，可以使用自定义的宽高。
@@ -16,7 +15,7 @@ class _ContainerWidgetState extends State<FitBoxPage> {
     Widget container = new Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        new RaisedButton(
+        FloatingActionButton(
           onPressed: () {
             print("button clicked: $text");
             String newText = '${text}hello world，';
@@ -24,14 +23,14 @@ class _ContainerWidgetState extends State<FitBoxPage> {
               text = newText;
             });
           },
-          textColor: Colors.blue,
+          // textColor: Colors.blue,
           child: new Text(
             'Add Text',
             textAlign: TextAlign.center,
             textDirection: TextDirection.ltr,
           ),
         ),
-        new RaisedButton(
+        FloatingActionButton(
           onPressed: () {
             print("button clicked: $text");
             String newText = 'hello world';
@@ -39,7 +38,7 @@ class _ContainerWidgetState extends State<FitBoxPage> {
               text = newText;
             });
           },
-          textColor: Colors.blue,
+          // textColor: Colors.blue,
           child: new Text(
             'Recovery',
             textAlign: TextAlign.center,

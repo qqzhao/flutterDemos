@@ -32,7 +32,7 @@ class _TestOverflowPageState extends State<TestOverflowPage> {
                   height: 200.0,
                   color: Colors.blue,
                   child: Stack(
-                    overflow: overFlowValue ? Overflow.visible : Overflow.clip,
+                    clipBehavior: overFlowValue ? Clip.none : Clip.hardEdge,
                     children: <Widget>[
                       Positioned(
                         left: -50.0,
@@ -63,7 +63,7 @@ class _TestOverflowPageState extends State<TestOverflowPage> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     child: Stack(
-                      overflow: overFlowValue ? Overflow.visible : Overflow.clip,
+                      clipBehavior: overFlowValue ? Clip.none : Clip.hardEdge,
                       children: <Widget>[
                         Positioned(
                           left: -50.0,

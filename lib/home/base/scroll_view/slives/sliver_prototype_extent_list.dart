@@ -54,17 +54,17 @@ class _SliverProtoTypeExtentListPageState extends State<SliverProtoTypeExtentLis
           ),
         ),
       ),
-      floatingActionButton: FlatButton.icon(
-          onPressed: () {
-            setState(() {
-              prototypeItemHeight = prototypeItemHeight * 1.4;
-            });
-          },
-          icon: Icon(
-            Icons.format_align_justify,
-            color: Colors.blue,
-          ),
-          label: Text('a')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            prototypeItemHeight = prototypeItemHeight * 1.4;
+          });
+        },
+        child: Icon(
+          Icons.format_align_justify,
+          color: Colors.blue,
+        ),
+      ),
     );
   }
 }

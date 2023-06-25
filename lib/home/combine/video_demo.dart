@@ -287,15 +287,15 @@ class _ConnectivityOverlayState extends State<ConnectivityOverlay> {
   StreamSubscription<ConnectivityResult>? connectivitySubscription;
   bool connected = true;
 
-  static const SnackBar errorSnackBar = SnackBar(
-    backgroundColor: Colors.red,
-    content: ListTile(
-      title: Text('No network'),
-      subtitle: Text(
-        'To load the videos you must have an active network connection',
-      ),
-    ),
-  );
+  // static const SnackBar errorSnackBar = SnackBar(
+  //   backgroundColor: Colors.red,
+  //   content: ListTile(
+  //     title: Text('No network'),
+  //     subtitle: Text(
+  //       'To load the videos you must have an active network connection',
+  //     ),
+  //   ),
+  // );
 
   Stream<ConnectivityResult> connectivityStream() async* {
     // final Connectivity connectivity = new Connectivity();
@@ -318,7 +318,7 @@ class _ConnectivityOverlayState extends State<ConnectivityOverlay> {
           return;
         }
         if (connectivityResult == ConnectivityResult.none) {
-          widget.scaffoldKey?.currentState?.showSnackBar(errorSnackBar);
+          // widget.scaffoldKey?.currentState?.showSnackBar(errorSnackBar);
         } else {
           if (!widget.connectedCompleter!.isCompleted) {
             widget.connectedCompleter!.complete(null);

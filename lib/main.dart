@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_translate/flutter_translate.dart';
 import 'package:hello/global.dart';
@@ -40,6 +40,11 @@ void main() async {
 //   var test1Str = translatePlural('plural.demo', 10);
 //   print('test1Str = $test1Str');
 
+  if (Platform.isMacOS || Platform.isWindows || Platform.isAndroid) {
+    WidgetsFlutterBinding.ensureInitialized();
+    runApp(MyApp());
+    return;
+  }
   runZoned(
     () => runFxApp(
       CalculateWidgetAppContainer(
@@ -49,7 +54,9 @@ void main() async {
         ),
       ),
       uiBlueprints: uiSize,
-      onEnsureInitialized: () {},
+      onEnsureInitialized: () {
+        WidgetsFlutterBinding.ensureInitialized();
+      },
       enableLog: false,
     ),
     onError: (Object obj, StackTrace stack) {

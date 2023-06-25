@@ -3,11 +3,11 @@ description: A new Flutter project.
 version: 1.0.0
 environment:
 #  sdk: ">=2.10.0-56.0.dev <3.0.0"
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.18.2 <3.0.0"
 
 publish_to: none
 dependencies:
-  web_socket_channel: ^2.1.0
+  web_socket_channel: ^2.4.0
   objectdb: ^1.0.1
   http:
   mutex:
@@ -18,22 +18,22 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  path_provider: ^2.0.2
-  cupertino_icons: ^0.1.2
-  flare_flutter: ^3.0.0
+  path_provider: ^2.0.15
+  cupertino_icons: ^1.0.5
+  flare_flutter: ^3.0.2
 #  connectivity: ^3.0.6
-  device_info: ^2.0.2
+  device_info: ^2.0.3
 #  scroll_to_index: any
   oktoast:
   permission_handler:
   flutter_gallery_assets:
-  video_player: ^2.1.0
+  video_player: ^2.6.1
   gbk2utf8:
   image:
   protobuf:
   webview_flutter:
   provider: ^5.0.0
-  bloc: ^7.0.0
+  bloc: ^8.1.2
   flutter_tex:
 #  platform_view_test:
 #    path: 'plugins/platform_view_test'
@@ -45,11 +45,11 @@ dependencies:
   z_notification:
   z_tools:
   z_date_range_picker:
-  json_annotation: ^3.0.1
+  json_annotation: ^4.8.1
   webview_flutter_plus: ^0.2.2
 #  flutter_full_pdf_viewer: ^1.0.6
-  flutter_translate: ^4.0.2
-  analyzer_plugin: ^0.6.0
+  flutter_translate: ^4.0.4
+  analyzer_plugin: ^0.11.2
 #  screen_ratio_adapter: ^2.0.1
 
 dev_dependencies:
@@ -68,7 +68,8 @@ dev_dependencies:
 #  dart_code_metrics: ^2.0.0
 
 dependency_overrides:
-  logging: 1.0.1
+  logging: ^1.2.0
+  intl:  ^0.18.0
 #  protobuf:
 #    path: "/Users/qqzhao/Desktop/debug/proto_plugin/protobuf"
 

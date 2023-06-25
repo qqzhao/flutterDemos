@@ -61,7 +61,7 @@ class _LockTestPageState extends State<LockTestPage> {
           Container(
             width: 100.0,
             height: 100.0,
-            child: FlatButton(
+            child: FloatingActionButton(
               child: Text('lock'),
               onPressed: () {
                 lock.lock();
@@ -71,7 +71,7 @@ class _LockTestPageState extends State<LockTestPage> {
           Container(
             width: 100.0,
             height: 100.0,
-            child: FlatButton(
+            child: FloatingActionButton(
               child: Text('unlock'),
               onPressed: () {
                 lock.unlock();
@@ -81,7 +81,7 @@ class _LockTestPageState extends State<LockTestPage> {
           Container(
             width: 100.0,
             height: 100.0,
-            child: FlatButton(
+            child: FloatingActionButton(
               child: Text('clear'),
               onPressed: () {
                 lock.clear();
@@ -91,7 +91,7 @@ class _LockTestPageState extends State<LockTestPage> {
           Container(
             width: 100.0,
             height: 100.0,
-            child: FlatButton(
+            child: FloatingActionButton(
               child: Text('enqueue task'),
               onPressed: () async {
                 print('enqueue task');

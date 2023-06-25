@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello/buttons/raise_button.dart';
 
 enum DialogDemoAction {
   cancel,
@@ -23,7 +24,7 @@ class _DialogPageState extends State<DialogPage> {
       // The value passed to Navigator.pop() or null.
       print('aaaa');
       if (value != null) {
-        _scaffoldKey.currentState!.showSnackBar(new SnackBar(content: new Text('You selected: $value')));
+        // _scaffoldKey.currentState!.showSnackBar(new SnackBar(content: new Text('You selected: $value')));
       }
     });
   }
@@ -38,7 +39,7 @@ class _DialogPageState extends State<DialogPage> {
       body: new ListView(
           padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 72.0),
           children: <Widget>[
-            new RaisedButton(
+            RaisedButton(
                 child: const Text('ALERT'),
                 onPressed: () {
                   showDemoDialog<DialogDemoAction>(

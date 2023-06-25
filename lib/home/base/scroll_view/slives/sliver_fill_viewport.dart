@@ -49,13 +49,13 @@ class _SliverFillViewportPageState extends State<SliverFillViewportPage> {
           ),
         ),
       ),
-      floatingActionButton: FlatButton.icon(
-          onPressed: () {},
-          icon: Icon(
-            Icons.format_align_justify,
-            color: Colors.blue,
-          ),
-          label: Text('a')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(
+          Icons.format_align_justify,
+          color: Colors.blue,
+        ),
+      ),
     );
   }
 }
